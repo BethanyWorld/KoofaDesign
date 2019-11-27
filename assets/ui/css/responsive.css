@@ -1,0 +1,119 @@
+@media (max-width: 767px) {
+    .text-xs-left {
+        text-align: left
+    }
+
+    .text-xs-right {
+        text-align: right
+    }
+
+    .text-xs-center {
+        text-align: center
+    }
+
+    .text-xs-justify {
+        text-align: justify
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .text-sm-left {
+        text-align: left
+    }
+
+    .text-sm-right {
+        text-align: right
+    }
+
+    .text-sm-center {
+        text-align: center
+    }
+
+    .text-sm-justify {
+        text-align: justify
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .text-md-left {
+        text-align: left
+    }
+
+    .text-md-right {
+        text-align: right
+    }
+
+    .text-md-center {
+        text-align: center
+    }
+}
+
+@media (min-width: 1200px) {
+    .text-lg-left {
+        text-align: left
+    }
+
+    .text-lg-right {
+        text-align: right
+    }
+
+    .text-lg-center {
+        text-align: center
+    }
+
+    .text-lg-justify {
+        text-align: justify
+    }
+}
+
+@media (max-width: 991px) {
+    .xs-menu {
+        height: calc(100vh - 81px);
+        overflow: auto;
+        direction: rtl;
+        padding: 15px;
+        display: none;
+    }
+    .xs-menu .xs-menu-handler{
+        position: absolute;
+        left: 12px;
+        font-size: 28px;
+        color: #fff;
+        width: 100px;
+        text-align: left;
+        cursor: pointer;
+    }
+    .xs-menu ul{
+    }
+    .xs-menu ul ul , .xs-menu ul ul ul{
+        display: none;
+        padding: 15px 20px;
+        margin: 0;
+    }
+    .xs-menu ul.active {
+    }
+    .xs-menu ul li {
+    }
+    .xs-menu ul li a {
+        color: #fff;
+        font-size: 16px;
+    }
+    .xs-menu ul li a span:last-child {
+    }
+    .fixed-bg .search-form-container input ,
+    .fixed-bg .search-form-container select + button
+    {
+        margin-bottom: 20px;
+    }
+
+    .search-form-container .select2-container--bootstrap {
+        display: block;
+        width: 98% !important;
+        margin: 0 auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+
+
+}
