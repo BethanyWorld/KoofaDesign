@@ -91,7 +91,7 @@
                                             <label>
                                                 <span>آپلود طرح دلخواه</span>
                                                 <span class="fa fa-upload"></span>
-                                                <input type="file" class="image-upload" accept="image/*" />
+                                                <input type="file" class="image-upload" id="inputAttachment" />
                                             </label>
                                         </div>
                                     </div>
@@ -102,8 +102,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
                 <div class="col-md-7 col-xs-12 left-slide-image-div">

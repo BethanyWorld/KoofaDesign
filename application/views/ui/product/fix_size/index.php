@@ -115,6 +115,29 @@
                                 <p>افزودن به علاقه مندی ها</p>
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <br>
+                                <div class="col-xs-12 alert alert-info">
+                                    در صورت نیاز ابتدا طرح دلخواه مورد نظر را انتخاب کرده سپس محصول را به سبد خرید اضافه کنید
+                                </div>
+                                <div class="col-xs-12 padding-0">
+                                    <div class="box">
+                                        <div class="upload-options">
+                                            <label>
+                                                <span>آپلود طرح دلخواه</span>
+                                                <span class="fa fa-upload"></span>
+                                                <input type="file" class="image-upload" id="inputAttachment" />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 upload-image-container">
+                                    <i id="remove-upload-file" class="fa fa-times"></i>
+                                    <img id="upload-image" src="" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-7 col-xs-12 left-slide-image-div">

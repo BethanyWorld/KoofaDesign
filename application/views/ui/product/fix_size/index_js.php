@@ -20,7 +20,7 @@
         thumbs.on("initialized.owl.carousel", function () {
             thumbs.find(".owl-item").eq(0).addClass("current");
         })
-            .owlCarousel({
+        .owlCarousel({
             items: 8,
             dots: true,
             nav: true,
@@ -33,7 +33,6 @@
             slideBy: 4,
             responsiveRefreshRate: 100
         }).on("changed.owl.carousel", syncPosition2);
-
         function syncPosition(el) {
             //if loop is set to false, then you have to uncomment the next line
             var current = el.item.index;
@@ -94,32 +93,64 @@
             $('.product-detail-number').hide().fadeIn().html($html);
         }
         /**/
-
-
         $("#addToCart").click(function () {
-            //toggleLoader();
+
             $id = $(this).data('product-id');
             $inputSizeId = $("#priceDropDown option:selected").data('size-id');
             $inputMaterialId = $("#priceDropDown option:selected").data('material-id');
             $inputHastInstallation = $("#wantInstallation").val();
 
+
+            var file_data = $('#inputAttachment').prop('files')[0];
+            var form_data = new FormData();
+            form_data.append('file', file_data);
+            $id = $(this).data('product-id');
             $.ajax({
+                url: base_url + "Cart/uploadFile",
+                dataType: 'text',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
                 type: 'post',
-                url: base_url + 'Cart/addDesignFixSize',
-                data: {
-                    'inputProductId': $id,
-                    'inputSizeId': $inputSizeId,
-                    'inputMaterialId': $inputMaterialId,
-                    'inputProductHasInstallation': $inputHastInstallation
+                success: function (data) {
+                    $result = jQuery.parseJSON(data);
+                    if($result['success']){
+                        $.ajax({
+                            type: 'post',
+                            url: base_url + 'Cart/addDesignFixSize',
+                            data: {
+                                'inputProductId': $id,
+                                'inputSizeId': $inputSizeId,
+                                'inputMaterialId': $inputMaterialId,
+                                'inputProductUploadImage': $result['fileSrc'],
+                                'inputProductHasInstallation': 0
+                                /* This type of product has not upload file */
+                            },
+                            success: function () {
+                                location.href = base_url + 'Cart'
+                            },
+                            error: function () {
+                            }
+                        });
+                    }
+                    else{
+                        toggleLoader();
+                        $result = jQuery.parseJSON(data);
+                        notify($result['content'], $result['type']);
+                    }
                 },
-                success: function () {
-                    location.href = base_url + 'Cart'
-                },
-                error: function () {
+                error: function (data) {
+                    toggleLoader();
+                    $result = jQuery.parseJSON(data);
+                    notify($result['content'], $result['type']);
                 }
             });
-        });
 
+
+
+
+        });
         $(".add-like-div").click(function () {
             //toggleLoader();
             $id = $(this).data('product-id');
@@ -137,6 +168,35 @@
                 error: function () {
                 }
             });
+        });
+
+
+        var boxes = document.querySelectorAll('.box');
+        for (let i = 0; i < boxes.length; i++) {
+            let box = boxes[i];
+            initImageUpload(box);
+        }
+        function initImageUpload(box) {
+            let uploadField = box.querySelector('.image-upload');
+            uploadField.addEventListener('change', getFile);
+            function getFile(e) {
+                let file = e.currentTarget.files[0];
+                previewImage(file);
+            }
+            function previewImage(file) {
+                let reader = new FileReader();
+                reader.onload = function () {
+                    $(".upload-image-container").fadeIn();
+                    $("#upload-image").fadeIn().attr('src', reader.result);
+                    //reader.result
+                }
+                reader.readAsDataURL(file);
+            }
+
+        }
+        $("#remove-upload-file").click(function () {
+            $(".upload-image-container").fadeOut();
+            $("#upload-image").fadeOut().attr('src', '');
         });
 
 

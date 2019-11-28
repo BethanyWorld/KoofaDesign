@@ -1,5 +1,4 @@
 <script type="text/javascript">
-
     $(document).ready(function () {
         var bigimage = $("#big");
         var thumbs = $("#thumbs");
@@ -23,7 +22,7 @@
                 .eq(0)
                 .addClass("current");
         })
-            .owlCarousel({
+        .owlCarousel({
                 items: 8,
                 dots: true,
                 nav: true,
@@ -36,7 +35,6 @@
                 slideBy: 4,
                 responsiveRefreshRate: 100
             }).on("changed.owl.carousel", syncPosition2);
-
         function syncPosition(el) {
             //if loop is set to false, then you have to uncomment the next line
             //var current = el.item.index;
@@ -74,29 +72,24 @@
                 thumbs.data("owl.carousel").to(current - onscreen, 100, true);
             }
         }
-
         function syncPosition2(el) {
             if (syncedSecondary) {
                 var number = el.item.index;
                 bigimage.data("owl.carousel").to(number, 100, true);
             }
         }
-
         thumbs.on("click", ".owl-item", function (e) {
             e.preventDefault();
             var number = $(this).index();
             bigimage.data("owl.carousel").to(number, 300, true);
         });
-
         function initImageUpload(box) {
             let uploadField = box.querySelector('.image-upload');
             uploadField.addEventListener('change', getFile);
-
             function getFile(e) {
                 let file = e.currentTarget.files[0];
                 previewImage(file);
             }
-
             function previewImage(file) {
                 let reader = new FileReader();
                 reader.onload = function () {
@@ -108,7 +101,6 @@
             }
 
         }
-
         var boxes = document.querySelectorAll('.box');
         for (let i = 0; i < boxes.length; i++) {
             let box = boxes[i];
@@ -118,27 +110,50 @@
             $(".upload-image-container").fadeOut();
             $("#upload-image").fadeOut().attr('src', '');
         });
-
-
         $("#addToCart").click(function () {
-            toggleLoader();
+            event.preventDefault();
+            var file_data = $('#inputAttachment').prop('files')[0];
+            var form_data = new FormData();
+            form_data.append('file', file_data);
             $id = $(this).data('product-id');
-            $src = $("#upload-image").attr('src');
             $.ajax({
+                url: base_url + "Cart/uploadFile",
+                dataType: 'text',
+                cache: false,
+                contentType: false,
+                processData: false,
+                data: form_data,
                 type: 'post',
-                url: base_url + 'Cart/addNormalUpload',
-                data: {
-                    'inputProductId': $id,
-                    'inputProductUploadImage': $src
+                success: function (data) {
+                    $result = jQuery.parseJSON(data);
+                    if($result['success']){
+                        $src = $result['fileSrc'];
+                        $.ajax({
+                            type: 'post',
+                            url: base_url + 'Cart/addNormalUpload',
+                            data: {
+                                'inputProductId': $id,
+                                'inputProductUploadImage': $src
+                            },
+                            success: function () {
+                                location.href = base_url + 'Cart'
+                            },
+                            error: function () {}
+                        });
+                    }
+                    else{
+                        toggleLoader();
+                        $result = jQuery.parseJSON(data);
+                        notify($result['content'], $result['type']);
+                    }
                 },
-                success: function () {
-                    location.href = base_url + 'Cart'
-                },
-                error: function () {
-
+                error: function (data) {
+                    toggleLoader();
+                    $result = jQuery.parseJSON(data);
+                    notify($result['content'], $result['type']);
                 }
-
             });
+
         });
         $(".add-like-div").click(function () {
             //toggleLoader();
@@ -158,8 +173,5 @@
                 }
             });
         });
-
-
     });
-
 </script>

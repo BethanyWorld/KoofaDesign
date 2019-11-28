@@ -1,9 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Account extends CI_Controller
-{
-
+class Account extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
@@ -12,7 +9,6 @@ class Account extends CI_Controller
             redirect(base_url('User/Home'));
         }
     }
-
     public function register()
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -23,7 +19,6 @@ class Account extends CI_Controller
         $this->load->view('ui/register/index_js');
         $this->load->view('ui/static/footer');
     }
-
     public function doRegister()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -65,7 +60,6 @@ class Account extends CI_Controller
             echo json_encode($arr);
         }
     }
-
     public function doVerify()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -83,7 +77,6 @@ class Account extends CI_Controller
         $result = $this->ModelUserAccount->doVerify($inputs);
         echo json_encode($result);
     }
-
     //well done validation
     public function login()
     {
@@ -148,7 +141,6 @@ class Account extends CI_Controller
             echo json_encode($arr);
         }
     }
-
     public function doSubmitTypeLogin()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -177,7 +169,6 @@ class Account extends CI_Controller
             redirect(base_url('Account/Login?error=u'));
         }
     }
-
     public function resendCode()
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -188,7 +179,6 @@ class Account extends CI_Controller
         $this->load->view('ui/resend_code/index_js');
         $this->load->view('ui/static/footer');
     }
-
     public function doResendCode()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -228,7 +218,6 @@ class Account extends CI_Controller
             echo json_encode($arr);
         }
     }
-
     public function resetPassword()
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -239,7 +228,6 @@ class Account extends CI_Controller
         $this->load->view('ui/reset_password/index_js');
         $this->load->view('ui/static/footer');
     }
-
     public function doResetPassword()
     {
         $inputs = $this->input->post(NULL, TRUE);
