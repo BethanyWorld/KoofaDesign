@@ -441,6 +441,9 @@ header{
     right: 0px;
     left: 0px;
     margin: auto;
+    background-position: left !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
 }
 
 /* sub-navigation panel open state */

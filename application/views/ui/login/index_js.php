@@ -4,9 +4,9 @@
         $("#buttonLogin").click(function () {
             toggleLoader();
             $inputRegisterType = $("input[name='registerType']:checked").val() || "";
-            $inputPhone = $("#inputPhone").val();
-            $inputPassword = $("#inputPassword").val();
-            $inputCaptcha = $("#inputCaptcha").val();
+            $inputPhone = $(".form-register #inputPhone").val();
+            $inputPassword = $(".form-register #inputPassword").val();
+            $inputCaptcha = $(".form-register #inputCaptcha").val();
             if ($inputPassword != "" && $inputPhone != "" && $inputCaptcha != "") {
                 $sendData = {
                     'inputRegisterUserType': $inputRegisterType,

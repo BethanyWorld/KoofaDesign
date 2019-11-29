@@ -8,7 +8,6 @@ $(document).ready(function () {
         // $(".mobile-bars").find($(".fa")).removeClass('fa-bars').addClass('fa-remove');
     });
     // for response menu
-
     // for mega menu
     $(".menubar nav:first").accessibleMegaMenu({
         /* prefix for generated unique id attributes, which are required
@@ -30,7 +29,6 @@ $(document).ready(function () {
         openClass: "open"
     });
     // for mega menu
-
     $isLoginMenuVisible = false;
     //for additional login
     $(".login-div").mouseover(function () {
@@ -56,6 +54,13 @@ $(document).ready(function () {
         $(".menubar").show();
         $(this).hide();
     });
-    //ok
     //for additional login
+
+    $(".menubar nav [data-bg]").each(function(){
+        if($(this).attr('data-bg') != ''){
+            $(this).find('ul').eq(0).css('background-image' , 'url('+$(this).attr('data-bg')+')');
+        }
+    });
+
+
 });

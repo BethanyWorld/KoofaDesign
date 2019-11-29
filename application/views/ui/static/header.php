@@ -1,5 +1,40 @@
-<?php $_URL = base_url();
-$_DIR = base_url('assets/ui/'); ?>
+<?php
+$_URL = base_url();
+$_DIR = base_url('assets/ui/');
+$ci =& get_instance();
+$menu = $ci->db->select('*')->from('product_category')->get()->result_array();
+unset($menu[0]);
+$ref = array();
+$items = array();
+foreach ($menu as $data){
+    // Assign by reference
+    $thisRef = &$ref[$data['CategoryId']];
+    // add the menu parent
+    $thisRef['parent'] = $data['CategoryParentId'];
+    $thisRef['label'] = $data['CategoryTitle'];
+    $thisRef['image'] = $data['CategoryImage'];
+    $thisRef['link'] = categoryUrl($data['CategoryId'],$data['CategoryTitle']);
+
+    // if there is no parent push it into items array()
+    if ($data['CategoryParentId'] == 1) {
+        $items[$data['CategoryId']] = &$thisRef;
+    } else {
+        $ref[$data['CategoryParentId']]['child'][$data['CategoryId']] = &$thisRef;
+    }
+}
+function get_menu($items, $class = 'nav-menu'){
+    $html = "<ul class='".$class."'>";
+    foreach ($items as $key => $value) {
+        $html .= '<li data-bg="'.$value['image'].'" class="nav-item"><a href="'.$value['link'].'">'.$value['label'];
+        if (array_key_exists('child', $value)) {
+            $html .= get_menu($value['child'], 'child');
+        }
+        $html .= "</a></li>";
+    }
+    $html .= "</ul>";
+    return $html;
+}
+?>
 <!doctype html>
 <html>
 <head>
@@ -136,13 +171,7 @@ $_DIR = base_url('assets/ui/'); ?>
                         <!-- menu toggle-->
                         <div class="row mobile-menu">
                             <nav class="mobile-nav">
-                                <ul class="mobile-nav-ul">
-                                    <li class="mobile-nav-li">
-                                        <a class="mobile-nav-a">
-                                            صنایع دستی و هنری
-                                        </a>
-                                    </li>
-                                </ul>
+                                <?php echo get_menu($items); ?>
                             </nav>
                         </div>
                     </div>
@@ -157,14 +186,17 @@ $_DIR = base_url('assets/ui/'); ?>
             <div class="additional-login-holder">
                 <div class="col-md-6 item item-login">
                     <h2 class="additional-login-title">ورود</h2>
-                    <form action="<?php echo base_url('Account/doSubmitTypeLogin') ?>" method="post" class="mini-additional-login form-horizontal">
+                    <form action="<?php echo base_url('Account/doSubmitTypeLogin') ?>" method="post"
+                          class="mini-additional-login form-horizontal">
                         <div class="form-group">
                             <label for="username" class="control-label">تلفن همراه :</label>
-                            <input class="form-control" placeholder="09121234567" type="text" name="inputPhone" id="inputPhone">
+                            <input class="form-control" placeholder="09121234567" type="text" name="inputPhone"
+                                   id="inputPhone">
                         </div>
                         <div class="form-group">
                             <label for="password" class="control-label">گذرواژه :</label>
-                            <input class="form-control" placeholder="" type="password" name="inputPassword" id="inputPassword">
+                            <input class="form-control" placeholder="" type="password" name="inputPassword"
+                                   id="inputPassword">
                         </div>
                         <div class="action">
                             <button type="submit"
@@ -209,215 +241,7 @@ $_DIR = base_url('assets/ui/'); ?>
 <!-- mega menu -->
 <div class="menubar">
     <nav>
-        <ul class="nav-menu">
-            <li class="nav-item">
-                <a href="?movie">زیور آلات</a>
-                <div class="sub-nav">
-                    <div class="col-md-3 rightFloat padding-0 height100">
-                        <ul class="sub-nav-group">
-                            <li><a href="">گردنبند</a></li>
-                            <li><a href="">النگو</a></li>
-                            <li><a href="">دستبند</a></li>
-                            <li><a href="">ساعت مچی</a></li>
-                            <li><a href="">ساعت دیواری</a></li>
-                            <li><a href="">زیور آلات مو</a></li>
-                            <li><a href="">زیور آلات </a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-7 text-center rightFloat height100">
-                        <p>سلام</p>
-                    </div>
-                    <div class="col-md-2 mega-menu-images leftFloat height100">
-                        <img src="<?php echo $_DIR; ?>images/image-4.jpg" height="100px" width="100%"/>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="?movie">خانه و زندگی</a>
-                <div class="sub-nav">
-                    <div class="col-md-3 rightFloat padding-0 height100">
-                        <ul class="sub-nav-group">
-                            <li><a href="">گردنبند</a></li>
-                            <li><a href="">النگو</a></li>
-                            <li><a href="">دستبند</a></li>
-                            <li><a href="">ساعت مچی</a></li>
-                            <li><a href="">ساعت دیواری</a></li>
-                            <li><a href="">زیور آلات مو</a></li>
-                            <li><a href="">زیور آلات </a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-7 text-center rightFloat height100">
-                        <p>سلام</p>
-                    </div>
-                    <div class="col-md-2 mega-menu-images leftFloat height100">
-                        <img src="<?php echo $_DIR; ?>images/image-3.jpg" height="100px" width="100%"/>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="?movie">صنایع دستی محلی</a>
-                <div class="sub-nav">
-                    <div class="col-md-3 rightFloat padding-0 height100">
-                        <ul class="sub-nav-group">
-                            <li><a href="">گردنبند</a></li>
-                            <li><a href="">النگو</a></li>
-                            <li><a href="">دستبند</a></li>
-                            <li><a href="">ساعت مچی</a></li>
-                            <li><a href="">ساعت دیواری</a></li>
-                            <li><a href="">زیور آلات مو</a></li>
-                            <li><a href="">زیور آلات </a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-7 text-center rightFloat height100">
-                        <p>سلام</p>
-                    </div>
-                    <div class="col-md-2 mega-menu-images leftFloat height100">
-                        <img src="<?php echo $_DIR; ?>images/image-3.jpg" height="100px" width="100%"/>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="?movie">جمعه بازار</a>
-                <div class="sub-nav">
-                    <div class="col-md-3 rightFloat padding-0 height100">
-                        <ul class="sub-nav-group">
-                            <li><a href="">گردنبند</a></li>
-                            <li><a href="">النگو</a></li>
-                            <li><a href="">دستبند</a></li>
-                            <li><a href="">ساعت مچی</a></li>
-                            <li><a href="">ساعت دیواری</a></li>
-                            <li><a href="">زیور آلات مو</a></li>
-                            <li><a href="">زیور آلات </a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-7 text-center rightFloat height100">
-                        <p>سلام</p>
-                    </div>
-                    <div class="col-md-2 mega-menu-images leftFloat height100">
-                        <img src="<?php echo $_DIR; ?>images/image-3.jpg" height="100px" width="100%"/>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="?movie">فرهنگی هنری</a>
-                <div class="sub-nav">
-                    <div class="col-md-3 rightFloat padding-0 height100">
-                        <ul class="sub-nav-group">
-                            <li><a href="">گردنبند</a></li>
-                            <li><a href="">النگو</a></li>
-                            <li><a href="">دستبند</a></li>
-                            <li><a href="">ساعت مچی</a></li>
-                            <li><a href="">ساعت دیواری</a></li>
-                            <li><a href="">زیور آلات مو</a></li>
-                            <li><a href="">زیور آلات </a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-7 text-center rightFloat height100">
-                        <p>سلام</p>
-                    </div>
-                    <div class="col-md-2 mega-menu-images leftFloat height100">
-                        <img src="<?php echo $_DIR; ?>images/image-3.jpg" height="100px" width="100%"/>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="?movie">زمین دوستانه</a>
-                <div class="sub-nav">
-                    <div class="col-md-3 rightFloat padding-0 height100">
-                        <ul class="sub-nav-group">
-                            <li><a href="">گردنبند</a></li>
-                            <li><a href="">النگو</a></li>
-                            <li><a href="">دستبند</a></li>
-                            <li><a href="">ساعت مچی</a></li>
-                            <li><a href="">ساعت دیواری</a></li>
-                            <li><a href="">زیور آلات مو</a></li>
-                            <li><a href="">زیور آلات </a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-7 text-center rightFloat height100">
-                        <p>سلام</p>
-                    </div>
-                    <div class="col-md-2 mega-menu-images leftFloat height100">
-                        <img src="<?php echo $_DIR; ?>images/image-3.jpg" height="100px" width="100%"/>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="?movie">پوشاک</a>
-                <div class="sub-nav">
-                    <div class="col-md-3 rightFloat padding-0 height100">
-                        <ul class="sub-nav-group">
-                            <li><a href="">گردنبند</a></li>
-                            <li><a href="">النگو</a></li>
-                            <li><a href="">دستبند</a></li>
-                            <li><a href="">ساعت مچی</a></li>
-                            <li><a href="">ساعت دیواری</a></li>
-                            <li><a href="">زیور آلات مو</a></li>
-                            <li><a href="">زیور آلات </a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-7 text-center rightFloat height100">
-                        <p>سلام</p>
-                    </div>
-                    <div class="col-md-2 mega-menu-images leftFloat height100">
-                        <img src="<?php echo $_DIR; ?>images/image-3.jpg" height="100px" width="100%"/>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="?movie">جشن ها</a>
-                <div class="sub-nav">
-                    <div class="col-md-3 rightFloat padding-0 height100">
-                        <ul class="sub-nav-group">
-                            <li><a href="">گردنبند</a></li>
-                            <li><a href="">النگو</a></li>
-                            <li><a href="">دستبند</a></li>
-                            <li><a href="">ساعت مچی</a></li>
-                            <li><a href="">ساعت دیواری</a></li>
-                            <li><a href="">زیور آلات مو</a></li>
-                            <li><a href="">زیور آلات </a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-7 text-center rightFloat height100">
-                        <p>سلام</p>
-                    </div>
-                    <div class="col-md-2 mega-menu-images leftFloat height100">
-                        <img src="<?php echo $_DIR; ?>images/image-3.jpg" height="100px" width="100%"/>
-                    </div>
-                </div>
-            </li>
-            <li class="nav-item">
-                <a href="?movie">کادو پیچ ها</a>
-                <div class="sub-nav">
-                    <div class="col-md-3 rightFloat padding-0 height100">
-                        <ul class="sub-nav-group">
-                            <li><a href="">گردنبند</a></li>
-                            <li><a href="">النگو</a></li>
-                            <li><a href="">دستبند</a></li>
-                            <li><a href="">ساعت مچی</a></li>
-                            <li><a href="">ساعت دیواری</a></li>
-                            <li><a href="">زیور آلات مو</a></li>
-                            <li><a href="">زیور آلات </a></li>
-                            <li>&#8230;</li>
-                        </ul>
-                    </div>
-                    <div class="col-md-7 text-center rightFloat height100">
-                        <p>سلام</p>
-                    </div>
-                    <div class="col-md-2 mega-menu-images leftFloat height100">
-                        <img src="<?php echo $_DIR; ?>images/image-3.jpg" height="100px" width="100%"/>
-                    </div>
-                </div>
-            </li>
-        </ul>
+        <?php echo get_menu($items); ?>
     </nav>
 </div>
 <!-- end mega menu -->
