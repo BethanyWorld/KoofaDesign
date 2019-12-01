@@ -3,7 +3,7 @@ $_DIR = base_url('assets/ui/'); ?>
 
 
 <div id="main">
-    <div class="row index-slider-div">
+    <div class="row index-slider-div section-padding">
         <div class="container">
             <div class="row index-holder index-holder-slider1">
                 <section class="index-sidebar-top">
@@ -70,7 +70,7 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
         </div>
     </div>
-    <div class="col-md-12 col-xs-12 body-guarantee-div">
+    <div class="col-md-12 col-xs-12 body-guarantee-div section-padding">
         <div class="row">
             <div class="col-md-12 col-xs-12">
                 <ul class="body-guarantee">
@@ -94,22 +94,21 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
         </div>
     </div>
-
-    <div class="row index-product">
+    <div class="row index-product section-padding">
         <div class="container">
-            <div class="row index-product-holder margin-top-20">
+            <div class="row index-product-holder">
                 <section class="col-md-12 col-xs-12 index-category-products">
                     <?php foreach ($categories as $category) { ?>
-                        <div class="col-md-4 col-xs-12 col-sm-12 height100 rightFloat margin-b-15">
+                        <div class="col-md-4 col-xs-12 col-sm-12 height100 rightFloat m-b-40">
                             <h3>
                                 <a class="index-feature-title"
                                    href="<?php echo categoryUrl($category['CategoryId'], $category['CategoryTitle']); ?>">
                                     <?php echo $category['CategoryTitle']; ?>
                                 </a>
                             </h3>
-                            <div class="col-md-12 col-xs-12  height100">
+                            <div class="col-md-12 col-xs-12  height100  z-p">
                                 <div class="col-md-12 col-xs-12 index-keeper height100">
-                                    <div class="col-md-12 col-xs-9 padding-0">
+                                    <div class="col-md-12 col-xs-9">
                                         <a href="<?php echo categoryUrl($category['CategoryId'], $category['CategoryTitle']); ?>" target="_blank">
                                             <img src="<?php echo $category['CategoryImage']; ?>" width="100%"
                                                  height="100%"
@@ -163,8 +162,7 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
         </div>
     </div>
-
-    <div class="row index-slider-div index-slider-div2">
+    <div class="row index-slider-div index-slider-div2 section-padding">
         <div class="container">
             <div class="col-md-9 col-xs-9 index-holder">
                 <section class="index-sidebar-top index-sidebar-top2">
@@ -285,8 +283,7 @@ $_DIR = base_url('assets/ui/'); ?>
         <div class="col-md-1 visible-lg visible-md red-line"></div>
         <!-- for red line-->
     </div>
-
-    <div class="row index-product-new">
+    <div class="row index-product-new section-padding">
         <div class="container">
             <div class="row">
                 <section>
@@ -330,7 +327,7 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
         </div>
     </div>
-    <div class="row index-product-Popular">
+    <div class="row index-product-Popular section-padding">
         <div class="container">
             <div class="row">
                 <section>

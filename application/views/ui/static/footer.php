@@ -187,9 +187,7 @@
                             Copyright © | 2015 - 2016 | Koofa.ir,All Rights Reserved.
                         </p>
                     </div>
-                    <div class="col-md-12 col-xs-12">
-                        <br>
-                        <br>
+                    <div class="col-md-12 col-xs-12 z-p">
                         <p class="footer-copyright-text-fa">
                             استفاده از مطالب این وب سایت فقط برای مقاصد غیر تجاری و با ذکر منبع بلامانع است.
                             کلیه حقوق
