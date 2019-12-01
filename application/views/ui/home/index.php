@@ -2,7 +2,7 @@
 $_DIR = base_url('assets/ui/'); ?>
 
 
-<div id="main" style="min-height: 100vh;">
+<div id="main">
     <div class="row index-slider-div">
         <div class="container">
             <div class="row index-holder index-holder-slider1">
@@ -166,7 +166,7 @@ $_DIR = base_url('assets/ui/'); ?>
 
     <div class="row index-slider-div index-slider-div2">
         <div class="container">
-            <div class="row col-xs-12 index-holder">
+            <div class="col-md-9 col-xs-9 index-holder">
                 <section class="index-sidebar-top index-sidebar-top2">
                     <div class="index-sidebar-home index-sidebar-home2 index-sidebar-home2">
                         <div class="col-md-12 col-xs-12 product-slider">
@@ -174,79 +174,21 @@ $_DIR = base_url('assets/ui/'); ?>
                                 <div class="outer height100">
                                     <div id="big2" class="owl-carousel owl-theme">
                                         <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-5.jpg" height="100%"
-                                                 width="100%"/>
+                                            <img src="<?php echo $_DIR; ?>images/image-5.jpg" height="100%" width="100%"/>
                                         </div>
                                         <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-6.jpg" height="100%"
-                                                 width="100%"/>
+                                            <img src="<?php echo $_DIR; ?>images/image-6.jpg" height="100%" width="100%"/>
                                         </div>
                                         <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-2.jpg" height="100%"
-                                                 width="100%"/>
+                                            <img src="<?php echo $_DIR; ?>images/image-2.jpg" height="100%" width="100%"/>
                                         </div>
                                         <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-3.jpg" height="100%"
-                                                 width="100%"/>
+                                            <img src="<?php echo $_DIR; ?>images/image-3.jpg" height="100%" width="100%"/>
                                         </div>
                                         <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-1.jpg" height="100%"
-                                                 width="100%"/>
+                                            <img src="<?php echo $_DIR; ?>images/image-1.jpg" height="100%" width="100%"/>
                                         </div>
                                     </div>
-                                    <div id="thumbs2" class="owl-carousel owl-theme">
-                                        <div class="item">
-                                            <a href="">
-                                                <p>دستبند چرمی ساخت کارگاه بنفشه</p>
-                                                <p class="slier2-rightPanel-Price-div">
-                                                    4000
-                                                    <span class="slier2-rightPanel-mainPrice">تومان</span>
-                                                    <span class="slider2-rightPanel-discountPrice">6000</span>
-                                                </p>
-                                            </a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="">
-                                                <p>دستبند چرمی ساخت کارگاه بنفشه</p>
-                                                <p class="slier2-rightPanel-Price-div">
-                                                    4000
-                                                    <span class="slier2-rightPanel-mainPrice">تومان</span>
-                                                    <span class="slider2-rightPanel-discountPrice">6000</span>
-                                                </p>
-                                            </a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="">
-                                                <p>دستبند چرمی ساخت کارگاه بنفشه</p>
-                                                <p class="slier2-rightPanel-Price-div">
-                                                    4000
-                                                    <span class="slier2-rightPanel-mainPrice">تومان</span>
-                                                    <span class="slider2-rightPanel-discountPrice">6000</span>
-                                                </p>
-                                            </a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="">
-                                                <p>دستبند چرمی ساخت کارگاه بنفشه</p>
-                                                <p class="slier2-rightPanel-Price-div">
-                                                    4000
-                                                    <span class="slier2-rightPanel-mainPrice">تومان</span>
-                                                    <span class="slider2-rightPanel-discountPrice">6000</span>
-                                                </p>
-                                            </a>
-                                        </div>
-                                        <div class="item">
-                                            <a href="">
-                                                <p>دستبند چرمی ساخت کارگاه بنفشه</p>
-                                                <p class="slier2-rightPanel-Price-div">
-                                                    4000
-                                                    <span class="slier2-rightPanel-mainPrice">تومان</span>
-                                                    <span class="slider2-rightPanel-discountPrice">6000</span>
-                                                </p>
-                                            </a>
-                                        </div>
-                                    </div>
-
                                     <div class="div-on-slider2">
                                         <div class="col-md-12 col-xs-12">
                                             <a href="" target="_blank">
@@ -283,8 +225,67 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                 </section>
             </div>
+            <div class="col-md-3 col-xs-3 index-holder">
+                <div id="thumbs2" class="owl-carousel owl-theme">
+                    <div class="item">
+                        <a href="">
+                            <p>دستبند چرمی ساخت کارگاه بنفشه</p>
+                            <p class="slier2-rightPanel-Price-div">
+                                4000
+                                <span class="slier2-rightPanel-mainPrice">تومان</span>
+                                <span class="slider2-rightPanel-discountPrice">6000</span>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="">
+                            <p>دستبند چرمی ساخت کارگاه بنفشه</p>
+                            <p class="slier2-rightPanel-Price-div">
+                                4000
+                                <span class="slier2-rightPanel-mainPrice">تومان</span>
+                                <span class="slider2-rightPanel-discountPrice">6000</span>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="">
+                            <p>دستبند چرمی ساخت کارگاه بنفشه</p>
+                            <p class="slier2-rightPanel-Price-div">
+                                4000
+                                <span class="slier2-rightPanel-mainPrice">تومان</span>
+                                <span class="slider2-rightPanel-discountPrice">6000</span>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="">
+                            <p>دستبند چرمی ساخت کارگاه بنفشه</p>
+                            <p class="slier2-rightPanel-Price-div">
+                                4000
+                                <span class="slier2-rightPanel-mainPrice">تومان</span>
+                                <span class="slider2-rightPanel-discountPrice">6000</span>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="">
+                            <p>دستبند چرمی ساخت کارگاه بنفشه</p>
+                            <p class="slier2-rightPanel-Price-div">
+                                4000
+                                <span class="slier2-rightPanel-mainPrice">تومان</span>
+                                <span class="slider2-rightPanel-discountPrice">6000</span>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
+        <!-- for red line-->
+        <div class="col-md-1 visible-lg visible-md red-line"></div>
+        <!-- for red line-->
     </div>
+
     <div class="row index-product-new">
         <div class="container">
             <div class="row">

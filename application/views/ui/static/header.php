@@ -47,6 +47,7 @@ function get_menu($items, $class = 'nav-menu'){
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/owl.theme.default.min.css">
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/iziToast.min.css">
+    <link rel="stylesheet" href="<?php echo $_DIR; ?>css/index.css">
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/common.css">
     <script src="<?php echo $_DIR; ?>js/jquery-2.1.4.min.js"></script>
     <script src="<?php echo $_DIR; ?>js/iziToast.min.js"></script>
@@ -238,6 +239,124 @@ function get_menu($items, $class = 'nav-menu'){
         </div>
     </div>
 </div>
+<div class="col-md-12 col-xs-12 extra-div-when-login">
+    <div class="container">
+        <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12 padding-0">
+            <div class="col-md-2 col-xs-12 extra-login-ul-li-div" style="height: 90px">
+                <ul>
+                    <li>تغییر رمز عبور</li>
+                    <li>بن های من</li>
+                    <li>کتاب آدرس</li>
+                </ul>
+            </div>
+            <div class="col-md-6 col-xs-12" style="height: 90px">
+                <div class="col-md-12 col-xs-12 extra-login-padding-style">
+                    <div class="discount-login-image-div">
+                        <i class="fa fa-user"></i>
+                    </div>
+                    <div class="col-md-3 col-xs-12 profile-public-desc-left-text">
+                        <p>ورود به پروفایل</p>
+                    </div>
+
+
+                    <div class="discount-login-image-div-heart">
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <div class="col-md-3 col-xs-12 profile-public-desc-left-text-heart">
+                        <p>علاقه مندی ها</p>
+                    </div>
+
+                    <div class="discount-login-image-div-close">
+                        <i class="fa fa-close"></i>
+                    </div>
+                    <div class="col-md-2 col-xs-12 profile-public-desc-left-text-heart">
+                        <p>خروچ</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12 padding-0" style="height: 90px">
+                <div class="col-md-12 col-xs-12 login-extra-div">
+                    <p>سلام , سید محمد باقر بهرامی باقدره اصل</p>
+                    <p>m.bagherbahrami@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12 col-xs-12 extra-cart-main-div">
+    <div class="container padding-0">
+        <div class="col-md-4 extra-cart-div">
+            <ul class="col-md-12 col-xs-12 extra-cart-div-one-item-div">
+                <li>
+                    <div class="col-md-7 col-xs-12 height100 extra-cart-detail-product-main-div">
+                        <div class="col-md-12 col-xs-12 padding-0 extra-cart-product-title">
+                            <p>گوشواره آریانا</p>
+                        </div>
+                        <div class="col-md-12 col-xs-12 padding-0 extra-cart-product-number">
+                            <p>تعداد
+                                <span>1</span>
+                                عدد
+                            </p>
+                        </div>
+                        <div class="col-md-12 col-xs-12 padding-0 extra-cart-product-price">
+                            <p>قیمت :
+                                <span class="extra-cart-price-number">4800</span>
+                                <span class="">تومان</span>
+                            </p>
+                        </div>
+                        <div class="col-md-12 col-xs-12 cart-product-detail-delete">
+                            <button class="btn">حذف</button>
+                            <button class="btn">ویرایش</button>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-xs-12 height100 extra-cart-div-image">
+                        <img src="images/image-2.jpg" height="100%" width="100%"/>
+                    </div>
+                </li>
+                <li>
+                    <div class="col-md-7 col-xs-12 height100 extra-cart-detail-product-main-div">
+                        <div class="col-md-12 col-xs-12 padding-0 extra-cart-product-title">
+                            <p>گوشواره آریانا</p>
+                        </div>
+                        <div class="col-md-12 col-xs-12 padding-0 extra-cart-product-number">
+                            <p>تعداد
+                                <span>1</span>
+                                عدد
+                            </p>
+                        </div>
+                        <div class="col-md-12 col-xs-12 padding-0 extra-cart-product-price">
+                            <p>قیمت :
+                                <span class="extra-cart-price-number">4800</span>
+                                <span class="">تومان</span>
+                            </p>
+                        </div>
+                        <div class="col-md-12 col-xs-12 cart-product-detail-delete">
+                            <button class="btn">حذف</button>
+                            <button class="btn">ویرایش</button>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-xs-12 height100 extra-cart-div-image">
+                        <img src="images/image-2.jpg" height="100%" width="100%"/>
+                    </div>
+                </li>
+                <div class="col-md-12 col-xs-12 cart-number-main-div">
+                    <div class="col-md-6 col-xs-12 left-text-align">
+                        <span class="all-cart-number-div">14,400</span>
+                        <span class="all-cart-number-toman-text">تومان</span>
+                    </div>
+                    <div class="col-md-6 col-xs-12 left-text-align all-cart-number">
+                        <p>کل سبد خرید :</p>
+                    </div>
+                </div>
+                <div class="col-md-12 col-xs-12">
+                    <button class="btn cart-finalize-order-button">نهایی کردن سفارش</button>
+                    <button class="btn cart-show-cart-button">نمایش سبد خرید</button>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+
 <!-- mega menu -->
 <div class="menubar">
     <nav>
