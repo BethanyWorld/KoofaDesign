@@ -202,7 +202,6 @@
     </div>
 </footer>
 <script src="<?php echo $_DIR; ?>js/bootstrap.min.js"></script>
-<script src="<?php echo $_DIR; ?>js/jquery-accessibleMegaMenu.js"></script>
 <script src="<?php echo $_DIR; ?>js/script.js"></script>
 </body>
 </html>

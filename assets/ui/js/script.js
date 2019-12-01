@@ -1,64 +1,57 @@
 $(document).ready(function () {
-    // for response menu
     $(".search-toggle").click(function () {
         $(".mobile-col-search").fadeToggle();
     });
-    $(".mobile-bars-toggle").click(function () {
-        $(".mobile-nav").fadeToggle();
-        // $(".mobile-bars").find($(".fa")).removeClass('fa-bars').addClass('fa-remove');
-    });
-    // for response menu
-    // for mega menu
-    $(".menubar nav:first").accessibleMegaMenu({
-        /* prefix for generated unique id attributes, which are required
-           to indicate aria-owns, aria-controls and aria-labelledby */
-        uuidPrefix: "accessible-megamenu",
-        /* css class used to define the megamenu styling */
-        menuClass: "nav-menu",
-        /* css class for a top-level navigation item in the megamenu */
-        topNavItemClass: "nav-item",
-        /* css class for a megamenu panel */
-        panelClass: "sub-nav",
-        /* css class for a group of items within a megamenu panel */
-        panelGroupClass: "sub-nav-group",
-        /* css class for the hover state */
-        hoverClass: "hover",
-        /* css class for the focus state */
-        focusClass: "focus",
-        /* css class for the open state */
-        openClass: "open"
-    });
-    // for mega menu
     $isLoginMenuVisible = false;
-    //for additional login
     $(".login-div").mouseover(function () {
         $isLoginMenuVisible = true;
-        $(".menubar").hide();
-        $(".additional-login-div").slideDown();
+        $(".additional-login-div").stop().slideDown(200);
     });
     $(".login-div").mouseout(function () {
         $isLoginMenuVisible = false;
         setTimeout(function () {
             if (!$isLoginMenuVisible) {
-                $(".menubar").show();
-                $(".additional-login-div").hide();
+                $(".additional-login-div").stop().slideUp(200);
             }
-        }, 3000);
+        }, 1000);
     });
     $(".additional-login-div").mouseover(function () {
-        $(".menubar").hide();
-        $(this).show();
         $isLoginMenuVisible = true;
+        $(this).stop().slideDown(200);
     });
     $(".additional-login-div").mouseout(function () {
-        $(".menubar").show();
-        $(this).hide();
+        $isLoginMenuVisible = false;
+        setTimeout(function () {
+            if (!$isLoginMenuVisible) {
+                $(".additional-login-div").stop().slideUp(200);
+            }
+        }, 1000);
     });
-    //for additional login
 
-    $(".menubar nav [data-bg]").each(function(){
-        if($(this).attr('data-bg') != ''){
-            $(this).find('ul').eq(0).css('background-image' , 'url('+$(this).attr('data-bg')+')');
+    $(".mobile-bars").click(function(){
+        if($(".mobile-menu-container").hasClass('active')){
+            $('.mobile-bars-toggle').removeClass('fa-times');
+            $('.mobile-bars-toggle').addClass('fa-bars');
+            $(".mobile-menu-container").removeClass('active');
+            $("body").css('overflow','');
+        }
+        else{
+            $('.mobile-bars-toggle').addClass('fa-times').removeClass('fa-bars');
+            $(".mobile-menu-container").addClass('active');
+            $("body").css('overflow','hidden');
+        }
+    });
+
+    $(".mobile-menu-container .fa").click(function(){
+        if($(this).next('ul').is(':visible')){
+            $(this).addClass('fa-plus');
+            $(this).removeClass('fa-minus');
+            $(this).next('ul').slideToggle();
+        }
+        else{
+            $(this).removeClass('fa-plus');
+            $(this).addClass('fa-minus');
+            $(this).next('ul').slideToggle();
         }
     });
 

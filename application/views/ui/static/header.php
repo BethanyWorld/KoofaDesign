@@ -6,14 +6,14 @@ $menu = $ci->db->select('*')->from('product_category')->get()->result_array();
 unset($menu[0]);
 $ref = array();
 $items = array();
-foreach ($menu as $data){
+foreach ($menu as $data) {
     // Assign by reference
     $thisRef = &$ref[$data['CategoryId']];
     // add the menu parent
     $thisRef['parent'] = $data['CategoryParentId'];
     $thisRef['label'] = $data['CategoryTitle'];
     $thisRef['image'] = $data['CategoryImage'];
-    $thisRef['link'] = categoryUrl($data['CategoryId'],$data['CategoryTitle']);
+    $thisRef['link'] = categoryUrl($data['CategoryId'], $data['CategoryTitle']);
 
     // if there is no parent push it into items array()
     if ($data['CategoryParentId'] == 1) {
@@ -21,18 +21,6 @@ foreach ($menu as $data){
     } else {
         $ref[$data['CategoryParentId']]['child'][$data['CategoryId']] = &$thisRef;
     }
-}
-function get_menu($items, $class = 'nav-menu'){
-    $html = "<ul class='".$class."'>";
-    foreach ($items as $key => $value) {
-        $html .= '<li data-bg="'.$value['image'].'" class="nav-item"><a href="'.$value['link'].'">'.$value['label'];
-        if (array_key_exists('child', $value)) {
-            $html .= get_menu($value['child'], 'child');
-        }
-        $html .= "</a></li>";
-    }
-    $html .= "</ul>";
-    return $html;
 }
 ?>
 <!doctype html>
@@ -49,6 +37,7 @@ function get_menu($items, $class = 'nav-menu'){
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/iziToast.min.css">
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/index.css">
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/common.css">
+    <link rel="stylesheet" href="<?php echo $_DIR; ?>css/menu.css">
     <script src="<?php echo $_DIR; ?>js/jquery-2.1.4.min.js"></script>
     <script src="<?php echo $_DIR; ?>js/iziToast.min.js"></script>
     <script src="<?php echo $_DIR; ?>js/owl.carousel.min.js"></script>
@@ -68,7 +57,7 @@ function get_menu($items, $class = 'nav-menu'){
     <div class="row">
         <div class="container header-container">
             <div class="row pc-div">
-                <div class="col-lg-6 col-md-7 col-xs-12" style="height: 100%;">
+                <div class="col-lg-6 col-md-7 col-xs-12">
                     <div class="row">
                         <div class="shopping-basket">
                             <a href="<?php echo base_url('Cart'); ?>">
@@ -97,26 +86,31 @@ function get_menu($items, $class = 'nav-menu'){
                                             </span>
                                         </a>
                                     </li>
+
+                                    <li class="col-md-6 text-center rightFloat like-div">
+                                        <a href="<?php echo base_url('Account/WishList'); ?>">
+                                            <i class="fa fa-heart"></i>
+                                            <span class="span-div">علاقه مندی ها</span>
+                                        </a>
+                                    </li>
                                 <?php } else { ?>
-                                    <li class="col-md-6 text-center rightFloat login-div">
-                                        <a href="<?php echo base_url('Account/login'); ?>">
+                                    <li class="col-md-12 text-center rightFloat">
+                                        <a class="login-div" href="<?php echo base_url('Account/login'); ?>">
                                             <i class="fa fa-user"></i>
                                             <span class="span-div span-login">ورود</span>
                                         </a>
+                                        &nbsp;&nbsp;&nbsp;
+                                        <a href="<?php echo base_url('Account/register'); ?>">
+                                            <i class="fa fa-lock"></i>
+                                            <span class="span-div span-login">ثبت نام</span>
+                                        </a>
                                     </li>
                                 <?php } ?>
-
-                                <li class="col-md-6 text-center rightFloat like-div">
-                                    <a href="<?php echo base_url('Account/WishList'); ?>">
-                                        <i class="fa fa-heart"></i>
-                                        <span class="span-div">علاقه مندی ها</span>
-                                    </a>
-                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-4 col-xs-12" style="height: 100%;">
+                <div class="col-lg-6 col-md-4 col-xs-12">
                     <div class="col search">
                         <input type="search" placeholder="محصول - دسته - سازنده و ...">
                         <span class="fa fa-search spansearch"></span>
@@ -125,22 +119,25 @@ function get_menu($items, $class = 'nav-menu'){
             </div>
             <figure id="logo">
                 <a href="<?php echo base_url(); ?>">
-                    <img
-                            style="width: 105px;height: auto;margin: 8px 2px;"
-                            src="<?php echo $_DIR; ?>images/top_logo.png" height="85" width="110" alt="" title=""/>
+                    <img style="width: 105px;height: auto;margin: 8px 2px;"
+                         src="<?php echo $_DIR; ?>images/top_logo.png" height="85" width="110" alt="" title=""/>
                 </a>
             </figure>
         </div>
         <div class="col-md-12 col-xs-12 mobile-div">
             <div class="col-md-12 col-xs-12 pull-right mobile-login">
-                <a href="<?php echo base_url('Account/login'); ?>">
+                <a class="pull-right" href="<?php echo base_url('Account/login'); ?>">
                     <i class="fa fa-lock"></i>
                     <span>ورود</span>
                 </a>
-                <span> | </span>
-                <a href="<?php echo base_url('Account/register'); ?>">
+                <span  class="pull-right"> | </span>
+                <a class="pull-right" href="<?php echo base_url('Account/register'); ?>">
                     <i class="fa fa-user"></i>
                     ثبت نام
+                </a>
+                <a href="<?php echo base_url('Cart'); ?>">
+                    <i class="fa fa-shopping-basket"></i>
+                   سبد خرید
                 </a>
             </div>
             <div class="col-md-12 col-xs-12 mobile-header">
@@ -161,18 +158,36 @@ function get_menu($items, $class = 'nav-menu'){
                         </div>
 
                         <!-- search toggle-->
-                        <div class="col-xs-10 col-xs-offset-1 col search mobile-col-search">
-                            <div class="col-md-12 col-xs-10 col-xs-offset-1">
-                                <input class="col-sm-10 col-xs-9" type="search"
+                        <div class="col-xs-12 col search mobile-col-search">
+                            <div class="col-xs-12 col search mobile-col-search">
+                                <input class="form-control" type="search"
                                        placeholder="محصول - دسته - سازنده و ...">
-                                <span class="fa fa-search spansearch"></span>
                             </div>
                         </div>
 
                         <!-- menu toggle-->
-                        <div class="row mobile-menu">
-                            <nav class="mobile-nav">
-                                <?php echo get_menu($items); ?>
+                        <div class="row">
+                            <nav class="mobile-menu-container">
+                                <ul>
+                                    <li><a href="<?php echo base_url(); ?>">خانه</a></li>
+                                    <?php foreach ($items as $item) { ?>
+                                        <li>
+                                            <a href="<?php echo $item['link']; ?>"><?php echo $item['label']; ?></a>
+                                            <?php if (isset($item['child'])) { ?>
+                                                <span class="fa fa-plus"></span>
+                                                <ul>
+                                                    <?php foreach ($item['child'] as $itemChild) { ?>
+                                                        <li>
+                                                            <a href="<?php echo $itemChild['link']; ?>">
+                                                                <?php echo $itemChild['label']; ?>
+                                                            </a>
+                                                        </li>
+                                                    <?php } ?>
+                                                </ul>
+                                            <?php } ?>
+                                        </li>
+                                    <?php } ?>
+                                </ul>
                             </nav>
                         </div>
                     </div>
@@ -181,12 +196,14 @@ function get_menu($items, $class = 'nav-menu'){
         </div>
     </div>
 </header>
+
+
 <div class="col-md-12 col-xs-12 additional-login-div">
     <div class="container">
         <div class="row">
             <div class="additional-login-holder">
                 <div class="col-md-6 item item-login">
-                    <h2 class="additional-login-title">ورود</h2>
+                    <h2 class="additional-login-title">&nbsp;</h2>
                     <form action="<?php echo base_url('Account/doSubmitTypeLogin') ?>" method="post"
                           class="mini-additional-login form-horizontal">
                         <div class="form-group">
@@ -358,9 +375,43 @@ function get_menu($items, $class = 'nav-menu'){
 </div>
 
 <!-- mega menu -->
-<div class="menubar">
-    <nav>
-        <?php echo get_menu($items); ?>
-    </nav>
+<!-- START: RUBY DEMO HEADER -->
+<div class="ruby-menu-demo-header hidden-xs">
+    <div class="container z-p">
+        <!-- ########################### -->
+        <!-- START: RUBY HORIZONTAL MENU -->
+        <div class="ruby-wrapper">
+            <ul class="ruby-menu">
+                <li><a href="<?php echo base_url(); ?>">خانه</a></li>
+                <?php foreach ($items as $item) { ?>
+                    <li class="ruby-menu-mega">
+                        <a href="<?php echo $item['link']; ?>"><?php echo $item['label']; ?></a>
+                        <?php if (isset($item['child'])) { ?>
+                            <div class="ruby-grid ruby-grid-lined"
+                                 style="background: url('<?php echo $item['image']; ?>');">
+                                <div class="ruby-row">
+                                    <div class="col-xs-12">
+                                        <ul>
+                                            <?php foreach ($item['child'] as $itemChild) { ?>
+                                                <li>
+                                                    <a href="<?php echo $itemChild['link']; ?>">
+                                                        <?php echo $itemChild['label']; ?>
+                                                    </a>
+                                                </li>
+                                            <?php } ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="ruby-dropdown-toggle"></span>
+                        <?php } ?>
+                    </li>
+                <?php } ?>
+            </ul>
+        </div>
+        <!-- END:   RUBY HORIZONTAL MENU -->
+        <!-- ########################### -->
+    </div>
+    <!-- END: RUBY DEMO HEADER -->
 </div>
 <!-- end mega menu -->

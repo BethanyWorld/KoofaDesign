@@ -969,7 +969,7 @@
 }
 
 .index-keeper:hover {
-    border: 1px solid #000;
+    border: 1px solid #2dc24d !important;
     border-radius: 3px;
 }
 
