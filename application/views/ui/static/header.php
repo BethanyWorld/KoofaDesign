@@ -153,7 +153,7 @@ foreach ($menu as $data) {
                             </a>
                             <br>
                         </div>
-                        <div class="col-xs-2 mobile-bars">
+                        <div class="col-xs-2 mobile-bars visible-xs">
                             <i class="fa fa-bars mobile-bars-toggle"></i>
                         </div>
 
