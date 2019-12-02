@@ -29,10 +29,10 @@ foreach ($menu as $data) {
     <meta charset="utf-8">
     <title>
         <?php
-            if(isset($pageTitle))
-                echo $pageTitle;
-            else
-                echo "کوفادیزاین";
+        if (isset($pageTitle))
+            echo $pageTitle;
+        else
+            echo "کوفادیزاین";
         ?>
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -84,7 +84,7 @@ foreach ($menu as $data) {
                                 <?php
                                 if ($this->session->userdata('UserIsLogged')) { ?>
                                     <li class="col-md-6 text-center rightFloat">
-                                        <a href="<?php echo base_url('User/Home'); ?>">
+                                        <a class="login-div" href="<?php echo base_url('User/Home'); ?>">
                                             <i class="fa fa-user"></i>
                                             <span class="span-div span-login">
                                                 <?php
@@ -137,14 +137,14 @@ foreach ($menu as $data) {
                     <i class="fa fa-lock"></i>
                     <span>ورود</span>
                 </a>
-                <span  class="pull-right"> | </span>
+                <span class="pull-right"> | </span>
                 <a class="pull-right" href="<?php echo base_url('Account/register'); ?>">
                     <i class="fa fa-user"></i>
                     ثبت نام
                 </a>
                 <a href="<?php echo base_url('Cart'); ?>">
                     <i class="fa fa-shopping-basket"></i>
-                   سبد خرید
+                    سبد خرید
                 </a>
             </div>
             <div class="col-md-12 col-xs-12 mobile-header">
@@ -204,109 +204,124 @@ foreach ($menu as $data) {
     </div>
 </header>
 
+<?php if ($this->session->userdata('UserIsLogged')) { ?>
+    <div class="col-md-12 col-xs-12 additional-login-div extra-div-when-login">
+        <div class="container">
+            <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12 padding-0">
+                <div class="col-md-2 col-xs-12 extra-login-ul-li-div">
+                    <ul>
+                        <li>
+                            <a href="<?php echo base_url('User/Home'); ?>">
+                                تغییر رمز عبور
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6 col-xs-12">
+                    <div class="col-md-12 col-xs-12 extra-login-padding-style">
+                        <div class="discount-login-image-div">
+                            <i class="fa fa-user"></i>
+                        </div>
+                        <div class="col-md-3 col-xs-12 profile-public-desc-left-text">
+                            <a href="<?php echo base_url('User/Home'); ?>">
+                                <p>ورود به پروفایل</p>
+                            </a>
+                        </div>
+                        <div class="discount-login-image-div-heart">
+                            <i class="fa fa-heart"></i>
+                        </div>
+                        <div class="col-md-3 col-xs-12 profile-public-desc-left-text-heart">
+                            <p>علاقه مندی ها</p>
+                        </div>
 
-<div class="col-md-12 col-xs-12 additional-login-div">
-    <div class="container">
-        <div class="row">
-            <div class="additional-login-holder">
-                <div class="col-md-6 item item-login">
-                    <h2 class="additional-login-title">&nbsp;</h2>
-                    <form action="<?php echo base_url('Account/doSubmitTypeLogin') ?>" method="post"
-                          class="mini-additional-login form-horizontal">
-                        <div class="form-group">
-                            <label for="username" class="control-label">تلفن همراه :</label>
-                            <input class="form-control" placeholder="09121234567" type="text" name="inputPhone"
-                                   id="inputPhone">
+                        <div class="discount-login-image-div-close">
+                            <i class="fa fa-close"></i>
                         </div>
-                        <div class="form-group">
-                            <label for="password" class="control-label">گذرواژه :</label>
-                            <input class="form-control" placeholder="" type="password" name="inputPassword"
-                                   id="inputPassword">
+                        <div class="col-md-2 col-xs-12 profile-public-desc-left-text-heart">
+                            <a href="<?php echo base_url('User/Home/doLogOut'); ?>">
+                                <p>خروچ</p>
+                            </a>
                         </div>
-                        <div class="action">
-                            <button type="submit"
-                                    class="button button-additional btn btn-default">
+                    </div>
+                </div>
+                <div class="col-md-4 col-xs-12 padding-0" style="height: 90px">
+                    <div class="col-md-12 col-xs-12 login-extra-div">
+                        <p>
+                            سلام ,
+                            <?php
+                            $userInfo = $this->session->userdata('UserLoginInfo')[0];
+                            echo $userInfo['UserFirstName'] . " " . $userInfo['UserLastName'];
+                            ?>
+                        </p>
+                        <p>
+                            <?php echo $userInfo['UserEmail']; ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php } else { ?>
+    <div class="col-md-12 col-xs-12 additional-login-div">
+        <div class="container">
+            <div class="row">
+                <div class="additional-login-holder">
+                    <div class="col-md-6 item item-login">
+                        <h2 class="additional-login-title">&nbsp;</h2>
+                        <form action="<?php echo base_url('Account/doSubmitTypeLogin') ?>" method="post"
+                              class="mini-additional-login form-horizontal">
+                            <div class="form-group">
+                                <label for="username" class="control-label">تلفن همراه :</label>
+                                <input class="form-control" placeholder="09121234567" type="text" name="inputPhone"
+                                       id="inputPhone">
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="control-label">گذرواژه :</label>
+                                <input class="form-control" placeholder="" type="password" name="inputPassword"
+                                       id="inputPassword">
+                            </div>
+                            <div class="action">
+                                <button type="submit"
+                                        class="button button-additional btn btn-default">
                                 <span>
                                     <span>ورود</span>
                                 </span>
-                            </button>
-                        </div>
-                        <a class="forget-pass" href="<?php echo base_url('Account/resetPassword'); ?>">
-                            گذرواژه تان را فراموش کرده اید ؟
-                        </a>
-                    </form>
-                </div>
-                <div class="col-md-6 item">
-                    <div class="pull-right register-block">
-                        <h2 class="register-title">هنوز عضو کوفا نشده اید ؟</h2>
-                        <a href="<?php echo base_url('Account/register'); ?>" class="btn btn-default register-btn">
-                            <i class="fa fa-user"></i>
-                            ثبت نام در کوفا
-                        </a>
+                                </button>
+                            </div>
+                            <a class="forget-pass" href="<?php echo base_url('Account/resetPassword'); ?>">
+                                گذرواژه تان را فراموش کرده اید ؟
+                            </a>
+                        </form>
                     </div>
-                    <div class="pull-right register-detail">
-                        <ul>
-                            <li>
-                                <b href="" class="highlight-li">
-                                    10درصد تخفیف اولین خرید
-                                </b>
-                            </li>
-                            <li>
+                    <div class="col-md-6 item">
+                        <div class="pull-right register-block">
+                            <h2 class="register-title">هنوز عضو کوفا نشده اید ؟</h2>
+                            <a href="<?php echo base_url('Account/register'); ?>" class="btn btn-default register-btn">
+                                <i class="fa fa-user"></i>
+                                ثبت نام در کوفا
+                            </a>
+                        </div>
+                        <div class="pull-right register-detail">
+                            <ul>
+                                <li>
+                                    <b href="" class="highlight-li">
+                                        10درصد تخفیف اولین خرید
+                                    </b>
+                                </li>
+                                <li>
                                 <span>
                                     ساخت لیست علاقمندی ها  /  مشاهده سوابق خرید
                                 </span>
-                            </li>
-                        </ul>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="col-md-12 col-xs-12 extra-div-when-login">
-    <div class="container">
-        <div class="col-lg-10 col-lg-offset-1 col-md-12 col-sm-12 col-xs-12 padding-0">
-            <div class="col-md-2 col-xs-12 extra-login-ul-li-div" style="height: 90px">
-                <ul>
-                    <li>تغییر رمز عبور</li>
-                    <li>بن های من</li>
-                    <li>کتاب آدرس</li>
-                </ul>
-            </div>
-            <div class="col-md-6 col-xs-12" style="height: 90px">
-                <div class="col-md-12 col-xs-12 extra-login-padding-style">
-                    <div class="discount-login-image-div">
-                        <i class="fa fa-user"></i>
-                    </div>
-                    <div class="col-md-3 col-xs-12 profile-public-desc-left-text">
-                        <p>ورود به پروفایل</p>
-                    </div>
+<?php } ?>
 
-
-                    <div class="discount-login-image-div-heart">
-                        <i class="fa fa-heart"></i>
-                    </div>
-                    <div class="col-md-3 col-xs-12 profile-public-desc-left-text-heart">
-                        <p>علاقه مندی ها</p>
-                    </div>
-
-                    <div class="discount-login-image-div-close">
-                        <i class="fa fa-close"></i>
-                    </div>
-                    <div class="col-md-2 col-xs-12 profile-public-desc-left-text-heart">
-                        <p>خروچ</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-xs-12 padding-0" style="height: 90px">
-                <div class="col-md-12 col-xs-12 login-extra-div">
-                    <p>سلام , سید محمد باقر بهرامی باقدره اصل</p>
-                    <p>m.bagherbahrami@gmail.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 <div class="col-md-12 col-xs-12 extra-cart-main-div">
     <div class="container padding-0">
         <div class="col-md-4 extra-cart-div">
@@ -380,7 +395,6 @@ foreach ($menu as $data) {
         </div>
     </div>
 </div>
-
 <!-- mega menu -->
 <!-- START: RUBY DEMO HEADER -->
 <div class="ruby-menu-demo-header hidden-xs">
