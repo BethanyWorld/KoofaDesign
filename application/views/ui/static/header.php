@@ -27,7 +27,14 @@ foreach ($menu as $data) {
 <html>
 <head>
     <meta charset="utf-8">
-    <title>index</title>
+    <title>
+        <?php
+            if(isset($pageTitle))
+                echo $pageTitle;
+            else
+                echo "کوفادیزاین";
+        ?>
+    </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="<?php echo $_DIR; ?>images/icon.png">
     <link rel="stylesheet" type="text/css" href="<?php echo $_DIR; ?>css/font-awesome-css.min.css">
@@ -57,7 +64,7 @@ foreach ($menu as $data) {
     <div class="row">
         <div class="container header-container">
             <div class="row pc-div">
-                <div class="col-lg-6 col-md-7 col-xs-12">
+                <div class="col-md-7 col-xs-12">
                     <div class="row">
                         <div class="shopping-basket">
                             <a href="<?php echo base_url('Cart'); ?>">
@@ -74,14 +81,14 @@ foreach ($menu as $data) {
                         </div>
                         <div class="col-lg-7 col-md-8 col-xs-12 shopping-user">
                             <ul>
-                                <?php if ($this->session->userdata('UserIsLogged')) { ?>
+                                <?php
+                                if ($this->session->userdata('UserIsLogged')) { ?>
                                     <li class="col-md-6 text-center rightFloat">
                                         <a href="<?php echo base_url('User/Home'); ?>">
                                             <i class="fa fa-user"></i>
                                             <span class="span-div span-login">
                                                 <?php
                                                 $userInfo = $this->session->userdata('UserLoginInfo')[0];
-
                                                 echo $userInfo['UserFirstName'] . " " . $userInfo['UserLastName']; ?>
                                             </span>
                                         </a>
@@ -110,7 +117,7 @@ foreach ($menu as $data) {
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-6 col-md-4 col-xs-12">
+                <div class="col-md-4 col-xs-12">
                     <div class="col search">
                         <input type="search" placeholder="محصول - دسته - سازنده و ...">
                         <span class="fa fa-search spansearch"></span>

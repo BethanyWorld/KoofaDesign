@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Home extends CI_Controller
-{
+class Home extends CI_Controller{
     public function __construct(){
         parent::__construct();
         $this->load->helper('user/user_login');
@@ -9,9 +8,53 @@ class Home extends CI_Controller
         $this->load->model('user/ModelUser');
     }
     public function index(){
-        var_dump( $this->session->userdata('UserLoginInfo')) ;
-        echo "<a href='".base_url('User/Home/doLogOut')."'>خروج</a>";
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'پروفایل ';
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
+        $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
+        $this->load->view('ui/static/header', $data);
+        $this->load->view('ui/user/home/index', $data);
+        $this->load->view('ui/user/home/index_css');
+        $this->load->view('ui/user/home/index_js');
+        $this->load->view('ui/static/footer');
     }
+    public function doUpdateProfile()
+    {
+        $inputs = $this->input->post(NULL, TRUE);
+        $inputs = array_map(function ($v) {
+            return strip_tags($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return remove_invisible_characters($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return makeSafeInput($v);
+        }, $inputs);
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $inputs['inputUserId'] = $userId;
+        $result = $this->ModelUser->doUpdateProfile($inputs);
+        echo json_encode($result);
+    }
+    public function doChangePassword()
+    {
+        $inputs = $this->input->post(NULL, TRUE);
+        $inputs = array_map(function ($v) {
+            return strip_tags($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return remove_invisible_characters($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return makeSafeInput($v);
+        }, $inputs);
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $inputs['inputUserId'] = $userId;
+        $result = $this->ModelUser->doChangePassword($inputs);
+        echo json_encode($result);
+    }
+
+
     public function doLogOut(){
         /* Unset Session Data To LogOut */
         $this->session->unset_userdata('UserIsLogged');
@@ -19,7 +62,4 @@ class Home extends CI_Controller
         header("Location: " . base_url('Account/login'));
     }
     /* Helper Functions */
-
-
-
 }
