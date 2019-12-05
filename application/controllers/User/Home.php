@@ -55,6 +55,71 @@ class Home extends CI_Controller{
     }
 
 
+    public function address(){
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'دفترچه آدرس ';
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
+        $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
+        $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
+
+        $this->load->view('ui/static/header', $data);
+        $this->load->view('ui/user/address/index', $data);
+        $this->load->view('ui/user/address/index_css');
+        $this->load->view('ui/user/address/index_js');
+        $this->load->view('ui/static/footer');
+    }
+    public function doAddAddress()
+    {
+        $inputs = $this->input->post(NULL, TRUE);
+        $inputs = array_map(function ($v) {
+            return strip_tags($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return remove_invisible_characters($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return makeSafeInput($v);
+        }, $inputs);
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $inputs['inputUserId'] = $userId;
+        $result = $this->ModelUser->doAddAddress($inputs);
+        echo json_encode($result);
+    }
+    public function addressEdit($addressId){
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'دفترچه آدرس ';
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
+        $data['userAddress'] = $this->ModelUser->getUserAddressByAddressId($addressId)[0];
+        $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
+        $this->load->view('ui/static/header', $data);
+        $this->load->view('ui/user/address_edit/index', $data);
+        $this->load->view('ui/user/address_edit/index_css');
+        $this->load->view('ui/user/address_edit/index_js');
+        $this->load->view('ui/static/footer');
+    }
+    public function doEditAddress()
+    {
+        $inputs = $this->input->post(NULL, TRUE);
+        $inputs = array_map(function ($v) {
+            return strip_tags($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return remove_invisible_characters($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return makeSafeInput($v);
+        }, $inputs);
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $inputs['inputUserId'] = $userId;
+        $result = $this->ModelUser->doEditAddress($inputs);
+        echo json_encode($result);
+    }
+
+
+
+
     public function doLogOut(){
         /* Unset Session Data To LogOut */
         $this->session->unset_userdata('UserIsLogged');

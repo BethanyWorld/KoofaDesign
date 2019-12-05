@@ -3,28 +3,28 @@
     <div class="col-md-12 col-xs-12 profile-desc-ul-div">
         <ul>
             <li  class="active">
-                <a href="" target="_blank">مشخصات عمومی</a>
+                <a href="<?php echo base_url('User/Home'); ?>">مشخصات عمومی</a>
             </li>
             <li>
-                <a href="" target="_blank">شناسه سفارش شما</a>
+                <a href="">شناسه سفارش شما</a>
             </li>
             <li>
-                <a href="" target="_blank">دفترچه آدرس</a>
+                <a href="<?php echo base_url('User/Home/address'); ?>">دفترچه آدرس</a>
             </li>
             <li>
-                <a href="" target="_blank">سفارش ها</a>
+                <a href="">سفارش ها</a>
             </li>
             <li>
-                <a href="" target="_blank">نظرات</a>
+                <a href="">نظرات</a>
             </li>
             <li>
-                <a href="" target="_blank">محصولات گالری های شما</a>
+                <a href="">محصولات گالری های شما</a>
             </li>
             <li>
-                <a href="" target="_blank">خرید های شما از سایت</a>
+                <a href="">خرید های شما از سایت</a>
             </li>
             <li>
-                <a href="" target="_blank">کپن های تخفیف شما</a>
+                <a href="">"کپن های تخفیف شما</a>
             </li>
         </ul>
     </div>

@@ -1,4 +1,5 @@
 <?php
+
 class ModelProductCategory extends CI_Model{
     /*For Category*/
     public function getProductCategoryByPagination($limit = 1){
@@ -40,7 +41,6 @@ class ModelProductCategory extends CI_Model{
         $this->db->where('CategoryId', $categoryId);
         return $this->db->get()->result_array();
     }
-
     public function getProductByCategoryId($categoryId){
         $this->db->select('*')->from('product_category');
         $this->db->join('product_category_relation', 'product_category.CategoryId = product_category_relation.CategoryId');

@@ -88,5 +88,99 @@ class ModelUser extends CI_Model{
         }
 
     }
+
+    public function getUserAddressByUserId($userId)
+    {
+        $this->db->select('*');
+        $this->db->from('user_address');
+        $this->db->where(array('UserId' => $userId));
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+        $arr = array();
+        return $arr;
+    }
+    public function getUserAddressByAddressId($id)
+    {
+        $this->db->select('*');
+        $this->db->from('user_address');
+        $this->db->where(array('AddressId' => $id));
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        }
+        $arr = array();
+        return $arr;
+    }
+
+    public function doAddAddress($inputs)
+    {
+        $Array = array(
+            'AddressFullName' => $inputs['inputAddressFullName'],
+            'AddressEmail' => $inputs['inputAddressEmail'],
+            'AddressPhone' => $inputs['inputAddressPhone'],
+            'AddressHomePhone' => $inputs['inputAddressHomePhone'],
+            'AddressPostalCode' => $inputs['inputAddressPostalCode'],
+            'AddressStateId' => $inputs['inputAddressStateId'],
+            'AddressCityId' => $inputs['inputAddressCityId'],
+            'Address' => $inputs['inputAddress'],
+            'UserId' => $inputs['inputUserId']
+        );
+        $this->db->trans_start();
+        $this->db->insert('user_address', $Array);
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            $arr = array(
+                'type' => "red",
+                'content' => "افزودن آدرس ناموفق بود",
+                'success' => false
+            );
+            return $arr;
+        } else {
+            $arr = array(
+                'type' => "green",
+                'content' => "افزودن آدرس  با موفقیت انجام شد",
+                'success' => true
+            );
+            return $arr;
+        }
+    }
+    public function doEditAddress($inputs)
+    {
+        $Array = array(
+            'AddressFullName' => $inputs['inputAddressFullName'],
+            'AddressEmail' => $inputs['inputAddressEmail'],
+            'AddressPhone' => $inputs['inputAddressPhone'],
+            'AddressHomePhone' => $inputs['inputAddressHomePhone'],
+            'AddressPostalCode' => $inputs['inputAddressPostalCode'],
+            'AddressStateId' => $inputs['inputAddressStateId'],
+            'AddressCityId' => $inputs['inputAddressCityId'],
+            'Address' => $inputs['inputAddress'],
+            'UserId' => $inputs['inputUserId']
+        );
+        $this->db->trans_start();
+        $this->db->where('UserId', $inputs['inputUserId']);
+        $this->db->where('AddressId', $inputs['inputAddressId']);
+        $this->db->update('user_address', $Array);
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            $arr = array(
+                'type' => "red",
+                'content' => "بروزرسانی ناموفق بود",
+                'success' => false
+            );
+            return $arr;
+        } else {
+            $arr = array(
+                'type' => "green",
+                'content' => "بروزرسانی با موفقیت انجام شد",
+                'success' => true
+            );
+            return $arr;
+        }
+    }
+
+
 }
 ?>
