@@ -1,17 +1,36 @@
 <?php $_URL = base_url();
 $_DIR = base_url('assets/ui/'); ?>
 
-<div id="main" style="min-height: 100vh;">
+<div id="main">
     <div class="row">
-        <div class="container">
+        <div class="container z-p">
+
+            <!-- BreadCrumbs -->
             <div class="col-md-12 col-xs-12">
                 <ul class="breadcrumb">
-                    <li><a href="#">کاغذ دیواری</a></li>
-                    <li><a href="#">اتاق کودک</a></li>
-                    <li><a href="#">طرح لبخند</a></li>
+                    <li>
+                        <a href="<?php echo categoryUrl($breadCrumb['root']['CategoryId'], $breadCrumb['root']['CategoryTitle']); ?>">
+                            <?php echo $breadCrumb['root']['CategoryTitle']; ?>
+                        </a>
+                    </li>
+                    <?php if (isset($breadCrumb['parents'])) {
+                        foreach ($breadCrumb['parents'] as $parent) { ?>
+                            <li>
+                                <a href="<?php echo categoryUrl($parent['CategoryId'], $parent['CategoryTitle']); ?>">
+                                    <?php echo $parent['CategoryTitle']; ?>
+                                </a>
+                            </li>
+                        <?php }
+                    } ?>
+                    <li class="active">
+                        <a href="<?php echo categoryUrl($breadCrumb['current']['CategoryId'], $breadCrumb['current']['CategoryTitle']); ?>">
+                            <?php echo $breadCrumb['current']['CategoryTitle']; ?>
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <div class="col-xs-12 col-xs-12">
+            <!-- Category Description -->
+            <div class="col-xs-12 col-xs-12 z-p">
                 <div class="col-md-12 col-xs-12 padding-right all-div-style-image-row">
                     <div class="col-md-2 col-xs-12 RightFloat height100 image-product-div">
                         <a href="<?php echo categoryUrl($categoryInfo['CategoryId'], $categoryInfo['CategoryTitle']); ?>">
@@ -28,22 +47,18 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 col-xs-12 padding-t-3">
-                <div class="col-md-4 col-xs-12 Ordering-main-div">
+            <!-- Ordering -->
+            <div class="col-md-12 col-xs-12 z-p padding-t-15">
+                <div class="col-xs-12 Ordering-main-div">
                     <label for="orderingProduct">مرتب سازی بر اساس :</label>
                     <select name="orderingProduct" id="orderingProduct">
-                        <option>قیمت از کم به زیاد</option>
-                        <option>قیمت از کم به زیاد</option>
-                        <option>قیمت از کم به زیاد</option>
+                        <option value="Asc">قیمت از کم به زیاد</option>
+                        <option value="Desc">قیمت از کم به زیاد</option>
                     </select>
                 </div>
-                <div class="col-md-4 col-xs-12 grouping-rangeSlider-main-div LeftFloat">
-                    <div class="center">
-                        <div id="slider1"></div>
-                    </div>
-                </div>
             </div>
-            <div class="col-md-12 col-xs-12 padding-t-3">
+
+            <div class="col-md-12 col-xs-12 z-p padding-t-15">
                 <div class="col-md-12 col-xs-12 grouping-filtering-main-div">
                     <div class="multiselect">
                         <div class="selectBox">
@@ -115,61 +130,15 @@ $_DIR = base_url('assets/ui/'); ?>
                 </div>
             </div>
 
-            <div class="col-md-12 col-xs-12 padding-0">
-                <div class="col-md-12 col-xs-12 grouping-ul-style margin-t-30">
-                    <?php foreach ($products as $item) { ?>
-                        <div class="col-md-4 col-sm-6 col-xs-12 grouping-li-style">
-                            <div class="col-xs-12 one-product-detail">
-                                <div class="col-md-12 col-xs-12 product-keeper">
-                                    <div class="product-tool">
-                                        <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                        <a href="">
-                                            <i class="fa fa-heart-o"></i>
-                                        </a>
-                                    </div>
-                                    <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                                        <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
-                                             width="100%"/>
-                                    </a>
-                                </div>
-                                <div class="col-md-12 col-xs-12  padding-response">
-                                    <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                                        <h3 class="product-info"><?php echo $item['ProductTitle']; ?></h3>
-                                    </a>
-                                </div>
-                                <div class="col-md-12 col-xs-12 price-box">
-                                        <span class="regular-price">
-                                            <span class="item_price">&lrm;26,000<span class="unit">تومان</span>
-                                        </span>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>
+
+            <div class="col-md-12 col-xs-12 z-p">
+                <div class="col-md-12 col-xs-12 grouping-ul-style" id="product-container">
                 </div>
             </div>
 
-            <div class="col-md-12 col-xs-12 padding-0 pagination" style="height: 100px;">
-                <nav aria-label="Page navigation" id="div1">
-                    <ul class="pager grouping-pagination">
-                        <li>
-                            <a href="#" aria-label="Previous">
-                                <span aria-hidden="true">«</span>
-                            </a>
-                        </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li>
-                            <a href="#" aria-label="Next">
-                                <span aria-hidden="true">»</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
+            <div class="col-md-12 col-xs-12 z-p pagination">
+                <nav style="direction: ltr" id="pagination"
+                     class="pagination-list text-center Page navigation"></nav>
             </div>
         </div>
     </div>

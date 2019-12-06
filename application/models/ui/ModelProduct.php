@@ -1,4 +1,5 @@
 <?php
+
 class ModelProduct extends CI_Model{
     /*For Product*/
     public function getProductByPagination($limit = 1){
@@ -148,23 +149,98 @@ class ModelProduct extends CI_Model{
         else{
             $this->db->limit(8);
         }
-        return $this->db->get()->result_array();
+        $query = $this->db->get()->result_array();
+        for($i=0;$i<sizeof($query);$i++){
+            $query[$i]['price'] = $this->getProductPriceProductId($query[$i]['ProductId']);
+        }
+        return $query;
     }
     public function getLatestProduct(){
         $this->db->select('*');
         $this->db->from('product');
         $this->db->order_by('ProductId' , 'DESC');
         $this->db->limit(8);
-        return $this->db->get()->result_array();
+        $query = $this->db->get()->result_array();
+        for($i=0;$i<sizeof($query);$i++){
+            $query[$i]['price'] = $this->getProductPriceProductId($query[$i]['ProductId']);
+        }
+        return $query;
     }
     public function getFavoriteProduct(){
         $this->db->select('*');
         $this->db->from('product');
         $this->db->order_by('ProductLikeCount' , 'DESC');
         $this->db->limit(8);
-        return $this->db->get()->result_array();
+        $query = $this->db->get()->result_array();
+        for($i=0;$i<sizeof($query);$i++){
+            $query[$i]['price'] = $this->getProductPriceProductId($query[$i]['ProductId']);
+        }
+        return $query;
     }
     /*End For Product*/
-}
 
+
+    public function searchProduct($inputs){
+        $limit = $inputs['pageIndex'];
+        $start = ($limit - 1) * $this->config->item('defaultPageSize');
+        $end = $this->config->item('defaultPageSize');
+
+        $this->db->select('*');
+        $this->db->from('product');
+        $this->db->join('product_category_relation', 'product.ProductId = product_category_relation.ProductId');
+        $this->db->where('product_category_relation.CategoryId' , $inputs['inputCategoryId']);
+
+        /*if ($this->isSetValue($inputs['inputCategory'])){
+            $this->db->where('JobCategoryId', $inputs['inputCategory']);
+        }
+        if ($this->isSetValue($inputs['inputState'])){
+            $this->db->where('JobStateId', $inputs['inputState']);
+        }
+        if ($this->isSetValue($inputs['inputJobContractType'])){
+            $this->db->where('JobContractType', $inputs['inputJobContractType']);
+        }
+        if ($this->isSetValue($inputs['inputJobGender'])){
+            $this->db->where('JobGender', $inputs['inputJobGender']);
+        }
+        if ($this->isSetValue($inputs['inputJobBackward'])){
+            $this->db->where('JobBackward', $inputs['inputJobBackward']);
+        }
+        if ($this->isSetValue($inputs['inputSearchKeyword'])){
+            $this->db->like('JobTitle', $inputs['inputSearchKeyword']);
+        }*/
+        /*if ($this->isSetValue($inputs['inputOrderingProduct'])){
+            if($inputs['inputOrderingProduct'] = 'ASC'){
+                $this->db->order_by('JobBackward');
+            }
+        }*/
+
+        $tempDb = clone $this->db;
+        $data['numRows'] = $tempDb->get()->num_rows();
+        $this->db->limit($end,$start);
+        $query = $this->db->get()->result_array();
+
+        for($i=0;$i<sizeof($query);$i++){
+            $query[$i]['price'] = $this->getProductPriceProductId($query[$i]['ProductId']);
+        }
+
+        if (count($query) > 0) {
+            $data['data'] = $query;
+            return $data;
+        }
+        else {
+            $data['data'] = false;
+            return $data;
+        }
+    }
+
+    protected function isSetValue($value){
+        if (isset($value) && $value != "" && !empty($value)) {
+            return true;
+        }
+        return false;
+    }
+
+
+
+}
 ?>

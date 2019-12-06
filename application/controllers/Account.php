@@ -144,7 +144,6 @@ class Account extends CI_Controller{
     public function doSubmitTypeLogin()
     {
         $inputs = $this->input->post(NULL, TRUE);
-        var_dump($inputs);
         $inputs = array_map(function ($v) {
             return strip_tags($v);
         }, $inputs);

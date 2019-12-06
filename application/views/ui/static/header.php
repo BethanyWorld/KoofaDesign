@@ -46,6 +46,7 @@ foreach ($menu as $data) {
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/common.css">
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/menu.css">
     <script src="<?php echo $_DIR; ?>js/jquery-2.1.4.min.js"></script>
+    <script src="<?php echo $_DIR; ?>js/bootpage.min.js"></script>
     <script src="<?php echo $_DIR; ?>js/iziToast.min.js"></script>
     <script src="<?php echo $_DIR; ?>js/owl.carousel.min.js"></script>
     <script src="<?php echo $_DIR; ?>js/helper.js"></script>
@@ -171,7 +172,6 @@ foreach ($menu as $data) {
                                        placeholder="محصول - دسته - سازنده و ...">
                             </div>
                         </div>
-
                         <!-- menu toggle-->
                         <div class="row">
                             <nav class="mobile-menu-container">
@@ -396,11 +396,8 @@ foreach ($menu as $data) {
     </div>
 </div>
 <!-- mega menu -->
-<!-- START: RUBY DEMO HEADER -->
 <div class="ruby-menu-demo-header hidden-xs">
     <div class="container z-p">
-        <!-- ########################### -->
-        <!-- START: RUBY HORIZONTAL MENU -->
         <div class="ruby-wrapper">
             <ul class="ruby-menu">
                 <li><a href="<?php echo base_url(); ?>">خانه</a></li>
@@ -430,9 +427,6 @@ foreach ($menu as $data) {
                 <?php } ?>
             </ul>
         </div>
-        <!-- END:   RUBY HORIZONTAL MENU -->
-        <!-- ########################### -->
     </div>
-    <!-- END: RUBY DEMO HEADER -->
 </div>
 <!-- end mega menu -->

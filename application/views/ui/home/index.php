@@ -94,6 +94,7 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
         </div>
     </div>
+    <!-- Categories -->
     <div class="row index-product section-padding">
         <div class="container">
             <div class="row index-product-holder">
@@ -109,11 +110,12 @@ $_DIR = base_url('assets/ui/'); ?>
                             <div class="col-md-12 col-xs-12  height100  z-p">
                                 <div class="col-md-12 col-xs-12 index-keeper height100">
                                     <div class="col-md-12 col-xs-9">
-                                        <a href="<?php echo categoryUrl($category['CategoryId'], $category['CategoryTitle']); ?>" target="_blank">
+                                        <a href="<?php echo categoryUrl($category['CategoryId'], $category['CategoryTitle']); ?>"
+                                           target="_blank">
                                             <img src="<?php echo $category['CategoryImage']; ?>" width="100%"
                                                  height="100%"
                                                  class="index-height-image-div"/>
-                                            <div class="col-md-12 col-xs-12 padding-0">
+                                            <div class="col-md-12 col-xs-12 padding-0 hidden">
                                                 <div class="col-md-9 col-xs-9 col-sm-9 rightFloat padding-0">
                                                     <h4 class="index-item-title"><?php echo $category['CategoryTitle']; ?></h4>
                                                 </div>
@@ -162,6 +164,7 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
         </div>
     </div>
+
     <div class="row index-slider-div index-slider-div2 section-padding">
         <div class="container">
             <div class="col-md-9 col-xs-9 index-holder">
@@ -172,19 +175,24 @@ $_DIR = base_url('assets/ui/'); ?>
                                 <div class="outer height100">
                                     <div id="big2" class="owl-carousel owl-theme">
                                         <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-5.jpg" height="100%" width="100%"/>
+                                            <img src="<?php echo $_DIR; ?>images/image-5.jpg" height="100%"
+                                                 width="100%"/>
                                         </div>
                                         <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-6.jpg" height="100%" width="100%"/>
+                                            <img src="<?php echo $_DIR; ?>images/image-6.jpg" height="100%"
+                                                 width="100%"/>
                                         </div>
                                         <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-2.jpg" height="100%" width="100%"/>
+                                            <img src="<?php echo $_DIR; ?>images/image-2.jpg" height="100%"
+                                                 width="100%"/>
                                         </div>
                                         <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-3.jpg" height="100%" width="100%"/>
+                                            <img src="<?php echo $_DIR; ?>images/image-3.jpg" height="100%"
+                                                 width="100%"/>
                                         </div>
                                         <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-1.jpg" height="100%" width="100%"/>
+                                            <img src="<?php echo $_DIR; ?>images/image-1.jpg" height="100%"
+                                                 width="100%"/>
                                         </div>
                                     </div>
                                     <div class="div-on-slider2">
@@ -312,13 +320,16 @@ $_DIR = base_url('assets/ui/'); ?>
                                 </div>
                                 <div class="col-md-12 col-xs-12  padding-response">
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                                    <h3 class="product-info"><?php echo $item['ProductTitle']; ?></h3>
+                                        <h3 class="product-info"><?php echo $item['ProductTitle']; ?></h3>
                                     </a>
                                 </div>
                                 <div class="col-md-12 col-xs-12 price-box">
-                                        <span class="regular-price">
-                                            <span class="item_price">&lrm;26,000<span class="unit">تومان</span>
+                                    <p class="regular-price">
+                                        <span class="item_price">
+                                            <?php showProductPrice($item['price'], $item['ProductType']); ?>
+                                            <b class="unit">تومان</b>
                                         </span>
+                                    </p>
                                 </div>
                             </div>
                         <?php } ?>
@@ -360,9 +371,12 @@ $_DIR = base_url('assets/ui/'); ?>
                                     </a>
                                 </div>
                                 <div class="col-md-12 col-xs-12 price-box">
-                                        <span class="regular-price">
-                                            <span class="item_price">&lrm;26,000<span class="unit">تومان</span>
+                                    <p class="regular-price">
+                                        <span class="item_price">
+                                            <?php showProductPrice($item['price'], $item['ProductType']); ?>
+                                            <b class="unit">تومان</b>
                                         </span>
+                                    </p>
                                 </div>
                             </div>
                         <?php } ?>

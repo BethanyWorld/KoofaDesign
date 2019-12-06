@@ -27,11 +27,14 @@
     }
 
     .padding-t-3 {
-        padding-top: 3px;
+        padding-top: 3px !important;
+    }
+    .padding-t-15 {
+        padding-top: 15px !important;
     }
 
     .margin-t-30 {
-        margin-top: 30px;
+        margin-top: 30px !important;
     }
 
     /*helper*/
@@ -90,10 +93,10 @@
     }
 
     .Ordering-main-div select {
-        width: 50%;
-        padding-right: 10px;
         color: #3CB371;
         font-size: 12px;
+        padding: 2px 10px;
+        border: 1px solid #ccc;
     }
 
     .all-div-style-image-row {
@@ -223,31 +226,6 @@
         display: inline-block;
     }
 
-    .item_price {
-        font-size: 27px;
-        margin-bottom: 0;
-        padding-bottom: 0;
-        line-height: 1.1em;
-        color: #2D693A;
-        width: 100%;
-        float: right;
-        text-align: right;
-    }
-
-    .item_price span {
-        color: #7c7c7c;
-        font-size: 14px;
-        padding: 0 2px;
-    }
-
-    .item_price span {
-        color: #7c7c7c;
-        font-size: 19px;
-    }
-
-    .item_price span {
-        font-size: 15px;
-    }
 
     .product-tool {
         height: 25px;
@@ -335,7 +313,7 @@
         padding: 9px;
     }
 
-    .pager li > a {
+    .pagination li > a {
         display: inline-block;
         padding: 5px 10px;
         background-color: #D8D8D8;
@@ -345,30 +323,30 @@
         border-bottom: 2px solid #A6A6A6;
     }
 
-    .grouping-pagination .active a {
+    .bootpag .active a {
         background-color: gray;
         color: #fff;
     }
 
-    .grouping-pagination .active:hover a {
+    .bootpag .active:hover a {
         background-color: gray;
         color: #D8D8D8;
     }
-    .grouping-pagination li a:focus{
+    .bootpag li a:focus{
         background-color: gray;
         color: #fff;
     }
 
-    ul.grouping-pagination li:hover a {
+    ul.bootpag li:hover a {
         background-color: #2D693A;
         color: #fff;
     }
 
-    ul.grouping-pagination li:first-child a {
+    ul.bootpag li:first-child a {
         border-radius: 0px 4px 4px 0px;
     }
 
-    ul.grouping-pagination li:last-child a {
+    ul.bootpag li:last-child a {
         border-radius: 4px 0px 0px 4px;
     }
 

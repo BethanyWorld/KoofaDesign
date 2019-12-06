@@ -17,7 +17,6 @@ class Home extends CI_Controller{
         for ($i=0;$i < count($categories);$i++) {
             $categories[$i]['productCount'] = $this->ModelProduct->getProductCountByProductCategoryId($categories[$i]['CategoryId']);
             $categories[$i]['products'] = $this->ModelProduct->getProductByProductCategoryId($categories[$i]['CategoryId'] , 2);
-
         }
         $data['categories'] = $categories;
 
