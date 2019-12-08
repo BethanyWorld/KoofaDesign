@@ -42,7 +42,6 @@ foreach ($menu as $data) {
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/owl.theme.default.min.css">
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/iziToast.min.css">
-    <link rel="stylesheet" href="<?php echo $_DIR; ?>css/index.css">
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/common.css">
     <link rel="stylesheet" href="<?php echo $_DIR; ?>css/menu.css">
     <script src="<?php echo $_DIR; ?>js/jquery-2.1.4.min.js"></script>

@@ -1,6 +1,7 @@
 <?php $_URL = base_url();
 $_DIR = base_url('assets/ui/'); ?>
 
+<link rel="stylesheet" href="<?php echo $_DIR; ?>css/index.css">
 
 <div id="main">
     <div class="row index-slider-div section-padding">
