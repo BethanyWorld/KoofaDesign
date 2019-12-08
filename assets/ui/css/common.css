@@ -1010,7 +1010,9 @@ footer {
     color: #8dc63f;
     padding-top: 15px;
 }
-
+.extra-login-ul-li-div ul li a{
+    color: #8dc63f;
+}
 /*for user*/
 .discount-login-image-div {
     height: 35px;
@@ -1072,7 +1074,9 @@ footer {
     padding-right: 10px;
     cursor: pointer;
 }
-
+.profile-public-desc-left-text a{
+    color: #8dc63f;
+}
 .profile-public-desc-left-text-heart {
     line-height: 35px;
     color: #8dc63f;
@@ -1080,7 +1084,9 @@ footer {
     font-weight: normal;
     padding-right: 10px;
 }
-
+.profile-public-desc-left-text-heart a {
+    color: #8dc63f;
+}
 /*for user*/
 /*for extra when login*/
 
