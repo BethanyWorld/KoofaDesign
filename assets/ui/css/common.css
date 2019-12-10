@@ -1195,3 +1195,9 @@ footer {
 
 
 
+/*for product detail*/
+.right-side-border-top{
+    border-top: 1px solid #ccc;
+    padding-top: 5px !important;
+}
+/*for product detail*/

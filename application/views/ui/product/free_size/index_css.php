@@ -1,4 +1,7 @@
 <style>
+    .text-left{
+        text-align: left;
+    }
     .upload-options {
         position: relative;
         height: 48px;

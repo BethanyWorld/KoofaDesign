@@ -195,14 +195,14 @@
     }
 
     .product-info {
-        /*color: #2D693A;*/
-        /*font-size: 16px;*/
-        /*font-weight: bold;*/
-        /*margin-top: 0px;*/
-        /*line-height: 2em;*/
-        /*height: 4em;*/
-        /*overflow: hidden;*/
-        /*margin-bottom: 0px;*/
+        color: #2D693A;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 0px;
+        line-height: 2em;
+        height: 4em;
+        overflow: hidden;
+        margin-bottom: 0px;
     }
 
     .product-info p {

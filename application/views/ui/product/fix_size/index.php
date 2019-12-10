@@ -19,7 +19,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-5 col-xs-12 rightFloat">
+                <div class="col-md-5 col-xs-12 rightFloat right-side-border-top">
                     <div class="col-md-12 col-xs-12 product-detail-text padding-right">
                         <p>ارسال رایگان برای خرید های بیشتر از 90 هزار تومان</p>
                     </div>

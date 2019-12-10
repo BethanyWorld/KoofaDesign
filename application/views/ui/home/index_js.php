@@ -184,4 +184,8 @@
         var triggerheight = Math.round(boxheight / itemlength + 1);
         $('#myCarousel .list-group-item').outerHeight(triggerheight);
     });
+
+
+
+
 </script>

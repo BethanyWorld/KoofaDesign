@@ -19,7 +19,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-md-5 col-xs-12 rightFloat">
+                <div class="col-md-5 col-xs-12 padding-0 rightFloat right-side-border-top">
                     <div class="col-md-12 col-xs-12 product-detail-text padding-right">
                         <p>ارسال رایگان برای خرید های بیشتر از 90 هزار تومان</p>
                     </div>
@@ -50,13 +50,13 @@
                             </select>
                         </div>
                     </div>
-                    <div class="col-xs-12 product-detail-Flax margin-b-10" style="padding-right: 0;">
-                        <div class="product-size pull-right">
+                    <div class="col-xs-12 product-detail-Flax margin-b-10 padding-0">
+                        <div class="product-size pull-right col-md-6 col-xs-12">
                             <label>ارتفاع</label>
                             <input id="inputProductHeight" type="number" min="0" max="<?php echo $data['ProductMaxHeight']; ?>" />
                         </div>
-                        <span class="pull-right"> &nbsp;&nbsp; &nbsp;&nbsp;</span>
-                        <div class="product-size pull-right">
+<!--                        <span class="pull-right"> &nbsp;&nbsp; &nbsp;&nbsp;</span>-->
+                        <div class="product-size pull-right col-md-6 col-xs-12 text-left">
                             <label>عرض</label>
                             <input id="inputProductWidth" type="number" min="0" max="<?php echo $data['ProductMaxWidth']; ?>" />
                         </div>

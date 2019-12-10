@@ -1,4 +1,7 @@
 <style>
+    .padding-right{
+        padding-right: 0px;
+    }
     .upload-options {
         position: relative;
         height: 48px;

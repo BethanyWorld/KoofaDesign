@@ -7,7 +7,6 @@ ul.breadcrumb {
     list-style: none;
     color: #B1C472;
     padding-top: 30px;
-    border-bottom: 1px solid #ccc;
     padding-bottom: 5px;
     border-radius: 0px;
     margin-bottom: 10px;
@@ -55,8 +54,11 @@ ul.breadcrumb li a {
 .product-size {
     position: relative;
     right: 0px;
+    padding: 0px;
 }
-
+.product-size input{
+    width: 80%;
+}
 .product-detail-print {
     color: #7C7C7C;
     font-size: 13px;
