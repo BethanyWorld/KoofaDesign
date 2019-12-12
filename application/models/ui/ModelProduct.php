@@ -1,5 +1,6 @@
 <?php
 
+
 class ModelProduct extends CI_Model{
     /*For Product*/
     public function getProductByPagination($limit = 1){

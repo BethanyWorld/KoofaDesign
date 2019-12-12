@@ -116,9 +116,9 @@
                             data: {
                                 'inputProductId': $id,
                                 'inputMaterialId': $inputMaterialId,
-                                'inputProductWidth': $("#inputProductHeight").val(),
+                                'inputProductWidth': $("#inputProductWidth").val(),
                                 'inputProductUploadImage': $result['fileSrc'],
-                                'inputProductHeight': $("#inputProductWidth").val()
+                                'inputProductHeight': $("#inputProductHeight").val()
                             },
                             success: function () {
                                 location.href = base_url + 'Cart'
@@ -158,8 +158,6 @@
                 }
             });
         });
-
-
         function initImageUpload(box) {
             let uploadField = box.querySelector('.image-upload');
             uploadField.addEventListener('change', getFile);
@@ -187,8 +185,5 @@
             $(".upload-image-container").fadeOut();
             $("#upload-image").fadeOut().attr('src', '');
         });
-
-
-
     });
 </script>

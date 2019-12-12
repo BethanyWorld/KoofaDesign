@@ -121,11 +121,12 @@
     }
     .cart-product-factor-button{
         background-color: #fff;
-        font-size: 11px;
-        padding: 9px;
+        font-size: 12px;
+        padding: 7px;
         width: 100%;
         word-break: break-word;
         font-weight: bold;
+        line-height: 19px;
     }
     .cart-product-factor-text input{
         width: 100%;
@@ -229,8 +230,8 @@
     /*برای سمت چپ*/
     .finalize-shopping {
         height: 55px;
-        margin: 12.5px 0px;
-        padding-right: 30px;
+        margin: 12.5px 0;
+        padding-right: 15px;
     }
 
     .cart-shopping-button {

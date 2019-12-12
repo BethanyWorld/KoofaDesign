@@ -49,7 +49,8 @@ function notify($content , $type ){
     iziToast.show({
         title: $content,
         color: $type, // blue, red, green, yellow
-        zindex: 9060,
+        zindex: 906000000000000000,
+        timeout:6000 ,
         position: 'topCenter'
     });
 }

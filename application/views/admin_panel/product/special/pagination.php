@@ -23,15 +23,6 @@ if ((isset($data) && !$data) || $data == NULL) { ?>
                 </a>
             </td>
             <td class="fit">
-                <a target="_blank"
-                   href="<?php echo base_url('Admin/Dashboard/Product/addSpecial/') . $item['ProductId']; ?>">
-                    <button type="button"
-                            class="btn btn-success btn-circle waves-effect waves-circle waves-float">
-                        <i class="material-icons">shop</i>
-                    </button>
-                </a>
-            </td>
-            <td class="fit">
                 <?php
                 $url = "";
                 switch ($item['ProductType']) {

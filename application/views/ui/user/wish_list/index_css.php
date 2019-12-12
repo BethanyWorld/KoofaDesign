@@ -39,9 +39,6 @@
     .margin-t-25{
         margin-top: 25px;
     }
-    .margin-b-mines-75{
-        margin-bottom: -75px;
-    }
     .padding-b-30{
         padding-bottom: 30px;
     }
@@ -210,7 +207,8 @@
         padding-left: 15px;
         padding-top: 5px;
         padding-bottom: 15px;
-        border-bottom: 1px solid red;
+        border-bottom: 1px solid #008717;
+        margin-bottom: 35px;
     }
     .profile-favorites-text{
         padding-top: 15px;
@@ -456,7 +454,7 @@
         min-height: 100px;
         border: 1px solid #009f4c;
         border-right: 20px solid #009f4c ;
-        padding-left: 0px;
+        padding-left: 0px;margin: 10px 0;
     }
     .profile-client-other-detail-div{
         height: 100px;

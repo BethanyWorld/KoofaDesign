@@ -315,6 +315,9 @@
                         <li <?php if(strpos($CI->uri->uri_string , 'Product/addDesignFreeSize') !== false) echo "class='active'"; ?>>
                             <a href="<?php echo base_url('Admin/Dashboard/Product/addDesignFreeSize'); ?>" class=" waves-effect waves-block">افزودن محصول طراحی با سایز دلخواه</a>
                         </li>
+                        <li <?php if(strpos($CI->uri->uri_string , 'Product/special') !== false) echo "class='active'"; ?>>
+                            <a href="<?php echo base_url('Admin/Dashboard/Product/special'); ?>" class="waves-effect waves-block">ویژه ها</a>
+                        </li>
                     </ul>
                 </li>
                 <li <?php echo $CI->uri->segment(3) == 'Material' ? 'class="active"' : '' ?> >

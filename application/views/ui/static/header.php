@@ -89,13 +89,13 @@ foreach ($menu as $data) {
                                             <span class="span-div span-login">
                                                 <?php
                                                 $userInfo = $this->session->userdata('UserLoginInfo')[0];
-                                                echo $userInfo['UserFirstName'] . " " . $userInfo['UserLastName']; ?>
+                                                echo $userInfo['UserFirstName'] . " " . $userInfo['UserLastName'];
+                                                ?>
                                             </span>
                                         </a>
                                     </li>
-
                                     <li class="col-md-6 text-center rightFloat like-div">
-                                        <a href="<?php echo base_url('Account/WishList'); ?>">
+                                        <a href="<?php echo base_url('User/Home/wishList'); ?>">
                                             <i class="fa fa-heart"></i>
                                             <span class="span-div">علاقه مندی ها</span>
                                         </a>
@@ -230,7 +230,10 @@ foreach ($menu as $data) {
                             <i class="fa fa-heart"></i>
                         </div>
                         <div class="col-md-3 col-xs-12 profile-public-desc-left-text-heart">
+                            <a href="<?php echo base_url('User/Home/wishList'); ?>">
                             <p>علاقه مندی ها</p>
+                            </a>
+
                         </div>
 
                         <div class="discount-login-image-div-close">

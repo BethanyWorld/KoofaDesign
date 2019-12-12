@@ -54,7 +54,6 @@ class Home extends CI_Controller{
         echo json_encode($result);
     }
 
-
     public function address(){
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'دفترچه آدرس ';
@@ -117,8 +116,36 @@ class Home extends CI_Controller{
         echo json_encode($result);
     }
 
-
-
+    public function wishList(){
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'محصولات مورد علاقه ';
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
+        $data['userWishList'] = $this->ModelUser->getWishList($userId);
+        $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
+        $this->load->view('ui/static/header', $data);
+        $this->load->view('ui/user/wish_list/index', $data);
+        $this->load->view('ui/user/wish_list/index_css');
+        $this->load->view('ui/user/wish_list/index_js');
+        $this->load->view('ui/static/footer');
+    }
+    public function doDeleteWishList()
+    {
+        $inputs = $this->input->post(NULL, TRUE);
+        $inputs = array_map(function ($v) {
+            return strip_tags($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return remove_invisible_characters($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return makeSafeInput($v);
+        }, $inputs);
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $inputs['inputUserId'] = $userId;
+        $result = $this->ModelUser->doDeleteWishList($inputs);
+        echo json_encode($result);
+    }
 
     public function doLogOut(){
         /* Unset Session Data To LogOut */

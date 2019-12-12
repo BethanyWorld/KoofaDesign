@@ -114,6 +114,35 @@ class ModelUser extends CI_Model{
         return $arr;
     }
 
+    public function getWishList($userId){
+        $this->db->select('*');
+        $this->db->from('user_wish_list');
+        $this->db->where(array(
+            'UserId' => $userId
+        ));
+        $data = $this->db->get()->result_array();
+        $wishList = array();
+        foreach ($data as $item) {
+            $this->db->select('*');
+            $this->db->from('product');
+            $this->db->where('ProductId', $item['ProductId']);
+            $wishList[] = $this->db->get()->result_array();
+        }
+        return $wishList;
+    }
+    public function doDeleteWishList($inputs){
+        $this->db->delete('user_wish_list' , array(
+            'UserId' => $inputs['inputUserId'],
+            'ProductId' => $inputs['inputProductId']
+        ));
+        $arr = array(
+            'type' => "green",
+            'content' => "حذف  با موفقیت انجام شد",
+            'success' => true
+        );
+        return $arr;
+    }
+
     public function doAddAddress($inputs)
     {
         $Array = array(
@@ -180,7 +209,5 @@ class ModelUser extends CI_Model{
             return $arr;
         }
     }
-
-
 }
 ?>

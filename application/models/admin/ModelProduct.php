@@ -24,6 +24,32 @@ class ModelProduct extends CI_Model{
             return false;
         }
     }
+    public function getSpecialProductByPagination($inputs){
+        $limit = $inputs['pageIndex'];
+        $start = ($limit - 1) * $this->config->item('defaultPageSize');
+        $end = $this->config->item('defaultPageSize');
+        $this->db->select('*');
+        $this->db->from('product');
+        $this->db->join('product_special_sale' , 'product.ProductId = product_special_sale.ProductId');
+        if($inputs['inputProductTitle'] != ''){
+            $this->db->like('ProductTitle',$inputs['inputProductTitle']);
+        }
+        $this->db->order_by('product.ProductId', 'DESC');
+        $tempDb = clone $this->db;
+        $result['count'] = $tempDb->get()->num_rows();
+        $this->db->limit($end,$start);
+        $query = $this->db->get()->result_array();
+        if (count($query) > 0) {
+            $result['data'] = $query;
+            $result['startPage'] = $start;
+            return $result;
+        } else {
+            $result['data'] = array();
+            $result['startPage'] = 0;
+            return $result;
+        }
+    }
+
     public function getProductByProductId($productId){
         $this->db->select('*');
         $this->db->from('product');

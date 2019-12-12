@@ -36,7 +36,6 @@ class Cart extends CI_Controller
         $this->load->view('ui/cart/index_js');
         $this->load->view('ui/static/footer');
     }
-
     public function addNormal($productId)
     {
         /* Get Items On Cart */
@@ -61,7 +60,6 @@ class Cart extends CI_Controller
         $this->session->set_userdata('cart', $this->uniqueArray($cartItems, 'productId'));
         redirect(base_url('Cart'));
     }
-
     public function addNormalUpload()
     {
         $data = $this->input->post(NULL, TRUE);
@@ -88,7 +86,6 @@ class Cart extends CI_Controller
         array_push($cartItems, $item);
         $this->session->set_userdata('cart', $this->uniqueArray($cartItems, 'productId'));
     }
-
     public function addDesignFixSize()
     {
         $data = $this->input->post(NULL, TRUE);
@@ -129,7 +126,6 @@ class Cart extends CI_Controller
         array_push($cartItems, $item);
         $this->session->set_userdata('cart', $this->uniqueArray($cartItems, 'productId'));
     }
-
     public function addDesignFreeSize()
     {
         $data = $this->input->post(NULL, TRUE);
@@ -150,7 +146,7 @@ class Cart extends CI_Controller
         $item['productHeight'] = $productHeight;
 
         if (ceil(($productHeight / 100)) != ($productHeight / 100)) {
-            $item['productHeight'] = ceil(($productHeight / 100));
+            $item['productHeight'] = ceil(($productHeight / 100))*100;
         }
 
         /**/
@@ -168,7 +164,6 @@ class Cart extends CI_Controller
         array_push($cartItems, $item);
         $this->session->set_userdata('cart', $this->uniqueArray($cartItems, 'productId'));
     }
-
     public function remove($productId)
     {
         $removeIndex = -1;
@@ -183,18 +178,28 @@ class Cart extends CI_Controller
             $cartItems = array_values($cartItems);
             $this->session->set_userdata('cart', $cartItems);
         }
-        var_dump($this->session->userdata('cart'));
     }
-
-    public function clear()
-    {
+    public function clear(){
         $this->session->set_userdata('cart', array());
     }
-
     public function show(){
         var_dump($this->session->userdata('cart'));
     }
-
+    public function updateCount(){
+        $inputs = $this->input->post(NULL, TRUE);
+        $inputs = array_map(function ($v) {return strip_tags($v);}, $inputs);
+        $inputs = array_map(function ($v) {return remove_invisible_characters($v);}, $inputs);
+        $inputs = array_map(function ($v) {return makeSafeInput($v);}, $inputs);
+        $newCount = $inputs['inputNewCount'];
+        $productId = $inputs['inputProductId'];
+        $cartItems = $this->session->userdata('cart');
+        for ($i = 0; $i < count($cartItems); $i++) {
+            if ($cartItems[$i]['productId'] == $productId) {
+                $cartItems[$i]['productCount'] = $newCount;
+            }
+        }
+        $this->session->set_userdata('cart' , $cartItems);
+    }
     public function uploadFile()
     {
         $inputs = $this->input->post(NULL, TRUE);
