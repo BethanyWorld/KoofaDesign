@@ -88,7 +88,6 @@ class ModelUser extends CI_Model{
         }
 
     }
-
     public function getUserAddressByUserId($userId)
     {
         $this->db->select('*');
@@ -136,7 +135,6 @@ class ModelUser extends CI_Model{
         $data = $this->db->get()->result_array();
         return $data;
     }
-
     public function doDeleteWishList($inputs){
         $this->db->delete('user_wish_list' , array(
             'UserId' => $inputs['inputUserId'],
@@ -149,7 +147,6 @@ class ModelUser extends CI_Model{
         );
         return $arr;
     }
-
     public function doAddAddress($inputs)
     {
         $Array = array(

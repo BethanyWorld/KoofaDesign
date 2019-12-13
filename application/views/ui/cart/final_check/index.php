@@ -129,7 +129,12 @@ $_DIR = base_url('assets/ui/'); ?>
                                                         <tbody>
                                                         <?php
                                                         foreach ($sendMethods as $item) {
+
                                                             if($item['OrderSendMethodId'] == $this->session->userdata('sendMethodId')){
+                                                                $array = array(
+                                                                    'sendMethodPrice' => $item['OrderSendMethodPrice']
+                                                                );
+                                                                $this->session->set_userdata($array);
                                                                 $totalPrice += $item['OrderSendMethodPrice'];
                                                                 ?>
                                                             <tr class="active">

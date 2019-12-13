@@ -10,14 +10,14 @@ class Cart extends CI_Controller{
         }
         $array = array_values($temp_array);
         return $array;
-    }
-    public function __construct()
+    }public function __construct()
     {
         parent::__construct();
         $this->load->model('ui/ModelProductCategory');
         $this->load->model('ui/ModelProduct');
         $this->load->model('admin/ModelMaterial');
         $this->load->model('admin/ModelSizes');
+        $this->load->model('admin/ModelOrder');
         $this->load->model('user/ModelUser');
         if ($this->session->userdata('cart') == null) {
             $this->session->set_userdata('cart', array());
@@ -278,7 +278,6 @@ class Cart extends CI_Controller{
     }
 
     public function payment(){
-        $this->session->userdata('cart');
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'اطلاعات ارسال ';
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
@@ -294,7 +293,6 @@ class Cart extends CI_Controller{
         $this->session->set_userdata('addressId' , $addressId);
     }
     public function sendMethod(){
-        $this->session->userdata('cart');
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'نحوه ارسال ';
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
@@ -311,7 +309,6 @@ class Cart extends CI_Controller{
         $this->session->set_userdata('sendMethodId' , $sendMethodId);
     }
     public function payMethod(){
-        $this->session->userdata('cart');
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'روش پرداخت ';
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
@@ -336,7 +333,86 @@ class Cart extends CI_Controller{
         $this->load->view('ui/cart/final_check/index_js');
         $this->load->view('ui/static/footer');
     }
-    
 
+    public function startPayment(){
+        $orderInfo = $this->session->userdata('cart');;
+        $inputs = array();
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $inputs['inputOrderUserId'] = $userId;
+        $inputs['inputOrderAddressId'] = $this->session->userdata('addressId');
+        $inputs['inputOrderSendMethodId'] = $this->session->userdata('addressId');
+        $inputs['inputOrderTotalPrice'] = $this->session->userdata('totalPrice');
+        $inputs['inputOrderSendMethodPrice'] = $this->session->userdata('sendMethodPrice');
+
+        $orderId = $this->ModelOrder->doAddOrder($inputs);
+
+
+        $this->ModelOrder->doAddOrderItems($orderInfo , $orderId);
+        /*$this->load->helper('payment/zarinpal/nusoap');
+        $MerchantID = '2e809336-c5d4-11e6-8edd-000c295eb8fc';
+        $Description = 'خرید اعتبار از درگاه';
+        $CallbackURL = base_url('Employer/Dashboard/Credit/endPayment');
+        $client = new nusoap_client('https://www.zarinpal.com/pg/services/WebGate/wsdl', 'wsdl');
+        $client->soap_defencoding = 'UTF-8';
+        $result = $client->call('PaymentRequest', [
+            [
+                'MerchantID' => $MerchantID,
+                'Amount' => 100,
+                'Description' => $Description,
+                'Email' => 'info@koofadesign.ir',
+                'CallbackURL' => $CallbackURL,
+            ],
+        ]);
+        if ($result['Status'] == 100) {
+            header('Location: https://www.zarinpal.com/pg/StartPay/' . $result['Authority']);
+        } else {
+            $CallbackURL = base_url('Employer/Dashboard/Credit/add?'.$result['Status']);
+            header('Location: ' . $CallbackURL);
+        }*/
+    }
+    public function endPayment()
+    {
+        $orderInfo = $this->session->userdata('CreditPaymentInfo');
+        if(isset($orderInfo) && !empty($orderInfo)) {
+            $this->load->helper('payment/zarinpal/nusoap');
+            $MerchantID = '2e809336-c5d4-11e6-8edd-000c295eb8fc';
+            $Amount = $orderInfo['CreditPrice'];
+            $Authority = $_GET['Authority'];
+            if ($_GET['Status'] == 'OK') {
+                $client = new nusoap_client('https://www.zarinpal.com/pg/services/WebGate/wsdl', 'wsdl');
+                $client->soap_defencoding = 'UTF-8';
+                $result = $client->call('PaymentVerification', [
+                    [
+                        'MerchantID' => $MerchantID,
+                        'Authority' => $Authority,
+                        'Amount' => $Amount,
+                    ],
+                ]);
+                if ($result['Status'] == 100) {
+                    $data['success'] = true;
+                    $this->ModelCredit->setOrderPaid($orderInfo);
+                    $this->ModelCredit->doUpdateEmployerCredit($orderInfo);
+                    $this->session->unset_userdata($orderInfo);
+                } else {
+                    $data['success'] = false;
+                    $this->ModelCredit->setOrderFailed($orderInfo);
+                }
+            } else {
+                $data['success'] = false;
+                $this->ModelCredit->setOrderUnpaid($orderInfo);
+            }
+            $data['result'] = $this->ModelCredit->getCreditByPaymentId($orderInfo['CreditPaymentId']);
+            $this->session->unset_userdata('CreditPaymentInfo');
+        }
+        else{
+            $data['result'] = NULL;
+        }
+        $data['pageTitle'] = 'نتیجه خرید اعتبار';
+        $this->load->view('employer_panel/static/header', $data);
+        $this->load->view('employer_panel/credit/result/index', $data);
+        $this->load->view('employer_panel/credit/result/index_css');
+        $this->load->view('employer_panel/credit/result/index_js');
+        $this->load->view('employer_panel/static/footer');
+    }
 
 }
