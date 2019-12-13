@@ -27,10 +27,12 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-xs-12 finalize-shopping">
-                    <button class="btn cart-shopping-button">
-                        خرید خود را نهایی کنید
-                        <span class="fa fa-shopping-basket pull-left"></span>
-                    </button>
+                    <a href="<?php echo base_url('Cart/payment'); ?>">
+                        <button class="btn cart-shopping-button">
+                            خرید خود را نهایی کنید
+                            <span class="fa fa-shopping-basket pull-left"></span>
+                        </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -194,10 +196,13 @@
                             </p>
                         </div>
                         <div class="col-md-12 col-xs-12 cart-left-panel-button">
-                            <button class="btn cart-shopping-button">
-                                خرید خود را نهایی کنید
-                                <span class="fa fa-shopping-basket pull-left"></span>
-                            </button>
+
+                            <a href="<?php echo base_url('Cart/payment'); ?>">
+                                <button class="btn cart-shopping-button">
+                                    خرید خود را نهایی کنید
+                                    <span class="fa fa-shopping-basket pull-left"></span>
+                                </button>
+                            </a>
                         </div>
                         <div class="col-md-12 col-xs-12 cart-text-shipping-cost">
                             <p>براساس محل و پیگیری ارسال و تحویل سفارش امکان افزوده شدن هزینه ارسال وجود دارد.</p>

@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Cart extends CI_Controller
-{
+class Cart extends CI_Controller{
     protected function uniqueArray($array, $key)
     {
         $temp_array = [];
@@ -13,7 +11,6 @@ class Cart extends CI_Controller
         $array = array_values($temp_array);
         return $array;
     }
-
     public function __construct()
     {
         parent::__construct();
@@ -21,6 +18,7 @@ class Cart extends CI_Controller
         $this->load->model('ui/ModelProduct');
         $this->load->model('admin/ModelMaterial');
         $this->load->model('admin/ModelSizes');
+        $this->load->model('user/ModelUser');
         if ($this->session->userdata('cart') == null) {
             $this->session->set_userdata('cart', array());
         }
@@ -278,5 +276,67 @@ class Cart extends CI_Controller
             die();
         }
     }
+
+    public function payment(){
+        $this->session->userdata('cart');
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'اطلاعات ارسال ';
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
+        $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
+        $this->load->view('ui/static/header', $data);
+        $this->load->view('ui/cart/payment/index', $data);
+        $this->load->view('ui/cart/payment/index_css');
+        $this->load->view('ui/cart/payment/index_js');
+        $this->load->view('ui/static/footer');
+    }
+    public function updateAddressId($addressId){
+        $this->session->set_userdata('addressId' , $addressId);
+    }
+    public function sendMethod(){
+        $this->session->userdata('cart');
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'نحوه ارسال ';
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
+        $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
+        $data['sendMethods'] = $this->ModelUser->getSendMethods();
+        $this->load->view('ui/static/header', $data);
+        $this->load->view('ui/cart/send_method/index', $data);
+        $this->load->view('ui/cart/send_method/index_css');
+        $this->load->view('ui/cart/send_method/index_js');
+        $this->load->view('ui/static/footer');
+    }
+    public function updateSendMethodId($sendMethodId){
+        $this->session->set_userdata('sendMethodId' , $sendMethodId);
+    }
+    public function payMethod(){
+        $this->session->userdata('cart');
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'روش پرداخت ';
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
+        $this->load->view('ui/static/header', $data);
+        $this->load->view('ui/cart/pay_method/index', $data);
+        $this->load->view('ui/cart/pay_method/index_css');
+        $this->load->view('ui/cart/pay_method/index_js');
+        $this->load->view('ui/static/footer');
+    }
+    public function finalCheck(){
+        $this->session->userdata('cart');
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'بازبینی سفارش ';
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
+        $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
+        $data['sendMethods'] = $this->ModelUser->getSendMethods();
+        $this->load->view('ui/static/header', $data);
+        $this->load->view('ui/cart/final_check/index', $data);
+        $this->load->view('ui/cart/final_check/index_css');
+        $this->load->view('ui/cart/final_check/index_js');
+        $this->load->view('ui/static/footer');
+    }
+    
+
 
 }

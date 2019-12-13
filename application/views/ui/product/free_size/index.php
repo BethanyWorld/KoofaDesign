@@ -1,6 +1,7 @@
-<?php $_URL = base_url(); $_DIR = base_url('assets/ui/');  ?>
+<?php $_URL = base_url();
+$_DIR = base_url('assets/ui/'); ?>
 
-<link rel="stylesheet" href="<?php echo $_DIR; ?>css/product-detail.css" />
+<link rel="stylesheet" href="<?php echo $_DIR; ?>css/product-detail.css"/>
 <div id="main" style="min-height: 100vh;">
     <div class="row">
         <div class="container first-container-m-b">
@@ -40,11 +41,11 @@
                             <select class="width100" id="priceDropDown">
                                 <?php foreach ($productPrice as $item) { ?>
                                     <option
-                                            data-material-id="<?php  echo $item['MaterialId']; ?>"
-                                            data-price="<?php  echo $item['PriceValue']; ?>">
+                                            data-material-id="<?php echo $item['MaterialId']; ?>"
+                                            data-price="<?php echo $item['PriceValue']; ?>">
                                         جنس
                                         &nbsp;
-                                        <?php  echo $item['MaterialTitle']; ?>
+                                        <?php echo $item['MaterialTitle']; ?>
                                     </option>
                                 <?php } ?>
                             </select>
@@ -53,12 +54,14 @@
                     <div class="col-xs-12 product-detail-Flax margin-b-10 padding-0">
                         <div class="product-size pull-right col-md-6 col-xs-12">
                             <label>ارتفاع</label>
-                            <input id="inputProductHeight" type="number" min="0" max="<?php echo $data['ProductMaxHeight']; ?>" />
+                            <input id="inputProductHeight" type="number" min="0"
+                                   max="<?php echo $data['ProductMaxHeight']; ?>"/>
                         </div>
-<!--                        <span class="pull-right"> &nbsp;&nbsp; &nbsp;&nbsp;</span>-->
+                        <!--                        <span class="pull-right"> &nbsp;&nbsp; &nbsp;&nbsp;</span>-->
                         <div class="product-size pull-right col-md-6 col-xs-12 text-left">
                             <label>عرض</label>
-                            <input id="inputProductWidth" type="number" min="0" max="<?php echo $data['ProductMaxWidth']; ?>" />
+                            <input id="inputProductWidth" type="number" min="0"
+                                   max="<?php echo $data['ProductMaxWidth']; ?>"/>
                         </div>
                     </div>
                     <div class="col-md-12 col-xs-12 padding-0 product-detail-pn">
@@ -78,29 +81,19 @@
                             <div class="col-md-3 col-xs-2 rightFloat shopping-basket">
                                 <span class="fa fa-shopping-basket"></span>
                             </div>
-
-                            <?php if ($this->session->userdata('UserIsLogged')) { ?>
-                                <div class="col-md-9 col-xs-10 basket-added">
-                                    <a id="addToCart" data-product-id="<?php echo $data['ProductId']; ?>"
-                                       href="javascript:void(0)"
-                                       class="color-white">
-                                        <p>افزودن به سبد خرید</p>
-                                    </a>
-                                </div>
-                            <?php } else { ?>
-                                <div class="col-md-9 col-xs-10 basket-added">
-                                    <a target="_blank"
-                                       class="color-white"
-                                       href="<?php echo base_url('Account/login') ?>">
-                                        <p>افزودن به سبد خرید</p>
-                                    </a>
-                                </div>
-                            <?php } ?>
+                            <div class="col-md-9 col-xs-10 basket-added">
+                                <a id="addToCart" data-product-id="<?php echo $data['ProductId']; ?>"
+                                   href="javascript:void(0)"
+                                   class="color-white">
+                                    <p>افزودن به سبد خرید</p>
+                                </a>
+                            </div>
                         </div>
 
                         <div class="col-md-1 col-xs-12 rightFloat"></div>
 
-                        <div class="col-md-6 col-xs-12 rightFloat padding-0 add-like-div" data-product-id="<?php echo $data['ProductId']; ?>">
+                        <div class="col-md-6 col-xs-12 rightFloat padding-0 add-like-div"
+                             data-product-id="<?php echo $data['ProductId']; ?>">
                             <div class="col-md-3 col-xs-2 rightFloat add-like-heart">
                                 <span class="fa fa-heart-o"></span>
                             </div>
@@ -112,7 +105,8 @@
                             <div class="col-xs-12">
                                 <br>
                                 <div class="col-xs-12 alert alert-info">
-                                    در صورت نیاز ابتدا طرح دلخواه مورد نظر را انتخاب کرده سپس محصول را به سبد خرید اضافه کنید
+                                    در صورت نیاز ابتدا طرح دلخواه مورد نظر را انتخاب کرده سپس محصول را به سبد خرید اضافه
+                                    کنید
                                 </div>
                                 <div class="col-xs-12 padding-0">
                                     <div class="box">
@@ -120,14 +114,14 @@
                                             <label>
                                                 <span>آپلود طرح دلخواه</span>
                                                 <span class="fa fa-upload"></span>
-                                                <input type="file" class="image-upload" id="inputAttachment" />
+                                                <input type="file" class="image-upload" id="inputAttachment"/>
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 upload-image-container">
                                     <i id="remove-upload-file" class="fa fa-times"></i>
-                                    <img id="upload-image" src="" />
+                                    <img id="upload-image" src=""/>
                                 </div>
                             </div>
                         </div>
@@ -172,28 +166,30 @@
                                 </li>
                             </ul>
                         </div>
-<!--                        <h2 class="product-code">CODE: KFB3587</h2>-->
+                        <!--                        <h2 class="product-code">CODE: KFB3587</h2>-->
                     </div>
                     <div class="col-md-12 col-xs-12 product-slider">
                         <div class="col-md-12 col-sm-12 col-xs-12 padding-0" id="product-slider">
                             <div class="outer">
                                 <div id="big" class="owl-carousel owl-theme">
                                     <div class="item">
-                                        <img src="<?php echo $data['ProductPrimaryImage']; ?>" height="100%" width="100%"/>
+                                        <img src="<?php echo $data['ProductPrimaryImage']; ?>" height="100%"
+                                             width="100%"/>
                                     </div>
                                     <?php foreach ($productSecondaryImages as $productSecondaryImage) { ?>
                                         <div class="item">
-                                            <img src="<?php echo $productSecondaryImage['MediaUrl']; ?>" height="100%" width="100%"/>
+                                            <img src="<?php echo $productSecondaryImage['MediaUrl']; ?>" height="100%"
+                                                 width="100%"/>
                                         </div>
                                     <?php } ?>
                                 </div>
                                 <div id="thumbs" class="owl-carousel owl-theme">
                                     <div class="item">
-                                        <img src="<?php echo $data['ProductPrimaryImage']; ?>" />
+                                        <img src="<?php echo $data['ProductPrimaryImage']; ?>"/>
                                     </div>
                                     <?php foreach ($productSecondaryImages as $productSecondaryImage) { ?>
                                         <div class="item">
-                                            <img src="<?php echo $productSecondaryImage['MediaUrl']; ?>" />
+                                            <img src="<?php echo $productSecondaryImage['MediaUrl']; ?>"/>
                                         </div>
                                     <?php } ?>
                                 </div>
@@ -203,7 +199,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-12 col-xs-12 padding-0 second-container-m-b" style="min-height: 300px;background-color: #fff;border-top: 1px solid gray;">
+        <div class="col-md-12 col-xs-12 padding-0 second-container-m-b"
+             style="min-height: 300px;background-color: #fff;border-top: 1px solid gray;">
             <div class="col-md-12 col-xs-12 p-b-15">
                 <div class="container">
 

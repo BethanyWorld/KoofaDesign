@@ -130,6 +130,13 @@ class ModelUser extends CI_Model{
         }
         return $wishList;
     }
+    public function getSendMethods(){
+        $this->db->select('*');
+        $this->db->from('orders_sending_method');
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
+
     public function doDeleteWishList($inputs){
         $this->db->delete('user_wish_list' , array(
             'UserId' => $inputs['inputUserId'],

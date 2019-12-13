@@ -49,22 +49,12 @@ $_DIR = base_url('assets/ui/'); ?>
                             <div class="col-md-3 col-xs-2 rightFloat shopping-basket">
                                 <span class="fa fa-shopping-basket"></span>
                             </div>
-                            <?php if ($this->session->userdata('UserIsLogged')) { ?>
                                 <div class="col-md-9 col-xs-10 basket-added">
                                     <a href="<?php echo base_url('Cart/addNormal/'.$data['ProductId']); ?>"
                                        class="color-white">
                                         <p>افزودن به سبد خرید</p>
                                     </a>
                                 </div>
-                            <?php } else { ?>
-                                <div class="col-md-9 col-xs-10 basket-added">
-                                    <a target="_blank"
-                                       class="color-white"
-                                       href="<?php echo base_url('Account/login') ?>">
-                                        <p>افزودن به سبد خرید</p>
-                                    </a>
-                                </div>
-                            <?php } ?>
                         </div>
 
                         <div class="col-md-1 col-xs-12 rightFloat"></div>
