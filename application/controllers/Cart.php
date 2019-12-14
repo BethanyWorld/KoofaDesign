@@ -335,7 +335,7 @@ class Cart extends CI_Controller{
     }
 
     public function startPayment(){
-        $orderInfo = $this->session->userdata('cart');;
+        $orderInfo = $this->session->userdata('cart');
         $inputs = array();
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
         $inputs['inputOrderUserId'] = $userId;
@@ -345,13 +345,13 @@ class Cart extends CI_Controller{
         $inputs['inputOrderSendMethodPrice'] = $this->session->userdata('sendMethodPrice');
 
         $orderId = $this->ModelOrder->doAddOrder($inputs);
-
-
         $this->ModelOrder->doAddOrderItems($orderInfo , $orderId);
-        /*$this->load->helper('payment/zarinpal/nusoap');
+        $this->session->set_userdata('OrderId' , $orderId);
+
+        $this->load->helper('payment/zarinpal/nusoap');
         $MerchantID = '2e809336-c5d4-11e6-8edd-000c295eb8fc';
         $Description = 'خرید اعتبار از درگاه';
-        $CallbackURL = base_url('Employer/Dashboard/Credit/endPayment');
+        $CallbackURL = base_url('Cart/endPayment');
         $client = new nusoap_client('https://www.zarinpal.com/pg/services/WebGate/wsdl', 'wsdl');
         $client->soap_defencoding = 'UTF-8';
         $result = $client->call('PaymentRequest', [
@@ -366,17 +366,18 @@ class Cart extends CI_Controller{
         if ($result['Status'] == 100) {
             header('Location: https://www.zarinpal.com/pg/StartPay/' . $result['Authority']);
         } else {
-            $CallbackURL = base_url('Employer/Dashboard/Credit/add?'.$result['Status']);
+            $CallbackURL = base_url('Cart/endPayment?error=true');
             header('Location: ' . $CallbackURL);
-        }*/
+        }
     }
     public function endPayment()
     {
-        $orderInfo = $this->session->userdata('CreditPaymentInfo');
-        if(isset($orderInfo) && !empty($orderInfo)) {
+        $totalPrice = $this->session->userdata('totalPrice');
+        $orderId = $this->session->userdata('OrderId');
+        if(isset($orderId) && !empty($orderId)) {
             $this->load->helper('payment/zarinpal/nusoap');
             $MerchantID = '2e809336-c5d4-11e6-8edd-000c295eb8fc';
-            $Amount = $orderInfo['CreditPrice'];
+            $Amount = 100;//$totalPrice;
             $Authority = $_GET['Authority'];
             if ($_GET['Status'] == 'OK') {
                 $client = new nusoap_client('https://www.zarinpal.com/pg/services/WebGate/wsdl', 'wsdl');
@@ -390,29 +391,31 @@ class Cart extends CI_Controller{
                 ]);
                 if ($result['Status'] == 100) {
                     $data['success'] = true;
-                    $this->ModelCredit->setOrderPaid($orderInfo);
-                    $this->ModelCredit->doUpdateEmployerCredit($orderInfo);
-                    $this->session->unset_userdata($orderInfo);
+                    $this->ModelOrder->setOrderPaid($orderId);
+                    $this->session->unset_userdata('OrderId');
+                    $this->session->unset_userdata('cart');
+                    $this->session->unset_userdata('totalPrice');
                 } else {
                     $data['success'] = false;
-                    $this->ModelCredit->setOrderFailed($orderInfo);
+                    $this->ModelOrder->setOrderFailed($orderId);
                 }
             } else {
                 $data['success'] = false;
-                $this->ModelCredit->setOrderUnpaid($orderInfo);
+                $this->ModelOrder->setOrderUnpaid($orderId);
             }
-            $data['result'] = $this->ModelCredit->getCreditByPaymentId($orderInfo['CreditPaymentId']);
-            $this->session->unset_userdata('CreditPaymentInfo');
         }
         else{
-            $data['result'] = NULL;
+            $data['success'] = false;
         }
-        $data['pageTitle'] = 'نتیجه خرید اعتبار';
-        $this->load->view('employer_panel/static/header', $data);
-        $this->load->view('employer_panel/credit/result/index', $data);
-        $this->load->view('employer_panel/credit/result/index_css');
-        $this->load->view('employer_panel/credit/result/index_js');
-        $this->load->view('employer_panel/static/footer');
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'نتیجه پرداخت ';
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
+        $this->load->view('ui/static/header', $data);
+        $this->load->view('ui/cart/result/index', $data);
+        $this->load->view('ui/cart/result/index_css');
+        $this->load->view('ui/cart/result/index_js');
+        $this->load->view('ui/static/footer');
     }
 
 }

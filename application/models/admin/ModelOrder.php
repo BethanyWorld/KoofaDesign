@@ -1,5 +1,7 @@
 <?php
-class ModelOrder extends CI_Model{
+
+class ModelOrder extends CI_Model
+{
     public function getAllOrders($limit = 1)
     {
         $start = ($limit - 1) * $this->config->item('defaultPageSize');
@@ -18,6 +20,7 @@ class ModelOrder extends CI_Model{
             return false;
         }
     }
+
     public function getOrderByOrderId($brandId){
         $this->db->select('*');
         $this->db->from('orders');
@@ -38,7 +41,7 @@ class ModelOrder extends CI_Model{
         $this->db->insert('orders', $Array);
         return $this->db->insert_id();
     }
-    public function doAddOrderItems($inputs , $orderId){
+    public function doAddOrderItems($inputs, $orderId){
         foreach ($inputs as $input) {
             $Array = array(
                 'OrderId' => $orderId,
@@ -55,6 +58,33 @@ class ModelOrder extends CI_Model{
             );
             $this->db->insert('order_items', $Array);
         }
+    }
+
+    public function setOrderPaid($orderId){
+        $Array = array(
+            'OrderId' => $orderId,
+            'OrderStatus' => 'Done',
+        );
+        $this->db->where('OrderId', $orderId);
+        $this->db->update('orders', $Array);
+    }
+
+    public function setOrderFailed($orderId){
+        $Array = array(
+            'OrderId' => $orderId,
+            'OrderStatus' => 'Failed',
+        );
+        $this->db->where('OrderId', $orderId);
+        $this->db->update('orders', $Array);
+    }
+
+    public function setOrderUnpaid($orderId){
+        $Array = array(
+            'OrderId' => $orderId,
+            'OrderStatus' => 'Pend',
+        );
+        $this->db->where('OrderId', $orderId);
+        $this->db->update('orders', $Array);
     }
 
 }
