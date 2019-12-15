@@ -241,7 +241,7 @@ foreach ($menu as $data) {
                         </div>
                         <div class="col-md-2 col-xs-12 profile-public-desc-left-text-heart">
                             <a href="<?php echo base_url('User/Home/doLogOut'); ?>">
-                                <p>خروچ</p>
+                                <p>خروج</p>
                             </a>
                         </div>
                     </div>
