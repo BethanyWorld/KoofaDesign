@@ -111,7 +111,7 @@
         border: none;
     }
     .profile-public-desc-left-div {
-        min-height: 100px;
+        min-height: 663px;
         border: 1px solid #ccc;
         background-color: #fff;
         padding-right: 0px;

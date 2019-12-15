@@ -36,34 +36,34 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                     <div class="index-tools-top">
                         <div class="index-enamad">
-                            <img src="<?php echo $_DIR; ?>images/image-slider-garentee.png" id="image-guarantee"
+                            <img src="<?php echo $_DIR; ?>images/bannerrr1.jpg" id="image-guarantee"
                                  alt="نماد الکترونیک"/>
                         </div>
                         <div class="index-banner">
                             <a href="http://www.koofa.ir/hand_in_hand_with_earth">
-                                <img src="<?php echo $_DIR; ?>images/banner_2.jpg"/>
+                                <img src="<?php echo $_DIR; ?>images/bannerr22.jpg"/>
                             </a>
                         </div>
                     </div>
                     <div class="index-product-extra">
                         <div class="item item_1">
                             <a href="">
-                                <span>ضمانت بازگشت</span>
+                                <span>7روز ضمانت بازگشت</span>
                             </a>
                         </div>
                         <div class="item item_2">
                             <a href="">
-                                <span>ضمانت بازگشت</span>
+                                <span>تحویل اکسپرس</span>
                             </a>
                         </div>
                         <div class="item item_3">
                             <a href="">
-                                <span>ضمانت بازگشت</span>
+                                <span>منحصربه فردخرید کنید</span>
                             </a>
                         </div>
                         <div class="item item_2">
                             <a href="">
-                                <span>ضمانت بازگشت</span>
+                                <span>تضمین اصالت مالا</span>
                             </a>
                         </div>
                     </div>
@@ -76,7 +76,7 @@ $_DIR = base_url('assets/ui/'); ?>
             <div class="col-md-12 col-xs-12">
                 <ul class="body-guarantee">
                     <li class="col-md-3 col-xs-3">
-                        <img src="<?php echo $_DIR; ?>images/delivery1.png" height="20" width="20"/>
+                        <img src="<?php echo $_DIR; ?>images/product_extra_1.png" height="20" width="20"/>
                         <a href="">ضمانت بازگشت</a>
                     </li>
                     <li class="col-md-3 col-xs-3">
@@ -88,7 +88,7 @@ $_DIR = base_url('assets/ui/'); ?>
                         <a href="">پرداخـت در محل</a>
                     </li>
                     <li class="col-md-3 col-xs-3">
-                        <img src="<?php echo $_DIR; ?>images/delivery1.png" height="20" width="20"/>
+                        <img src="<?php echo $_DIR; ?>images/product_extra_3.png" height="20" width="20"/>
                         <a href="">تضمین ضمانت</a>
                     </li>
                 </ul>

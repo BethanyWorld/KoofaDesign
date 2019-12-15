@@ -60,11 +60,11 @@
         float: right;
     }
 
-    .discount-login-image-div i {
-        color: #8dc63f;
-        font-size: 25px;
-        padding: 3px;
-    }
+    /*.discount-login-image-div i {*/
+    /*    color: #8dc63f;*/
+    /*    font-size: 25px;*/
+    /*    padding: 3px;*/
+    /*}*/
 
     .discount-login-image-div-heart {
         height: 35px;
