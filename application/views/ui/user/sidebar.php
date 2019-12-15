@@ -12,7 +12,7 @@
                 <a href="<?php echo base_url('User/Home/wishList'); ?>">محصولات مورد علاقه</a>
             </li>
             <li>
-                <a href="">سفارش ها</a>
+                <a href="<?php echo base_url('User/Home/orders'); ?>">سفارش ها</a>
             </li>
             <li>
                 <a href="">نظرات</a>

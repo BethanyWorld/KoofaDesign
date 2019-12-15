@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller{
+
     public function __construct(){
         parent::__construct();
         $this->load->helper('user/user_login');
@@ -145,6 +146,36 @@ class Home extends CI_Controller{
         $inputs['inputUserId'] = $userId;
         $result = $this->ModelUser->doDeleteWishList($inputs);
         echo json_encode($result);
+    }
+
+    public function orders(){
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'سفارش ها ';
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
+        $data['orders'] = $this->ModelUser->getUserOrdersByUserId($userId);
+        $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
+
+        $this->load->view('ui/static/header', $data);
+        $this->load->view('ui/user/orders/index', $data);
+        $this->load->view('ui/user/orders/index_css');
+        $this->load->view('ui/user/orders/index_js');
+        $this->load->view('ui/static/footer');
+    }
+    public function orderDetail($orderId){
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'جزئیات سفارش ';
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
+        $data['orderInfo'] = $this->ModelUser->getUserOrdersByOrderId($orderId);
+        $data['orderItems'] = $this->ModelUser->getUserOrdersItemsByOrderId($orderId);
+        $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
+
+        $this->load->view('ui/static/header', $data);
+        $this->load->view('ui/user/order_detail/index', $data);
+        $this->load->view('ui/user/order_detail/index_css');
+        $this->load->view('ui/user/order_detail/index_js');
+        $this->load->view('ui/static/footer');
     }
 
     public function doLogOut(){

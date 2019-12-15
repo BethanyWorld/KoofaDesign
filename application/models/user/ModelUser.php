@@ -213,5 +213,36 @@ class ModelUser extends CI_Model{
             return $arr;
         }
     }
+
+    public function getUserOrdersByUserId($userId){
+        $this->db->select('*');
+        $this->db->from('orders');
+        $this->db->where(array(
+            'OrderUserId' => $userId
+        ));
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
+    public function getUserOrdersByOrderId($orderId){
+        $this->db->select('*');
+        $this->db->from('orders');
+        $this->db->where(array(
+            'OrderId' => $orderId
+        ));
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
+    public function getUserOrdersItemsByOrderId($orderId){
+        $this->db->select('*');
+        $this->db->from('order_items');
+        $this->db->join('product' , 'order_items.ProductId = product.ProductId');
+        $this->db->where(array(
+            'OrderId' => $orderId
+        ));
+        $data = $this->db->get()->result_array();
+        return $data;
+    }
+
+
 }
 ?>
