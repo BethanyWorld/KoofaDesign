@@ -407,6 +407,7 @@ class Cart extends CI_Controller{
         else{
             $data['success'] = false;
         }
+        $data['result'] = $result;
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'نتیجه پرداخت ';
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];

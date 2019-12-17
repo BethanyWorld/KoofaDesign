@@ -2,12 +2,26 @@
 
 class ModelOrder extends CI_Model
 {
-    public function getAllOrders($limit = 1)
+    public function getAllOrders($inputs)
     {
+
+        $limit = $inputs['pageIndex'];
         $start = ($limit - 1) * $this->config->item('defaultPageSize');
         $end = $this->config->item('defaultPageSize');
         $this->db->select('*');
         $this->db->from('orders');
+        $this->db->join('user' , 'orders.OrderUserId = user.UserId');
+
+        if($inputs['inputOrderId'] != ''){
+            $this->db->where('OrderId',$inputs['inputOrderId']);
+        }
+        if($inputs['inputPhone'] != ''){
+            $this->db->where('UserPhone',$inputs['inputPhone']);
+        }
+        if($inputs['inputLastName'] != ''){
+            $this->db->like('UserLastName',$inputs['inputLastName']);
+        }
+
         $this->db->order_by('OrderId', 'ASC');
         $this->db->limit($end, $start);
         $query = $this->db->get()->result_array();
@@ -17,17 +31,28 @@ class ModelOrder extends CI_Model
             $result['count'] = $queryCount;
             return $result;
         } else {
-            return false;
+            $result['data'] = array();
+            $result['count'] = 0;
+            return $result;
         }
     }
-
     public function getOrderByOrderId($brandId){
         $this->db->select('*');
         $this->db->from('orders');
+        $this->db->join('user' , 'orders.OrderUserId = user.UserId');
         $this->db->where('OrderId', $brandId);
         $query = $this->db->get()->result_array();
         return $query;
     }
+    public function getOrderItemsByOrderId($brandId){
+        $this->db->select('*');
+        $this->db->from('order_items');
+        $this->db->join('product' , 'order_items.ProductId = product.ProductId');
+        $this->db->where('OrderId', $brandId);
+        $query = $this->db->get()->result_array();
+        return $query;
+    }
+
     public function doAddOrder($inputs){
         $Array = array(
             'OrderUserId' => $inputs['inputOrderUserId'],
@@ -59,7 +84,6 @@ class ModelOrder extends CI_Model
             $this->db->insert('order_items', $Array);
         }
     }
-
     public function setOrderPaid($orderId){
         $Array = array(
             'OrderId' => $orderId,
@@ -68,7 +92,6 @@ class ModelOrder extends CI_Model
         $this->db->where('OrderId', $orderId);
         $this->db->update('orders', $Array);
     }
-
     public function setOrderFailed($orderId){
         $Array = array(
             'OrderId' => $orderId,
@@ -77,7 +100,6 @@ class ModelOrder extends CI_Model
         $this->db->where('OrderId', $orderId);
         $this->db->update('orders', $Array);
     }
-
     public function setOrderUnpaid($orderId){
         $Array = array(
             'OrderId' => $orderId,

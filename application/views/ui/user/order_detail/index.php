@@ -28,8 +28,6 @@ $_DIR = base_url('assets/ui/'); ?>
                             <?php } ?>
                         </tbody>
                     </table>
-
-
                     <div class="col-xs-12 RightFloat padding-0">
 
                         <?php
