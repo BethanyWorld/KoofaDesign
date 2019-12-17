@@ -8,11 +8,11 @@
         margin-bottom: -1px;
 
     }
-    .time{
+    #demo{
         font-size: 25px;
         color: #000;
         font-family: monospace;
-        letter-spacing: 4px;
+        letter-spacing: 2px;
         font-weight: bold;
     }
 </style>
