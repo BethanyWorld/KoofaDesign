@@ -10,6 +10,7 @@ if ((isset($data) && !$data) || $data == NULL) { ?>
             <td class="fit"><?php echo $item['OrderId']; ?></td>
             <td class="fit"><?php echo $item['UserPhone']; ?></td>
             <td class="fit"><?php echo number_format($item['OrderTotalPrice']); ?></td>
+            <td class="fit"><?php echo orderStatusPipe($item['OrderStatus']); ?></td>
             <td class="fit">
                 <a href="<?php echo base_url('Admin/Dashboard/Orders/detail/') . $item['OrderId']; ?>">
                     <button type="button"

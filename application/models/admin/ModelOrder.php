@@ -71,7 +71,7 @@ class ModelOrder extends CI_Model
             $Array = array(
                 'OrderId' => $orderId,
                 'ProductId' => $input['productId'],
-                'ProductQuantity' => $input['productCount'],
+                'ProductCount' => $input['productCount'],
                 'ProductPrice' => $input['productPrice'],
                 'ProductUploadImage' => $input['productUploadImage'],
                 'ProductMaterialId' => $input['productMaterialId'],
