@@ -622,11 +622,11 @@
     }
     /*for social*/
     .profile-detail-pic-div{
-        border: 10px solid red;
+        border: 10px solid #B23941;
         height: 300px;
     }
     .profile-product-detail-delete-btn button{
-        background-color: red;
+        background-color: #B23941;
         color: #fff;
         width: 100px;
         padding-top: 5px;

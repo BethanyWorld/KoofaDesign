@@ -91,7 +91,7 @@ $_DIR = base_url('assets/ui/'); ?>
                         <p>لطفا مجددا اقدام نمایید</p>
                     </div>
                     <div class="col-md-12 col-xs-12 padding-0 margin-t-10">
-                        <div class="col-md-4 col-md-offset-4 padding-0 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3">
+                        <div class="col-md-4 col-md-offset-4 padding-0 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 text-center">
                            <a href="<?php echo base_url('Cart'); ?>">
                                <button class="btn discount-button">بازگشت به سبد خرید</button>
                            </a>
@@ -127,39 +127,39 @@ $_DIR = base_url('assets/ui/'); ?>
                 <div class="col-md-12 col-xs-12 ">
                     <div class="col-md-2 col-xs-2 common-box-style">
                         <div class="col-md-12 col-xs-12">
-                            <img src="<?php echo $_DIR; ?>images/delivery2.png" height="60" width="60"/>
+                            <img src="<?php echo $_DIR; ?>images/icon_5.png" height="60" width="60"/>
                         </div>
                         <div class="col-md-8 col-md-offset-2 col-xs-12 padding-0">
-                            <p>مناسبهایتان را با کوفا شگفت انگیز کنید</p>
+                            <p>زمان را ذخیره کنید و پاک ترتنفس کنید</p>
                         </div>
                     </div>
                     <div class="col-md-2 col-xs-2  common-box-style">
                         <div class="col-md-12 col-xs-12">
-                            <img src="<?php echo $_DIR; ?>images/delivery3.png" height="60" width="60"/>
+                            <img src="<?php echo $_DIR; ?>images/icon_4.png" height="60" width="60"/>
                         </div>
                         <div class="col-md-8 col-md-offset-2 col-xs-12 padding-0">
-                            <p>مناسبهایتان را با کوفا شگفت انگیز کنید</p>
+                            <p>درآسایش در فروشگاهتان ببینید و مقایسه کنید</p>
                         </div>
                     </div>
                     <div class="col-md-2 col-xs-2  common-box-style">
                         <div class="col-md-12 col-xs-12">
-                            <img src="<?php echo $_DIR; ?>images/delivery1.png" height="60" width="60"/>
+                            <img src="<?php echo $_DIR; ?>images/icon_3.png" height="60" width="60"/>
                         </div>
                         <div class="col-md-8 col-md-offset-2 col-xs-12 padding-0">
-                            <p>مناسبهایتان را با کوفا شگفت انگیز کنید</p>
+                            <p>اصیل و منحصربه فرد خرید کنید</p>
                         </div>
                     </div>
                     <div class="col-md-2 col-xs-2  common-box-style">
                         <div class="col-md-12 col-xs-12">
-                            <img src="<?php echo $_DIR; ?>images/delivery5.png" height="60" width="60"/>
+                            <img src="<?php echo $_DIR; ?>images/icon_2.png" height="60" width="60"/>
                         </div>
                         <div class="col-md-8 col-md-offset-2 col-xs-12 padding-0">
-                            <p>مناسبهایتان را با کوفا شگفت انگیز کنید</p>
+                            <p>هدایاتتان را با بسته بندی متفاوت دریافت کنید</p>
                         </div>
                     </div>
                     <div class="col-md-2 col-xs-2  common-box-style">
                         <div class="col-md-12 col-xs-12">
-                            <img src="<?php echo $_DIR; ?>images/delivery5.png" height="60" width="60"/>
+                            <img src="<?php echo $_DIR; ?>images/icon_1.png" height="60" width="60"/>
                         </div>
                         <div class="col-md-8 col-md-offset-2 col-xs-12 padding-0">
                             <p>مناسبهایتان را با کوفا شگفت انگیز کنید</p>
@@ -170,34 +170,24 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
             <div class="col-md-12 col-xs-12 body-guarantee-div RightFloat">
                 <div class="col-md-12 col-xs-12 padding-0">
-                    <ul class="body-guarantee">
-                        <li class="col-md-3 col-xs-3">
-                            <div class="col-md-12 col-xs-12 padding-responsive">
-                                <div class="col-md-12 col-xs-12 padding-responsive">
-                                    <div class="col-md-12 col-xs-12 padding-left padding-responsive">
-                                        <div class="col-md-12 col-xs-12 padding-left padding-responsive">
-                                            <div class="col-md-12 ol-xs-12 padding-left padding-responsive">
-                                                <img src="<?php echo $_DIR; ?>images/delivery1.png"/>
-                                                <a href="">ضمانت بازگشت</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="col-md-3 col-xs-3">
-                            <img src="<?php echo $_DIR; ?>images/delivery2.png"/>
-                            <a href="">تحویل اکسبرس</a>
-                        </li>
-                        <li class="col-md-3 col-xs-3">
-                            <img src="<?php echo $_DIR; ?>images/delivery3.png"/>
-                            <a href="">پرداخـت در محل</a>
-                        </li>
-                        <li class="col-md-3 col-xs-3">
-                            <img src="<?php echo $_DIR; ?>images/delivery1.png"/>
-                            <a href="">تضمین ضمانت</a>
-                        </li>
-                    </ul>
+                        <ul class="body-guarantee">
+                            <li class="col-md-3 col-xs-3">
+                                <img src="<?php echo $_DIR; ?>images/product_extra_1.png"/>
+                                <a href="">ضمانت بازگشت</a>
+                            </li>
+                            <li class="col-md-3 col-xs-3">
+                                <img src="<?php echo $_DIR; ?>images/product_extra_2.png"/>
+                                <a href="">تحویل اکسبرس</a>
+                            </li>
+                            <li class="col-md-3 col-xs-3">
+                                <img src="<?php echo $_DIR; ?>images/product_extra_3.png"/>
+                                <a href="">پرداخـت در محل</a>
+                            </li>
+                            <li class="col-md-3 col-xs-3">
+                                <img src="<?php echo $_DIR; ?>images/item3_diamond2.png"/>
+                                <a href="">تضمین ضمانت</a>
+                            </li>
+                        </ul>
                 </div>
             </div>
             <!--common style-->

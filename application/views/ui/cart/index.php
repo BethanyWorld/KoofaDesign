@@ -8,19 +8,19 @@
                     <div class="col-md-12 col-xs-12 padding-0">
                         <ul class="body-guarantee">
                             <li class="col-md-3 col-xs-3">
-                                <img src="<?php echo $_DIR; ?>images/delivery1.png"/>
+                                <img src="<?php echo $_DIR; ?>images/product_extra_1.png"/>
                                 <a href="">ضمانت بازگشت</a>
                             </li>
                             <li class="col-md-3 col-xs-3">
-                                <img src="<?php echo $_DIR; ?>images/delivery2.png"/>
+                                <img src="<?php echo $_DIR; ?>images/product_extra_2.png"/>
                                 <a href="">تحویل اکسبرس</a>
                             </li>
                             <li class="col-md-3 col-xs-3">
-                                <img src="<?php echo $_DIR; ?>images/delivery3.png"/>
+                                <img src="<?php echo $_DIR; ?>images/product_extra_3.png"/>
                                 <a href="">پرداخـت در محل</a>
                             </li>
                             <li class="col-md-3 col-xs-3">
-                                <img src="<?php echo $_DIR; ?>images/delivery1.png"/>
+                                <img src="<?php echo $_DIR; ?>images/item3_diamond2.png"/>
                                 <a href="">تضمین ضمانت</a>
                             </li>
                         </ul>

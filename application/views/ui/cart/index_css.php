@@ -53,10 +53,10 @@
         float: right;
     }
     .body-guarantee li img{
-        width: 35px;
-        height: 35px;
+        /*width: 35px;*/
+        /*height: 35px;*/
         position: absolute;
-        right: 20px;
+        right: 5px;
         bottom: 0px;
         top: 0px;
         margin: auto;
