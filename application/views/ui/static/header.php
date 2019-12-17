@@ -74,7 +74,7 @@ foreach ($menu as $data) {
                                     </div>
                                     <span class="shop-text">سبد خرید</span>
                                     <span class="badge">
-                                    <?php echo count($this->session->userdata('cart')); ?>
+                                    <?php if($this->session->userdata('cart')) echo count($this->session->userdata('cart')); else echo "0"; ?>
                                 </span>
                                 </button>
                             </a>

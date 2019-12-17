@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="col-md-8 col-xs-12 padding-0 cart-product-title-div">
                                             <div class="col-md-12 col-xs-12 cart-product-title">
-                                                <a href="" target="_blank">
+                                                <a href="<?php echo productUrl($item['ProductId'] , $item['ProductTitle']); ?>" target="_blank">
                                                     <p><?php echo $item['ProductTitle']; ?></p>
                                                 </a>
                                             </div>
@@ -68,7 +68,7 @@
 
                                                 <input
                                                         readonly
-                                                        value="<?php echo $item['ProductQuantity']; ?>"
+                                                        value="<?php echo $item['ProductCount']; ?>"
                                                         type="number" class="text-center cart-product-buy-number"/>
 
                                             </div>

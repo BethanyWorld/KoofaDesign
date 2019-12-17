@@ -31,7 +31,8 @@ $_DIR = base_url('assets/ui/'); ?>
                     <div class="col-xs-12 RightFloat padding-0">
 
                         <?php
-                        foreach ($orderItems as $item) {?>
+                        foreach ($orderItems as $item) {
+                            ?>
                             <div class="col-md-12 col-md-offset-0 col-xs-8 col-xs-offset-2 padding-0 cart-product-main-div">
                                 <div class="col-md-6 col-xs-12 cart-product-detail">
                                     <div class="col-md-4 col-xs-12 cart-product-image RightFloat height100 padding-0">
@@ -48,7 +49,6 @@ $_DIR = base_url('assets/ui/'); ?>
                                         <div class="col-md-12 col-xs-12 cart-product-desc">
                                             <p>محصول <?php echo productTypePipe($item['ProductType']); ?></p>
                                             <div class="clearfix"></div>
-                                            <p><?php echo $item['productTitle']; ?>34</p>
                                         </div>
                                         <div class="col-md-12 col-xs-12 cart-product-price">
                                             <div>قیمت :
@@ -69,7 +69,7 @@ $_DIR = base_url('assets/ui/'); ?>
 
                                             <input
                                                     readonly
-                                                    value="<?php echo $item['ProductQuantity']; ?>"
+                                                    value="<?php echo $item['ProductCount']; ?>"
                                                    type="number" class="text-center cart-product-buy-number"/>
 
                                         </div>
