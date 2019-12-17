@@ -39,7 +39,7 @@
     margin-bottom: 40px;
 }
 .section-padding{
-    padding: 25px 0;
+    padding: 10px 0;
 }
 .preloader{
     position: fixed;
@@ -563,7 +563,7 @@ footer {
 .footer-des p {
     font-size: 15px;
     margin-top: 10px;
-    min-height: 95px;
+    min-height: 60px;
 }
 
 .footer-button {
@@ -605,7 +605,7 @@ footer {
 
 .footer-guide-ul li a {
     color: #000;
-    line-height: 50px;
+    line-height: 35px;
 }
 
 .footer-socials-ul {
