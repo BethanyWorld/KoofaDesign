@@ -6,6 +6,29 @@
                 <div class="row col-xs-12 card">
                     <div class="body">
 
+
+                        <table class="table table-hover table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th class="fit">نام و نام خانوداگی</th>
+                                <th>تلفن</th>
+                                <th class="fit">تلفن ثابت</th>
+                                <th class="fit">ایمیل</th>
+                                <th class="fit">تاریخ سفارش</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php foreach ($orderInfo as $order) { ?>
+                                <tr>
+                                    <td class="fit"><?php echo $order['UserFirstName']." ".$order['UserLastName']; ?></td>
+                                    <td><?php echo $order['UserPhone']; ?></td>
+                                    <td><?php echo $order['UserHomePhone']; ?></td>
+                                    <td><?php echo $order['UserEmail']; ?></td>
+                                    <td><?php echo $order['OrderDateTime']; ?></td>
+                                </tr>
+                            <?php } ?>
+                            </tbody>
+                        </table>
                         <table class="table table-hover table-bordered table-striped">
                             <thead>
                             <tr>
@@ -29,7 +52,6 @@
                             </tbody>
                         </table>
                         <div class="col-xs-12 RightFloat padding-0">
-
                             <?php
                             foreach ($orderItems as $item) { ?>
                                 <div class="col-md-12 col-md-offset-0 col-xs-8 col-xs-offset-2 padding-0 cart-product-main-div">
