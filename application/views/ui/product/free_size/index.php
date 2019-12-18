@@ -2,6 +2,10 @@
 $_DIR = base_url('assets/ui/'); ?>
 
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/product-detail.css"/>
+<link rel="stylesheet" href="<?php echo $_DIR; ?>css/cropper.css"/>
+<link rel="stylesheet" href="<?php echo $_DIR; ?>css/main.css"/>
+
+
 <div id="main" style="min-height: 100vh;">
     <div class="row">
         <div class="container first-container-m-b">
@@ -55,15 +59,64 @@ $_DIR = base_url('assets/ui/'); ?>
                         <div class="product-size pull-right col-md-6 col-xs-12">
                             <label>ارتفاع</label>
                             <input id="inputProductHeight" type="number" min="0"
-                                   max="<?php echo $data['ProductMaxHeight']; ?>"/>
+                                   max="<?php echo $data['ProductMaxHeight']; ?>" class="dataX"/>
                         </div>
                         <!--                        <span class="pull-right"> &nbsp;&nbsp; &nbsp;&nbsp;</span>-->
                         <div class="product-size pull-right col-md-6 col-xs-12 text-left">
                             <label>عرض</label>
                             <input id="inputProductWidth" type="number" min="0"
-                                   max="<?php echo $data['ProductMaxWidth']; ?>"/>
+                                   max="<?php echo $data['ProductMaxWidth']; ?>" class="dataY"/>
                         </div>
                     </div>
+
+
+                    <div class="col-md-12 col-xs-12 padding-0 docs-buttons">
+                        <div class="col-md-12 col-xs-12 padding-0 btn-group btn-group-crop">
+                            <button type="button" class="btn btn-success pull-left" data-method="getCroppedCanvas"
+                                    data-option="{ &quot;maxWidth&quot;: 4096, &quot;maxHeight&quot;: 4096 }">
+            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false">
+              بریدن عکس در سایز دلخواه
+            </span>
+                            </button>
+                            <button type="button" class="btn btn-success pull-right" data-method="getCroppedCanvas"
+                                    data-option="{ &quot;width&quot;: 160, &quot;height&quot;: 90 }">
+            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false">
+              160&times;90
+            </span>
+                            </button>
+                            <button type="button" class="btn btn-success pull-right" data-method="getCroppedCanvas"
+                                    data-option="{ &quot;width&quot;: 320, &quot;height&quot;: 180 }">
+            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false">
+              320&times;180
+            </span>
+                            </button>
+                        </div>
+
+                        <!-- Show the cropped image in modal -->
+                        <div class="modal fade docs-cropped" id="getCroppedCanvasModal" aria-hidden="true"
+                             aria-labelledby="getCroppedCanvasTitle" role="dialog" tabindex="-1">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="getCroppedCanvasTitle">عکس برش خورده در سایز
+                                            دلخواه</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body"></div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن
+                                        </button>
+                                        <a class="btn btn-primary" id="download" href="javascript:void(0);"
+                                           download="cropped.jpg">دانلود</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- /.modal -->
+                    </div>
+
+
                     <div class="col-md-12 col-xs-12 padding-0 product-detail-pn">
                         <div class="col-md-6 col-xs-12 rightFloat product-detail-price">
                             <p>قیمت کل :</p>
@@ -174,7 +227,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                 <div id="big" class="owl-carousel owl-theme">
                                     <div class="item">
                                         <img src="<?php echo $data['ProductPrimaryImage']; ?>" height="100%"
-                                             width="100%"/>
+                                             width="100%" class="image"/>
                                     </div>
                                     <?php foreach ($productSecondaryImages as $productSecondaryImage) { ?>
                                         <div class="item">
@@ -247,3 +300,13 @@ $_DIR = base_url('assets/ui/'); ?>
         </div>
     </div>
 </div>
+
+
+<!--<script src="--><?php //echo $_DIR; ?><!--js/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>-->
+<script src="<?php echo $_DIR; ?>js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="<?php echo $_DIR; ?>js/cropper.js" crossorigin="anonymous"></script>
+<script src="<?php echo $_DIR; ?>js/jquery-cropper.js" crossorigin="anonymous"></script>
+<script src="<?php echo $_DIR; ?>js/main.js" crossorigin="anonymous"></script>
+
+
+
