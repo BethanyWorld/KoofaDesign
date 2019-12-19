@@ -59,13 +59,13 @@ $_DIR = base_url('assets/ui/'); ?>
                         <div class="product-size pull-right col-md-6 col-xs-12">
                             <label>ارتفاع</label>
                             <input id="inputProductHeight" type="number" min="0"
-                                   max="<?php echo $data['ProductMaxHeight']; ?>" class="dataX"/>
+                                   max="<?php echo $data['ProductMaxHeight']; ?>"/>
                         </div>
                         <!--                        <span class="pull-right"> &nbsp;&nbsp; &nbsp;&nbsp;</span>-->
                         <div class="product-size pull-right col-md-6 col-xs-12 text-left">
                             <label>عرض</label>
                             <input id="inputProductWidth" type="number" min="0"
-                                   max="<?php echo $data['ProductMaxWidth']; ?>" class="dataY"/>
+                                   max="<?php echo $data['ProductMaxWidth']; ?>"/>
                         </div>
                     </div>
 
@@ -75,21 +75,11 @@ $_DIR = base_url('assets/ui/'); ?>
                             <button type="button" class="btn btn-success pull-left" data-method="getCroppedCanvas"
                                     data-option="{ &quot;maxWidth&quot;: 4096, &quot;maxHeight&quot;: 4096 }">
             <span class="docs-tooltip" data-toggle="tooltip" data-animation="false">
-              بریدن عکس در سایز دلخواه
+                <i class="fa fa-crop"></i>
             </span>
                             </button>
-                            <button type="button" class="btn btn-success pull-right" data-method="getCroppedCanvas"
-                                    data-option="{ &quot;width&quot;: 160, &quot;height&quot;: 90 }">
-            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false">
-              160&times;90
-            </span>
-                            </button>
-                            <button type="button" class="btn btn-success pull-right" data-method="getCroppedCanvas"
-                                    data-option="{ &quot;width&quot;: 320, &quot;height&quot;: 180 }">
-            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false">
-              320&times;180
-            </span>
-                            </button>
+
+                            <button class="btn btn-success crop-image-btn">بریدن عکس در سایز دلخواه</button>
                         </div>
 
                         <!-- Show the cropped image in modal -->
@@ -116,6 +106,8 @@ $_DIR = base_url('assets/ui/'); ?>
                         </div><!-- /.modal -->
                     </div>
 
+
+                    <div class="col-md-12 col-xs-12"></div>
 
                     <div class="col-md-12 col-xs-12 padding-0 product-detail-pn">
                         <div class="col-md-6 col-xs-12 rightFloat product-detail-price">
@@ -221,13 +213,13 @@ $_DIR = base_url('assets/ui/'); ?>
                         </div>
                         <!--                        <h2 class="product-code">CODE: KFB3587</h2>-->
                     </div>
-                    <div class="col-md-12 col-xs-12 product-slider">
+                    <div class="col-md-12 col-xs-12 product-slider" id="ttt">
                         <div class="col-md-12 col-sm-12 col-xs-12 padding-0" id="product-slider">
                             <div class="outer">
                                 <div id="big" class="owl-carousel owl-theme">
                                     <div class="item">
                                         <img src="<?php echo $data['ProductPrimaryImage']; ?>" height="100%"
-                                             width="100%" class="image"/>
+                                             width="100%"/>
                                     </div>
                                     <?php foreach ($productSecondaryImages as $productSecondaryImage) { ?>
                                         <div class="item">
@@ -249,6 +241,26 @@ $_DIR = base_url('assets/ui/'); ?>
                             </div>
                         </div>
                     </div>
+
+
+
+
+
+                    <div class="col-md-12 col-xs-12 product-slider cropper-image">
+                        <div class="col-md-12 col-sm-12 col-xs-12 padding-0 height100">
+                            <div class="outer height100">
+                                <div id="big" class="height100">
+                                    <div class="item">
+                                        <img src="<?php echo $data['ProductPrimaryImage']; ?>" height="100%"
+                                             width="100%" class="image"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                 </div>
             </div>
         </div>
@@ -310,3 +322,10 @@ $_DIR = base_url('assets/ui/'); ?>
 
 
 
+<script>
+    $('.crop-image-btn').click(function () {
+        $('#ttt').fadeOut();
+        $('.cropper-image').fadeIn();
+        $('#ttt').css('display' , 'none');
+    })
+</script>

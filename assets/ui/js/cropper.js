@@ -179,8 +179,8 @@
   var REGEXP_TAG_NAME = /^img|canvas$/i; // Misc
   // Inspired by the default width and height of a canvas element.
 
-  var MIN_CONTAINER_WIDTH = 200;
-  var MIN_CONTAINER_HEIGHT = 100;
+  var MIN_CONTAINER_WIDTH = 600;
+  var MIN_CONTAINER_HEIGHT = 415;
 
   var DEFAULTS = {
     // Define the view mode of the cropper
@@ -244,8 +244,8 @@
     minCanvasHeight: 0,
     minCropBoxWidth: 0,
     minCropBoxHeight: 0,
-    minContainerWidth: 200,
-    minContainerHeight: 100,
+    minContainerWidth: 600,
+    minContainerHeight: 415,
     // Shortcuts of events
     ready: null,
     cropstart: null,

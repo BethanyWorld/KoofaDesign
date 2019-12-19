@@ -1,4 +1,31 @@
 <style>
+    /*.cropper-canvas{*/
+    /*    width: 600px !important;*/
+    /*    height: 420px !important;*/
+    /*    transform: translateX(0.57143px) !important;*/
+    /*}*/
+    /*.cropper-container img{*/
+    /*    width: 600px !important;*/
+    /*    height: 420px !important;*/
+    /*    transform: translateX(1.42109e-14px) !important;*/
+    /*}*/
+    /*.cropper-container img{*/
+    /*    width: 600px !important;*/
+    /*    height: 315px !important;*/
+    /*    transform: translateX(-10.3175px) translateY(-7px) !important;*/
+    /*}*/
+    /*.cropper-crop-box{*/
+    /*    width: 580px !important;*/
+    /*    height: 300px !important;*/
+    /*    transform: translateX(10.8889px) translateY(60px) !important;*/
+    /*}*/
+    /*.cropper-container{*/
+    /*    width: 100% !important;*/
+    /*    height: 100% !important;*/
+    /*}*/
+    .cropper-image{
+        display: none;
+    }
     .text-left{
         text-align: left;
     }
