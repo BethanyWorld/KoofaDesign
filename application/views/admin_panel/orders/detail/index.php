@@ -11,9 +11,10 @@
                             <thead>
                             <tr>
                                 <th class="fit">نام و نام خانوداگی</th>
-                                <th>تلفن</th>
+                                <th class="fit">تلفن</th>
                                 <th class="fit">تلفن ثابت</th>
                                 <th class="fit">ایمیل</th>
+                                <th class="fit">کد تخفیف</th>
                                 <th class="fit">تاریخ سفارش</th>
                             </tr>
                             </thead>
@@ -21,10 +22,11 @@
                             <?php foreach ($orderInfo as $order) { ?>
                                 <tr>
                                     <td class="fit"><?php echo $order['UserFirstName']." ".$order['UserLastName']; ?></td>
-                                    <td><?php echo $order['UserPhone']; ?></td>
-                                    <td><?php echo $order['UserHomePhone']; ?></td>
-                                    <td><?php echo $order['UserEmail']; ?></td>
-                                    <td><?php echo $order['OrderDateTime']; ?></td>
+                                    <td class="fit"><?php echo $order['UserPhone']; ?></td>
+                                    <td class="fit"><?php echo $order['UserHomePhone']; ?></td>
+                                    <td class="fit"><?php echo $order['UserEmail']; ?></td>
+                                    <td class="fit"><?php echo $order['OrderDiscountCode']; ?></td>
+                                    <td class="fit"><?php echo $order['OrderDateTime']; ?></td>
                                 </tr>
                             <?php } ?>
                             </tbody>

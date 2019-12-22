@@ -60,6 +60,7 @@ class ModelOrder extends CI_Model
             'OrderAddressId' => $inputs['inputOrderAddressId'],
             'OrderSendMethodId' => $inputs['inputOrderSendMethodId'],
             'OrderSendMethodPrice' => $inputs['inputOrderSendMethodPrice'],
+            'OrderDiscountCode' => $inputs['inputOrderDiscountCode'],
             'OrderStatus' => 'Pend',
             'OrderDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
         );

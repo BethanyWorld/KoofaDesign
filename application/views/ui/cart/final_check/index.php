@@ -95,7 +95,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                                                 <td colspan="5"><?php echo $item['productTitle']; ?></td>
                                                                 <td><?php echo number_format($item['productPrice']); ?></td>
                                                                 <td><?php echo $item['productCount']; ?></td>
-                                                                <td><?php echo number_format($item['productPrice']*$item['productCount']); ?></td>
+                                                                <td><?php echo number_format($item['productPrice'] * $item['productCount']); ?></td>
                                                             </tr>
                                                         <?php } ?>
                                                         </tbody>
@@ -110,11 +110,13 @@ $_DIR = base_url('assets/ui/'); ?>
                                                         </thead>
                                                         <tbody>
                                                         <?php
-                                                        foreach ($userAddress as $item) { if($item['AddressId'] == $this->session->userdata('addressId')){ ?>
-                                                            <tr class="active">
-                                                                <td><?php echo $item['Address']; ?></td>
-                                                            </tr>
-                                                        <?php  } } ?>
+                                                        foreach ($userAddress as $item) {
+                                                            if ($item['AddressId'] == $this->session->userdata('addressId')) { ?>
+                                                                <tr class="active">
+                                                                    <td><?php echo $item['Address']; ?></td>
+                                                                </tr>
+                                                            <?php }
+                                                        } ?>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -130,24 +132,44 @@ $_DIR = base_url('assets/ui/'); ?>
                                                         <?php
                                                         foreach ($sendMethods as $item) {
 
-                                                            if($item['OrderSendMethodId'] == $this->session->userdata('sendMethodId')){
+                                                            if ($item['OrderSendMethodId'] == $this->session->userdata('sendMethodId')) {
                                                                 $array = array(
                                                                     'sendMethodPrice' => $item['OrderSendMethodPrice']
                                                                 );
                                                                 $this->session->set_userdata($array);
                                                                 $totalPrice += $item['OrderSendMethodPrice'];
                                                                 ?>
-                                                            <tr class="active">
-                                                                <td><?php echo $item['OrderSendMethodTitle']; ?> - <?php echo number_format($item['OrderSendMethodPrice']); ?></td>
-                                                            </tr>
-                                                        <?php  } } ?>
+                                                                <tr class="active">
+                                                                    <td><?php echo $item['OrderSendMethodTitle']; ?>
+                                                                        - <?php echo number_format($item['OrderSendMethodPrice']); ?></td>
+                                                                </tr>
+                                                            <?php }
+                                                        } ?>
                                                         </tbody>
                                                     </table>
                                                 </div>
 
 
+                                                <div class="col-xs-12 responsive-payment-div">
 
-                                                <div class="col-md-6 col-xs-12 responsive-payment-div">
+                                                    <?php
+                                                    $data = $this->session->userdata('CartDiscount');
+                                                    $totalDiscount = 0;
+                                                    $totalDiscountMassage = "";
+                                                    if ($data) {
+                                                        if($data['DiscountPercent'] > 0){
+                                                            $totalDiscount = $data['DiscountPercent'];
+                                                            $totalDiscountMassage = $totalDiscount."درصد ";
+                                                            $totalPrice = $totalPrice - ($totalPrice * ($totalDiscount / 100));
+                                                        }
+                                                        if($data['DiscountPrice'] > 0){
+                                                            $totalDiscount = $data['DiscountPrice'];
+                                                            $totalDiscountMassage = $totalDiscount."هزار تومان ";
+                                                            $totalPrice = $totalPrice - $totalDiscount;
+                                                        }
+                                                    }
+                                                    ?>
+
                                                     <button class="btn total-payment-price">
                                                         <?php
                                                         $array = array(
@@ -160,11 +182,21 @@ $_DIR = base_url('assets/ui/'); ?>
                                                         <span>تومان</span>
                                                     </button>
                                                     <button class="total-payment ">جمع کل پرداخت</button>
+
+
+                                                    <button class="btn total-payment-price">
+                                                        <?php echo $totalDiscountMassage; ?>
+                                                        <br>
+                                                        <span>&nbsp;</span>
+                                                    </button>
+                                                    <button class="total-payment ">تخفیف</button>
                                                 </div>
-                                                <div class="col-md-6 col-xs-12 step-forgot-something">
+
+                                                <div class="col-xs-12 step-forgot-something">
                                                     <p style="text-align: right;padding: 0 7px;">
                                                         موردی را فراموش کرده اید ؟
-                                                        <a href="<?php echo base_url('Cart'); ?>">بازگشت به لیست خرید و ویرایش</a>
+                                                        <a href="<?php echo base_url('Cart'); ?>">بازگشت به لیست خرید و
+                                                            ویرایش</a>
                                                     </p>
                                                 </div>
                                                 <div class="col-xs-12 text-center step-form-button margin-t-30">
@@ -174,10 +206,11 @@ $_DIR = base_url('assets/ui/'); ?>
                                                                 پرداخت
                                                             </button>
                                                         </a>
-                                                            <button onclick="window.history.back()" class="btn pull-right step-button-continue step-button-margin-top-2 back-button-background">
-                                                                بازگشت
-                                                            </button>
-                                                        </div>
+                                                        <button onclick="window.history.back()"
+                                                                class="btn pull-right step-button-continue step-button-margin-top-2 back-button-background">
+                                                            بازگشت
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

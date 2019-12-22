@@ -5,12 +5,13 @@ if ((isset($data) && !$data) || $data == NULL) { ?>
         <td colspan='10' class=\"fit\">موردی یافت نشد</td>
     </tr>
 <?php } else {
-foreach ($data as $item) { ?>
+foreach ($data['data'] as $item) { ?>
     <tr>
         <td class="fit"><?php echo $counter +=1; ?></td>
         <td><?php echo $item['DiscountCode']; ?></td>
         <td class="fit"><?php pipeDiscountCodeType($item['DiscountType']); ?></td>
         <td class="fit"><?php echo $item['DiscountPercent']; ?></td>
+        <td class="fit"><?php echo $item['DiscountPrice']; ?></td>
         <td class="fit">
             <a href="<?php echo base_url('Admin/Dashboard/DiscountCode/Edit/').$item['DiscountCode']; ?>">
                 <button type="button"

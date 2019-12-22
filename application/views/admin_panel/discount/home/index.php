@@ -13,6 +13,7 @@
                                     <th>کد تخفیف</th>
                                     <th class="fit">نوع</th>
                                     <th class="fit">درصد</th>
+                                    <th class="fit">مبلغ</th>
                                     <th class="fit">جزئیات</th>
                                     <th class="fit">حذف</th>
                                 </tr>

@@ -49,5 +49,30 @@
                 error: function (jqXHR, textStatus, errorThrown) {}
             });
         });
+
+        $("#addDiscountCode").click(function(){
+            toggleLoader();
+            $inputDiscountCode = $("#inputDiscountCode").val();
+            $sendData = {
+                'inputDiscountCode': $inputDiscountCode
+            }
+            $.ajax({
+                type: 'post',
+                url: base_url + 'Cart/updateDiscountCode',
+                data: $sendData,
+                success: function (data) {
+                    $result = jQuery.parseJSON(data);
+                    notify($result['content'], $result['type']);
+                    toggleLoader();
+                    if($result['success']){
+                        $(".discount-message").text($result['content']);
+                        $("#discount-form").slideToggle();
+                    }
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    toggleLoader();
+                }
+            });
+        });
     });
 </script>

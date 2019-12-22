@@ -48,10 +48,9 @@ class DiscountCode extends CI_Controller
         echo json_encode($result);
     }
 
-    public function edit($discountCode)
-    {
+    public function edit($discountCode){
         $headerData['pageTitle'] = 'افزودن کد تخفیف';
-        $data['data'] = $this->ModelDiscount->getDiscountByDiscountCode($discountCode)['data'];
+        $data['data'] = $this->ModelDiscount->getDiscountByDiscountCode($discountCode);
         $data['discountCategories'] = $this->ModelDiscount->getDiscountCategoryByProductCode($discountCode)['data'];
 
         $discountCategoryArray = array();

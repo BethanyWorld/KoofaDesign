@@ -7,12 +7,15 @@
                     <div class="body">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs tab-nav-right p-0" role="tablist">
-                            <li role="presentation" class="active"><a href="#brandBasicInfo" data-toggle="tab">اطلاعات
-                                    کد تخفیف</a></li>
-                            <li role="presentation"><a href="#brandCategories" data-toggle="tab">دسته بندی های مرتبط</a>
+                            <li role="presentation" class="active">
+                                <a href="#brandBasicInfo" data-toggle="tab">اطلاعات کد تخفیف</a>
                             </li>
-                            <li role="presentation"><a href="#productFinalizeOperation" data-toggle="tab">ثبت و
-                                    ذخیره</a></li>
+                            <li class="hidden" role="presentation">
+                                <a href="#brandCategories" data-toggle="tab">دسته بندی های مرتبط</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#productFinalizeOperation" data-toggle="tab">ثبت و ذخیره</a>
+                            </li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">

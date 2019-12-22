@@ -10,11 +10,13 @@ class Cart extends CI_Controller{
         }
         $array = array_values($temp_array);
         return $array;
-    }public function __construct()
+    }
+    public function __construct()
     {
         parent::__construct();
         $this->load->model('ui/ModelProductCategory');
         $this->load->model('ui/ModelProduct');
+        $this->load->model('admin/ModelDiscount');
         $this->load->model('admin/ModelMaterial');
         $this->load->model('admin/ModelSizes');
         $this->load->model('admin/ModelOrder');
@@ -277,6 +279,61 @@ class Cart extends CI_Controller{
         }
     }
 
+
+    public function updateDiscountCode(){
+        $inputs = $this->input->post(NULL, TRUE);
+        $inputs = array_map(function ($v) {return strip_tags($v);}, $inputs);
+        $inputs = array_map(function ($v) {return remove_invisible_characters($v);}, $inputs);
+        $inputs = array_map(function ($v) {return makeSafeInput($v);}, $inputs);
+        $inputDiscountCode = $inputs['inputDiscountCode'];
+
+        $data = $this->ModelDiscount->getDiscountByDiscountCode($inputDiscountCode);
+
+        if(empty($data)){
+            $result = array(
+                'type' => "red",
+                'content' => "کد تخفیف نامعتبر است",
+                'success' => false
+            );
+            echo json_encode($result);
+            die();
+        }
+        else{
+            $data = $data[0];
+            if($data['DiscountPercent'] > 0){
+                $massage = "مبلغ";
+                $massage .= " ";
+                $massage .= $data['DiscountPercent'];
+                $massage .= " درصد ";
+                $massage .= "از فاکتور نهایی کسر خواهد شد";
+                $result = array(
+                    'type' => "green",
+                    'content' => $massage,
+                    'success' => true
+                );
+                echo json_encode($result);
+            }
+            if($data['DiscountPrice'] > 0){
+                $massage = "مبلغ";
+                $massage .= " ";
+                $massage .= $data['DiscountPrice'];
+                $massage .= " هزار تومان ";
+                $massage .= "از فاکتور نهایی کسر خواهد شد";
+                $result = array(
+                    'type' => "green",
+                    'content' => $massage,
+                    'success' => true
+                );
+                echo json_encode($result);
+            }
+            $array = array(
+                'CartDiscount' => $data
+            );
+            $this->session->set_userdata($array);
+        }
+    }
+
+
     public function payment(){
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'اطلاعات ارسال ';
@@ -344,6 +401,10 @@ class Cart extends CI_Controller{
         $inputs['inputOrderTotalPrice'] = $this->session->userdata('totalPrice');
         $inputs['inputOrderSendMethodPrice'] = $this->session->userdata('sendMethodPrice');
 
+        $inputs['inputOrderDiscountCode'] = $this->session->userdata('CartDiscount');
+        if ($inputs['inputOrderDiscountCode']) {
+            $inputs['inputOrderDiscountCode'] = $inputs['inputOrderDiscountCode']['DiscountCode'];
+        }
         $orderId = $this->ModelOrder->doAddOrder($inputs);
         $this->ModelOrder->doAddOrderItems($orderInfo , $orderId);
         $this->session->set_userdata('OrderId' , $orderId);

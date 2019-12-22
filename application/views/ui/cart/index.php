@@ -65,9 +65,6 @@
                                     <div class="col-md-12 col-xs-12 cart-product-desc">
                                         <p>محصول <?php echo productTypePipe($item['productType']); ?></p>
                                         <div class="clearfix"></div>
-                                        <p><?php echo $item['productTitle']; ?>34</p>
-                                        <div class="clearfix"></div>
-                                        <p><?php echo $item['productTitle']; ?></p>
                                     </div>
                                     <div class="col-md-12 col-xs-12 cart-product-price">
                                         <div>قیمت :
@@ -142,14 +139,15 @@
                         <div class="col-md-12 col-xs-12 cart-product-right-panel-border-b">
                             <div class="col-md-12 col-xs-12 cart-product-discount-card">
                                 <p>کارت تخفیف کوفا را دریافت کرده اید ؟</p>
+                                <p class="label label-success col-xs-12 discount-message"></p>
                                 <span class="fa fa-question cart-product-question-span"></span>
                             </div>
-                            <div class="col-md-12 col-md-offset-0 col-xs-10 col-xs-offset-1 cart-product-factor-main-div">
+                            <div id="discount-form" class="col-md-12 col-md-offset-0 col-xs-10 col-xs-offset-1 cart-product-factor-main-div">
                                 <div class="col-md-6 col-xs-12 padding-0 height100">
-                                    <button class="cart-product-factor-button height100">ثبت کد تخفیف</button>
+                                    <button id="addDiscountCode" class="cart-product-factor-button height100">ثبت کد تخفیف</button>
                                 </div>
                                 <div class="col-md-6 col-xs-12 height100 padding-0 cart-product-factor-text">
-                                    <input type="text" name="">
+                                    <input type="text" id="inputDiscountCode" name="inputDiscountCode">
                                 </div>
                             </div>
                         </div>

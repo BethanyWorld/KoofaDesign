@@ -22,11 +22,8 @@ class ModelDiscount extends CI_Model{
         $this->db->select('*');
         $this->db->from('discount');
         $this->db->where('DiscountCode', $discountCode);
-        $query = $this->db->get()->result_array();
-        $result['data'] = $query;
-        return $result;
+        return $this->db->get()->result_array();
     }
-
     public function getDiscountCategoryByProductCode($discountCode){
         $this->db->select('DiscountCategoryId');
         $this->db->from('discount');
@@ -35,7 +32,6 @@ class ModelDiscount extends CI_Model{
         $result['data'] = $query;
         return $result;
     }
-
     public function doAddDiscountCode($inputs)
     {
         $Array = array(
