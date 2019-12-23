@@ -1,0 +1,14 @@
+[29-May-2017 15:08:45 Asia/Tehran] PHP Fatal error:  Call to undefined function add_action() in /home/hfjir/public_html/wp-content/plugins/hello.php on line 60
+[07-Oct-2017 08:12:13 Asia/Tehran] PHP Fatal error:  Call to undefined function add_action() in /home/hfjir/public_html/wp-content/plugins/hello.php on line 60
+[01-Nov-2017 21:06:01 Asia/Tehran] PHP Fatal error:  Call to undefined function add_action() in /home/hfjir/public_html/wp-content/plugins/hello.php on line 60
+[01-Nov-2017 21:06:45 Asia/Tehran] PHP Fatal error:  Call to undefined function add_action() in /home/hfjir/public_html/wp-content/plugins/hello.php on line 60
+[06-Nov-2017 11:39:04 Asia/Tehran] PHP Fatal error:  Call to undefined function add_action() in /home/hfjir/public_html/wp-content/plugins/hello.php on line 60
+[06-Nov-2017 11:39:06 Asia/Tehran] PHP Fatal error:  Call to undefined function add_action() in /home/hfjir/public_html/wp-content/plugins/hello.php on line 60
+[06-Nov-2017 11:39:14 Asia/Tehran] PHP Fatal error:  Call to undefined function add_action() in /home/hfjir/public_html/wp-content/plugins/hello.php on line 60
+[26-Nov-2017 20:07:17 Asia/Tehran] PHP Fatal error:  Call to undefined function add_action() in /home/hfjir/public_html/wp-content/plugins/hello.php on line 60
+[26-Nov-2017 20:07:22 Asia/Tehran] PHP Fatal error:  Call to undefined function add_action() in /home/hfjir/public_html/wp-content/plugins/hello.php on line 60
+[27-Nov-2017 12:29:16 Asia/Tehran] PHP Fatal error:  Call to undefined function add_action() in /home/hfjir/public_html/wp-content/plugins/hello.php on line 60
+[12-Jan-2018 23:50:48 Asia/Tehran] PHP Fatal error:  Call to undefined function add_action() in /home/hfjir/public_html/wp-content/plugins/hello.php on line 60
+[07-Feb-2018 18:03:05 Asia/Tehran] PHP Fatal error:  Call to undefined function add_action() in /home/hfjir/public_html/wp-content/plugins/hello.php on line 60
+[01-Jun-2018 00:44:49 Asia/Tehran] PHP Fatal error:  Call to undefined function add_action() in /home/hfjir/public_html/wp-content/plugins/hello.php on line 60
+[14-Dec-2018 09:54:51 Asia/Tehran] PHP Warning:  PHP Startup: Unable to load dynamic library '/opt/alt/php55/usr/lib64/php/modules/pdo_mysql.so' - /opt/alt/php55/usr/lib64/php/modules/pdo_mysql.so: undefined symbol: php_pdo_register_driver in Unknown on line 0

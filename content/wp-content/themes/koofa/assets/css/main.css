@@ -1,0 +1,13 @@
+.docs-cropped .modal-body {
+  text-align: center;
+}
+
+.docs-cropped .modal-body > img,
+.docs-cropped .modal-body > canvas {
+  max-width: 100%;
+}
+
+.btn-group-crop button{
+  cursor: pointer;
+  border-radius: 0px;
+}
