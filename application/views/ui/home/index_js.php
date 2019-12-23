@@ -46,6 +46,7 @@
         .owlCarousel({
             items: 4,
             dots: true,
+            mouseDrag: false,
             nav: true,
             navText: [
                 '<i class="fa fa-arrow-left" aria-hidden="true"></i>',
@@ -63,10 +64,10 @@
             .find(".owl-item")
             .eq(0)
             .addClass("current");
-    })
-        .owlCarousel({
+    }).owlCarousel({
             items: 5,
             dots: true,
+            mouseDrag: false,
             nav: true,
             navText: [
                 '<i class="fa fa-arrow-left" aria-hidden="true"></i>',

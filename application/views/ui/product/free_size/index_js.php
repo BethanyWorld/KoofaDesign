@@ -22,6 +22,7 @@
         .owlCarousel({
                 items: 8,
                 dots: true,
+                mouseDrag: false,
                 nav: true,
                 navText: [
                     '<i class="fa fa-arrow-left" aria-hidden="true"></i>',
