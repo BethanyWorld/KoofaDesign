@@ -335,6 +335,13 @@
                         </li>
                     </ul>
                 </li>
+                <li <?php echo $CI->uri->segment(3) == 'PriceChange' ? 'class="active"' : '' ?> >
+                    <a href="<?php echo base_url('Admin/Dashboard/PriceChange/index'); ?>"
+                       class="menu-toggle waves-effect waves-block">
+                        <i class="material-icons">donut_small</i>
+                        <span>تغییر قیمت</span>
+                    </a>
+                </li>
                 <li <?php echo $CI->uri->segment(3) == 'Material' ? 'class="active"' : '' ?> >
                     <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
                         <i class="material-icons">donut_small</i>
