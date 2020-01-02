@@ -145,8 +145,8 @@ class Cart extends CI_Controller{
         $item['productWidth'] = $productWidth;
         $item['productHeight'] = $productHeight;
 
-        if (ceil(($productHeight / 100)) != ($productHeight / 100)) {
-            $item['productHeight'] = ceil(($productHeight / 100))*100;
+        if (ceil(($productWidth / 100)) != ($productWidth / 100)) {
+            $item['productWidth'] = ceil(($productWidth / 100))*100;
         }
 
         /**/

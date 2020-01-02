@@ -117,11 +117,56 @@ foreach ($menu as $data) {
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4 col-xs-12">
+                <div class="col-md-5 col-xs-12">
                     <div class="col search">
-                        <input type="search" placeholder="محصول - دسته - سازنده و ...">
+                        <input class="search-product-input" type="search" placeholder="محصول - دسته - سازنده و ...">
                         <span class="fa fa-search spansearch"></span>
                     </div>
+                    <style>
+                        .search-result{
+                            position: absolute;
+                            height: auto;
+                            background: #fff;
+                            z-index: 10000000000;
+                            border: 1px solid #ccc;
+                            top: 75px;
+                            right: 140px;
+                            font-size: 15px;
+                            max-width: 100%;
+                            padding: 0;
+                            width: 100%;
+                        }
+                        .search-result .item-result{
+
+                        }
+                        .search-result span{
+                            font-size: 12px;
+                            font-weight: 900;
+                        }
+                        .search-result .item-result h6{
+                            margin: 0;
+                        }
+
+                        .mobile-col-search .search-result{
+                            position: absolute;
+                            height: auto;
+                            background: #fff;
+                            z-index: 10000000000;
+                            border: 1px solid #ccc;
+                            top: 58px;
+                            right: 0;
+                            font-size: 14px;
+                            max-width: 100%;
+                            padding: 0;
+                            width: 100%;
+                        }
+                        .mobile-col-search .search-result  a{
+                            color:blue;
+                        }
+                    </style>
+                    <ul class="list-group search-result">
+
+                    </ul>
                 </div>
             </div>
             <figure id="logo">
@@ -167,9 +212,13 @@ foreach ($menu as $data) {
                         <!-- search toggle-->
                         <div class="col-xs-12 col search mobile-col-search">
                             <div class="col-xs-12 col search mobile-col-search">
-                                <input class="form-control" type="search"
+                                <input class="form-control search-product-input"
+                                       type="search"
                                        placeholder="محصول - دسته - سازنده و ...">
                             </div>
+                            <ul class="list-group search-result">
+
+                            </ul>
                         </div>
                         <!-- menu toggle-->
                         <div class="row">
