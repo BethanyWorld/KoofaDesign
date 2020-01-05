@@ -19,7 +19,7 @@
         thumbs.on("initialized.owl.carousel", function () {
             thumbs.find(".owl-item").eq(0).addClass("current");
         })
-        .owlCarousel({
+            .owlCarousel({
                 items: 8,
                 dots: true,
                 mouseDrag: false,

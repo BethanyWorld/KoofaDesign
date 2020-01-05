@@ -72,14 +72,15 @@ $_DIR = base_url('assets/ui/'); ?>
 
                     <div class="col-md-12 col-xs-12 padding-0 docs-buttons">
                         <div class="col-md-12 col-xs-12 padding-0 btn-group btn-group-crop">
-                            <button type="button" class="btn btn-success pull-left" data-method="getCroppedCanvas"
+
+                            <button type="button" class="btn btn-success" data-method="getCroppedCanvas"
                                     data-option="{ &quot;maxWidth&quot;: 4096, &quot;maxHeight&quot;: 4096 }">
-            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false">
-                <i class="fa fa-crop"></i>
+            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="برش عکس">
+             برش
             </span>
                             </button>
 
-                            <button class="btn btn-success crop-image-btn">بریدن عکس در سایز دلخواه</button>
+
                         </div>
 
                         <!-- Show the cropped image in modal -->
@@ -155,18 +156,19 @@ $_DIR = base_url('assets/ui/'); ?>
                                 </div>
                                 <div class="col-xs-12 padding-0">
                                     <div class="box">
-                                        <div class="upload-options">
-                                            <label>
-                                                <span>آپلود طرح دلخواه</span>
-                                                <span class="fa fa-upload"></span>
-                                                <input type="file" class="image-upload" id="inputAttachment"/>
-                                            </label>
-                                        </div>
+
+                                        <!-- طرح دلخواه-->
+                                        <label class="upload-options btn btn-primary btn-upload" for="inputImage"
+                                               title="Upload image file">
+                                            <input type="file" class="sr-only" id="inputImage" name="file"
+                                                   accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+                                            <span class="docs-tooltip" data-animation="false"
+                                                  title="طرح دلخواه">
+                                    آپلود طرح دلخواه
+              <span class="fa fa-upload"></span>
+            </span>
+                                        </label>
                                     </div>
-                                </div>
-                                <div class="col-xs-12 upload-image-container">
-                                    <i id="remove-upload-file" class="fa fa-times"></i>
-                                    <img id="upload-image" src=""/>
                                 </div>
                             </div>
                         </div>
@@ -213,7 +215,8 @@ $_DIR = base_url('assets/ui/'); ?>
                         </div>
                         <!--                        <h2 class="product-code">CODE: KFB3587</h2>-->
                     </div>
-                    <div class="col-md-12 col-xs-12 product-slider" id="ttt">
+                    <!-- for owl-->
+                    <div class="col-md-12 col-xs-12 product-slider" id="carousel-div">
                         <div class="col-md-12 col-sm-12 col-xs-12 padding-0" id="product-slider">
                             <div class="outer">
                                 <div id="big" class="owl-carousel owl-theme">
@@ -242,10 +245,7 @@ $_DIR = base_url('assets/ui/'); ?>
                         </div>
                     </div>
 
-
-
-
-
+                    <!-- for cropper-->
                     <div class="col-md-12 col-xs-12 product-slider cropper-image">
                         <div class="col-md-12 col-sm-12 col-xs-12 padding-0 height100">
                             <div class="outer height100">
@@ -260,7 +260,6 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
 
 
-
                 </div>
             </div>
         </div>
@@ -269,9 +268,9 @@ $_DIR = base_url('assets/ui/'); ?>
             <div class="col-md-12 col-xs-12 p-b-15">
                 <div class="container">
 
-                    <div class="col-md-12 col-xs-12 product-description">
-                        <?php echo $data['ProductDescription']; ?>
-                    </div>
+                    <!--                    <div class="col-md-12 col-xs-12 product-description">-->
+                    <!--                        --><?php //echo $data['ProductDescription']; ?>
+                    <!--                    </div>-->
 
                     <div class="col-md-12 col-xs-12">
                         <div class="col-md-12 col-xs-12">
@@ -321,11 +320,19 @@ $_DIR = base_url('assets/ui/'); ?>
 <script src="<?php echo $_DIR; ?>js/main.js" crossorigin="anonymous"></script>
 
 
-
 <script>
     $('.crop-image-btn').click(function () {
-        $('#ttt').fadeOut();
+        $('#carousel-div').fadeOut();
+        $('#carousel-div').css('display', 'none');
+        $('.upload-image1').css('display', 'none');
         $('.cropper-image').fadeIn();
-        $('#ttt').css('display' , 'none');
-    })
+    });
+
+    $('.upload-image-free').click(function () {
+        $('.cropper-image').hide();
+        $('#carousel-div').hide();
+        $('#carousel-div').css('display', 'none');
+        $('.upload-image1').show();
+    });
+
 </script>
