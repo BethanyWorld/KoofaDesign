@@ -22,6 +22,15 @@
             }).get();
             $inputProductMaxHeight = $.trim($("#inputProductMaxHeight").val());
             $inputProductMaxWidth = $.trim($("#inputProductMaxWidth").val());
+
+
+            if ($("[name='inputProductIsSpecial']").is(':checked')){
+                $inputProductIsSpecial = true;
+            }
+            else{
+                $inputProductIsSpecial = false;
+            }
+            $inputProductSpecialEndDate = $("#inputProductSpecialEndDate").val();
             /*$inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
@@ -79,6 +88,8 @@
                     'inputProductTag': $inputProductTag,
                     'inputProductHasInstallation': $inputProductHasInstallation,
                     'inputProductInstallationPrice': $inputProductInstallationPrice,
+                    'inputProductIsSpecial':$inputProductIsSpecial,
+                    'inputProductSpecialEndDate':$inputProductSpecialEndDate
                 }
                 toggleLoader();
                 $.ajax({

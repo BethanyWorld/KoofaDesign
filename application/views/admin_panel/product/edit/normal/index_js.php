@@ -21,6 +21,16 @@
             $inputProductCategory = $("[name=inputProductCategory]:checked").map(function () {
                 return $(this).val();
             }).get();
+
+
+
+            if ($("[name='inputProductIsSpecial']").is(':checked')){
+                $inputProductIsSpecial = true;
+            }
+            else{
+                $inputProductIsSpecial = false;
+            }
+            $inputProductSpecialEndDate = $("#inputProductSpecialEndDate").val();
             /*$inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
@@ -50,7 +60,9 @@
                     'inputProductSecondaryImage': $inputProductSecondaryImage,
                     'inputProductPrice': inputProductPrice,
                     'inputProductCategory': $inputProductCategory,
-                    'inputProductTag':$inputProductTag
+                    'inputProductTag':$inputProductTag,
+                    'inputProductIsSpecial':$inputProductIsSpecial,
+                    'inputProductSpecialEndDate':$inputProductSpecialEndDate
                 }
                 toggleLoader();
                 $.ajax({

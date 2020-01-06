@@ -86,10 +86,6 @@ $_DIR = base_url('assets/admin/');
                                         </a>
                                     </div>
                                 </div>
-
-
-
-
                                 <div class="col-xs-12">
                                     <label for="inputProductBrief">خلاصه ای از محصول</label>
                                     <div class="form-group">
@@ -100,6 +96,40 @@ $_DIR = base_url('assets/admin/');
                                         </div>
                                     </div>
                                 </div>
+
+
+
+                                <div class="col-xs-12 col-sm-3">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input
+                                                <?php if ($data['ProductIsSpecial']) echo "checked"; ?>
+                                                    type="checkbox"
+                                                    name="inputProductIsSpecial" class="filled-in"
+                                                    id="cat-10000" value="1"/>
+                                            <label for="cat-10000">آیا فروش ویژه است؟</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3">
+                                    <div class="form-group">
+                                        <label for="inputProductSpecialEndDate">تاریخ اتمام - مثلا 1398/01/21</label>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       value="<?php echo $data['ProductSpecialEndDate']; ?>"
+                                                       id="inputProductSpecialEndDate"
+                                                       name="inputProductSpecialEndDate"
+                                                       style="font-family: tahoma; "/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
                                 <div class="col-xs-12">
                                     <label class="required" for="inputProductDescription">شرح محصول</label>
                                     <div class="form-group">

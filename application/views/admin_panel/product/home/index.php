@@ -8,8 +8,18 @@ $_DIR = base_url('assets/admin/');
                 <div class="row col-xs-12 card info-box">
                     <div class="body">
                         <div class="row col-xs-12 clearfix">
-                            <label for="inputProductTitle">نام/کد محصول</label>
-                            <input type="text" id="inputProductTitle" name="inputProductTitle" />
+                            <label for="inputProductTitle">نام / کد محصول</label>
+                            <input type="text" id="inputProductTitle"
+                                   name="inputProductTitle" />
+                            <label>نوع محصول</label>
+                            <select id="inputProductType" name="inputProductType">
+                                <option value="">همه</option>
+                                <option value="Normal">معمولی</option>
+                                <option value="NormalUpload">معمولی قابلیت آپلود</option>
+                                <option value="DesignFixSize">طراحی سایز ثابت</option>
+                                <option value="DesignFreeSize">طراحی سایز آزاد</option>
+                                <option value="ProductSpecial">فروش ویژه</option>
+                            </select>
                             <button type="button"
                                     id="searchButton"
                                     class="btn btn-info btn-circle waves-effect waves-circle waves-float pull-left btn-search">
@@ -31,7 +41,6 @@ $_DIR = base_url('assets/admin/');
                                     <th class="fit">نوع محصول</th>
                                     <th class="fit">تاریخ ثبت</th>
                                     <th class="fit">مشاهده محصول</th>
-                                    <th class="fit">فروش ویژه</th>
                                     <th class="fit">ویرایش</th>
                                     <th class="fit">حذف</th>
                                 </tr>

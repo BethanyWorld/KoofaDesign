@@ -10,6 +10,7 @@
         hideLoader();
         $sendData = {
             'inputProductTitle': $("#inputProductTitle").val(),
+            'inputProductType': $("#inputProductType").val(),
             'pageIndex': selectedPage
         }
         $.ajax({

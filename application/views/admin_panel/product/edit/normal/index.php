@@ -12,18 +12,20 @@ $_DIR = base_url('assets/admin/');
                     <div class="body">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs tab-nav-right p-0" role="tablist">
-                            <li role="presentation" class="active"><a href="#productBasicInfo" data-toggle="tab">اطلاعات ثابت محصول</a></li>
+                            <li role="presentation" class="active"><a href="#productBasicInfo" data-toggle="tab">اطلاعات
+                                    ثابت محصول</a></li>
                             <li role="presentation"><a href="#productImages" data-toggle="tab">تصاویر محصول</a></li>
                             <li role="presentation"><a href="#productPrice" data-toggle="tab">قیمت محصول</a></li>
                             <li role="presentation"><a href="#productCategory" data-toggle="tab">دسته بندی محصول</a>
                             <li role="presentation"><a href="#productTags" data-toggle="tab">برچسب محصول</a></li>
-                            <li role="presentation"><a href="#productFinalizeOperation" data-toggle="tab">ثبت و ذخیره</a></li>
+                            <li role="presentation"><a href="#productFinalizeOperation" data-toggle="tab">ثبت و
+                                    ذخیره</a></li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade in active" id="productBasicInfo">
                                 <div class="col-xs-12 col-sm-6">
-                                    <label class="required"  for="inputProductTitle">نام محصول</label>
+                                    <label class="required" for="inputProductTitle">نام محصول</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control"
@@ -45,14 +47,14 @@ $_DIR = base_url('assets/admin/');
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-4">
-                                    <label class="required"  for="inputProductTitle">نوع محصول</label>
+                                    <label class="required" for="inputProductTitle">نوع محصول</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <select class="form-control"
                                                     id="inputProductType" name="inputProductType">
                                                 <?php foreach ($productType as $key => $value) { ?>
                                                     <option
-                                                        <?php if($key == "Normal") echo "selected"; else echo "disabled"; ?>
+                                                        <?php if ($key == "Normal") echo "selected"; else echo "disabled"; ?>
                                                             value="<?php echo $key; ?>">
                                                         <?php echo $value; ?>
                                                     </option>
@@ -62,7 +64,7 @@ $_DIR = base_url('assets/admin/');
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-4">
-                                    <label class="required"  for="inputProductQuantity">تعداد موجود</label>
+                                    <label class="required" for="inputProductQuantity">تعداد موجود</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="number" class="form-control"
@@ -86,10 +88,6 @@ $_DIR = base_url('assets/admin/');
                                         </a>
                                     </div>
                                 </div>
-
-
-
-
                                 <div class="col-xs-12">
                                     <label for="inputProductBrief">خلاصه ای از محصول</label>
                                     <div class="form-group">
@@ -100,8 +98,37 @@ $_DIR = base_url('assets/admin/');
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <div class="col-xs-12 col-sm-3">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input
+                                                <?php if ($data['ProductIsSpecial']) echo "checked"; ?>
+                                                    type="checkbox"
+                                                    name="inputProductIsSpecial" class="filled-in"
+                                                    id="cat-10000" value="1"/>
+                                            <label for="cat-10000">آیا فروش ویژه است؟</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3">
+                                    <div class="form-group">
+                                        <label for="inputProductSpecialEndDate">تاریخ اتمام - مثلا 1398/01/21</label>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       value="<?php echo $data['ProductSpecialEndDate']; ?>"
+                                                       id="inputProductSpecialEndDate"
+                                                       name="inputProductSpecialEndDate"
+                                                       style="font-family: tahoma; "/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-xs-12">
-                                    <label class="required"  for="inputProductDescription">شرح محصول</label>
+                                    <label class="required" for="inputProductDescription">شرح محصول</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <textarea
@@ -115,7 +142,7 @@ $_DIR = base_url('assets/admin/');
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="productImages">
                                 <div class="col-xs-12">
-                                    <label class="required"  for="inputProductPrimaryImage">تصویر اصلی محصول</label>
+                                    <label class="required" for="inputProductPrimaryImage">تصویر اصلی محصول</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control"
@@ -139,26 +166,30 @@ $_DIR = base_url('assets/admin/');
                                     </button>
                                 </div>
                                 <?php foreach ($productSecondaryImages as $item) { ?>
-                                    <div  id="parent-<?php echo $item['MediaId'] ?>" class="col-xs-12">
+                                    <div id="parent-<?php echo $item['MediaId'] ?>" class="col-xs-12">
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input
                                                         value="<?php echo $item['MediaUrl'] ?>"
                                                         type="text"
-                                                       class="form-control"
-                                                       id="<?php echo $item['MediaId'] ?>"
-                                                       name="inputProductSecondaryImage" />
+                                                        class="form-control"
+                                                        id="<?php echo $item['MediaId'] ?>"
+                                                        name="inputProductSecondaryImage"/>
                                             </div>
-                                            <a data-target-id="<?php echo $item['MediaId'] ?>" data-toggle="modal" href="#" data-target="#myModal" class="btn fileManagerHandler" type="button"> <span>انتخاب تصویر</span>
+                                            <a data-target-id="<?php echo $item['MediaId'] ?>" data-toggle="modal"
+                                               href="#" data-target="#myModal" class="btn fileManagerHandler"
+                                               type="button"> <span>انتخاب تصویر</span>
                                             </a>
-                                            <button type="button" data-remove-id="<?php echo $item['MediaId'] ?>" class="btn btn-xs btn-danger waves-effect waves-float remove-secondary-image"> <i class="material-icons">clear</i> </button>
+                                            <button type="button" data-remove-id="<?php echo $item['MediaId'] ?>"
+                                                    class="btn btn-xs btn-danger waves-effect waves-float remove-secondary-image">
+                                                <i class="material-icons">clear</i></button>
                                         </div>
                                     </div>
                                 <?php } ?>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="productPrice">
                                 <div class="col-xs-12 col-sm-6">
-                                    <label class="required"  for="inputProductPrice">قیمت محصول</label>
+                                    <label class="required" for="inputProductPrice">قیمت محصول</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="number" class="form-control"
@@ -170,7 +201,7 @@ $_DIR = base_url('assets/admin/');
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="productCategory">
                                 <div class="col-xs-12">
-                                    <label class="required"  for="email_address">انتخاب کنید</label>
+                                    <label class="required" for="email_address">انتخاب کنید</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <?php echo $categoryCheckBoxTree; ?>
@@ -201,14 +232,14 @@ $_DIR = base_url('assets/admin/');
                                                         <?php
                                                         foreach ($item['properties'] as $propertyOption) {
                                                             $isSelected = false;
-                                                                foreach ($productSelectedProperties as $productSelectedProperty) {
-                                                                    if($productSelectedProperty['PropertyId'] == $item['PropertyId'] && $productSelectedProperty['PropertyOptionId'] == $propertyOption['CategoryPropertyOptionId']){
-                                                                        $isSelected = true;
-                                                                    }
+                                                            foreach ($productSelectedProperties as $productSelectedProperty) {
+                                                                if ($productSelectedProperty['PropertyId'] == $item['PropertyId'] && $productSelectedProperty['PropertyOptionId'] == $propertyOption['CategoryPropertyOptionId']) {
+                                                                    $isSelected = true;
                                                                 }
+                                                            }
                                                             ?>
                                                             <option
-                                                                    <?php if($isSelected) echo "selected"; ?>
+                                                                <?php if ($isSelected) echo "selected"; ?>
                                                                     value="<?php echo $propertyOption['CategoryPropertyOptionId'] ?>">
                                                                 <?php echo $propertyOption['CategoryPropertyOptionTitle'] ?>
                                                             </option>
@@ -222,12 +253,13 @@ $_DIR = base_url('assets/admin/');
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="productTags">
                                 <div class="col-xs-12">
-                                    <button type="button" id="addMoreProductTag" class="btn btn-primary waves-effect waves-float">
+                                    <button type="button" id="addMoreProductTag"
+                                            class="btn btn-primary waves-effect waves-float">
                                         <i class="material-icons">add</i>
                                     </button>
                                 </div>
                                 <?php foreach ($productTags as $item) { ?>
-                                    <div  id="parent-<?php echo $item['TagId'] ?>" class="col-xs-12 col-md-3">
+                                    <div id="parent-<?php echo $item['TagId'] ?>" class="col-xs-12 col-md-3">
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input
@@ -235,9 +267,11 @@ $_DIR = base_url('assets/admin/');
                                                         type="text"
                                                         class="form-control"
                                                         id="<?php echo $item['TagId'] ?>"
-                                                        name="inputProductTag" />
+                                                        name="inputProductTag"/>
                                             </div>
-                                            <button type="button" data-remove-id="<?php echo $item['TagId'] ?>" class="btn btn-xs btn-danger waves-effect waves-float remove-tag"> <i class="material-icons">clear</i> </button>
+                                            <button type="button" data-remove-id="<?php echo $item['TagId'] ?>"
+                                                    class="btn btn-xs btn-danger waves-effect waves-float remove-tag"><i
+                                                        class="material-icons">clear</i></button>
                                         </div>
                                     </div>
                                 <?php } ?>
@@ -249,9 +283,11 @@ $_DIR = base_url('assets/admin/');
                                     </div>
                                 </div>
                                 <div class="col-xs-12">
-                                    <button type="button" id="editNormalProduct" class="btn btn-primary waves-effect">ذخیره
+                                    <button type="button" id="editNormalProduct" class="btn btn-primary waves-effect">
+                                        ذخیره
                                     </button>
-                                    <button type="button" id="CopyNormalProduct" class="btn btn-success waves-effect pull-left">
+                                    <button type="button" id="CopyNormalProduct"
+                                            class="btn btn-success waves-effect pull-left">
                                         کپی محصول
                                     </button>
                                 </div>

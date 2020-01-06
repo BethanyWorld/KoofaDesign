@@ -237,7 +237,6 @@ class Product extends CI_Controller{
     }
     /*----------------------------------------------End Design free Size Product*/
 
-
     public function special(){
         $headerData['pageTitle'] = 'فهرست محصولات';
         $this->load->view('admin_panel/static/header', $headerData);
@@ -252,35 +251,16 @@ class Product extends CI_Controller{
         $data['htmlResult'] = $this->load->view('admin_panel/product/special/pagination', $data, TRUE);
         echo json_encode($data);
     }
-    public function addSpecial($productId)
-    {
+    public function addSpecial($productId){
         $headerData['pageTitle'] = 'ویرایش محصول';
         $data['productType'] = $this->config->item('productType');
-        $data['allCategories'] = $this->ModelProductCategory->getAllProductCategory()['data'];
         $data['data'] = $this->ModelProduct->getProductByProductId($productId)['data'][0];
-        $data['productPrice'] = $this->ModelProduct->getProductPriceProductId($productId);
-        $data['productCategories'] = $this->ModelProduct->getProductCategoryByProductId($productId)['data'];
-        $data['categoryCheckBoxTree'] = $this->ModelProductCategory->printCategoryCheckBoxTree($data['productCategories']);
-
-
-        $data['rootCategoryId'] = $this->ModelProduct->getProductRootCategoryByProductId($productId)['data'][0];
-        $data['categoryTree'] = $this->ModelProductCategory->printCategoryTree($data['rootCategoryId']['CategoryId']);
-        $data['productRootCategoryProperties'] = $this->getProductPropertyByCategoryId($data['rootCategoryId']['CategoryId'] , false);
-        $data['productSelectedProperties'] = $this->ModelProduct->getProductPropertyByProductId($productId)['data'];
-        $data['productSecondaryImages'] = $this->ModelProduct->getProductSecondaryByProductId($productId)['data'];
-        $data['productTags'] = $this->ModelProduct->getProductTagsByProductId($productId)['data'];
-
-        /*var_dump($data['productSelectedProperties']);
-        die();*/
-
         $this->load->view('admin_panel/static/header', $headerData);
-        $this->load->view('admin_panel/product/special_add/index', $data);
-        $this->load->view('admin_panel/product/special_add/index_css');
-        $this->load->view('admin_panel/product/special_add/index_js', $data);
+        $this->load->view('admin_panel/product/special/add/index', $data);
+        $this->load->view('admin_panel/product/special/add/index_css');
+        $this->load->view('admin_panel/product/special/add/index_js', $data);
         $this->load->view('admin_panel/static/footer');
     }
-
-
 
 
     public function doDeleteProduct()

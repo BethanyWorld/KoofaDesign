@@ -20,6 +20,15 @@
             $inputProductCategory = $("[name=inputProductCategory]:checked").map(function () {
                 return $(this).val();
             }).get();
+
+
+            if ($("[name='inputProductIsSpecial']").is(':checked')){
+                $inputProductIsSpecial = true;
+            }
+            else{
+                $inputProductIsSpecial = false;
+            }
+            $inputProductSpecialEndDate = $("#inputProductSpecialEndDate").val();
             /*$inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
@@ -38,8 +47,6 @@
                 $inputProductHasInstallation = false;
             }
             $inputProductInstallationPrice = $("#inputProductInstallationPrice").val();
-
-
 
             $inputProductMaterial = [];
             $inputProductSize = [];
@@ -80,6 +87,8 @@
                     'inputProductTag': $inputProductTag,
                     'inputProductHasInstallation': $inputProductHasInstallation,
                     'inputProductInstallationPrice': $inputProductInstallationPrice,
+                    'inputProductIsSpecial':$inputProductIsSpecial,
+                    'inputProductSpecialEndDate':$inputProductSpecialEndDate
                 }
                 toggleLoader();
                 $.ajax({
