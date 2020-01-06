@@ -4,8 +4,8 @@
         $("#buttonResetPassword").click(function () {
             toggleLoader();
             $inputRegisterType = $("input[name='registerType']:checked").val() || "";
-            $inputPhone = $("#inputPhone").val();
-            $inputCaptcha = $("#inputCaptcha").val();
+            $inputPhone = $(".login-form-holder #inputPhone").val();
+            $inputCaptcha = $(".login-form-holder #inputCaptcha").val();
             if ($inputPhone != "" && $inputCaptcha != "") {
                 $sendData = {
                     'inputPhone': $inputPhone,

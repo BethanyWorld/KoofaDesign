@@ -1,5 +1,6 @@
 <?php
 
+
 class ModelProduct extends CI_Model
 {
     /*For Product*/
@@ -203,6 +204,19 @@ class ModelProduct extends CI_Model
         }
         return $query;
     }
+
+    public function getSpecialProduct()
+    {
+        $this->db->select('*');
+        $this->db->from('product');
+        $this->db->where('ProductIsSpecial', 1);
+        $query = $this->db->get()->result_array();
+        for ($i = 0; $i < sizeof($query); $i++) {
+            $query[$i]['price'] = $this->getProductPriceProductId($query[$i]['ProductId']);
+        }
+        return $query;
+    }
+
 
     /*End For Product*/
 

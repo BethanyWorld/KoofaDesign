@@ -3,7 +3,7 @@
 
         $("#buttonLogin").click(function () {
             toggleLoader();
-            $inputRegisterType = $("input[name='registerType']:checked").val() || "";
+            $inputRegisterType = $(".form-register input[name='registerType']:checked").val() || "";
             $inputPhone = $(".form-register #inputPhone").val();
             $inputPassword = $(".form-register #inputPassword").val();
             $inputCaptcha = $(".form-register #inputCaptcha").val();

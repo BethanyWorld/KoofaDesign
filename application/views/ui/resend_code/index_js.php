@@ -2,8 +2,8 @@
     $(document).ready(function () {
         $("#buttonResendCode").click(function () {
             toggleLoader();
-            $inputPhone = $("#inputPhone").val();
-            $inputCaptcha = $("#inputCaptcha").val();
+            $inputPhone = $(".form-register #inputPhone").val();
+            $inputCaptcha = $(".form-register #inputCaptcha").val();
             if ($inputPhone != "" && $inputCaptcha != "") {
                 $sendData = {
                     'inputPhone': $inputPhone,

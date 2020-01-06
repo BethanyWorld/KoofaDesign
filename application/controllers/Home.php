@@ -20,8 +20,12 @@ class Home extends CI_Controller{
         }
         $data['categories'] = $categories;
 
+        $data['currentDate'] = jDateTime::date("Y/m/d H:i:s", false, false);
+
         $data['latestProduct'] = $this->ModelProduct->getLatestProduct();
         $data['favoriteProduct'] = $this->ModelProduct->getFavoriteProduct();
+        $data['specialProduct'] = $this->ModelProduct->getSpecialProduct();
+
 
         $this->load->view('ui/static/header', $data);
         $this->load->view('ui/home/index');

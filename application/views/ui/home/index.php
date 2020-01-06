@@ -175,64 +175,30 @@ $_DIR = base_url('assets/ui/'); ?>
                             <div class="col-md-12 col-sm-12 col-xs-12 padding-0 height100" id="slider-border">
                                 <div class="outer height100">
                                     <div id="big2" class="owl-carousel owl-theme">
-                                        <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-5.jpg" height="100%"
-                                                 width="100%"/>
-                                        </div>
-                                        <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-6.jpg" height="100%"
-                                                 width="100%"/>
-                                        </div>
-                                        <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-2.jpg" height="100%"
-                                                 width="100%"/>
-                                        </div>
-                                        <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-3.jpg" height="100%"
-                                                 width="100%"/>
-                                        </div>
-                                        <div class="item">
-                                            <img src="<?php echo $_DIR; ?>images/image-1.jpg" height="100%"
-                                                 width="100%"/>
-                                        </div>
+                                        <?php foreach ($specialProduct as $item) { ?>
+                                            <div class="item">
+                                                <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
+                                                     width="100%"/>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                     <div class="div-on-slider2">
-                                        <div class="col-md-12 col-xs-12">
-                                            <a href="" target="_blank">
-                                                <h2>گوشواره چوبی</h2>
-                                            </a>
-                                        </div>
-                                        <div class="col-md-12 col-xs-12">
-                                            <p class="slider2-desc">
-                                                دستبند چرمی ساخت کارگاه بنفشه
-                                            </p>
-                                        </div>
-                                        <div class="col-md-12 col-xs-12 slider2-discountPrice">
-                                            <p>4300</p>
-                                        </div>
-                                        <div class="col-md-12 col-xs-12 slider2-mainPrice">
-                                            <p>3000
-                                                <span>تومان</span>
-                                            </p>
-                                        </div>
-                                        <div class="col-md-12 col-xs-12 slider2-hour-div">
-                                            <div class="col-md-7 col-sm-7 slider2-hour">
-                                                <p class="remaining-time-text">زمان باقی مانده حراجی</p>
-<!--                                                <div class="html welcome visible">-->
-<!--                                                    <div class="datetime">-->
-<!--                                                        <div class="time lightSpeedIn animated">08:00</div>-->
-<!--                                                    </div>-->
-<!--                                                </div>-->
-                                                <p id="demo"></p>
+                                        <?php foreach ($specialProduct as $item) {?>
+                                            <div class="col-md-12 col-xs-12 slider2-discountPrice">
+                                                <p>
+                                                    <?php echo number_format($item['price'][0]['PriceValue']); ?>
+                                                    <span>تومان</span>
+                                                </p>
                                             </div>
-                                        </div>
-                                        <div class="col-md-12 col-sm-11 col-xs-12 slider2-text">
-                                            <p>دستبند الماسی معکوس</p>
-                                            <div class="clearfix"></div>
-                                            <p>جایزه 2-1-1-1</p>
-                                            <div class="clearfix"></div>
-                                            <p>اتمام گزینه شده از الماس های غنی شده</p>
-                                        </div>
+                                            <div class="col-md-12 col-xs-12 slider2-hour-div">
+                                                <div class="col-md-7 col-sm-7 slider2-hour">
+                                                    <p class="remaining-time-text">زمان باقی مانده حراجی</p>
+                                                    <p data-current-date="<?php echo $currentDate; ?>"
+                                                       data-remain-time="<?php echo $item['ProductSpecialEndDate']; ?>"
+                                                       id="demo"></p>
+                                                </div>
+                                            </div>
+                                        <?php } ?>
                                     </div>
                                 </div>
                             </div>
@@ -242,56 +208,13 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
             <div class="col-md-3 col-xs-3 index-holder">
                 <div id="thumbs2" class="owl-carousel owl-theme">
-                    <div class="item">
-                        <a href="">
-                            <p>دستبند چرمی ساخت کارگاه بنفشه</p>
-                            <p class="slier2-rightPanel-Price-div">
-                                4000
-                                <span class="slier2-rightPanel-mainPrice">تومان</span>
-                                <span class="slider2-rightPanel-discountPrice">6000</span>
-                            </p>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="">
-                            <p>دستبند چرمی ساخت کارگاه بنفشه</p>
-                            <p class="slier2-rightPanel-Price-div">
-                                4000
-                                <span class="slier2-rightPanel-mainPrice">تومان</span>
-                                <span class="slider2-rightPanel-discountPrice">6000</span>
-                            </p>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="">
-                            <p>دستبند چرمی ساخت کارگاه بنفشه</p>
-                            <p class="slier2-rightPanel-Price-div">
-                                4000
-                                <span class="slier2-rightPanel-mainPrice">تومان</span>
-                                <span class="slider2-rightPanel-discountPrice">6000</span>
-                            </p>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="">
-                            <p>دستبند چرمی ساخت کارگاه بنفشه</p>
-                            <p class="slier2-rightPanel-Price-div">
-                                4000
-                                <span class="slier2-rightPanel-mainPrice">تومان</span>
-                                <span class="slider2-rightPanel-discountPrice">6000</span>
-                            </p>
-                        </a>
-                    </div>
-                    <div class="item">
-                        <a href="">
-                            <p>دستبند چرمی ساخت کارگاه بنفشه</p>
-                            <p class="slier2-rightPanel-Price-div">
-                                4000
-                                <span class="slier2-rightPanel-mainPrice">تومان</span>
-                                <span class="slider2-rightPanel-discountPrice">6000</span>
-                            </p>
-                        </a>
-                    </div>
+                    <?php foreach ($specialProduct as $item) { ?>
+                        <div class="item">
+                            <a href="">
+                                <p><?php echo $item['ProductTitle']; ?></p>
+                            </a>
+                        </div>
+                    <?php } ?>
                 </div>
 
             </div>
@@ -397,14 +320,10 @@ $_DIR = base_url('assets/ui/'); ?>
 </div>
 
 
-
-
-
-
 <script>
     var countDownDate = new Date("Jan 5, 2021 2:37:25").getTime();
 
-    var x = setInterval(function() {
+    var x = setInterval(function () {
 
         var now = new Date().getTime();
 

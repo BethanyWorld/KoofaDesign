@@ -585,8 +585,9 @@
     font-size: 15px;
 }
 #thumbs2 .item a p{
-    text-align: left;
+    text-align: right;
     margin-bottom: 0px;
+    font-size: 14px;
 }
 #thumbs2 .item h1 {
     font-size: 18px;
@@ -771,12 +772,18 @@
 }
 .div-on-slider2 a h2{
     margin-bottom: 5px;
+    font-size: 16px;
+    line-height: 26px;
+    direction: rtl;
+    text-align: justify;
 }
 .slider2-desc {
     color: #2D693A;
     font-weight: bolder;
     font-size: 15px;
     margin-bottom: 0px;
+    direction: rtl;
+    text-align: justify;
 }
 .slider2-discountPrice{
     margin-bottom: -5px;

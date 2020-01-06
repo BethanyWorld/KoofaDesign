@@ -3,13 +3,13 @@
 
         $("#buttonRegister").click(function () {
             toggleLoader();
-            $inputFirstName = $("#inputFirstName").val();
-            $inputLastName = $("#inputLastName").val();
-            $inputPhone = $("#inputPhone").val();
-            $inputPassword = $("#inputPassword").val();
-            $inputConfirmPassword = $("#inputConfirmPassword").val();
-            $inputCaptcha = $("#inputCaptcha").val();
-            $inputTermsCondition = $("#inputTermsCondition").prop('checked');
+            $inputFirstName = $(".form-register #inputFirstName").val();
+            $inputLastName = $(".form-register #inputLastName").val();
+            $inputPhone = $(".form-register #inputPhone").val();
+            $inputPassword = $(".form-register #inputPassword").val();
+            $inputConfirmPassword = $(".form-register #inputConfirmPassword").val();
+            $inputCaptcha = $(".form-register #inputCaptcha").val();
+            $inputTermsCondition = $(".form-register #inputTermsCondition").prop('checked');
 
             if ($inputPassword != $inputConfirmPassword) {
                 toggleLoader();
