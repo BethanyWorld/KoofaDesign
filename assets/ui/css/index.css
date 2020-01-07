@@ -381,7 +381,7 @@
 .index-product{
     position: relative;
     background: #fff;
-    padding: 45px 0;
+    padding: 10px 0;
 }
 .index-feature-title {
     padding: 0 10px;
@@ -725,7 +725,9 @@
     border-right: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
-
+#thumbs2 .owl-nav{
+    display: none;
+}
 #big.owl-theme .owl-next, #big.owl-theme .owl-prev {
     background-color: transparent;
 }
@@ -793,6 +795,7 @@
     font-weight: bolder;
     font-size: 19px;
     margin-bottom: 0px;
+    text-align: left;
 }
 
 .slider2-mainPrice p {

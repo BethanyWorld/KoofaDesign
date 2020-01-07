@@ -1,6 +1,8 @@
 <?php $_URL = base_url();
 $_DIR = base_url('assets/ui/'); ?>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"
+        integrity="sha256-Ikk5myJowmDQaYVCUD0Wr+vIDkN8hGI58SGWdE671A8=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/index.css">
 
 <div id="main">
@@ -179,23 +181,23 @@ $_DIR = base_url('assets/ui/'); ?>
                                             <div class="item">
                                                 <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
                                                      width="100%"/>
-                                            </div>
-                                        <?php } ?>
-                                    </div>
-                                    <div class="div-on-slider2">
-                                        <?php foreach ($specialProduct as $item) {?>
-                                            <div class="col-md-12 col-xs-12 slider2-discountPrice">
-                                                <p>
-                                                    <?php echo number_format($item['price'][0]['PriceValue']); ?>
-                                                    <span>تومان</span>
-                                                </p>
-                                            </div>
-                                            <div class="col-md-12 col-xs-12 slider2-hour-div">
-                                                <div class="col-md-7 col-sm-7 slider2-hour">
-                                                    <p class="remaining-time-text">زمان باقی مانده حراجی</p>
-                                                    <p data-current-date="<?php echo $currentDate; ?>"
-                                                       data-remain-time="<?php echo $item['ProductSpecialEndDate']; ?>"
-                                                       id="demo"></p>
+
+
+                                                <div class="div-on-slider2">
+                                                    <div class="col-md-12 col-xs-12 slider2-discountPrice">
+                                                        <p>
+                                                            <?php echo number_format($item['price'][0]['PriceValue']); ?>
+                                                            <span>تومان</span>
+                                                        </p>
+                                                    </div>
+                                                    <div class="col-md-12 col-xs-12 slider2-hour-div">
+                                                        <div class="col-md-7 col-sm-7 slider2-hour">
+                                                            <p class="remaining-time-text">زمان باقی مانده حراجی</p>
+                                                            <p data-current-date="<?php echo $currentDate; ?>"
+                                                               data-remain-time="<?php echo $item['ProductSpecialEndDate']; ?>"
+                                                               class="demo"></p>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         <?php } ?>
@@ -228,7 +230,10 @@ $_DIR = base_url('assets/ui/'); ?>
             <div class="row">
                 <section>
                     <div class="col-md-12 col-xs-12">
-                        <h3 class="index-new-product-title text-center">تازه ترین آثار</h3>
+                        <h3 class="index-new-product-title text-center">
+                            <span id="clock"></span>
+                            تازه ترین آثار
+                        </h3>
                     </div>
                     <div class="col-md-12 col-xs-12 index-new-product-desc">
                         <h4>تازه ترین آثار از دید مخاطبان</h4>
@@ -321,25 +326,18 @@ $_DIR = base_url('assets/ui/'); ?>
 
 
 <script>
-    var countDownDate = new Date("Jan 5, 2021 2:37:25").getTime();
-
-    var x = setInterval(function () {
-
-        var now = new Date().getTime();
-
-        var distance = countDownDate - now;
-
-        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById("demo").innerHTML = hours + ":"
-            + minutes + ":" + seconds + "";
-
-        if (distance < 0) {
-            clearInterval(x);
-            document.getElementById("demo").innerHTML = "EXPIRED";
-        }
-    }, 1000);
+    $(document).ready(function () {
+        $('p.demo').each(function () {
+            $currentDate = $(this).data('current-date');
+            $remainDate = $(this).data('remain-time');
+            $splitDate = $currentDate.split(" ");
+            $currenDateSplit = $splitDate[0];
+            $(this).countdown("2020/10/10", function (event) {
+                $(this).html(event.strftime('%H:%M:%S'));
+            }).on('finish.countdown', function() {
+                $(this).html('finished');
+            });
+        });
+    })
+    ;
 </script>
