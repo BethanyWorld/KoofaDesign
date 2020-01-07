@@ -183,7 +183,6 @@ $_DIR = base_url('assets/ui/'); ?>
                                                 <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
                                                      width="100%"/>
 
-
                                                 <div class="div-on-slider2">
                                                     <div class="col-md-12 col-xs-12 slider2-discountPrice">
                                                         <p>
@@ -194,10 +193,10 @@ $_DIR = base_url('assets/ui/'); ?>
                                                     <div class="col-md-12 col-xs-12 slider2-hour-div">
                                                         <div class="col-md-7 col-sm-7 slider2-hour">
                                                             <p class="remaining-time-text">زمان باقی مانده حراجی</p>
+                                                            <?php $remainDate = jDateTime::toGregorian(explode("/",$item['ProductSpecialEndDate'])[0],explode("/",$item['ProductSpecialEndDate'])[1],explode("/",$item['ProductSpecialEndDate'])[2]); ?>
                                                             <p data-current-date="<?php echo $currentDate; ?>"
-                                                               data-remain-time="<?php echo $item['ProductSpecialEndDate']; ?>"
+                                                               data-remain-time="<?php echo $remainDate[0].'/'.$remainDate[1].'/'.$remainDate[2]; ?>"
                                                                class="demo"></p>
-                                                            <p id="ttt"></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -337,8 +336,8 @@ $_DIR = base_url('assets/ui/'); ?>
             $remainDate = $(this).data('remain-time');
             $splitDate = $currentDate.split(" ");
             $currenDateSplit = $splitDate[0];
-            $(this).countdown("2020/10/10", function (event) {
-                $(this).html(event.strftime('%H:%M:%S'));
+            $(this).countdown($remainDate, function (event) {
+                $(this).html(event.strftime('%D:%H:%M:%S'));
             }).on('finish.countdown', function () {
                 $(this).html('finished');
             });
