@@ -5,6 +5,7 @@ $_DIR = base_url('assets/ui/'); ?>
         integrity="sha256-Ikk5myJowmDQaYVCUD0Wr+vIDkN8hGI58SGWdE671A8=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/index.css">
 
+
 <div id="main">
     <div class="row index-slider-div section-padding">
         <div class="container">
@@ -196,6 +197,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                                             <p data-current-date="<?php echo $currentDate; ?>"
                                                                data-remain-time="<?php echo $item['ProductSpecialEndDate']; ?>"
                                                                class="demo"></p>
+                                                            <p id="ttt"></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -325,8 +327,11 @@ $_DIR = base_url('assets/ui/'); ?>
 </div>
 
 
+<script src="<?php echo $_DIR; ?>js/jquery.nicescroll.min.js"></script>
+<script src="<?php echo $_DIR; ?>js/persianDatepicker.min.js"></script>
 <script>
     $(document).ready(function () {
+        $("#thumbs2 .owl-stage-outer").niceScroll({cursorcolor: "#d5b55e"});
         $('p.demo').each(function () {
             $currentDate = $(this).data('current-date');
             $remainDate = $(this).data('remain-time');
@@ -334,10 +339,14 @@ $_DIR = base_url('assets/ui/'); ?>
             $currenDateSplit = $splitDate[0];
             $(this).countdown("2020/10/10", function (event) {
                 $(this).html(event.strftime('%H:%M:%S'));
-            }).on('finish.countdown', function() {
+            }).on('finish.countdown', function () {
                 $(this).html('finished');
             });
         });
-    })
-    ;
+
+
+    });
 </script>
+
+
+

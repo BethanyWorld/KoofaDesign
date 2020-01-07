@@ -27,27 +27,27 @@
         display: none;
     }
 
-    #thumbs2{
-        overflow: auto;
+    #thumbs2 .owl-stage-outer{
+        height: 350px;
+        overflow: auto ;
         padding: 0px 0px 0px 10px;
         direction: ltr;
-        overflow-x: hidden;
     }
-    #thumbs2::-webkit-scrollbar {
-        width: 5px;
-    }
-    #thumbs2::-webkit-scrollbar-track {
-        background-color: #ccc
-    }
-    #thumbs2::-webkit-scrollbar-thumb {
-        background-color: #d5b55e;
-        border: 1px solid  #d5b55e;
-        border-radius: 10px;
-    }
-    #thumbs2::-webkit-scrollbar-thumb:hover {
-        background-color: #000;
+    /*#thumbs2::-webkit-scrollbar {*/
+    /*    width: 5px;*/
+    /*}*/
+    /*#thumbs2::-webkit-scrollbar-track {*/
+    /*    background-color: #ccc*/
+    /*}*/
+    /*#thumbs2::-webkit-scrollbar-thumb {*/
+    /*    background-color: #d5b55e;*/
+    /*    border: 1px solid  #d5b55e;*/
+    /*    border-radius: 10px;*/
+    /*}*/
+    /*#thumbs2::-webkit-scrollbar-thumb:hover {*/
+    /*    background-color: #000;*/
 
-    }
+    /*}*/
 
 
 </style>
