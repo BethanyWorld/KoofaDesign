@@ -49,5 +49,10 @@
 
     /*}*/
 
-
+.finish-time{
+    font-size: 12px;
+    color: red;
+    font-weight: bold;
+    font-family: vazir;
+}
 </style>

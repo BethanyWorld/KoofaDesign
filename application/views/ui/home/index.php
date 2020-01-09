@@ -332,15 +332,27 @@ $_DIR = base_url('assets/ui/'); ?>
     $(document).ready(function () {
         $("#thumbs2 .owl-stage-outer").niceScroll({cursorcolor: "#d5b55e"});
         $('p.demo').each(function () {
+            debugger;
             $currentDate = $(this).data('current-date');
             $remainDate = $(this).data('remain-time');
             $splitDate = $currentDate.split(" ");
             $currenDateSplit = $splitDate[0];
-            $(this).countdown($remainDate, function (event) {
-                $(this).html(event.strftime('%D:%H:%M:%S'));
-            }).on('finish.countdown', function () {
-                $(this).html('finished');
-            });
+
+            var date1 = new Date($currenDateSplit);
+            var date2 = new Date($remainDate);
+            var Diff = date2.getTime() - date1.getTime();
+
+           if(Diff <= 0){
+               $(this).html('زمان شما به پایان رسیده است').addClass('finish-time');
+           }
+           else {
+               $(this).countdown($remainDate, function (event) {
+                   $(this).html(event.strftime('%H:%M:%S'));
+               }).on('finish.countdown', function () {
+                   $(this).html('زمان شما به پایان رسیده است').addClass('finish-time');;
+               });
+           }
+
         });
 
 

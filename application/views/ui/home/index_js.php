@@ -15,6 +15,7 @@
         autoplay: true,
         dots: false,
         loop: true,
+        animateOut: 'fadeOut',
         responsiveRefreshRate: 200,
         navText: [
             '<i class="fa fa-angle-left" aria-hidden="true"></i>',
@@ -28,6 +29,7 @@
         nav: true,
         autoplay: true,
         dots: false,
+        animateOut: 'fadeOut',
         loop: true,
         responsiveRefreshRate: 200,
         navText: [
