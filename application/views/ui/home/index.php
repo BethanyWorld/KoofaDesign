@@ -332,7 +332,6 @@ $_DIR = base_url('assets/ui/'); ?>
     $(document).ready(function () {
         $("#thumbs2 .owl-stage-outer").niceScroll({cursorcolor: "#d5b55e"});
         $('p.demo').each(function () {
-            debugger;
             $currentDate = $(this).data('current-date');
             $remainDate = $(this).data('remain-time');
             $splitDate = $currentDate.split(" ");

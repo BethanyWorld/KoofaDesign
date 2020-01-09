@@ -11,6 +11,7 @@
             nav: true,
             autoplay: true,
             dots: false,
+            animateOut: 'fadeOut',
             loop: true,
             responsiveRefreshRate: 200,
             navText: [

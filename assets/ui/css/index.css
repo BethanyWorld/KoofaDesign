@@ -1063,7 +1063,7 @@
 
 }
 
-@media screen and (max-width: 992px) {
+@media (max-width: 992px) {
 
     .index-sidebar-top .index-sidebar-home {
         width: 100%;

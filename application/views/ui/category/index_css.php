@@ -566,8 +566,8 @@
 
     @media screen and (max-width: 992px) {
         .image-main-div-detail {
-            padding-right: 15px;
-            padding-left: 15px;
+            padding-right: 25px;
+            padding-left: 25px;
             text-align: justify;
         }
 
@@ -594,6 +594,19 @@
         }
         .Ordering-main-div label{
             padding-left: 0px;
+        }
+        ul.breadcrumb{
+            padding-right: 10px;
+        }
+
+        .Ordering-main-div{
+            padding-right: 25px;
+        }
+        .grouping-filtering-main-div{
+            padding-right: 5px;
+        }
+        .product-info{
+            padding-right: 15px;
         }
     }
 

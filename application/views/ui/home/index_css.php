@@ -55,4 +55,12 @@
     font-weight: bold;
     font-family: vazir;
 }
+
+    @media (max-width: 992px){
+        #thumbs2 .item a p {
+            text-align: right;
+            margin-bottom: 0px;
+            font-size: 10px;
+        }
+    }
 </style>

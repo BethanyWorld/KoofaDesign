@@ -52,4 +52,5 @@
         border-radius: 6px;
         box-shadow: 0px 0px 6px 2px #adadad;
     }
+
 </style>

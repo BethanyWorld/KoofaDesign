@@ -9,6 +9,7 @@
             nav: true,
             autoplay: true,
             dots: false,
+            animateOut: 'fadeOut',
             loop: true,
             responsiveRefreshRate: 200,
             navText: [
@@ -186,5 +187,41 @@
             $(".upload-image-container").fadeOut();
             $("#upload-image").fadeOut().attr('src', '');
         });
+
+
+        $('.crop-image-btn').click(function () {
+            $('#carousel-div').fadeOut();
+            $('#carousel-div').css('display', 'none');
+            $('.upload-image1').css('display', 'none');
+            $('.cropper-image').fadeIn();
+        });
+
+        $('.upload-image-free').click(function () {
+            $('.cropper-image').hide();
+            $('#carousel-div').hide();
+            $('#carousel-div').css('display', 'none');
+            $('.upload-image1').show();
+        });
+
+        $('.image').cropper("disable")
+
+        $('.image').cropper({
+            dragCrop: false
+            cropBoxMovable: false,
+            autoCropArea:0,
+            cropBoxResizable: false,
+            responsive: true,
+            viewMode: 3,
+            built: function () {
+                $(this).cropper('setCanvasData', {
+                    left: 0,
+                    top: 0,
+                    height: 200
+                });
+
+            }
+
+        });
+
     });
 </script>

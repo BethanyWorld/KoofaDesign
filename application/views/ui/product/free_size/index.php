@@ -81,6 +81,9 @@ $_DIR = base_url('assets/ui/'); ?>
                             </button>
 
 
+<!--                            <button type="button" class="btn btn-primary disable-button" data-method="disable"></button>-->
+
+
                         </div>
 
                         <!-- Show the cropped image in modal -->
@@ -318,21 +321,3 @@ $_DIR = base_url('assets/ui/'); ?>
 <script src="<?php echo $_DIR; ?>js/cropper.js" crossorigin="anonymous"></script>
 <script src="<?php echo $_DIR; ?>js/jquery-cropper.js" crossorigin="anonymous"></script>
 <script src="<?php echo $_DIR; ?>js/main.js" crossorigin="anonymous"></script>
-
-
-<script>
-    $('.crop-image-btn').click(function () {
-        $('#carousel-div').fadeOut();
-        $('#carousel-div').css('display', 'none');
-        $('.upload-image1').css('display', 'none');
-        $('.cropper-image').fadeIn();
-    });
-
-    $('.upload-image-free').click(function () {
-        $('.cropper-image').hide();
-        $('#carousel-div').hide();
-        $('#carousel-div').css('display', 'none');
-        $('.upload-image1').show();
-    });
-
-</script>
