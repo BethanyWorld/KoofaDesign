@@ -62,5 +62,8 @@
             margin-bottom: 0px;
             font-size: 10px;
         }
+        #thumbs2 .owl-stage-outer {
+            height: 275px;
+        }
     }
 </style>

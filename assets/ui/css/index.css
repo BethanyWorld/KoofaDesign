@@ -1064,7 +1064,6 @@
 }
 
 @media (max-width: 992px) {
-
     .index-sidebar-top .index-sidebar-home {
         width: 100%;
     }
@@ -1259,7 +1258,7 @@
     }
 
     .index-sidebar-top .index-sidebar-home {
-        height: 275px;
+        height: 276px;
     }
 
     .body-guarantee-div {
@@ -1277,10 +1276,11 @@
     /*for slider 2*/
     #thumbs2 {
         width: 200px;
-        height: 275px;
+        height: 276px;
     }
     #thumbs2.owl-carousel .owl-item {
-        height: 54.5px;
+        height: 40px;
+        padding-top: 1px;
     }
     .div-on-slider2 {
         width: 100%;
