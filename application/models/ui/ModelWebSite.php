@@ -1,5 +1,6 @@
 <?php
 
+
 /* this model is used for all minimal site sections  */
 class ModelWebSite extends CI_Model{
     public function getAllSlides($inputs){

@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Cart extends CI_Controller{
+
     protected function uniqueArray($array, $key)
     {
         $temp_array = [];
@@ -405,6 +406,9 @@ class Cart extends CI_Controller{
         if ($inputs['inputOrderDiscountCode']) {
             $inputs['inputOrderDiscountCode'] = $inputs['inputOrderDiscountCode']['DiscountCode'];
         }
+        else{
+            $inputs['inputOrderDiscountCode'] = "NONE";
+        }
         $orderId = $this->ModelOrder->doAddOrder($inputs);
         $this->ModelOrder->doAddOrderItems($orderInfo , $orderId);
         $this->session->set_userdata('OrderId' , $orderId);
@@ -425,6 +429,12 @@ class Cart extends CI_Controller{
             ],
         ]);
         if ($result['Status'] == 100) {
+            $to = $this->session->userdata('UserLoginInfo')[0]['UserPhone'];
+            $message = array(
+                'order-number'=> 'KFD-'.$orderId
+            );
+            $code = $this->config->item('SuccessOrderRegister');
+            sendSMS($to,$code,$message);
             header('Location: https://www.zarinpal.com/pg/StartPay/' . $result['Authority']);
         } else {
             $CallbackURL = base_url('Cart/endPayment?error=true');
@@ -435,6 +445,7 @@ class Cart extends CI_Controller{
     {
         $totalPrice = $this->session->userdata('totalPrice');
         $orderId = $this->session->userdata('OrderId');
+        $result = NULL;
         if(isset($orderId) && !empty($orderId)) {
             $this->load->helper('payment/zarinpal/nusoap');
             $MerchantID = '2e809336-c5d4-11e6-8edd-000c295eb8fc';
@@ -455,7 +466,16 @@ class Cart extends CI_Controller{
                     $this->ModelOrder->setOrderPaid($orderId);
                     $this->session->unset_userdata('OrderId');
                     $this->session->unset_userdata('cart');
+                    $this->session->unset_userdata('CartDiscount');
                     $this->session->unset_userdata('totalPrice');
+
+                    $to = $this->session->userdata('UserLoginInfo')[0]['UserPhone'];
+                    $message = array(
+                        'order-number'=> 'KFD-'.$orderId,
+                        'order-date'=> jDateTime::date("Y-m-d H:i", false, false)
+                    );
+                    $code = $this->config->item('SuccessOrderPayment');
+                    sendSMS($to,$code,$message);
                 } else {
                     $data['success'] = false;
                     $this->ModelOrder->setOrderFailed($orderId);

@@ -18,8 +18,11 @@ $_DIR = base_url('assets/ui/'); ?>
                                 <div class="col-md-12 col-xs-12 discount-box1-div">
                                     <div class="col-md-12 col-xs-12 height100">
                                         <div class="col-md-12 col-xs-12 height100 discount-factor-text">
-                                            <p>فاکتور خرید شما :</p>
-                                            <span><?php echo $result['RefId']; ?></span>
+                                            <p>
+                                                کد رهگیری خرید شما :
+                                                <span><?php echo $result['RefID']; ?></span>
+                                            </p>
+
                                         </div>
                                     </div>
                                 </div>

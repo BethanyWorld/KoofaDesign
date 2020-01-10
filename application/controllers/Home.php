@@ -34,4 +34,14 @@ class Home extends CI_Controller{
         $this->load->view('ui/home/index_js');
         $this->load->view('ui/static/footer');
     }
+    public function sms(){
+        $client = new SoapClient("http://ippanel.com/class/sms/wsdlservice/server.php?wsdl");
+        $user = "miladghelich";
+        $pass = "Zibadesign64Ghelich";
+        $fromNum = "9810009589";
+        $toNum = array("09120572107");
+        $pattern_code = "h5q654ed8x";
+        $input_data = array( "verification-code" => "10544-41");
+        echo $client->sendPatternSms($fromNum,$toNum,$user,$pass,$pattern_code,$input_data);
+    }
 }

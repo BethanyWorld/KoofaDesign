@@ -14,18 +14,6 @@
             <li>
                 <a href="<?php echo base_url('User/Home/orders'); ?>">سفارش ها</a>
             </li>
-            <li>
-                <a href="">نظرات</a>
-            </li>
-            <li>
-                <a href="">محصولات گالری های شما</a>
-            </li>
-            <li>
-                <a href="">خرید های شما از سایت</a>
-            </li>
-            <li>
-                <a href="">"کپن های تخفیف شما</a>
-            </li>
         </ul>
     </div>
 </div>

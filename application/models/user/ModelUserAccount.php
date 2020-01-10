@@ -22,9 +22,8 @@ class ModelUserAccount extends CI_Model
             $message = array(
                 'verification-code'=> $ActivationCode
             );
-            $code = $this->config->item('AccountConfirmCode]');
+            $code = $this->config->item('AccountConfirmCode');
             $result = sendSMS($inputs['inputPhone'],$code,$message);
-            var_dump($result);
             if ($result > 0) {
                 $UserArray = array(
                     'UserFirstName' => $inputs['inputFirstName'],
@@ -161,7 +160,7 @@ class ModelUserAccount extends CI_Model
             $message = array(
                 'verification-code'=> $ActivationCode
             );
-            $code = $this->config->item('AccountConfirmCode]');
+            $code = $this->config->item('AccountConfirmCode');
             $result = sendSMS($inputs['inputPhone'],$code,$message);
             if ($result > 0) {
                 $UserArray = array('UserActivationCode' => $ActivationCode);
@@ -209,9 +208,9 @@ class ModelUserAccount extends CI_Model
             $message = array(
                 'new-password'=> $newPassword
             );
-            $code = $this->config->item('AccountNewPasswordCode]');
+            $code = $this->config->item('AccountNewPasswordCode');
             $result = sendSMS($inputs['inputPhone'],$code,$message);
-            if ($result->SendByBaseNumberResult > 15) {
+            if ($result > 0) {
                 $UserArray = array('UserPassword' => md5($newPassword));
                 $this->db->trans_start();
                 $this->db->where('UserId', $userInfo['UserId']);

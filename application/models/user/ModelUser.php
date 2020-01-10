@@ -1,4 +1,5 @@
 <?php
+
 class ModelUser extends CI_Model{
     public function getUserProfileInfoByUserId($userId)
     {
@@ -242,7 +243,5 @@ class ModelUser extends CI_Model{
         $data = $this->db->get()->result_array();
         return $data;
     }
-
-
 }
 ?>

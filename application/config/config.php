@@ -63,8 +63,8 @@ $config['upload_path']= './uploads/';
 /* SMS Panel */
 $config['AccountConfirmCode'] = 'h5q654ed8x';
 $config['AccountNewPasswordCode'] = 'c8922i2kjy';
-$config['SuccessPayment'] = 'uia3n6frmp';
-$config['AcceptOrderByAdmin'] = 'x5y798y3sh';
+$config['SuccessOrderRegister'] = 'uia3n6frmp';
+$config['SuccessOrderPayment'] = 'x5y798y3sh';
 
 /* Enums */
 $config['discountType'] = array(
