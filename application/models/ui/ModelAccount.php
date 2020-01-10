@@ -1,5 +1,6 @@
 <?php
 
+
 class ModelAccount extends CI_Model
 {
     //works fine
@@ -18,18 +19,15 @@ class ModelAccount extends CI_Model
             return $arr;
         } else {
             $ActivationCode = rand(1001,9999);
-            $this->session->set_userdata('activationCode', $ActivationCode);
-            ini_set("soap.wsdl_cache_enabled", "0");
-            $sms_client = new SoapClient('http://api.payamak-panel.com/post/send.asmx?wsdl', array('encoding' => 'UTF-8'));
-            $parameters['username'] = "09120572107";
-            $parameters['password'] = "Bethany1923#";
-            $parameters['to'] = $inputs['inputPhone'];
-            $parameters['from'] = "50001060658471";
-            $parameters['bodyId'] = "3011";
-            $parameters['text'] = array($ActivationCode);
+            $message = array(
+                'verification-code'=> $ActivationCode
+            );
+            $code = $this->config->item('AccountConfirmCode]');
+            var_dump($message);
+            die();
 
-            $result = $sms_client->SendByBaseNumber($parameters);
-            if ($result->SendByBaseNumberResult > 15) {
+            $result = sendSMS($inputs['inputPhone'],$code,$message);
+            if ($result > 0) {
                 $UserArray = array(
                     'UserFullName' => $inputs['inputFullName'],
                     'UserPhone' => $inputs['inputPhone'],

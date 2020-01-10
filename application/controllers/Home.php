@@ -8,6 +8,8 @@ class Home extends CI_Controller{
         $this->load->model('ui/ModelWebSite');
     }
     public function index(){
+
+
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'صفحه اصلی ';
 

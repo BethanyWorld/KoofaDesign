@@ -12,6 +12,7 @@
             'inputOrderId': $("#inputOrderId").val(),
             'inputPhone': $("#inputPhone").val(),
             'inputLastName': $("#inputLastName").val(),
+            'inputOrderStatus': $("#inputOrderStatus").val(),
             'pageIndex': selectedPage
         }
         $.ajax({

@@ -19,17 +19,13 @@ class ModelUserAccount extends CI_Model
         } else {
             $ActivationCode = rand(1001, 9999);
             $this->session->set_userdata('activationCode', $ActivationCode);
-            ini_set("soap.wsdl_cache_enabled", "0");
-            $sms_client = new SoapClient('http://api.payamak-panel.com/post/send.asmx?wsdl', array('encoding' => 'UTF-8'));
-            $parameters['username'] = $this->config->item('smsUserName');
-            $parameters['password'] = $this->config->item('smsPassword');
-            $parameters['to'] = $inputs['inputPhone'];
-            /*$parameters['from'] = "50001060658471";*/
-            $parameters['bodyId'] = $this->config->item('AccountConfirmCode');
-            $parameters['text'] = array($ActivationCode);
-
-            $result = $sms_client->SendByBaseNumber($parameters);
-            if ($result->SendByBaseNumberResult > 15) {
+            $message = array(
+                'verification-code'=> $ActivationCode
+            );
+            $code = $this->config->item('AccountConfirmCode]');
+            $result = sendSMS($inputs['inputPhone'],$code,$message);
+            var_dump($result);
+            if ($result > 0) {
                 $UserArray = array(
                     'UserFirstName' => $inputs['inputFirstName'],
                     'UserLastName' => $inputs['inputLastName'],
@@ -162,18 +158,12 @@ class ModelUserAccount extends CI_Model
             $ActivationCode = rand(1001, 9999);
             $this->session->set_userdata('activationCode', $ActivationCode);
             $this->session->set_userdata('currentUserId', $userInfo['UserId']);
-
-            ini_set("soap.wsdl_cache_enabled", "0");
-            $sms_client = new SoapClient('http://api.payamak-panel.com/post/send.asmx?wsdl', array('encoding' => 'UTF-8'));
-            $parameters['username'] = $this->config->item('smsUserName');
-            $parameters['password'] = $this->config->item('smsPassword');
-            $parameters['to'] = $inputs['inputPhone'];
-            /*$parameters['from'] = "50001060658471";*/
-            $parameters['bodyId'] = $this->config->item('AccountConfirmCode');
-            $parameters['text'] = array($ActivationCode);
-
-            $result = $sms_client->SendByBaseNumber($parameters);
-            if ($result->SendByBaseNumberResult > 15) {
+            $message = array(
+                'verification-code'=> $ActivationCode
+            );
+            $code = $this->config->item('AccountConfirmCode]');
+            $result = sendSMS($inputs['inputPhone'],$code,$message);
+            if ($result > 0) {
                 $UserArray = array('UserActivationCode' => $ActivationCode);
                 $this->db->trans_start();
                 $this->db->where('UserId', $userInfo['UserId']);
@@ -216,15 +206,11 @@ class ModelUserAccount extends CI_Model
         if ($query->num_rows() > 0) {
             $userInfo = $query->result_array()[0];
             $newPassword = rand(1001, 9999);
-            ini_set("soap.wsdl_cache_enabled", "0");
-            $sms_client = new SoapClient('http://api.payamak-panel.com/post/send.asmx?wsdl', array('encoding' => 'UTF-8'));
-            $parameters['username'] = $this->config->item('smsUserName');
-            $parameters['password'] = $this->config->item('smsPassword');
-            $parameters['to'] = $inputs['inputPhone'];
-            /*$parameters['from'] = "50001060658471";*/
-            $parameters['bodyId'] = $this->config->item('AccountNewPasswordCode');
-            $parameters['text'] = array($newPassword);
-            $result = $sms_client->SendByBaseNumber($parameters);
+            $message = array(
+                'new-password'=> $newPassword
+            );
+            $code = $this->config->item('AccountNewPasswordCode]');
+            $result = sendSMS($inputs['inputPhone'],$code,$message);
             if ($result->SendByBaseNumberResult > 15) {
                 $UserArray = array('UserPassword' => md5($newPassword));
                 $this->db->trans_start();

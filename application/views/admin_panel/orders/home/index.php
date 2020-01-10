@@ -16,6 +16,13 @@ $_DIR = base_url('assets/admin/');
                             <input type="text" id="inputPhone" name="inputPhone" />
                             <label for="inputLastName">نام خانوداگی</label>
                             <input type="text" id="inputLastName" name="inputLastName" />
+                            <label for="inputOrderStatus">وضعیت</label>
+                            <select id="inputOrderStatus" name="inputOrderStatus">
+                                <option value="">-- انتخاب کنید --</option>
+                                <option value="Pend">در انتظار</option>
+                                <option value="Failed">لغد شده</option>
+                                <option value="Done">پرداخت موفق</option>
+                            </select>
                             <button type="button"
                                     id="searchButton"
                                     class="btn btn-info btn-circle waves-effect waves-circle waves-float pull-left btn-search">

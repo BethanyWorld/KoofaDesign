@@ -60,13 +60,11 @@ $config['API_KEY'] = 'AIzaSyACQqvivCiQe0wFhh1R4q4x3Hfmeuig3Y8';
 $config['defaultPageSize'] = 6;
 $config['upload_path']= './uploads/';
 
-
 /* SMS Panel */
-$config['smsUserName'] = 'm.zaree';
-$config['smsPassword'] = '2342';
-$config['AccountConfirmCode'] = '7519';
-$config['AccountNewPasswordCode'] = '7518';
-$config['MessageCode'] = '7515';
+$config['AccountConfirmCode'] = 'h5q654ed8x';
+$config['AccountNewPasswordCode'] = 'c8922i2kjy';
+$config['SuccessPayment'] = 'uia3n6frmp';
+$config['AcceptOrderByAdmin'] = 'x5y798y3sh';
 
 /* Enums */
 $config['discountType'] = array(

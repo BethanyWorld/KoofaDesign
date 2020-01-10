@@ -21,6 +21,9 @@ class ModelOrder extends CI_Model
         if($inputs['inputLastName'] != ''){
             $this->db->like('UserLastName',$inputs['inputLastName']);
         }
+        if($inputs['inputOrderStatus'] != ''){
+            $this->db->where('OrderStatus',$inputs['inputOrderStatus']);
+        }
 
         $this->db->order_by('OrderId', 'ASC');
         $this->db->limit($end, $start);

@@ -48,7 +48,6 @@ class Category extends CI_Controller{
         $this->load->view('ui/category/index_js', $data);
         $this->load->view('ui/static/footer');
     }
-
     public function search(){
         $inputs = $this->input->post(NULL , TRUE);
         $data = $this->ModelProduct->searchProduct($inputs);
