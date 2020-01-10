@@ -16,6 +16,12 @@ $_DIR = base_url('assets/ui/'); ?>
                                     <p>علاقه مندی ها</p>
                                 </div>
                             </div>
+
+                            <?php if(empty($userWishList)){ ?>
+                                <div class="alert alert-warning">
+                                    موردی یافت نشد. 
+                                </div>
+                            <?php } ?>
                             <?php foreach ($userWishList as $item) {
                                 if (!empty($item)) { $item = $item[0]; ?>
                                     <div class="col-md-12 col-xs-12 profile-login-image-div4">

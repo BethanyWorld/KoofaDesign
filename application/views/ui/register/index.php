@@ -11,7 +11,7 @@
                 <div class="col-md-12 col-xs-12 box">
                     <div class="col-md-6 col-sm-12 col-xs-12 form-box form-register">
                         <div class="col-md-12 col-xs-12 form-holder">
-                            <form role="form" class="register-page-form">
+                            <div role="form" class="register-page-form">
                                 <div class="form-group">
                                     <label>نام </label>
                                     <input type="text" class="form-control" id="inputFirstName" name="inputFirstName" required>
@@ -49,18 +49,12 @@
                                         استفاده از سایت کوفا را مطالعه کرده و می بذیرم
                                     </label>
                                 </div>
-
-<!--                                <div class="form-checkbox margin-t-10">-->
-<!--                                    <input type="checkbox" id="login2">-->
-<!--                                    <label for="login2" class="register-lable">-->
-<!--                                        اشتراک در خبرنامه-->
-<!--                                        <span class="lable-span">لازمه دریافت 10% تخفیف اولین خرید </span>-->
-<!--                                    </label>-->
-<!--                                </div>-->
-                                <button type="button" id="buttonRegister" class="btn form-submit-btn pull-left">
+                                <button type="button"
+                                        id="buttonRegister"
+                                        class="btn form-submit-btn pull-left">
                                     ثبت نام
                                 </button>
-                            </form>
+                            </div>
                             <form role="form" class="register-page-active-form">
                                 <div class="form-group">
                                     <label>کد تایید حساب کاربری</label>

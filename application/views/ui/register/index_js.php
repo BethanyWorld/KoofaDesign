@@ -36,6 +36,7 @@
                         if ($result['success']) {
                             $(".register-page-form").hide();
                             $(".register-page-active-form").fadeIn();
+                            $("#inputActivationCode").focus();
                         }
                     },
                     error: function (jqXHR, textStatus, errorThrown) {

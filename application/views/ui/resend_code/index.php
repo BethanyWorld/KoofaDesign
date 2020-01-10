@@ -11,7 +11,7 @@
                 <div class="col-md-12 col-xs-12 box">
                     <div class="col-md-6 col-sm-12 col-xs-12 form-box form-register">
                         <div class="col-md-12 col-xs-12 form-holder">
-                            <form role="form" class="register-page-form">
+                            <div role="form" class="register-page-form">
 
                                 <div class="form-group">
                                     <label>تلفن همراه</label>
@@ -30,7 +30,7 @@
                                 <button type="button" id="buttonResendCode" class="btn form-submit-btn pull-left">
                                    ارسال کد فعال سازی
                                 </button>
-                            </form>
+                            </div>
                             <form role="form" class="register-page-active-form">
                                 <div class="form-group">
                                     <label>کد تایید حساب کاربری</label>

@@ -25,13 +25,13 @@ $_DIR = base_url('assets/ui/'); ?>
                                     <input class="form-control"
                                            type="text"
                                            name="inputAddressFullName"  id="inputAddressFullName"
-                                           required="" placeholder="نادری">
+                                           required="">
                                 </div>
                                 <div class="form-group">
                                     <label>پست الکترونیک :</label>
                                     <input class="form-control" type="text"
                                            name="inputAddressEmail"  id="inputAddressEmail"
-                                           required="" placeholder="info@gmail.com">
+                                           required="">
                                 </div>
                                 <div class="form-group ">
                                     <label> شماره تلفن همراه :</label>
@@ -85,6 +85,16 @@ $_DIR = base_url('assets/ui/'); ?>
                                     <p>دفترچه آدرس</p>
                                 </div>
                                 <div class="col-md-12 col-xs-12">
+
+
+                                    <?php if(empty($userAddress)){ ?>
+                                        <div class="alert alert-warning">
+                                            موردی یافت نشد.
+                                            لطفا یک آدرس اضافه کنید
+                                        </div>
+                                    <?php } ?>
+
+
                                     <?php foreach ($userAddress as $item) { ?>
                                         <div class="col-md-12 col-xs-12 profile-client-detail-div">
                                             <div class="col-md-10 col-xs-12 padding-0 rightFloat">

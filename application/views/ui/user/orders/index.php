@@ -18,6 +18,13 @@ $_DIR = base_url('assets/ui/'); ?>
                             </tr>
                         </thead>
                         <tbody>
+                        <?php if(empty($orders)){ ?>
+                            <tr>
+                                <td colspan="7">
+                                    موردی یافت نشد.
+                                </td>
+                            </tr>
+                        <?php } ?>
                             <?php foreach ($orders as $order) { ?>
                                 <tr>
                                     <td class="fit"><?php echo $order['OrderId']; ?></td>

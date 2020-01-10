@@ -109,8 +109,8 @@ class Cart extends CI_Controller{
         foreach ($productPrice as $price) {
             if ($price['MaterialId'] == $materialId && $price['SizeId'] == $sizeId) {
                 $item['productPrice'] = $price['PriceValue'];
-                $item['productSizeId'] = $price['MaterialId'];
-                $item['productMaterialId'] = $price['SizeId'];
+                $item['productSizeId'] = $price['SizeId'];
+                $item['productMaterialId'] = $price['MaterialId'];
             }
         }
         if ($productHasInstallation != 0) {
@@ -145,6 +145,7 @@ class Cart extends CI_Controller{
         $item['productInstallation'] = false;
         $item['productWidth'] = $productWidth;
         $item['productHeight'] = $productHeight;
+        $item['productSizeId'] = '';//Free Size Has Not Size
 
         if (ceil(($productWidth / 100)) != ($productWidth / 100)) {
             $item['productWidth'] = ceil(($productWidth / 100))*100;
