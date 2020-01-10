@@ -2,8 +2,8 @@
 $_DIR = base_url('assets/ui/'); ?>
 
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/product-detail.css"/>
-<link rel="stylesheet" href="<?php echo $_DIR; ?>css/cropper.css"/>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/main.css"/>
+<link rel="stylesheet" href="<?php echo $_DIR; ?>css/cropper.css"/>
 
 
 <div id="main" style="min-height: 100vh;">
@@ -37,78 +37,64 @@ $_DIR = base_url('assets/ui/'); ?>
                     <div class="col-md-12 col-xs-12 product-detail-print padding-right product-sub-title">
                         <p><?php echo $data['ProductBrief']; ?></p>
                     </div>
-                    <div class="col-md-12 col-xs-12 padding-0 product-detail-Flax margin-b-10">
-                        <div class="col-xs-12 rightFloat padding-0 product-size">
-                            <label>انتخاب جنس</label>
-                        </div>
-                        <div class="col-xs-12 padding-0">
+                    <div class="col-xs-12 padding-0 product-detail-Flax margin-b-10">
+                        <div class="col-xs-12 col-md-4 pull-right">
+                            <div class="col-xs-12 rightFloat padding-0 product-size">
+                                <label>انتخاب جنس</label>
+                            </div>
                             <select class="width100" id="priceDropDown">
                                 <?php foreach ($productPrice as $item) { ?>
                                     <option
                                             data-material-id="<?php echo $item['MaterialId']; ?>"
                                             data-price="<?php echo $item['PriceValue']; ?>">
-                                        جنس
-                                        &nbsp;
+                                        جنس&nbsp;
                                         <?php echo $item['MaterialTitle']; ?>
                                     </option>
                                 <?php } ?>
                             </select>
                         </div>
-                    </div>
-                    <div class="col-xs-12 product-detail-Flax margin-b-10 padding-0">
-                        <div class="product-size pull-right col-md-6 col-xs-12">
+                        <div class="product-size col-xs-12 col-md-4 pull-right">
                             <label>ارتفاع</label>
-                            <input id="inputProductHeight" type="number" min="0"
+                            <input id="inputProductHeight" class="metrics" type="number" value="0" min="0"
                                    max="<?php echo $data['ProductMaxHeight']; ?>"/>
                         </div>
                         <!--                        <span class="pull-right"> &nbsp;&nbsp; &nbsp;&nbsp;</span>-->
-                        <div class="product-size pull-right col-md-6 col-xs-12 text-left">
+                        <div class="product-size col-xs-12 col-md-4 pull-right">
                             <label>عرض</label>
-                            <input id="inputProductWidth" type="number" min="0"
+                            <input id="inputProductWidth"  class="metrics" type="number" value="0" min="0"
                                    max="<?php echo $data['ProductMaxWidth']; ?>"/>
                         </div>
+
+<!--                        <div class="col-xs-12 docs-buttons">-->
+<!--                            <div class="col-md-12 col-xs-12 btn-group btn-group-crop">-->
+<!--                                <button type="button" class="btn btn-success">-->
+<!--                                    <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="برش عکس">برش</span>-->
+<!--                                </button>-->
+<!--                            </div>-->
+<!--                            <div class="modal fade docs-cropped" id="getCroppedCanvasModal" aria-hidden="true"-->
+<!--                                 aria-labelledby="getCroppedCanvasTitle" role="dialog" tabindex="-1">-->
+<!--                                <div class="modal-dialog">-->
+<!--                                    <div class="modal-content">-->
+<!--                                        <div class="modal-header">-->
+<!--                                            <h5 class="modal-title" id="getCroppedCanvasTitle">عکس برش خورده در سایز-->
+<!--                                                دلخواه</h5>-->
+<!--                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--                                                <span aria-hidden="true">&times;</span>-->
+<!--                                            </button>-->
+<!--                                        </div>-->
+<!--                                        <div class="modal-body"></div>-->
+<!--                                        <div class="modal-footer">-->
+<!--                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن-->
+<!--                                            </button>-->
+<!--                                            <a class="btn btn-primary" id="download" href="javascript:void(0);"-->
+<!--                                               download="cropped.jpg">دانلود</a>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>
+<!--                        </div>-->
                     </div>
 
-
-                    <div class="col-md-12 col-xs-12 padding-0 docs-buttons">
-                        <div class="col-md-12 col-xs-12 padding-0 btn-group btn-group-crop">
-
-                            <button type="button" class="btn btn-success" data-method="getCroppedCanvas"
-                                    data-option="{ &quot;maxWidth&quot;: 4096, &quot;maxHeight&quot;: 4096 }">
-            <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="برش عکس">
-             برش
-            </span>
-                            </button>
-
-
-<!--                            <button type="button" class="btn btn-primary disable-button" data-method="disable"></button>-->
-
-
-                        </div>
-
-                        <!-- Show the cropped image in modal -->
-                        <div class="modal fade docs-cropped" id="getCroppedCanvasModal" aria-hidden="true"
-                             aria-labelledby="getCroppedCanvasTitle" role="dialog" tabindex="-1">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="getCroppedCanvasTitle">عکس برش خورده در سایز
-                                            دلخواه</h5>
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                    </div>
-                                    <div class="modal-body"></div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن
-                                        </button>
-                                        <a class="btn btn-primary" id="download" href="javascript:void(0);"
-                                           download="cropped.jpg">دانلود</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div><!-- /.modal -->
-                    </div>
 
 
                     <div class="col-md-12 col-xs-12"></div>
@@ -118,10 +104,6 @@ $_DIR = base_url('assets/ui/'); ?>
                             <p>قیمت کل :</p>
                         </div>
                         <div class="col-md-6 col-xs-12 product-detail-number">
-                            <p>
-                                <?php echo number_format($productPrice[0]['PriceValue']); ?>
-                                تومان
-                            </p>
                         </div>
                     </div>
                     <div class="col-md-12 col-xs-12 padding-0 shopping-add-basket">
@@ -316,8 +298,5 @@ $_DIR = base_url('assets/ui/'); ?>
 </div>
 
 
-<!--<script src="--><?php //echo $_DIR; ?><!--js/jquery-3.3.1.slim.min.js" crossorigin="anonymous"></script>-->
-<script src="<?php echo $_DIR; ?>js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script src="<?php echo $_DIR; ?>js/cropper.js" crossorigin="anonymous"></script>
-<script src="<?php echo $_DIR; ?>js/jquery-cropper.js" crossorigin="anonymous"></script>
-<script src="<?php echo $_DIR; ?>js/main.js" crossorigin="anonymous"></script>
+<script src="<?php echo $_DIR; ?>js/cropper.js"></script>
+<script src="<?php echo $_DIR; ?>js/jquery-cropper.js"></script>
