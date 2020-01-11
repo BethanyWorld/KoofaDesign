@@ -316,6 +316,7 @@
         .form-box {
             margin-bottom: 25px;
             padding-left: 0px;
+            padding-right: 0px;
         }
 
         .form-box .form-holder {
@@ -329,7 +330,27 @@
         .block-image {
             float: initial;
         }
-
+        .login-remember-pass{
+            padding: 0px;
+            text-align: left;
+            margin-bottom: 15px;
+            padding-left: 15px;
+        }
+        .login-form-holder {
+            padding: 15px 15px 0px 15px !important;
+            min-height: 330px !important;
+        }
+        .body-white-form{
+            margin-bottom: 0px;
+        }
+        .body-icons{
+            margin-top: 0px;
+            margin-bottom: 0px;
+            border-bottom: none;
+        }
+        .body-guarantee-div{
+            margin-top: 0px;
+        }
         /*body login form*/
     }
 </style>

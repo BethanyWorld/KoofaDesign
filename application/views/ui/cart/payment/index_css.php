@@ -1106,8 +1106,8 @@
         }
 
         .process-model li:first-child::before {
-            right: 20px;
-            width: 30%;
+            right: 0px;
+            width: 145%;
         }
     }
 

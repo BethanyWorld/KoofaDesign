@@ -498,12 +498,11 @@
             padding-left: 10px;
         }
         .body-guarantee li a {
-            font-size: 12px;
+            font-size: 11px;
+            padding: 0px;
         }
         .body-guarantee li img {
-            width: 20px;
-            height: 20px;
-            right: 5px;
+            display: none;
         }
     }
 </style>

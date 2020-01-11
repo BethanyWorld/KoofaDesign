@@ -104,7 +104,7 @@ $_DIR = base_url('assets/ui/'); ?>
             <div class="row index-product-holder">
                 <section class="col-md-12 col-xs-12 index-category-products">
                     <?php foreach ($categories as $category) { ?>
-                        <div class="col-md-4 col-xs-12 col-sm-12 height100 rightFloat m-b-40">
+                        <div class="col-md-4 col-xs-12 col-sm-12 height100 rightFloat m-b-15">
                             <h3>
                                 <a class="index-feature-title"
                                    href="<?php echo categoryUrl($category['CategoryId'], $category['CategoryTitle']); ?>">

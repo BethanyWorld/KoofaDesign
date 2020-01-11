@@ -1,6 +1,6 @@
 <?php $_URL = base_url(); $_DIR = base_url('assets/ui/');  ?>
 
-<div id="main" style="min-height: 100vh;">
+<div id="main" style="min-height: 160vh;">
     <div class="row index-slider-div">
         <div class="container">
             <div class="col-md-12 col-xs-12 padding-0">

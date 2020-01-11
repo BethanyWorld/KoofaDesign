@@ -10,6 +10,7 @@
 .right-text-align {
     text-align: right;
 }
+
 .padding-response {
     padding: 0px;
 }
@@ -25,13 +26,16 @@
     margin-top: 15px;
     position: relative;
 }
-.index-slider-div2 .container{
+
+.index-slider-div2 .container {
     padding-top: 15px;
     padding-bottom: 15px;
 }
-.index-holder-slider1{
+
+.index-holder-slider1 {
     padding-bottom: 10px;
 }
+
 .index-sidebar-top {
     margin-top: 15px;
     width: 100%;
@@ -225,6 +229,7 @@
     width: 100%;
     height: 100%;
 }
+
 .index-sidebar-top .index-tools-top .index-banner {
     height: 240px;
 }
@@ -371,6 +376,7 @@
     text-align: center;
     padding-right: 10px;
 }
+
 /*guarantee*/
 
 .index-keeper {
@@ -378,11 +384,13 @@
     padding: 10px;
     border: 1px solid #fff;
 }
-.index-product{
+
+.index-product {
     position: relative;
     background: #fff;
     padding: 10px 0;
 }
+
 .index-feature-title {
     padding: 0 10px;
     font-size: 18px;
@@ -460,7 +468,8 @@
     display: inline-block;
     color: gray;
 }
-.category-products{
+
+.category-products {
     padding: 10px;
 }
 
@@ -559,9 +568,11 @@
     padding-top: 5px;
     border-bottom: 1px solid #ccc;
 }
-#thumbs2.owl-carousel .owl-item:last-child{
+
+#thumbs2.owl-carousel .owl-item:last-child {
     border-bottom: 0px;
 }
+
 #thumbs2 .item {
     /*background: #C9C9C9;*/
     /*height:30px;*/
@@ -584,11 +595,13 @@
     font-weight: 700;
     font-size: 15px;
 }
-#thumbs2 .item a p{
+
+#thumbs2 .item a p {
     text-align: right;
     margin-bottom: 0px;
     font-size: 14px;
 }
+
 #thumbs2 .item h1 {
     font-size: 18px;
 }
@@ -725,9 +738,11 @@
     border-right: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
 }
-#thumbs2 .owl-nav{
+
+#thumbs2 .owl-nav {
     display: none;
 }
+
 #big.owl-theme .owl-next, #big.owl-theme .owl-prev {
     background-color: transparent;
 }
@@ -744,9 +759,11 @@
 #big2.owl-theme .owl-next, #big2.owl-theme .owl-prev i {
     font-size: 35px;
 }
-#big2 .owl-nav{
+
+#big2 .owl-nav {
     display: none;
 }
+
 /*owl slider*/
 
 
@@ -772,13 +789,15 @@
 .div-on-slider2 a {
     color: #fff;
 }
-.div-on-slider2 a h2{
+
+.div-on-slider2 a h2 {
     margin-bottom: 5px;
     font-size: 16px;
     line-height: 26px;
     direction: rtl;
     text-align: justify;
 }
+
 .slider2-desc {
     color: #2D693A;
     font-weight: bolder;
@@ -787,9 +806,11 @@
     direction: rtl;
     text-align: justify;
 }
-.slider2-discountPrice{
+
+.slider2-discountPrice {
     margin-bottom: -5px;
 }
+
 .slider2-discountPrice p {
     color: red;
     font-weight: bolder;
@@ -826,19 +847,23 @@
     font-size: 15px;
     word-break: break-word;
 }
-.slier2-rightPanel-Price-div{
-    color:#2D693A ;
+
+.slier2-rightPanel-Price-div {
+    color: #2D693A;
 }
-.slier2-rightPanel-Price-div .slier2-rightPanel-mainPrice{
+
+.slier2-rightPanel-Price-div .slier2-rightPanel-mainPrice {
     color: #ccc;
     float: left;
     padding-right: 10px;
 }
-.slier2-rightPanel-Price-div .slider2-rightPanel-discountPrice{
+
+.slier2-rightPanel-Price-div .slider2-rightPanel-discountPrice {
     color: red;
     text-decoration: line-through;
     float: right;
 }
+
 /*for product slider 2*/
 
 
@@ -865,7 +890,7 @@
 /*for product detail*/
 .one-product-detail {
     float: right;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     padding: 10px;
 }
 
@@ -891,15 +916,15 @@
     font-size: 14px;
     font-weight: bold;
     margin-top: 0px;
-    line-height: 2em;
+    line-height: 1.5em;
     margin-bottom: 0px;
-    height: 60px;
+    height: 3em;
     overflow: hidden;
 }
 
 .price-box {
     display: inline-block;
-    padding: 0px;
+    padding: 10px 0px 0px 0px;
 }
 
 .item_price {
@@ -910,9 +935,11 @@
     color: #896a16;
     width: 100%;
     float: right;
+    height: 1em;
     text-align: left;
     position: relative;
     left: 8px;
+    overflow: hidden;
 }
 
 .item_price .unit {
@@ -1019,7 +1046,7 @@
 }
 
 /*for red line*/
-.red-line{
+.red-line {
     height: 3px;
     background-color: red;
     position: absolute;
@@ -1030,9 +1057,8 @@
     margin: auto;
     padding: 0px;
 }
+
 /*for red line*/
-
-
 
 
 @media (min-width: 992px) {
@@ -1056,9 +1082,10 @@
     }
 
     /*for slider 2*/
-    #thumbs2 .item a{
+    #thumbs2 .item a {
         font-size: 11px;
     }
+
     /*for slider 2*/
 
 }
@@ -1066,8 +1093,12 @@
 @media (max-width: 992px) {
     .index-sidebar-top .index-sidebar-home {
         width: 100%;
+        padding-left: 0px;
     }
 
+    .index-holder{
+        padding-left: 0px;
+    }
     .index-sidebar-home .carousel {
         padding-bottom: 40px;
     }
@@ -1100,10 +1131,6 @@
         height: 80px;
     }
 
-    #thumbs .item a {
-        font-size: 10px;
-    }
-
     .product-keeper {
         height: 300px;
     }
@@ -1129,27 +1156,47 @@
     .btn-buy {
         top: 260px;
         left: 65px;
+        padding: 15px 30px;
+        font-size: 10px;
     }
 
     /*for slider 2*/
-    #thumbs2{
+    #thumbs2 {
         width: 196px;
         height: 358px;
     }
-    .div-on-slider2{
+
+    .div-on-slider2 {
         width: 275px;
         padding-left: 0px;
     }
+
     .slider2-hour-div {
         margin-top: 5px;
     }
-    .index-sidebar-top .index-sidebar-home2{
+
+    .index-sidebar-top .index-sidebar-home2 {
         height: 358px;
     }
-    #thumbs2.owl-carousel .owl-item{
+
+    #thumbs2.owl-carousel .owl-item {
         height: 71px;
     }
+
     /*for slider 2*/
+
+    .index-gallery-other span{
+        font-size: 11px;
+    }
+    /*for slider*/
+    #thumbs .item a {
+        font-size: 8px;
+    }
+    #thumbs .item{
+        height: 35px;
+        line-height: 35px;
+    }
+    /*for slider*/
 }
 
 @media (max-width: 991px) and (min-width: 768px) {
@@ -1219,21 +1266,26 @@
         padding-top: 5px;
         padding-left: 0px;
     }
+
     .slider2-hour-div {
         margin-top: 10px;
     }
+
     .index-sidebar-top .index-sidebar-home2 {
         width: 77%;
         height: 350px;
         border-radius: 3px 3px 0 0;
         overflow: hidden;
     }
-    #thumbs2.owl-carousel .owl-item{
+
+    #thumbs2.owl-carousel .owl-item {
         height: 66.5px;
     }
-    .slider2-text p{
+
+    .slider2-text p {
         font-size: 13px;
     }
+
     /*for slider2*/
 
 }
@@ -1270,18 +1322,21 @@
     }
 
     .btn-buy {
-        top: 140px;
-        left: 65px;
+        top: 160px;
+        left: 45px;
     }
+
     /*for slider 2*/
     #thumbs2 {
         width: 200px;
         height: 276px;
     }
+
     #thumbs2.owl-carousel .owl-item {
         height: 40px;
         padding-top: 1px;
     }
+
     .div-on-slider2 {
         width: 100%;
         position: absolute;
@@ -1291,32 +1346,40 @@
         top: auto;
         padding-top: 0px;
     }
-    .div-on-slider2 a h2{
+
+    .div-on-slider2 a h2 {
         margin-top: 5px;
     }
+
     .slider2-desc {
         font-size: 12px;
         margin-bottom: 0px;
     }
-    .slider2-discountPrice{
+
+    .slider2-discountPrice {
         width: 15%;
     }
-    .slider2-mainPrice{
+
+    .slider2-mainPrice {
         width: 28%;
     }
-    .slider2-hour-div{
+
+    .slider2-hour-div {
         width: 35%;
         position: absolute;
         right: 25%;
         top: 15px;
     }
-    .slider2-text{
+
+    .slider2-text {
         display: none;
     }
-    .slider2-mainPrice p{
+
+    .slider2-mainPrice p {
         font-size: 20px;
     }
-    #thumbs2 .item{
+
+    #thumbs2 .item {
         line-height: 18px;
     }
 
@@ -1331,61 +1394,77 @@
         right: 10%;
         top: 20px;
     }
+
     .slider2-discountPrice {
         width: 18%;
     }
+
     /*for slider 2*/
 }
 
 @media screen and (max-width: 600px) {
     #thumbs2 {
-        width: 190px;
+        width: 140px;
     }
+
     /*for slider 2*/
     .slider2-hour-div {
         display: none;
     }
+
     .slider2-hour {
         height: 50px;
     }
+
     .slider2-discountPrice {
         width: 22%;
     }
+
     .slider2-mainPrice {
         width: 32%;
     }
+
     .slider2-mainPrice p {
         font-size: 19px;
     }
+
     /*for slider 2*/
 }
 
-@media  screen and (max-width: 550px) {
-    .body-guarantee li a{
+@media screen and (max-width: 550px) {
+    .body-guarantee li a {
         font-size: 11px;
         padding-right: 3px;
     }
+
     /*for slider 2*/
-    .slider2-hour{
+    .slider2-hour {
         display: none;
     }
+
     #thumbs2 .item {
         line-height: 17px;
     }
+
     .slider2-mainPrice p {
         font-size: 17px;
     }
+
     #thumbs2 .item a {
         font-size: 11px;
     }
+
     .slider2-mainPrice {
         width: 35%;
     }
+
     .slider2-discountPrice {
         width: 23%;
     }
+
     .slider2-discountPrice p {
         font-size: 17px;
     }
+
     /*for slider 2*/
 }

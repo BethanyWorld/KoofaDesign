@@ -29,7 +29,7 @@
                                        style="cursor: pointer;"
                                        id="reCaptcha"></i>
                                     <img class="captcha-img" src="<?php echo base_url('GetCaptcha'); ?>"/>
-                                    <div class="text-center col-sm-6 col-xs-12">
+                                    <div class="text-center col-sm-6 col-xs-12 padding-0">
                                         <input type="text" name="inputCaptcha" id="inputCaptcha" class="form-control"
                                                placeholder="کد امنیتی">
                                     </div>
@@ -77,7 +77,7 @@
     </div>
 </div>
 
-<div class="col-md-12 col-xs-12">
+<div class="col-md-12 col-xs-12 padding-0">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-xs-12 body-icons body-blocks">
@@ -130,12 +130,12 @@
     </div>
 </div>
 
-<div class="col-md-12 col-xs-12">
+<div class="col-md-12 col-xs-12 padding-0">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-xs-12 body-guarantee-div">
                 <div class="row">
-                    <div class="col-md-12 col-xs-12">
+                    <div class="col-md-12 col-xs-12 padding-0">
                         <ul class="body-guarantee">
                             <li class="col-md-3 col-xs-12">
                                 <a href="">ضمانت بازگشت</a>

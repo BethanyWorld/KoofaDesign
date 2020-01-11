@@ -211,6 +211,19 @@
         font-weight: bolder;
         font-size: 14px;
     }
+    .item_price {
+        font-size: 14px;
+        margin-bottom: 0;
+        padding-bottom: 0;
+        line-height: 1.1em;
+        color: #896a16;
+        width: 100%;
+        height: 1em;
+        text-align: left;
+        position: relative;
+        left: 8px;
+        overflow: hidden;
+    }
 
     .grouping-product-info-price {
         font-size: 23px;
@@ -304,8 +317,8 @@
     }
 
     .grouping-ul-style {
-        padding-right: 5px;
-        padding-left: 5px;
+        padding-right: 0px;
+        padding-left: 0px;
     }
 
     .grouping-ul-style .grouping-li-style {
@@ -607,6 +620,9 @@
         }
         .product-info{
             padding-right: 15px;
+        }
+        .item_price{
+            left: 0px;
         }
     }
 

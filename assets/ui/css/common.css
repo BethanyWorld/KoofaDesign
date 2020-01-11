@@ -35,8 +35,8 @@
 .z-m{
     margin: 0 !important;
 }
-.m-b-40{
-    margin-bottom: 40px;
+.m-b-15{
+    margin-bottom: 15px;
 }
 .section-padding{
     padding: 10px 0;
@@ -809,8 +809,12 @@ footer {
         text-align: center;
         border-radius: 5px 0px 0px 5px;
     }
-
-
+    .footer-service{
+        padding: 30px 5px 5px 5px;
+    }
+    .footer-guide{
+        padding: 30px 5px 5px 5px;
+    }
     /*for additional login div*/
     .additional-login-div {
         display: none;
@@ -824,7 +828,7 @@ footer {
     }
 
     .footer-div {
-        margin-bottom: 25px;
+        margin-bottom: 15px;
     }
 
     .footer-padding-response {
@@ -834,8 +838,40 @@ footer {
     .footer-copyright-text-en {
         text-align: center;
     }
-
+    .footer-socials-ul li{
+        width: 20px;
+        height: 30px;
+        margin-right: 2px;
+    }
+    .footer-socials-ul li a{
+        font-size: 15px;
+        line-height: 30px;
+    }
+    .footer-copyright-text-fa{
+        font-size: 11px;
+        text-align: center;
+    }
+    .footer-menu ul li{
+        padding: 8px 8px;
+    }
+    .footer-des p{
+        text-align: justify;
+    }
+    .footer-menu ul li a{
+        font-size: 9px;
+    }
+    .footer-menu{
+        text-align: center;
+    }
     /*footer*/
+
+    .footer-guide-ul li a{
+        font-size: 13px;
+    }
+
+    .footer-socials-ul{
+        margin-bottom: 15px;
+    }
 }
 
 @media screen and (min-width: 992px) {
