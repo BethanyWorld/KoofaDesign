@@ -23,10 +23,11 @@
                 .eq(0)
                 .addClass("current");
         })
-        .owlCarousel({
+            .owlCarousel({
                 items: 8,
                 dots: true,
                 nav: true,
+                mouseDrag: false,
                 navText: [
                     '<i class="fa fa-arrow-left" aria-hidden="true"></i>',
                     '<i class="fa fa-arrow-right" aria-hidden="true"></i>'
@@ -36,6 +37,7 @@
                 slideBy: 4,
                 responsiveRefreshRate: 100
             }).on("changed.owl.carousel", syncPosition2);
+
         function syncPosition(el) {
             //if loop is set to false, then you have to uncomment the next line
             //var current = el.item.index;
@@ -73,24 +75,29 @@
                 thumbs.data("owl.carousel").to(current - onscreen, 100, true);
             }
         }
+
         function syncPosition2(el) {
             if (syncedSecondary) {
                 var number = el.item.index;
                 bigimage.data("owl.carousel").to(number, 100, true);
             }
         }
+
         thumbs.on("click", ".owl-item", function (e) {
             e.preventDefault();
             var number = $(this).index();
             bigimage.data("owl.carousel").to(number, 300, true);
         });
+
         function initImageUpload(box) {
             let uploadField = box.querySelector('.image-upload');
             uploadField.addEventListener('change', getFile);
+
             function getFile(e) {
                 let file = e.currentTarget.files[0];
                 previewImage(file);
             }
+
             function previewImage(file) {
                 let reader = new FileReader();
                 reader.onload = function () {
@@ -102,6 +109,7 @@
             }
 
         }
+
         var boxes = document.querySelectorAll('.box');
         for (let i = 0; i < boxes.length; i++) {
             let box = boxes[i];
@@ -127,7 +135,7 @@
                 type: 'post',
                 success: function (data) {
                     $result = jQuery.parseJSON(data);
-                    if($result['success']){
+                    if ($result['success']) {
                         $src = $result['fileSrc'];
                         $.ajax({
                             type: 'post',
@@ -139,10 +147,10 @@
                             success: function () {
                                 location.href = base_url + 'Cart'
                             },
-                            error: function () {}
+                            error: function () {
+                            }
                         });
-                    }
-                    else{
+                    } else {
                         toggleLoader();
                         $result = jQuery.parseJSON(data);
                         notify($result['content'], $result['type']);
@@ -167,7 +175,7 @@
                 },
                 success: function (data) {
                     $result = JSON.parse(data);
-                    notify($result['content'] , $result['type']);
+                    notify($result['content'], $result['type']);
                     //location.href = base_url + 'Cart'
                 },
                 error: function () {

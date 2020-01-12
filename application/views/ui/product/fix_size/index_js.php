@@ -25,6 +25,7 @@
             items: 8,
             dots: true,
             nav: true,
+            mouseDrag: false,
             navText: [
                 '<i class="fa fa-arrow-left" aria-hidden="true"></i>',
                 '<i class="fa fa-arrow-right" aria-hidden="true"></i>'

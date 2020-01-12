@@ -54,11 +54,10 @@ ul.breadcrumb li a {
 .product-size {
     position: relative;
     right: 0px;
-    padding: 0px;
 }
 
 .product-size input {
-    width: 80%;
+    width: 100%;
 }
 
 .product-detail-print {
@@ -656,6 +655,7 @@ ul.breadcrumb li a {
         height: 500px;
         padding-right: 15px;
         padding-left: 15px;
+        margin-top: 15px;
 
     }
 
@@ -675,9 +675,6 @@ ul.breadcrumb li a {
         padding-right: 10px;
     }
     .product-detail-print{
-        padding-right: 10px !important;
-    }
-    .product-size{
         padding-right: 10px !important;
     }
     .product-size{

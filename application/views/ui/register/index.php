@@ -37,7 +37,7 @@
                                        style="cursor: pointer;"
                                        id="reCaptcha"></i>
                                     <img class="captcha-img" src="<?php echo base_url('GetCaptcha'); ?>"/>
-                                    <div class="text-center col-sm-6 col-xs-12">
+                                    <div class="text-center col-sm-6 col-xs-12 padding-0">
                                         <input type="text" name="inputCaptcha" id="inputCaptcha" class="form-control"
                                                placeholder="کد امنیتی">
                                     </div>
