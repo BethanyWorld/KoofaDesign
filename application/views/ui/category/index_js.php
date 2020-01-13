@@ -2,10 +2,10 @@
     $(document).ready(function () {
         function loadData(num = 1) {
             toggleLoader();
-            $orderingProduct = $.trim($("#orderingProduct").val());
+            $inputOrderingProductPrice = $.trim($("#inputOrderingProductPrice").val());
             $sendData = {
                 'pageIndex': num,
-                'inputOrderingProduct': $orderingProduct,
+                'inputOrderingProductPrice': $inputOrderingProductPrice,
                 'inputCategoryId': <?php echo $categoryId ?>
             }
             $.ajax({
@@ -35,6 +35,15 @@
             maxVisible: 5
         }).on("page", function (event, num) {
             loadData(num);
+        });
+
+        $("#inputOrderingProductPrice").change(function(){
+            loadData();
+            $('#pagination').bootpag({
+                total: Math.ceil($numRows / $defaultPageSize),
+                page: 1,
+                maxVisible: 5
+            });
         });
     });
 </script>

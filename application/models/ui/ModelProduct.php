@@ -226,10 +226,23 @@ class ModelProduct extends CI_Model
         $start = ($limit - 1) * $this->config->item('defaultPageSize');
         $end = $this->config->item('defaultPageSize');
 
-        $this->db->select('*');
+        $this->db->select('product.ProductId,ProductTitle,ProductPrimaryImage,ProductType,ProductIsSpecial');
         $this->db->from('product');
         $this->db->join('product_category_relation', 'product.ProductId = product_category_relation.ProductId');
+        $this->db->join('product_price', 'product_price.ProductId = product.ProductId');
         $this->db->where('product_category_relation.CategoryId', $inputs['inputCategoryId']);
+
+        if(isset($inputs['inputOrderingProductPrice'])){
+            if($inputs['inputOrderingProductPrice'] == 'ASC'){
+                $this->db->order_by('product_price.ProductId' , 'ASC');
+            }
+            else{
+                $this->db->order_by('product_price.PriceValue' , 'DESC');
+            }
+        }
+
+        /*$query = $this->db->get()->result_array();
+        var_dump($query);*/
 
         $tempDb = clone $this->db;
         $data['numRows'] = $tempDb->get()->num_rows();

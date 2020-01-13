@@ -239,23 +239,6 @@
         display: inline-block;
     }
 
-
-    .product-tool {
-        height: 25px;
-        padding: 3px 5px;
-        background-color: rgba(255, 255, 255, 0.75);
-        position: absolute;
-        left: 10px;
-        top: 10px;
-    }
-
-    .product-tool a {
-        width: 19px;
-        height: 19px;
-        display: inline-block;
-        color: gray;
-    }
-
     .shopping-basket {
         border-left: 2px solid #439275;
         text-align: center;
@@ -265,25 +248,6 @@
 
     /*for product detail*/
 
-
-    .circle {
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        background-color: #3cb371e3;
-        height: 65px;
-        border-top-left-radius: 100%;
-        padding-right: 10px;
-        padding-top: 15px;
-    }
-
-    .circle p {
-        color: #fff;
-        word-break: break-word;
-        display: block;
-        letter-spacing: 1px;
-        text-align: right;
-    }
 
     .sort-item {
         float: left;

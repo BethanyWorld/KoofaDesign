@@ -19,6 +19,85 @@
 
 
 
+    /*for product slider 2*/
+    .index-product-slider2 {
+        background-color: #f3f3f0;
+        min-height: 300px;
+        margin-top: 20px;
+    }
+
+    .div-on-slider2 {
+        width: 300px;
+        top: 0px;
+        height: 100%;
+        background-color: #151515d4;
+        position: absolute;
+        z-index: 3000;
+        right: 0px;
+        padding-top: 15px;
+        padding-left: 5px;
+    }
+
+    .div-on-slider2 h2{
+        margin-bottom: 5px;
+    }
+    .slider2-desc {
+        color: #2D693A;
+        font-weight: bolder;
+        font-size: 15px;
+        margin-bottom: 0px;
+    }
+    .slider2-discountPrice{
+        margin-bottom: -5px;
+    }
+    .slider2-discountPrice p {
+        color: red;
+        font-weight: bolder;
+        font-size: 19px;
+        margin-bottom: 0px;
+    }
+
+    .slider2-mainPrice p {
+        color: #d5b55e;
+        font-size: 25px;
+    }
+
+    .slider2-mainPrice span {
+        font-size: 15px;
+    }
+
+    .slider2-hour {
+        height: 65px;
+        background-color: #d5b55e;
+        margin-bottom: 5px;
+    }
+
+    .slider2-hour-div {
+        margin-top: 15px;
+    }
+
+    .slider2-text p {
+        color: #ccc;
+        margin-bottom: 0px;
+        font-size: 15px;
+        word-break: break-word;
+    }
+    .slier2-rightPanel-Price-div{
+        color:#2D693A ;
+    }
+    .slier2-rightPanel-Price-div .slier2-rightPanel-mainPrice{
+        color: #ccc;
+        float: left;
+        padding-right: 10px;
+    }
+    .slier2-rightPanel-Price-div .slider2-rightPanel-discountPrice{
+        color: red;
+        text-decoration: line-through;
+        float: right;
+    }
+    /*for product slider 2*/
+
+
 
 
 

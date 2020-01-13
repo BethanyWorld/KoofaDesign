@@ -1,11 +1,8 @@
 <?php $_URL = base_url();
 $_DIR = base_url('assets/ui/'); ?>
-
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"
         integrity="sha256-Ikk5myJowmDQaYVCUD0Wr+vIDkN8hGI58SGWdE671A8=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/index.css">
-
-
 <div id="main">
     <div class="row index-slider-div section-padding">
         <div class="container">
@@ -168,8 +165,7 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
         </div>
     </div>
-
-    <div class="row index-slider-div index-slider-div2 section-padding">
+    <div class="row index-slider-div index-slider-div2  section-padding">
         <div class="container">
             <div class="col-md-9 col-xs-9 index-holder">
                 <section class="index-sidebar-top index-sidebar-top2">
@@ -179,28 +175,39 @@ $_DIR = base_url('assets/ui/'); ?>
                                 <div class="outer height100">
                                     <div id="big2" class="owl-carousel owl-theme">
                                         <?php foreach ($specialProduct as $item) { ?>
-                                            <div class="item">
-                                                <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
-                                                     width="100%"/>
-
-                                                <div class="div-on-slider2">
-                                                    <div class="col-md-12 col-xs-12 slider2-discountPrice">
-                                                        <p>
-                                                            <?php echo number_format($item['price'][0]['PriceValue']); ?>
-                                                            <span>تومان</span>
-                                                        </p>
-                                                    </div>
-                                                    <div class="col-md-12 col-xs-12 slider2-hour-div">
-                                                        <div class="col-md-7 col-sm-7 slider2-hour">
-                                                            <p class="remaining-time-text">زمان باقی مانده حراجی</p>
-                                                            <?php $remainDate = jDateTime::toGregorian(explode("/",$item['ProductSpecialEndDate'])[0],explode("/",$item['ProductSpecialEndDate'])[1],explode("/",$item['ProductSpecialEndDate'])[2]); ?>
-                                                            <p data-current-date="<?php echo $currentDate; ?>"
-                                                               data-remain-time="<?php echo $remainDate[0].'/'.$remainDate[1].'/'.$remainDate[2]; ?>"
-                                                               class="demo"></p>
+                                            <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
+                                                <div class="item">
+                                                    <img src="<?php echo $item['ProductPrimaryImage']; ?>"
+                                                         height="100%"
+                                                         width="100%"/>
+                                                    <div class="div-on-slider2">
+                                                        <div class="col-md-12 col-xs-12">
+                                                            <h2><?php echo $item['ProductTitle']; ?></h2>
+                                                        </div>
+                                                        <div class="col-md-12 col-xs-12 slider2-desc">
+                                                            <p><?php echo $item['ProductSubTitle']; ?></p>
+                                                        </div>
+                                                        <div class="col-md-12 col-xs-12">
+                                                            <p>
+                                                                <?php echo number_format($item['price'][0]['PriceValue']); ?>
+                                                                <span>تومان</span>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-12 col-xs-12 slider2-hour-div">
+                                                            <div class="col-md-7 col-sm-7 slider2-hour">
+                                                                <p class="remaining-time-text">زمان باقی مانده حراجی</p>
+                                                                <?php $remainDate = jDateTime::toGregorian(explode("/", $item['ProductSpecialEndDate'])[0], explode("/", $item['ProductSpecialEndDate'])[1], explode("/", $item['ProductSpecialEndDate'])[2]); ?>
+                                                                <p data-current-date="<?php echo $currentDate; ?>"
+                                                                   data-remain-time="<?php echo $remainDate[0] . '/' . $remainDate[1] . '/' . $remainDate[2]; ?>"
+                                                                   class="demo"></p>
+                                                            </div>
+                                                            <div class="col-md-12 col-sm-11 col-xs-12 slider2-text">
+                                                                <?php echo $item['ProductBrief']; ?>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </a>
                                         <?php } ?>
                                     </div>
                                 </div>
@@ -244,17 +251,13 @@ $_DIR = base_url('assets/ui/'); ?>
                             <div class="col-md-3 col-xs-12 one-product-detail">
                                 <div class="col-md-12 col-xs-12 product-keeper">
                                     <div class="product-tool">
-                                        <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                        <a href="">
-                                            <i class="fa fa-heart-o"></i>
-                                        </a>
+                                       <?php setTypeBadge($item['ProductType']); ?>
                                     </div>
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
                                         <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
                                              width="100%"/>
                                     </a>
+                                    <?php setSpecialBadge($item['ProductIsSpecial']); ?>
                                 </div>
                                 <div class="col-md-12 col-xs-12  padding-response">
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
@@ -291,17 +294,13 @@ $_DIR = base_url('assets/ui/'); ?>
                             <div class="col-md-3 col-xs-12 one-product-detail">
                                 <div class="col-md-12 col-xs-12 product-keeper">
                                     <div class="product-tool">
-                                        <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                        <a href="">
-                                            <i class="fa fa-heart-o"></i>
-                                        </a>
+                                        <?php setTypeBadge($item['ProductType']); ?>
                                     </div>
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
                                         <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
                                              width="100%"/>
                                     </a>
+                                    <?php setSpecialBadge($item['ProductIsSpecial']); ?>
                                 </div>
                                 <div class="col-md-12 col-xs-12  padding-response">
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
@@ -324,8 +323,6 @@ $_DIR = base_url('assets/ui/'); ?>
         </div>
     </div>
 </div>
-
-
 <script src="<?php echo $_DIR; ?>js/jquery.nicescroll.min.js"></script>
 <script src="<?php echo $_DIR; ?>js/persianDatepicker.min.js"></script>
 <script>
@@ -341,20 +338,17 @@ $_DIR = base_url('assets/ui/'); ?>
             var date2 = new Date($remainDate);
             var Diff = date2.getTime() - date1.getTime();
 
-           if(Diff <= 0){
-               $(this).html('زمان شما به پایان رسیده است').addClass('finish-time');
-           }
-           else {
-               $(this).countdown($remainDate, function (event) {
-                   $(this).html(event.strftime('%H:%M:%S'));
-               }).on('finish.countdown', function () {
-                   $(this).html('زمان شما به پایان رسیده است').addClass('finish-time');;
-               });
-           }
-
+            if (Diff <= 0) {
+                $(this).html('زمان شما به پایان رسیده است').addClass('finish-time');
+            }
+            else {
+                $(this).countdown($remainDate, function (event) {
+                    $(this).html(event.strftime('%H:%M:%S'));
+                }).on('finish.countdown', function () {
+                    $(this).html('زمان شما به پایان رسیده است').addClass('finish-time');
+                });
+            }
         });
-
-
     });
 </script>
 

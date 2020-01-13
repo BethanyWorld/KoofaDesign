@@ -4,7 +4,6 @@ $_DIR = base_url('assets/ui/'); ?>
 <div id="main">
     <div class="row">
         <div class="container z-p">
-
             <!-- BreadCrumbs -->
             <div class="col-md-12 col-xs-12">
                 <ul class="breadcrumb">
@@ -50,15 +49,15 @@ $_DIR = base_url('assets/ui/'); ?>
             <!-- Ordering -->
             <div class="col-md-12 col-xs-12 z-p padding-t-15">
                 <div class="col-xs-12 Ordering-main-div">
-                    <label for="orderingProduct">مرتب سازی بر اساس :</label>
-                    <select name="orderingProduct" id="orderingProduct">
-                        <option value="Asc">قیمت از کم به زیاد</option>
-                        <option value="Desc">قیمت از کم به زیاد</option>
+                    <label for="inputOrderingProductPrice">مرتب سازی بر اساس :</label>
+                    <select name="inputOrderingProductPrice" id="inputOrderingProductPrice">
+                        <option value="ASC" selected>قیمت از کم به زیاد</option>
+                        <option value="DESC">قیمت از زیاد به کم</option>
                     </select>
                 </div>
             </div>
 
-            <div class="col-md-12 col-xs-12 z-p padding-t-15">
+            <div class="col-md-12 col-xs-12 z-p padding-t-15 hidden">
                 <div class="col-md-12 col-xs-12 grouping-filtering-main-div">
                     <div class="multiselect">
                         <div class="selectBox">
