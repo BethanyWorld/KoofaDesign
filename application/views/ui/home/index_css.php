@@ -134,6 +134,7 @@
     color: red;
     font-weight: bold;
     font-family: vazir;
+    padding: 10px 6px;
 }
 
     @media (max-width: 992px){

@@ -194,7 +194,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                                             </p>
                                                         </div>
                                                         <div class="col-md-12 col-xs-12 slider2-hour-div">
-                                                            <div class="col-md-7 col-sm-7 slider2-hour">
+                                                            <div class="col-md-8 col-sm-7 slider2-hour">
                                                                 <p class="remaining-time-text">زمان باقی مانده حراجی</p>
                                                                 <?php $remainDate = jDateTime::toGregorian(explode("/", $item['ProductSpecialEndDate'])[0], explode("/", $item['ProductSpecialEndDate'])[1], explode("/", $item['ProductSpecialEndDate'])[2]); ?>
                                                                 <p data-current-date="<?php echo $currentDate; ?>"
@@ -339,13 +339,13 @@ $_DIR = base_url('assets/ui/'); ?>
             var Diff = date2.getTime() - date1.getTime();
 
             if (Diff <= 0) {
-                $(this).html('زمان شما به پایان رسیده است').addClass('finish-time');
+                $(this).html('اتمام فروش فوق العاده').addClass('finish-time');
             }
             else {
                 $(this).countdown($remainDate, function (event) {
                     $(this).html(event.strftime('%H:%M:%S'));
                 }).on('finish.countdown', function () {
-                    $(this).html('زمان شما به پایان رسیده است').addClass('finish-time');
+                    $(this).html('اتمام فروش فوق العاده').addClass('finish-time');
                 });
             }
         });
