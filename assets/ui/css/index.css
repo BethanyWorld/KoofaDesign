@@ -1204,7 +1204,9 @@
         line-height: 1.5em;
         overflow: hidden;
     }
-
+    #thumbs2 .owl-stage-outer {
+        height: 356px;
+    }
     /*for slider*/
 }
 
@@ -1390,6 +1392,12 @@
         font-size: 16px;
         margin-top: 0px;
     }
+    .div-on-slider2{
+        width: 100%;
+        bottom: 0px;
+        top: auto;
+        height: 145px;
+    }
     /*for slider 2*/
 }
 
@@ -1445,7 +1453,19 @@
     .slider2-mainPrice p {
         font-size: 19px;
     }
-    
+    .slider2-price {
+        color: #d5b55e;
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .slider2-price span {
+        font-size: 12px;
+        font-weight: normal;
+    }
+    #thumbs2 .owl-stage-outer {
+        height: 275px;
+    }
     /*for slider 2*/
 }
 

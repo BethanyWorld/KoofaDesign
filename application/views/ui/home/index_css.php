@@ -132,7 +132,14 @@
 }
 
     @media (max-width: 992px){
-
+        #thumbs2 .item a p {
+            text-align: right;
+            margin-bottom: 0px;
+            font-size: 10px;
+            height: 3em;
+            line-height: 1.5em;
+            overflow: hidden;
+        }
         #thumbs2 .owl-stage-outer {
             height: 356px;
         }
