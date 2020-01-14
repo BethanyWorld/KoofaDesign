@@ -2,7 +2,8 @@
     .slider2-text{
         margin-top: 5px;
         text-align: left;
-        padding: 0px;
+        padding: 2px 5px;
+        font-size: 12px;
     }
     .remaining-time-text{
         padding-top: 5px;
@@ -41,6 +42,8 @@
 
     .div-on-slider2 h2{
         margin-bottom: 5px;
+        font-size: 14px;
+        line-height: 25px;
     }
     .slider2-desc {
         color: #2D693A;
@@ -62,7 +65,9 @@
         margin-bottom: -5px;
     }
     .slider2-p-margin{
-        margin-bottom: 0px;
+        margin-bottom: 5px;
+        font-size: 12px;
+        line-height: 20px;
     }
     .slider2-discountPrice p {
         color: red;

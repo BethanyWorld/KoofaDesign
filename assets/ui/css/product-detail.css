@@ -400,10 +400,10 @@ ul.breadcrumb li a {
     padding-top: 15px;
 }
 
-.one-product-detail {
-    float: right;
-    margin-bottom: 30px;
+.one-product-detail {float: right;
+    margin-bottom: 5px;
     padding: 10px;
+    min-height: 280px;
 }
 
 .product-keeper {
