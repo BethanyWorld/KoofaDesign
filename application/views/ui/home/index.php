@@ -185,10 +185,10 @@ $_DIR = base_url('assets/ui/'); ?>
                                                             <h2><?php echo $item['ProductTitle']; ?></h2>
                                                         </div>
                                                         <div class="col-md-12 col-xs-12 slider2-desc">
-                                                            <p><?php echo $item['ProductSubTitle']; ?></p>
+                                                            <p class="slider2-p-margin"><?php echo $item['ProductSubTitle']; ?></p>
                                                         </div>
                                                         <div class="col-md-12 col-xs-12">
-                                                            <p>
+                                                            <p class="slider2-price">
                                                                 <?php echo number_format($item['price'][0]['PriceValue']); ?>
                                                                 <span>تومان</span>
                                                             </p>

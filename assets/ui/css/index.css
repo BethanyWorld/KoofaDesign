@@ -1196,6 +1196,15 @@
         height: 35px;
         line-height: 35px;
     }
+    #thumbs2 .item a p {
+        text-align: right;
+        margin-bottom: 0px;
+        font-size: 12px;
+        height: 3em;
+        line-height: 1.5em;
+        overflow: hidden;
+    }
+
     /*for slider*/
 }
 
@@ -1215,6 +1224,9 @@
 }
 
 @media (max-width: 1199px) and (min-width: 992px) {
+    #thumbs2{
+        width: 250px;
+    }
     .index-sidebar-home .carousel .index-btn-buy {
         top: auto;
         font-size: 16px;
@@ -1337,16 +1349,6 @@
         padding-top: 1px;
     }
 
-    .div-on-slider2 {
-        width: 100%;
-        position: absolute;
-        right: 0px;
-        height: 40%;
-        bottom: 0px;
-        top: auto;
-        padding-top: 0px;
-    }
-
     .div-on-slider2 a h2 {
         margin-top: 5px;
     }
@@ -1367,8 +1369,8 @@
     .slider2-hour-div {
         width: 35%;
         position: absolute;
-        right: 25%;
-        top: 15px;
+        right: 0%;
+        top: 10px;
     }
 
     .slider2-text {
@@ -1383,6 +1385,11 @@
         line-height: 18px;
     }
 
+    .div-on-slider2 h2 {
+        margin-bottom: 5px;
+        font-size: 16px;
+        margin-top: 0px;
+    }
     /*for slider 2*/
 }
 
@@ -1391,8 +1398,8 @@
     .slider2-hour-div {
         width: 40%;
         position: absolute;
-        right: 10%;
-        top: 20px;
+        right: 7%;
+        top: 25px;
     }
 
     .slider2-discountPrice {
@@ -1403,8 +1410,19 @@
 }
 
 @media screen and (max-width: 600px) {
+    .div-on-slider2 h2{
+        font-size: 11px;
+    }
+    .slider2-p-margin {
+        margin-bottom: 0px;
+        font-size: 12px;
+    }
+    .slider2-p-margin {
+        margin-bottom: 0px;
+        font-size: 12px;
+    }
     #thumbs2 {
-        width: 140px;
+        width: 160px;
     }
 
     /*for slider 2*/
@@ -1427,11 +1445,14 @@
     .slider2-mainPrice p {
         font-size: 19px;
     }
-
+    
     /*for slider 2*/
 }
 
 @media screen and (max-width: 550px) {
+    #thumbs2 {
+        width: 140px;
+    }
     .body-guarantee li a {
         font-size: 11px;
         padding-right: 3px;
@@ -1467,4 +1488,10 @@
     }
 
     /*for slider 2*/
+}
+
+@media screen and (max-width: 400px){
+    #thumbs2 {
+        width: 106px;
+    }
 }

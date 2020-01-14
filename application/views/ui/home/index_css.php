@@ -1,6 +1,8 @@
 <style>
     .slider2-text{
         margin-top: 5px;
+        text-align: left;
+        padding: 0px;
     }
     .remaining-time-text{
         padding-top: 5px;
@@ -15,8 +17,6 @@
         letter-spacing: 2px;
         font-weight: bold;
     }
-
-
 
 
     /*for product slider 2*/
@@ -36,6 +36,7 @@
         right: 0px;
         padding-top: 15px;
         padding-left: 5px;
+        text-align: left;
     }
 
     .div-on-slider2 h2{
@@ -46,9 +47,22 @@
         font-weight: bolder;
         font-size: 15px;
         margin-bottom: 0px;
+        text-align: left;
+    }
+    .slider2-price{
+        color: #d5b55e;
+        font-size: 30px;
+        font-weight: 500;
+    }
+    .slider2-price span{
+        font-size: 20px;
+        font-weight: normal;
     }
     .slider2-discountPrice{
         margin-bottom: -5px;
+    }
+    .slider2-p-margin{
+        margin-bottom: 0px;
     }
     .slider2-discountPrice p {
         color: red;
@@ -99,9 +113,6 @@
 
 
 
-
-
-
     .owl-carousel .owl-stage:after{
         display: none;
     }
@@ -112,21 +123,6 @@
         padding: 0px 0px 0px 10px;
         direction: ltr;
     }
-    /*#thumbs2::-webkit-scrollbar {*/
-    /*    width: 5px;*/
-    /*}*/
-    /*#thumbs2::-webkit-scrollbar-track {*/
-    /*    background-color: #ccc*/
-    /*}*/
-    /*#thumbs2::-webkit-scrollbar-thumb {*/
-    /*    background-color: #d5b55e;*/
-    /*    border: 1px solid  #d5b55e;*/
-    /*    border-radius: 10px;*/
-    /*}*/
-    /*#thumbs2::-webkit-scrollbar-thumb:hover {*/
-    /*    background-color: #000;*/
-
-    /*}*/
 
 .finish-time{
     font-size: 12px;
@@ -136,16 +132,36 @@
 }
 
     @media (max-width: 992px){
-        #thumbs2 .item a p {
-            text-align: right;
-            margin-bottom: 0px;
-            font-size: 10px;
-            height: 3em;
-            line-height: 1.5em;
-            overflow: hidden;
+
+        #thumbs2 .owl-stage-outer {
+            height: 356px;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .div-on-slider2{
+            width: 100%;
+            bottom: 0px;
+            top: auto;
+            height: 145px;
+        }
+
+    }
+
+    @media screen and (max-width: 600px){
+        .slider2-price {
+            color: #d5b55e;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        .slider2-price span {
+            font-size: 12px;
+            font-weight: normal;
         }
         #thumbs2 .owl-stage-outer {
             height: 275px;
         }
     }
+
+
 </style>
