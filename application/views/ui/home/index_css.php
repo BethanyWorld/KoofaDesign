@@ -87,7 +87,7 @@
     }
 
     .slider2-hour-div {
-        margin-top: 15px;
+        margin-top: 10px;
     }
 
     .slider2-text p {
