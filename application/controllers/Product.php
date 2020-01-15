@@ -103,6 +103,16 @@ class Product extends CI_Controller{
             echo json_encode($arr);
             die();
         }
+        if($inputs['inputUserId'] == NULL){
+            $arr = array(
+                'type' => "red",
+                'content' => 'ابتدا وارد حساب کاربری خود شوید'
+            );
+            echo json_encode($arr);
+            die();
+        }
+
+
         echo json_encode($this->ModelProduct->doAddWishList($inputs));
     }
     protected function getProductPropertyByCategoryId($categoryId , $print=true)

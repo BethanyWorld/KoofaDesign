@@ -68,35 +68,6 @@ $_DIR = base_url('assets/ui/'); ?>
                             <input id="inputProductWidth"  class="metrics" type="number" value="0" min="0"
                                    max="<?php echo $data['ProductMaxWidth']; ?>"/>
                         </div>
-
-<!--                        <div class="col-xs-12 docs-buttons">-->
-<!--                            <div class="col-md-12 col-xs-12 btn-group btn-group-crop">-->
-<!--                                <button type="button" class="btn btn-success">-->
-<!--                                    <span class="docs-tooltip" data-toggle="tooltip" data-animation="false" title="برش عکس">برش</span>-->
-<!--                                </button>-->
-<!--                            </div>-->
-<!--                            <div class="modal fade docs-cropped" id="getCroppedCanvasModal" aria-hidden="true"-->
-<!--                                 aria-labelledby="getCroppedCanvasTitle" role="dialog" tabindex="-1">-->
-<!--                                <div class="modal-dialog">-->
-<!--                                    <div class="modal-content">-->
-<!--                                        <div class="modal-header">-->
-<!--                                            <h5 class="modal-title" id="getCroppedCanvasTitle">عکس برش خورده در سایز-->
-<!--                                                دلخواه</h5>-->
-<!--                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
-<!--                                                <span aria-hidden="true">&times;</span>-->
-<!--                                            </button>-->
-<!--                                        </div>-->
-<!--                                        <div class="modal-body"></div>-->
-<!--                                        <div class="modal-footer">-->
-<!--                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">بستن-->
-<!--                                            </button>-->
-<!--                                            <a class="btn btn-primary" id="download" href="javascript:void(0);"-->
-<!--                                               download="cropped.jpg">دانلود</a>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>
-<!--                        </div>-->
                     </div>
 
 
@@ -255,31 +226,21 @@ $_DIR = base_url('assets/ui/'); ?>
              style="min-height: 300px;background-color: #fff;border-top: 1px solid gray;">
             <div class="col-md-12 col-xs-12 p-b-15">
                 <div class="container">
-
-                    <!--                    <div class="col-md-12 col-xs-12 product-description">-->
-                    <!--                        --><?php //echo $data['ProductDescription']; ?>
-                    <!--                    </div>-->
-
                     <div class="col-md-12 col-xs-12">
                         <div class="col-md-12 col-xs-12">
                             <h2 class="product-title-h2">مناسب سلیقه ی شما :</h2>
                         </div>
-
                         <?php foreach ($relatedProducts as $item) { ?>
                             <div class="col-md-3 col-xs-12 one-product-detail">
                                 <div class="col-md-12 col-xs-12 product-keeper">
                                     <div class="product-tool">
-                                        <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                        <a href="">
-                                            <i class="fa fa-heart-o"></i>
-                                        </a>
+                                        <?php setTypeBadge($item['ProductType']); ?>
                                     </div>
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
                                         <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
                                              width="100%"/>
                                     </a>
+                                    <?php setSpecialBadge($item['ProductIsSpecial']); ?>
                                 </div>
                                 <div class="col-md-12 col-xs-12  padding-response">
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">

@@ -209,31 +209,24 @@ $_DIR = base_url('assets/ui/'); ?>
              style="min-height: 300px;background-color: #fff;border-top: 1px solid gray;">
             <div class="col-md-12 col-xs-12 p-b-15">
                 <div class="container">
-
                     <div class="col-md-12 col-xs-12 product-description">
                         <?php echo $data['ProductDescription']; ?>
                     </div>
-
                     <div class="col-md-12 col-xs-12">
                         <div class="col-md-12 col-xs-12">
                             <h2 class="product-title-h2">مناسب سلیقه ی شما :</h2>
                         </div>
-
                         <?php foreach ($relatedProducts as $item) { ?>
                             <div class="col-md-3 col-xs-12 one-product-detail">
                                 <div class="col-md-12 col-xs-12 product-keeper">
                                     <div class="product-tool">
-                                        <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                        <a href="">
-                                            <i class="fa fa-heart-o"></i>
-                                        </a>
+                                        <?php setTypeBadge($item['ProductType']); ?>
                                     </div>
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
                                         <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
                                              width="100%"/>
                                     </a>
+                                    <?php setSpecialBadge($item['ProductIsSpecial']); ?>
                                 </div>
                                 <div class="col-md-12 col-xs-12  padding-response">
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">

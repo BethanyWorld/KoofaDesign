@@ -156,17 +156,13 @@ $_DIR = base_url('assets/ui/'); ?>
                             <div class="col-md-3 col-xs-12 one-product-detail">
                                 <div class="col-md-12 col-xs-12 product-keeper">
                                     <div class="product-tool">
-                                        <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                                            <i class="fa fa-search"></i>
-                                        </a>
-                                        <a href="">
-                                            <i class="fa fa-heart-o"></i>
-                                        </a>
+                                        <?php setTypeBadge($item['ProductType']); ?>
                                     </div>
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
                                         <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
                                              width="100%"/>
                                     </a>
+                                    <?php setSpecialBadge($item['ProductIsSpecial']); ?>
                                 </div>
                                 <div class="col-md-12 col-xs-12  padding-response">
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
