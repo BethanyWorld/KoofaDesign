@@ -35,9 +35,11 @@
             maxVisible: 5
         }).on("page", function (event, num) {
             loadData(num);
+            $("html, body").animate({ scrollTop: 100 }, "slow");
+            return false;
         });
 
-        $("#inputOrderingProductPrice").change(function(){
+        $("#inputOrderingProductPrice").change(function() {
             loadData();
             $('#pagination').bootpag({
                 total: Math.ceil($numRows / $defaultPageSize),
@@ -45,5 +47,6 @@
                 maxVisible: 5
             });
         });
+
     });
 </script>

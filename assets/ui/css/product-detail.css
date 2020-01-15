@@ -49,6 +49,7 @@ ul.breadcrumb li a {
     font-size: 25px;
     line-height: 35px;
     font-weight: 900;
+    padding: 0px;
 }
 
 .product-size {
@@ -129,6 +130,10 @@ ul.breadcrumb li a {
     color: #fff;
     background-color: #2C544B;
     white-space: nowrap;
+}
+.basket:hover{
+    box-shadow: 0 0px 3px 4px #ccc;
+    /*box-shadow: 0 0px 2px 5px #ccc;*/
 }
 
 .add-like-div {

@@ -26,6 +26,9 @@
     /*.cropper-image{*/
     /*    display: none;*/
     /*}*/
+    .padding-right-for-pc{
+         padding-right: 0px;
+     }
     #carousel-div{
         display: none;
     }
@@ -96,4 +99,13 @@
         width: 100%;
         height: 100%;
     }
+    @media screen and (max-width: 992px) {
+        .padding-right-for-pc {
+            padding-right: 15px;
+        }
+    }
+
+
+
+
 </style>

@@ -28,7 +28,7 @@ $_DIR = base_url('assets/ui/'); ?>
                     <div class="col-md-12 col-xs-12 product-detail-text padding-right">
                         <p>ارسال رایگان برای خرید های بیشتر از 90 هزار تومان</p>
                     </div>
-                    <div class="col-md-1س2 col-xs-12 padding-right product-detail-title">
+                    <div class="col-md-12 col-xs-12 padding-right product-detail-title">
                         <h1><?php echo $data['ProductTitle']; ?></h1>
                     </div>
                     <div class="col-md-12 col-xs-12 product-detail-print padding-right">
@@ -38,7 +38,7 @@ $_DIR = base_url('assets/ui/'); ?>
                         <p><?php echo $data['ProductBrief']; ?></p>
                     </div>
                     <div class="col-xs-12 padding-0 product-detail-Flax margin-b-10">
-                        <div class="col-xs-12 col-md-4 pull-right">
+                        <div class="col-xs-12 col-md-4 pull-right padding-right-for-pc">
                             <div class="col-xs-12 rightFloat padding-0 product-size">
                                 <label>انتخاب جنس</label>
                             </div>
@@ -53,7 +53,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                 <?php } ?>
                             </select>
                         </div>
-                        <div class="product-size col-xs-12 col-md-4 pull-right">
+                        <div class="product-size col-xs-12 col-md-4 pull-right padding-right-for-pc">
                             <div class="col-xs-12 rightFloat padding-0 product-size">
                                 <label>ارتفاع</label>
                             </div>
@@ -61,7 +61,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                    max="<?php echo $data['ProductMaxHeight']; ?>"/>
                         </div>
                         <!--                        <span class="pull-right"> &nbsp;&nbsp; &nbsp;&nbsp;</span>-->
-                        <div class="product-size col-xs-12 col-md-4 pull-right">
+                        <div class="product-size col-xs-12 col-md-4 pull-right padding-right-for-pc">
                             <div class="col-xs-12 rightFloat padding-0 product-size">
                                 <label>عرض</label>
                             </div>
@@ -142,22 +142,6 @@ $_DIR = base_url('assets/ui/'); ?>
                                 <div class="col-xs-12 alert alert-info">
                                     در صورت نیاز ابتدا طرح دلخواه مورد نظر را انتخاب کرده سپس محصول را به سبد خرید اضافه
                                     کنید
-                                </div>
-                                <div class="col-xs-12 padding-0">
-                                    <div class="box">
-
-                                        <!-- طرح دلخواه-->
-                                        <label class="upload-options btn btn-primary btn-upload" for="inputImage"
-                                               title="Upload image file">
-                                            <input type="file" class="sr-only" id="inputImage" name="file"
-                                                   accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
-                                            <span class="docs-tooltip" data-animation="false"
-                                                  title="طرح دلخواه">
-                                    آپلود طرح دلخواه
-              <span class="fa fa-upload"></span>
-            </span>
-                                        </label>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -249,6 +233,21 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
 
 
+                    <div class="col-xs-12 col-md-4 padding-0">
+                        <div class="box">
+                            <!-- طرح دلخواه-->
+                            <label class="upload-options btn btn-primary btn-upload" for="inputImage"
+                                   title="Upload image file">
+                                <input type="file" class="sr-only" id="inputImage" name="file"
+                                       accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
+                                <span class="docs-tooltip" data-animation="false"
+                                      title="طرح دلخواه">
+                                    آپلود طرح دلخواه
+              <span class="fa fa-upload"></span>
+            </span>
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -299,6 +298,7 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
         </div>
     </div>
+
 </div>
 
 
