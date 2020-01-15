@@ -240,7 +240,7 @@ class ModelProduct extends CI_Model
                 $this->db->order_by('product_price.PriceValue' , 'DESC');
             }
         }
-
+        $this->db->group_by("product.ProductId");
         /*$query = $this->db->get()->result_array();
         var_dump($query);*/
 
