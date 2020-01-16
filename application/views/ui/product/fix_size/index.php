@@ -83,7 +83,7 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                     <div class="col-md-12 col-xs-12 padding-0 shopping-add-basket">
 
-                        <div class="col-md-5 col-xs-12 rightFloat padding-0 basket">
+                        <div class="col-md-5 col-xs-12 rightFloat padding-0 basket HoverBtn">
                             <div class="col-md-3 col-xs-2 rightFloat shopping-basket">
                                 <span class="fa fa-shopping-basket"></span>
                             </div>
@@ -98,7 +98,7 @@ $_DIR = base_url('assets/ui/'); ?>
 
                         <div class="col-md-1 col-xs-12 rightFloat"></div>
 
-                        <div class="col-md-6 col-xs-12 rightFloat padding-0 add-like-div"
+                        <div class="col-md-6 col-xs-12 rightFloat padding-0 add-like-div HoverBtn HoverBtnRed"
                              data-product-id="<?php echo $data['ProductId']; ?>">
                             <div class="col-md-3 col-xs-2 rightFloat add-like-heart">
                                 <span class="fa fa-heart-o"></span>
@@ -114,17 +114,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                     در صورت نیاز ابتدا طرح دلخواه مورد نظر را انتخاب کرده سپس محصول را به سبد خرید اضافه
                                     کنید
                                 </div>
-                                <div class="col-xs-12 padding-0">
-                                    <div class="box">
-                                        <div class="upload-options">
-                                            <label>
-                                                <span>آپلود طرح دلخواه</span>
-                                                <span class="fa fa-upload"></span>
-                                                <input type="file" class="image-upload" id="inputAttachment"/>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 <div class="col-xs-12 upload-image-container">
                                     <i id="remove-upload-file" class="fa fa-times"></i>
                                     <img id="upload-image" src=""/>
@@ -199,6 +189,17 @@ $_DIR = base_url('assets/ui/'); ?>
                                         </div>
                                     <?php } ?>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-4 padding-0">
+                        <div class="box">
+                            <div class="upload-options">
+                                <label>
+                                    <span>آپلود طرح دلخواه</span>
+                                    <span class="fa fa-upload"></span>
+                                    <input type="file" class="image-upload" id="inputAttachment"/>
+                                </label>
                             </div>
                         </div>
                     </div>

@@ -34,7 +34,7 @@
                                                placeholder="کد امنیتی">
                                     </div>
                                 </div>
-                                <div class="row col-md-6 col-xs-12 login-remember-pass">
+                                <div class="col-md-6 col-xs-12 login-remember-pass">
                                     <a href="<?php echo base_url('Account/resetPassword') ?>">رمز خود را فراموش کرده اید ؟</a>
                                 </div>
                                 <div class="clearfix"></div>

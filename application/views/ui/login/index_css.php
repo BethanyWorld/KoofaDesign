@@ -252,6 +252,7 @@
         color: #8BC53F;
         font-size: 11px;
         padding-left: 0px;
+        text-align: left;
     }
 
     .login-remember-pass p {

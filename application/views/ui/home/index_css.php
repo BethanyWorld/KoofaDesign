@@ -4,6 +4,9 @@
         text-align: left;
         padding: 2px 5px;
         font-size: 12px;
+        height: 5em;
+        line-height: 1.75em;
+        overflow: hidden;
     }
     .remaining-time-text{
         padding-top: 5px;
@@ -177,4 +180,81 @@
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    #button {
+        display: inline-block;
+        background-color: #009f4c;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        border-radius: 4px;
+        position: fixed;
+        bottom: 0px;
+        right: 0px;
+        transition: background-color .3s, opacity .5s, visibility .5s;
+        opacity: 0;
+        visibility: hidden;
+        z-index: 20000;
+    }
+    #button::after {
+        content: "\f077";
+        font-family: FontAwesome;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 2em;
+        line-height: 50px;
+        color: #fff;
+    }
+    #button:hover {
+        cursor: pointer;
+        background-color: #333;
+    }
+    #button:active {
+        background-color: #555;
+    }
+    .show {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    @media (min-width: 500px) {
+        #button {
+            margin: 30px;
+        }
+    }
 </style>

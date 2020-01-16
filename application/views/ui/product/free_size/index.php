@@ -83,7 +83,7 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                     <div class="col-md-12 col-xs-12 padding-0 shopping-add-basket">
 
-                        <div class="col-md-5 col-xs-12 rightFloat padding-0 basket">
+                        <div class="col-md-5 col-xs-12 rightFloat padding-0 basket HoverBtn">
                             <div class="col-md-3 col-xs-2 rightFloat shopping-basket">
                                 <span class="fa fa-shopping-basket"></span>
                             </div>
@@ -98,7 +98,7 @@ $_DIR = base_url('assets/ui/'); ?>
 
                         <div class="col-md-1 col-xs-12 rightFloat"></div>
 
-                        <div class="col-md-6 col-xs-12 rightFloat padding-0 add-like-div"
+                        <div class="col-md-6 col-xs-12 rightFloat padding-0 add-like-div HoverBtn HoverBtnRed"
                              data-product-id="<?php echo $data['ProductId']; ?>">
                             <div class="col-md-3 col-xs-2 rightFloat add-like-heart">
                                 <span class="fa fa-heart-o"></span>
@@ -207,7 +207,7 @@ $_DIR = base_url('assets/ui/'); ?>
                     <div class="col-xs-12 col-md-4 padding-0">
                         <div class="box">
                             <!-- طرح دلخواه-->
-                            <label class="upload-options btn btn-primary btn-upload" for="inputImage"
+                            <label class="upload-options btn btn-upload" for="inputImage"
                                    title="Upload image file">
                                 <input type="file" class="sr-only" id="inputImage" name="file"
                                        accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">

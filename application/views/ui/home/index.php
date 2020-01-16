@@ -4,6 +4,7 @@ $_DIR = base_url('assets/ui/'); ?>
         integrity="sha256-Ikk5myJowmDQaYVCUD0Wr+vIDkN8hGI58SGWdE671A8=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/index.css">
 <div id="main">
+    <a id="button"></a>
     <div class="row index-slider-div section-padding">
         <div class="container">
             <div class="row index-holder index-holder-slider1">
@@ -354,3 +355,17 @@ $_DIR = base_url('assets/ui/'); ?>
 
 
 
+<script>
+    var btn = $('#button');
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > 300) {
+            btn.addClass('show');
+        } else {
+            btn.removeClass('show');
+        }
+    });
+    btn.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop:0}, '300');
+    });
+</script>

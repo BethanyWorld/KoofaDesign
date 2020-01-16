@@ -146,6 +146,7 @@
         margin: 20px auto 0px;
         border: none;
         z-index: 0;
+        text-align: center;
     }
 
     .process-model li::after {
@@ -1146,6 +1147,17 @@
             margin-top: 11px;
             color: #8dc63f;
             font-weight: bold;
+        }
+        .process-model li:first-child::before {
+            right: 0px;
+            width: 60%;
+        }
+        .process-model li::after {
+            left: -35px;
+        }
+        .process-model li:last-child::after {
+            width: 40%;
+            left: 0px;
         }
     }
 

@@ -107,6 +107,9 @@
     .cart-product-discount-card p {
         font-size: 12px;
         margin-bottom: 7px;
+        white-space: pre-line;
+        word-break: break-all;
+        line-height: 2em;
     }
     .cart-product-question-span{
         position: absolute;

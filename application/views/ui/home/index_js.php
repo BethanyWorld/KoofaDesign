@@ -188,7 +188,4 @@
         $('#myCarousel .list-group-item').outerHeight(triggerheight);
     });
 
-
-
-
 </script>

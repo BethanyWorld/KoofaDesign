@@ -131,11 +131,6 @@ ul.breadcrumb li a {
     background-color: #2C544B;
     white-space: nowrap;
 }
-.basket:hover{
-    box-shadow: 0 0px 3px 4px #ccc;
-    /*box-shadow: 0 0px 2px 5px #ccc;*/
-}
-
 .add-like-div {
     height: 50px;
     line-height: 50px;
@@ -705,4 +700,97 @@ ul.breadcrumb li a {
     }
 
 }
+
+
+
+
+
+/*for product hover btn */
+.HoverBtn {
+    border: 0;
+    box-sizing: border-box;
+    padding: 1em 2em;
+    box-shadow: inset 0 0 0 2px #2c544b;
+    font-size: inherit;
+    font-weight: 700;
+    position: relative;
+    vertical-align: middle;
+}
+
+.HoverBtnRed {
+    box-shadow: inset 0 0 0 2px red;
+}
+
+.HoverBtn::before, .HoverBtn::after {
+    box-sizing: inherit;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.HoverBtn {
+    transition: color 0.25s;
+}
+
+.HoverBtn::before, .HoverBtn::after {
+    border: 2px solid transparent;
+    width: 0;
+    height: 0;
+}
+
+.HoverBtn::before {
+    top: 0;
+    left: 0;
+}
+
+.HoverBtn::after {
+    bottom: 0;
+    right: 0;
+}
+
+.HoverBtn:hover {
+    color: #439275;
+}
+
+.HoverBtn:hover::before, .HoverBtn:hover::after {
+    width: 100%;
+    height: 100%;
+}
+
+.HoverBtn:hover::before {
+    border-top-color: #439275;
+    border-right-color: #439275;
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+
+.HoverBtn:hover::after {
+    border-bottom-color: #60daaa;
+    border-left-color: #60daaa;
+    transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+}
+.HoverBtnRed:hover .fa-heart-o{
+    color: #ccc;
+}
+.HoverBtnRed:hover {
+    color: #c50000;
+}
+
+.HoverBtnRed:hover::before {
+    border-top-color: #ccc;
+    border-right-color: #ccc;
+    transition: width 0.25s ease-out, height 0.25s ease-out 0.25s;
+}
+
+.HoverBtnRed:hover::after {
+    border-bottom-color: #ccc;
+    border-left-color: #ccc;
+    transition: border-color 0s ease-out 0.5s, width 0.25s ease-out 0.5s, height 0.25s ease-out 0.75s;
+}
+
+/*for product hover btn */
+
+
+
+
 
