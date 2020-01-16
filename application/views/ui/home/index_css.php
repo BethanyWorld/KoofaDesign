@@ -180,42 +180,7 @@
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /*for back to top btn*/
     #button {
         display: inline-block;
         background-color: #009f4c;
@@ -257,4 +222,5 @@
             margin: 30px;
         }
     }
+    /*for back to top btn*/
 </style>
