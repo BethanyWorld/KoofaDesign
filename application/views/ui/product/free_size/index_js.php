@@ -36,6 +36,7 @@
                 slideBy: 4,
                 responsiveRefreshRate: 100
             }).on("changed.owl.carousel", syncPosition2);
+
         function syncPosition(el) {
             //if loop is set to false, then you have to uncomment the next line
             var current = el.item.index;
@@ -72,12 +73,14 @@
                 thumbs.data("owl.carousel").to(current - onscreen, 100, true);
             }
         }
+
         function syncPosition2(el) {
             if (syncedSecondary) {
                 var number = el.item.index;
                 bigimage.data("owl.carousel").to(number, 100, true);
             }
         }
+
         thumbs.on("click", ".owl-item", function (e) {
             e.preventDefault();
             var number = $(this).index();
@@ -87,17 +90,19 @@
         $("#priceDropDown").change(function () {
             setPrice();
         });
+
         function setPrice() {
             $height = $("#inputProductHeight").val();
             $width = $("#inputProductWidth").val();
             $price = parseInt($("#priceDropDown").find(":selected").data('price'));
             if (Math.ceil(($width / 100)) != ($width / 100)) {
-                $width = Math.ceil(($width / 100))*100;
+                $width = Math.ceil(($width / 100)) * 100;
             }
-            $html = "<p>" + ($price*$width*$height) + " تومان </p>";
+            $html = "<p>" + ($price * $width * $height) + " تومان </p>";
             $mainPrice = $price;
             $('.product-detail-number').hide().fadeIn().html($html);
         }
+
         var URL = window.URL || window.webkitURL;
         var $image = $('.image');
         var $download = $('#download');
@@ -109,8 +114,10 @@
         var $dataScaleX = $('#dataScaleX');
         var $dataScaleY = $('#dataScaleY');
         var options = {
+            viewMode: 3,
+            restore: false,
+            toggleDragModeOnDblclick: false,
             aspectRatio: '',
-            background: false,
             autoCropArea: 1,
             rotatable: false,
             scalable: false,
@@ -123,7 +130,6 @@
             dragMode: 'move',
             preview: '.img-preview',
             crop: function (e) {
-                console.log(e.detail.x);
                 $dataX.val(Math.round(e.detail.x));
                 $dataY.val(Math.round(e.detail.y));
                 $dataHeight.val(Math.round(e.detail.height));
@@ -198,21 +204,64 @@
         else {
             $inputImage.prop('disabled', true).parent().addClass('disabled');
         }
-        $(".metrics").on('keyup', function () {
+        $(".metrics").on('input', function () {
+
+            if($(this).val() > parseInt($(this).attr('max'))){
+                $(this).val(parseInt($(this).attr('max')));
+            }
+
             $height = $("#inputProductHeight").val();
             $width = $("#inputProductWidth").val();
-            if (Math.ceil(($width / 100)) != ($width / 100)) {
-                $width = Math.ceil(($width / 100))*100;
+
+            var maxWidth = $("#inputProductWidth").attr('max');
+            var maxHeight = $("#inputProductHeight").attr('max');
+            var ratio = 1;
+            var width = $width;
+            var height = $height;
+
+
+            ratio = maxWidth / width;
+            height = height * ratio;
+
+            ratio = maxHeight / height;
+            width = width * ratio;
+
+            if (width > maxWidth) {
+                ratio = maxWidth / width;
+                height = height * ratio;
+            }
+            if (height > maxHeight) {
+                ratio = maxHeight / height;
+                width = width * ratio;
             }
             var cropper = $image.data('cropper');
-            var ratio = cropper.imageData.width /  cropper.imageData.naturalWidth;
-            cropper.setCropBoxData({width: $width*ratio, height: $height*ratio});
-
+            cropper.setCropBoxData({
+                width: width,
+                height: height
+            });
             $price = parseInt($("#priceDropDown").find(":selected").data('price'));
             $html = "<p>" + ($price*$width*$height) + " تومان </p>";
             $mainPrice = $price;
             $('.product-detail-number').hide().fadeIn().html($html);
+
+            /*if (Math.ceil(($width / 100)) != ($width / 100)) {
+                $width = Math.ceil(($width / 100))*100;
+            }
+            var cropper = $image.data('cropper');
+            var ratio = cropper.imageData.width /  cropper.imageData.naturalWidth;
+
+            cropper.setCropBoxData({
+                width: $width*ratio,
+                height: $height*ratio
+            });
+
+            $price = parseInt($("#priceDropDown").find(":selected").data('price'));
+            $html = "<p>" + ($price*$width*$height) + " تومان </p>";
+            $mainPrice = $price;
+            $('.product-detail-number').hide().fadeIn().html($html);*/
         });
+        setPrice();
+
         /**/
         $("#addToCart").click(function () {
             $id = $(this).data('product-id');
@@ -281,5 +330,6 @@
                 }
             });
         });
-    });
+    })
+    ;
 </script>
