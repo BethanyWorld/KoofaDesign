@@ -1,5 +1,21 @@
 $(document).ready(function () {
 
+    // for back to top button
+    /*var btn = $('#button');
+    $(document).scroll(function() {
+        console.log($("body").scrollTop());
+        if ($("body").scrollTop() > 300) {
+            btn.addClass('show');
+        } else {
+            btn.removeClass('show');
+        }
+    });
+    btn.on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({scrollTop:0}, '300');
+    });*/
+    // for back to top button
+
     $(".search-result").hide();
     $(".search-product-input").on("change keyup paste click", function(){
 
