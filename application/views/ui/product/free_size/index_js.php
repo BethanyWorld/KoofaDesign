@@ -112,7 +112,7 @@
         var $dataScaleX = $('#dataScaleX');
         var $dataScaleY = $('#dataScaleY');
         var options = {
-            viewMode: 3,
+            viewMode: 2,
             restore: false,
             toggleDragModeOnDblclick: false,
             aspectRatio: '',
@@ -138,7 +138,6 @@
             }
         };
         var originalImageURL = $image.attr('src');
-        var uploadedImageName = 'cropped.jpg';
         var uploadedImageType = 'image/jpeg';
         var uploadedImageURL;
         // Tooltip
@@ -164,15 +163,6 @@
                 //console.log(e.type);
             }
         }).cropper(options);
-        // Buttons
-        if (!$.isFunction(document.createElement('canvas').getContext)) {
-            $('button[data-method="getCroppedCanvas"]').prop('disabled', true);
-        }
-        if (typeof document.createElement('cropper').style.transition === 'undefined') {
-            $('button[data-method="rotate"]').prop('disabled', true);
-            $('button[data-method="scale"]').prop('disabled', true);
-        }
-        // Methods
         // Import image
         var $inputImage = $('#inputImage');
         if (URL) {
@@ -239,7 +229,7 @@
                         height: parseInt($height)
                     });
                 }
-                if($height > $width){
+                else if(parseInt($height) > parseInt($width)){
                     cropper.setCropBoxData({
                         left: 0,
                         top: 0,
@@ -249,7 +239,6 @@
                 }
 
                 if(parseInt($width) == parseInt($height)){
-
                     if(parseInt(maxWidth) < parseInt(maxHeight)){
                         cropper.setCropBoxData({
                             left: 0,

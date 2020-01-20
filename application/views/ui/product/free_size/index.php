@@ -63,7 +63,9 @@ $_DIR = base_url('assets/ui/'); ?>
                                     cm
                                 </label>
                             </div>
-                            <input id="inputProductHeight" class="metrics" type="number" value="0" min="0"
+                            <input id="inputProductHeight"
+                                   class="metrics"
+                                   type="number" value="0" min="0"
                                    max="<?php echo $data['ProductMaxHeight']; ?>"/>
                         </div>
                         <!--                        <span class="pull-right"> &nbsp;&nbsp; &nbsp;&nbsp;</span>-->
@@ -77,7 +79,9 @@ $_DIR = base_url('assets/ui/'); ?>
                                     cm
                                 </label>
                             </div>
-                            <input id="inputProductWidth"  class="metrics" type="number" value="0" min="0"
+                            <input id="inputProductWidth"
+                                   class="metrics"
+                                   type="number" value="0" min="0"
                                    max="<?php echo $data['ProductMaxWidth']; ?>"/>
                         </div>
                     </div>
@@ -177,7 +181,9 @@ $_DIR = base_url('assets/ui/'); ?>
                             <div class="outer">
                                 <div id="big" class="owl-carousel owl-theme">
                                     <div class="item">
-                                        <img src="<?php echo $data['ProductPrimaryImage']; ?>" height="100%"
+                                        <img src="<?php echo $data['ProductPrimaryImage']; ?>"
+                                             style="object-fit: contain;"
+                                             height="100%"
                                              width="100%"/>
                                     </div>
                                     <?php foreach ($productSecondaryImages as $productSecondaryImage) { ?>
