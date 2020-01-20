@@ -1,5 +1,4 @@
 <script type="text/javascript">
-
     $(document).ready(function () {
         $mainPrice = 0;
         var bigimage = $("#big");
@@ -21,21 +20,20 @@
         }).on("changed.owl.carousel", syncPosition);
         thumbs.on("initialized.owl.carousel", function () {
             thumbs.find(".owl-item").eq(0).addClass("current");
-        })
-            .owlCarousel({
-                items: 8,
-                dots: true,
-                mouseDrag: false,
-                nav: true,
-                navText: [
-                    '<i class="fa fa-arrow-left" aria-hidden="true"></i>',
-                    '<i class="fa fa-arrow-right" aria-hidden="true"></i>'
-                ],
-                smartSpeed: 200,
-                slideSpeed: 500,
-                slideBy: 4,
-                responsiveRefreshRate: 100
-            }).on("changed.owl.carousel", syncPosition2);
+        }).owlCarousel({
+            items: 8,
+            dots: true,
+            mouseDrag: false,
+            nav: true,
+            navText: [
+                '<i class="fa fa-arrow-left" aria-hidden="true"></i>',
+                '<i class="fa fa-arrow-right" aria-hidden="true"></i>'
+            ],
+            smartSpeed: 200,
+            slideSpeed: 500,
+            slideBy: 4,
+            responsiveRefreshRate: 100
+        }).on("changed.owl.carousel", syncPosition2);
 
         function syncPosition(el) {
             //if loop is set to false, then you have to uncomment the next line
@@ -204,61 +202,78 @@
         else {
             $inputImage.prop('disabled', true).parent().addClass('disabled');
         }
-        $(".metrics").on('input', function () {
 
-            if($(this).val() > parseInt($(this).attr('max'))){
+        $(".metrics").on('input', function () {
+            if ($(this).val() > parseInt($(this).attr('max'))) {
                 $(this).val(parseInt($(this).attr('max')));
             }
-
             $height = $("#inputProductHeight").val();
             $width = $("#inputProductWidth").val();
 
             var maxWidth = $("#inputProductWidth").attr('max');
             var maxHeight = $("#inputProductHeight").attr('max');
-            var ratio = 1;
-            var width = $width;
-            var height = $height;
 
-
-            ratio = maxWidth / width;
-            height = height * ratio;
-
-            ratio = maxHeight / height;
-            width = width * ratio;
-
-            if (width > maxWidth) {
-                ratio = maxWidth / width;
-                height = height * ratio;
-            }
-            if (height > maxHeight) {
-                ratio = maxHeight / height;
-                width = width * ratio;
-            }
+            $divideHeight = maxHeight / $height;
+            $divideWidth = maxWidth / $width;
             var cropper = $image.data('cropper');
-            cropper.setCropBoxData({
-                width: width,
-                height: height
-            });
+            $isPaddle = false;
+            if($divideHeight == $divideWidth){
+                $isPaddle = true;
+            }
+            /* if numbers are puddle then crop is full */
+            if ($isPaddle) {
+                cropper.setCropBoxData({
+                    left: 0,
+                    top: 0,
+                    width: 10000,
+                    height: 10000
+                });
+            }
+            else {
+                var cropper = $image.data('cropper');
+                if(parseInt($width) > parseInt($height)){
+                    cropper.setCropBoxData({
+                        left: 0,
+                        top: 0,
+                        width: 10000,
+                        height: parseInt($height)
+                    });
+                }
+                if($height > $width){
+                    cropper.setCropBoxData({
+                        left: 0,
+                        top: 0,
+                        width: parseInt($width),
+                        height: 10000
+                    });
+                }
+
+                if(parseInt($width) == parseInt($height)){
+
+                    if(parseInt(maxWidth) < parseInt(maxHeight)){
+                        cropper.setCropBoxData({
+                            left: 0,
+                            top: 0,
+                            width: 10000,
+                            height: parseInt($height)
+                        });
+                    }
+                    else{
+                        cropper.setCropBoxData({
+                            left: 0,
+                            top: 0,
+                            width: parseInt($width),
+                            height: 10000
+                        });
+                    }
+                }
+            }
+
             $price = parseInt($("#priceDropDown").find(":selected").data('price'));
-            $html = "<p>" + ($price*$width*$height) + " تومان </p>";
+            $html = "<p>" + ($price * $width * $height) + " تومان </p>";
             $mainPrice = $price;
             $('.product-detail-number').hide().fadeIn().html($html);
 
-            /*if (Math.ceil(($width / 100)) != ($width / 100)) {
-                $width = Math.ceil(($width / 100))*100;
-            }
-            var cropper = $image.data('cropper');
-            var ratio = cropper.imageData.width /  cropper.imageData.naturalWidth;
-
-            cropper.setCropBoxData({
-                width: $width*ratio,
-                height: $height*ratio
-            });
-
-            $price = parseInt($("#priceDropDown").find(":selected").data('price'));
-            $html = "<p>" + ($price*$width*$height) + " تومان </p>";
-            $mainPrice = $price;
-            $('.product-detail-number').hide().fadeIn().html($html);*/
         });
         setPrice();
 

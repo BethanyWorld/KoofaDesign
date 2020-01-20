@@ -55,7 +55,13 @@ $_DIR = base_url('assets/ui/'); ?>
                         </div>
                         <div class="product-size col-xs-12 col-md-4 pull-right padding-right-for-pc">
                             <div class="col-xs-12 rightFloat padding-0 product-size">
-                                <label>ارتفاع</label>
+                                <label>
+                                    ارتفاع
+                                    -
+                                    حداکثر
+                                    <?php echo $data['ProductMaxHeight']; ?>
+                                    cm
+                                </label>
                             </div>
                             <input id="inputProductHeight" class="metrics" type="number" value="0" min="0"
                                    max="<?php echo $data['ProductMaxHeight']; ?>"/>
@@ -63,7 +69,13 @@ $_DIR = base_url('assets/ui/'); ?>
                         <!--                        <span class="pull-right"> &nbsp;&nbsp; &nbsp;&nbsp;</span>-->
                         <div class="product-size col-xs-12 col-md-4 pull-right padding-right-for-pc">
                             <div class="col-xs-12 rightFloat padding-0 product-size">
-                                <label>عرض</label>
+                                <label>
+                                    عرض
+                                    -
+                                    حداکثر
+                                    <?php echo $data['ProductMaxWidth']; ?>
+                                    cm
+                                </label>
                             </div>
                             <input id="inputProductWidth"  class="metrics" type="number" value="0" min="0"
                                    max="<?php echo $data['ProductMaxWidth']; ?>"/>

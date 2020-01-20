@@ -178,6 +178,7 @@
         padding-bottom: 7px;
         padding-right: 0px;
         padding-left: 0px;
+        min-height: 390px;
     }
 
     .product-keeper {

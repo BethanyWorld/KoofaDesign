@@ -37,7 +37,6 @@ if ($data) {
                     <p class="regular-price">
                         <span class="item_price">
                             <?php showProductPrice($item['price'],$item['ProductType']); ?>
-                            <b class="unit">تومان</b>
                         </span>
                     </p>
                 </div>

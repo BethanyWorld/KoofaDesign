@@ -166,6 +166,7 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
         </div>
     </div>
+    <!-- Special Offers -->
     <div class="row index-slider-div index-slider-div2  section-padding">
         <div class="container">
             <div class="col-md-9 col-xs-9 index-holder">
@@ -234,6 +235,7 @@ $_DIR = base_url('assets/ui/'); ?>
         <div class="col-md-1 visible-lg visible-md red-line"></div>
         <!-- for red line-->
     </div>
+    <!-- Newest Products -->
     <div class="row index-product-new section-padding">
         <div class="container">
             <div class="row">
@@ -269,7 +271,6 @@ $_DIR = base_url('assets/ui/'); ?>
                                     <p class="regular-price">
                                         <span class="item_price">
                                             <?php showProductPrice($item['price'], $item['ProductType']); ?>
-                                            <b class="unit">تومان</b>
                                         </span>
                                     </p>
                                 </div>
@@ -280,6 +281,7 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
         </div>
     </div>
+
     <div class="row index-product-Popular section-padding">
         <div class="container">
             <div class="row">
@@ -312,7 +314,6 @@ $_DIR = base_url('assets/ui/'); ?>
                                     <p class="regular-price">
                                         <span class="item_price">
                                             <?php showProductPrice($item['price'], $item['ProductType']); ?>
-                                            <b class="unit">تومان</b>
                                         </span>
                                     </p>
                                 </div>
@@ -324,6 +325,7 @@ $_DIR = base_url('assets/ui/'); ?>
         </div>
     </div>
 </div>
+
 <script src="<?php echo $_DIR; ?>js/jquery.nicescroll.min.js"></script>
 <script src="<?php echo $_DIR; ?>js/persianDatepicker.min.js"></script>
 <script>
