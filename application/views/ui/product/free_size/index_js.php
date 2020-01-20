@@ -200,12 +200,20 @@
             $height = $("#inputProductHeight").val();
             $width = $("#inputProductWidth").val();
 
-            var maxWidth = $("#inputProductWidth").attr('max');
-            var maxHeight = $("#inputProductHeight").attr('max');
+            $maxWidth = $("#inputProductWidth").attr('max');
+            $maxHeight = $("#inputProductHeight").attr('max');
 
-            $divideHeight = maxHeight / $height;
-            $divideWidth = maxWidth / $width;
+            $divideHeight = $maxHeight / $height;
+            $divideWidth = $maxWidth / $width;
             var cropper = $image.data('cropper');
+
+            $imageWidth = cropper.getImageData().width;
+            $imageHeight = cropper.getImageData().height;
+            /*console.log("getContainerData" , cropper.getContainerData());
+            console.log("getCroppedCanvas" , cropper.getCroppedCanvas());
+            console.log("getCropBoxData" , cropper.getCropBoxData());
+            console.log("getImageData" , cropper.getImageData());*/
+
             $isPaddle = false;
             if($divideHeight == $divideWidth){
                 $isPaddle = true;
@@ -215,35 +223,45 @@
                 cropper.setCropBoxData({
                     left: 0,
                     top: 0,
-                    width: 10000,
-                    height: 10000
+                    width: $imageWidth,
+                    height: $imageHeight
                 });
             }
             else {
                 var cropper = $image.data('cropper');
+
+                $percentageOfMaxHeight = (100 * $height) / $maxHeight;
+                $percentageOfMaxWidth = (100 * $width) / $maxWidth;
+
+                $integerOfMaxHeight = ($percentageOfMaxHeight * $imageHeight) / 100;
+                $integerageOfMaxWidth = ($percentageOfMaxWidth * $imageWidth) / 100;
+ 
+
+
+
                 if(parseInt($width) > parseInt($height)){
                     cropper.setCropBoxData({
                         left: 0,
                         top: 0,
-                        width: 10000,
-                        height: parseInt($height)
+                        width: $imageWidth,
+                        height: parseInt($integerOfMaxHeight)
                     });
                 }
                 else if(parseInt($height) > parseInt($width)){
                     cropper.setCropBoxData({
                         left: 0,
                         top: 0,
-                        width: parseInt($width),
-                        height: 10000
+                        width: parseInt($integerageOfMaxWidth),
+                        height: $imageHeight
                     });
                 }
 
                 if(parseInt($width) == parseInt($height)){
-                    if(parseInt(maxWidth) < parseInt(maxHeight)){
+                    if(parseInt($imageWidth) < parseInt($imageHeight)){
                         cropper.setCropBoxData({
                             left: 0,
                             top: 0,
-                            width: 10000,
+                            width: $integerageOfMaxWidth,
                             height: parseInt($height)
                         });
                     }
@@ -252,11 +270,13 @@
                             left: 0,
                             top: 0,
                             width: parseInt($width),
-                            height: 10000
+                            height: $integerOfMaxHeight
                         });
                     }
                 }
             }
+
+
 
             $price = parseInt($("#priceDropDown").find(":selected").data('price'));
             $html = "<p>" + ($price * $width * $height) + " تومان </p>";
