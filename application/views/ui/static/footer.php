@@ -22,10 +22,10 @@
             </div>
         </div>
         <div class="col-md-12 col-xs-12">
-            <div class="col-md-12 col-xs-12 footer-service">
+            <div class="col-md-10 col-md-offset-1 col-xs-12 footer-service col-xs-12 footer-service" style="margin-bottom: 0 auto">
                 <div class="col-md-4 col-xs-12 footer-div">
                     <div class="col-md-12 col-xs-12 footer-pic text-center">
-                        <img src="<?php echo $_DIR; ?>images/item_1.png" height="123" width="128"/>
+                        <img src="<?php echo $_DIR; ?>images/item_1.png" height="100" width="100"/>
                     </div>
                     <div class="col-md-12 col-xs-12 footer-title text-center">
                         <h3>عضو کوفا شوید</h3>
@@ -42,7 +42,7 @@
                 </div>
                 <div class="col-md-4 col-xs-12 footer-div">
                     <div class="col-md-12 col-xs-12 footer-pic text-center">
-                        <img src="<?php echo $_DIR; ?>images/item_2.png" height="125" width="128"/></div>
+                        <img src="<?php echo $_DIR; ?>images/item_2.png" height="100" width="100"/></div>
                     <div class="col-md-12 col-xs-12 footer-title text-center">
                         <h3>عضو کوفا شوید</h3>
                     </div>
@@ -58,7 +58,7 @@
                 </div>
                 <div class="col-md-4 col-xs-12 footer-div">
                     <div class="col-md-12 col-xs-12 footer-pic text-center">
-                        <img src="<?php echo $_DIR; ?>images/item_3.png" height="123" width="128"/></div>
+                        <img src="<?php echo $_DIR; ?>images/item_3.png" height="100" width="100"/></div>
                     <div class="col-md-12 col-xs-12 footer-title text-center">
                         <h3>عضو کوفا شوید</h3>
                     </div>
@@ -73,8 +73,8 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 col-xs-12 footer-guide">
-                <div class="col-md-6 col-xs-12 rightFloat">
+            <div class="col-md-10 col-md-offset-1  col-xs-12 footer-guide">
+                <div class="col-md-7 col-xs-12 rightFloat">
                     <div class="col-md-12 col-xs-12">
                         <h3 class="footer-guide-title">راهنمای خرید از کوفا</h3>
                         <ul class="col-md-12 col-xs-12 footer-guide-ul">
@@ -105,10 +105,10 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-6 col-xs-12">
+                <div class="col-md-5 col-xs-12">
                     <div class="col-md-12 col-xs-12 ">
                         <h3 class="footer-guide-title">
-                            در شبکه های اجتماعی دلخواهتان کوفا را به همراه داشته باشید
+                            در شبکه های اجتماعی  با ما همراه باشید
                         </h3>
                         <ul class="col-md-12 col-xs-12 footer-socials-ul">
                             <li class="col-md-6">
@@ -118,7 +118,7 @@
                             </li>
                             <li class="col-md-6">
                                 <a href="">
-                                    <i class="fa fa-facebook"></i>
+                                    <i class="fa fa-instagram"></i>
                                 </a>
                             </li>
                             <li class="col-md-6">
@@ -134,21 +134,6 @@
                             <li class="col-md-6">
                                 <a href="">
                                     <i class="fa fa-google-plus"></i>
-                                </a>
-                            </li>
-                            <li class="col-md-6">
-                                <a href="">
-                                    <i class="fa fa-youtube-play"></i>
-                                </a>
-                            </li>
-                            <li class="col-md-6">
-                                <a href="">
-                                    <i class="fa fa-google-plus"></i>
-                                </a>
-                            </li>
-                            <li class="col-md-6">
-                                <a href="">
-                                    <i class="fa fa-youtube"></i>
                                 </a>
                             </li>
                         </ul>

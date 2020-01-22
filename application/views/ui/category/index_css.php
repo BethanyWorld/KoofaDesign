@@ -51,10 +51,10 @@
     ul.breadcrumb {
         list-style: none;
         color: #B1C472;
-        padding-top: 15px;
+        padding-top: 8px;
         padding-bottom: 0px;
         border-radius: 0px;
-        margin-bottom: 20px;
+        margin-bottom: 8px;
         padding-right: 0px;
     }
 
@@ -192,7 +192,7 @@
         cursor: pointer;
     }
     .product-keeper:hover{
-        border: 1px solid gray;
+        border: 1px solid #efefef;
     }
 
     .product-info {
@@ -511,29 +511,6 @@
         margin-left: 15px;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @media (min-width: 992px) {
 
     }
@@ -605,4 +582,12 @@
 
 
     }
+    .pagination {
+        display: inline-block;
+        padding-left: 0;
+        margin: 0;
+        border-radius: 4px;
+    }
+
+
 </style>

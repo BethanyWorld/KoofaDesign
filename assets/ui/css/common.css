@@ -39,7 +39,7 @@
     margin-bottom: 15px;
 }
 .section-padding{
-    padding: 10px 0;
+    padding: 5px 0;
 }
 .preloader{
     position: fixed;
@@ -546,9 +546,8 @@ footer {
 }
 
 .footer-service {
-    padding: 30px 45px 5px 45px;
+    padding: 15px 45px 5px 45px;
     display: table;
-    width: 100%;
 }
 
 .footer-title h3 {
@@ -589,7 +588,7 @@ footer {
 }
 
 .footer-guide {
-    padding: 30px 45px;
+    padding: 5px 40px;
 }
 
 .footer-guide-ul {
@@ -888,7 +887,7 @@ footer {
 
     header .header-container {
         position: relative;
-        padding-bottom: 20px;
+        padding-bottom: 10px;
     }
 
     header #logo {

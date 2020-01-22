@@ -25,9 +25,9 @@ $_DIR = base_url('assets/ui/'); ?>
                     </ul>
                 </div>
                 <div class="col-md-5 col-xs-12 padding-0 rightFloat right-side-border-top">
-                    <div class="col-md-12 col-xs-12 product-detail-text padding-right">
-                        <p>ارسال رایگان برای خرید های بیشتر از 90 هزار تومان</p>
-                    </div>
+<!--                    <div class="col-md-12 col-xs-12 product-detail-text padding-right">-->
+<!--                        <p>ارسال رایگان برای خرید های بیشتر از 90 هزار تومان</p>-->
+<!--                    </div>-->
                     <div class="col-md-12 col-xs-12 padding-right product-detail-title">
                         <h1><?php echo $data['ProductTitle']; ?></h1>
                     </div>

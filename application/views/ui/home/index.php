@@ -169,7 +169,7 @@ $_DIR = base_url('assets/ui/'); ?>
     <!-- Special Offers -->
     <div class="row index-slider-div index-slider-div2  section-padding">
         <div class="container">
-            <div class="col-md-9 col-xs-9 index-holder">
+            <div class="col-md-9 col-xs-12 index-holder">
                 <section class="index-sidebar-top index-sidebar-top2">
                     <div class="index-sidebar-home index-sidebar-home2 index-sidebar-home2">
                         <div class="col-md-12 col-xs-12 product-slider">
@@ -219,7 +219,7 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                 </section>
             </div>
-            <div class="col-md-3 col-xs-3 index-holder">
+            <div class="col-md-3 col-xs-3 index-holder hidden-sm hidden-xs">
                 <div id="thumbs2" class="owl-carousel owl-theme">
                     <?php foreach ($specialProduct as $item) { ?>
                         <div class="item">

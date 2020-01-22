@@ -5,7 +5,7 @@ $_DIR = base_url('assets/ui/'); ?>
     <div class="row">
         <div class="container z-p">
             <!-- BreadCrumbs -->
-            <div class="col-md-12 col-xs-12">
+            <div class="col-md-12 col-xs-12"  style="padding: 0px 8px;">
                 <ul class="breadcrumb">
                     <li>
                         <a href="<?php echo categoryUrl($breadCrumb['root']['CategoryId'], $breadCrumb['root']['CategoryTitle']); ?>">
@@ -29,7 +29,7 @@ $_DIR = base_url('assets/ui/'); ?>
                 </ul>
             </div>
             <!-- Category Description -->
-            <div class="col-xs-12 col-xs-12 z-p">
+            <div class="col-xs-12 col-xs-12" style="padding: 5px 8px;">
                 <div class="col-md-12 col-xs-12 padding-right all-div-style-image-row">
                     <div class="col-md-2 col-xs-12 RightFloat height100 image-product-div">
                         <a href="<?php echo categoryUrl($categoryInfo['CategoryId'], $categoryInfo['CategoryTitle']); ?>">
@@ -47,7 +47,7 @@ $_DIR = base_url('assets/ui/'); ?>
                 </div>
             </div>
             <!-- Ordering -->
-            <div class="col-md-12 col-xs-12 z-p padding-t-15">
+            <div class="col-md-12 col-xs-12" style="padding: 5px 8px;">
                 <div class="col-xs-12 Ordering-main-div">
                     <label for="inputOrderingProductPrice">مرتب سازی بر اساس :</label>
                     <select name="inputOrderingProductPrice" id="inputOrderingProductPrice">

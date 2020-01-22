@@ -1,7 +1,7 @@
 <style>
     .upload-options {
         position: relative;
-        height: 48px;
+        /* height: 40px; */
         background-color: #394d4d;
         cursor: pointer;
         overflow: hidden;
@@ -9,8 +9,10 @@
         transition: background-color ease-in-out 150ms;
         margin: 10px 0;
         color: #fff;
-        padding: 12px 0;
-        font-size: 16px;
+        padding: 8px 0;
+        font-size: 12px;
+        width: 100%;
+        border-radius: 0px;
     }
     .upload-options input {
         width: 0.1px;

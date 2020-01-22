@@ -934,7 +934,7 @@ div.ruby-wrapper > ul {
 
 ul.ruby-menu > li {
     float: right;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 ul.ruby-menu > li.ruby-menu-right {
@@ -1372,7 +1372,7 @@ ul.ruby-menu > li.ruby-menu-mega > div ul,ul.ruby-menu > li.ruby-menu-mega-shop 
 
 ul.ruby-menu > li.ruby-menu-mega > div ul li,ul.ruby-menu > li.ruby-menu-mega-shop > div > ul > li > div ul > li {
     position: relative;
-    font-size: 14px;
+    font-size: 13px;
     line-height: 28px;
     display: block;
     width: 100%
