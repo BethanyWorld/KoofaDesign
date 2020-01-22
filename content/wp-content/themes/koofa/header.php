@@ -112,7 +112,7 @@
             <div class="col-md-12 col-xs-12 mobile-header">
                 <div class="col-xs-12 col-md-12">
                     <div class="row">
-                        <div class="col-xs-8 text-center">
+                        <div class="col-xs-10 text-left">
                             <a href="<?php echo $Main_URL; ?>">
                                 <img src="<?php echo $_DIR; ?>assets/images/top_logo.png" height="85" width="110" alt=""
                                      title=""/>

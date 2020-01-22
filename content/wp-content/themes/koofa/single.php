@@ -12,8 +12,10 @@ $news_comments = get_comments(
 );
 ?>
 
-<div class="page-caption">
-    <?= the_title(); ?>
+<div class="container">
+    <div class="page-caption">
+        <?= the_title(); ?>
+    </div>
 </div>
 <div class="col-xs-12">
     <?php if (isset($_GET['unapproved']) && is_numeric($_GET['unapproved'])) { ?>
@@ -62,7 +64,7 @@ $news_comments = get_comments(
                         <span class="success-copy">لینک صفحه کپی شد</span>
                     </div>
                     <div class="col-md-12 col-xs-12 blog-comment-div z-p">
-                        <h2><i class="fa fa-comment"></i>نظرات خود را ارسال کنید</h2>
+                        <h6 style="margin: 12px 15px;">نظرات خود را ارسال کنید</h6>
                         <form method="post" id="commentform" action="<?= $_URL ?>wp-comments-post.php">
                             <div class="row center-block">
                                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 pull-right">
@@ -94,7 +96,7 @@ $news_comments = get_comments(
                             <div class="row center-block">
                                 <div class="col-xs-12">
                                     <button
-                                            style="border: 0;padding: 15px 20px;border-radius: 0;"
+                                            style="border: 0;padding: 5px 20px;border-radius: 0;"
                                             type="submit"
                                             class="btn btn-success btn-sm  pull-left">ارسال نظر
                                     </button>

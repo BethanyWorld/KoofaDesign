@@ -1,8 +1,10 @@
 <?php get_header();
 global $_URL, $_DIR; ?>
-    <div class="page-caption">
-        برچسب
-        "<?=single_cat_title(); ?>"
+    <div class="container">
+        <div class="page-caption">
+            برچسب
+            "<?= single_cat_title(); ?>"
+        </div>
     </div>
     <div class="container container-wrapper">
         <div class="col-md-9 col-xs-12 padding-left-style response-style-for-left-div">
