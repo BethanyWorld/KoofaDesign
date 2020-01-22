@@ -189,20 +189,21 @@ $_DIR = base_url('assets/ui/'); ?>
                                                         <div class="col-md-12 col-xs-12 slider2-desc">
                                                             <p class="slider2-p-margin"><?php echo $item['ProductSubTitle']; ?></p>
                                                         </div>
-                                                        <div class="col-md-12 col-xs-12">
-                                                            <p class="slider2-price">
+                                                        <div class="col-md-12 col-xs-12 slider2-discountPrice">
+                                                            <p>
+                                                                <s>
+                                                                    <?php echo number_format($item['ProductSpecialVirtualMaxPrice']); ?>
+                                                                    <span>تومان</span>
+                                                                </s>
+                                                            </p>
+                                                        </div>
+                                                        <div class="col-md-12 col-xs-12 slider2-mainPrice">
+                                                            <p>
                                                                 <?php echo number_format($item['price'][0]['PriceValue']); ?>
                                                                 <span>تومان</span>
                                                             </p>
                                                         </div>
                                                         <div class="col-md-12 col-xs-12 slider2-hour-div">
-                                                            <div class="col-md-8 col-sm-7 slider2-hour">
-                                                                <p class="remaining-time-text">زمان باقی مانده حراجی</p>
-                                                                <?php $remainDate = jDateTime::toGregorian(explode("/", $item['ProductSpecialEndDate'])[0], explode("/", $item['ProductSpecialEndDate'])[1], explode("/", $item['ProductSpecialEndDate'])[2]); ?>
-                                                                <p data-current-date="<?php echo $currentDate; ?>"
-                                                                   data-remain-time="<?php echo $remainDate[0] . '/' . $remainDate[1] . '/' . $remainDate[2]; ?>"
-                                                                   class="demo"></p>
-                                                            </div>
                                                             <div class="col-md-12 col-sm-11 col-xs-12 slider2-text">
                                                                 <?php echo $item['ProductBrief']; ?>
                                                             </div>
@@ -224,6 +225,14 @@ $_DIR = base_url('assets/ui/'); ?>
                         <div class="item">
                             <a href="">
                                 <p><?php echo $item['ProductTitle']; ?></p>
+                                <p class="slier2-rightPanel-Price-div">
+                                    <span class="slider2-rightPanel-discountPrice">
+                                        <?php echo number_format($item['ProductSpecialVirtualMaxPrice']); ?>
+                                    </span>
+                                    <span style="float: left;" class="slider2-lefttPanel-Price">
+                                        <?php echo number_format($item['price'][0]['PriceValue']); ?>
+                                    </span>
+                                </p>
                             </a>
                         </div>
                     <?php } ?>
@@ -254,7 +263,7 @@ $_DIR = base_url('assets/ui/'); ?>
                             <div class="col-md-3 col-xs-12 one-product-detail">
                                 <div class="col-md-12 col-xs-12 product-keeper">
                                     <div class="product-tool">
-                                       <?php setTypeBadge($item['ProductType']); ?>
+                                        <?php setTypeBadge($item['ProductType']); ?>
                                     </div>
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
                                         <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
@@ -331,7 +340,7 @@ $_DIR = base_url('assets/ui/'); ?>
 <script>
     $(document).ready(function () {
         $("#thumbs2 .owl-stage-outer").niceScroll({cursorcolor: "#d5b55e"});
-        $('p.demo').each(function () {
+        /*$('p.demo').each(function () {
             $currentDate = $(this).data('current-date');
             $remainDate = $(this).data('remain-time');
             $splitDate = $currentDate.split(" ");
@@ -351,6 +360,6 @@ $_DIR = base_url('assets/ui/'); ?>
                     $(this).html('اتمام فروش فوق العاده').addClass('finish-time');
                 });
             }
-        });
+        });*/
     });
 </script>

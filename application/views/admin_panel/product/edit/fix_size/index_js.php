@@ -21,14 +21,6 @@
                 return $(this).val();
             }).get();
 
-
-            if ($("[name='inputProductIsSpecial']").is(':checked')){
-                $inputProductIsSpecial = true;
-            }
-            else{
-                $inputProductIsSpecial = false;
-            }
-            $inputProductSpecialEndDate = $("#inputProductSpecialEndDate").val();
             /*$inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
@@ -86,9 +78,7 @@
                     'inputProductPrice': $inputProductPrice,
                     'inputProductTag': $inputProductTag,
                     'inputProductHasInstallation': $inputProductHasInstallation,
-                    'inputProductInstallationPrice': $inputProductInstallationPrice,
-                    'inputProductIsSpecial':$inputProductIsSpecial,
-                    'inputProductSpecialEndDate':$inputProductSpecialEndDate
+                    'inputProductInstallationPrice': $inputProductInstallationPrice
                 }
                 toggleLoader();
                 $.ajax({

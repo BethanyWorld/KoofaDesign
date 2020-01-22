@@ -235,8 +235,6 @@
 
                 $integerOfMaxHeight = ($percentageOfMaxHeight * $imageHeight) / 100;
                 $integerageOfMaxWidth = ($percentageOfMaxWidth * $imageWidth) / 100;
- 
-
 
 
                 if(parseInt($width) > parseInt($height)){
@@ -256,12 +254,12 @@
                     });
                 }
 
-                if(parseInt($width) == parseInt($height)){
+                if(parseInt($width) === parseInt($height)){
                     if(parseInt($imageWidth) < parseInt($imageHeight)){
                         cropper.setCropBoxData({
                             left: 0,
                             top: 0,
-                            width: $integerageOfMaxWidth,
+                            width: $imageWidth,
                             height: parseInt($height)
                         });
                     }
@@ -270,7 +268,7 @@
                             left: 0,
                             top: 0,
                             width: parseInt($width),
-                            height: $integerOfMaxHeight
+                            height: $imageHeight
                         });
                     }
                 }

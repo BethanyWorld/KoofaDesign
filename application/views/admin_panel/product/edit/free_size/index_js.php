@@ -23,14 +23,6 @@
             $inputProductMaxHeight = $.trim($("#inputProductMaxHeight").val());
             $inputProductMaxWidth = $.trim($("#inputProductMaxWidth").val());
 
-
-            if ($("[name='inputProductIsSpecial']").is(':checked')){
-                $inputProductIsSpecial = true;
-            }
-            else{
-                $inputProductIsSpecial = false;
-            }
-            $inputProductSpecialEndDate = $("#inputProductSpecialEndDate").val();
             /*$inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
@@ -87,9 +79,7 @@
                     'inputProductPrice': $inputProductPrice,
                     'inputProductTag': $inputProductTag,
                     'inputProductHasInstallation': $inputProductHasInstallation,
-                    'inputProductInstallationPrice': $inputProductInstallationPrice,
-                    'inputProductIsSpecial':$inputProductIsSpecial,
-                    'inputProductSpecialEndDate':$inputProductSpecialEndDate
+                    'inputProductInstallationPrice': $inputProductInstallationPrice
                 }
                 toggleLoader();
                 $.ajax({
@@ -112,8 +102,6 @@
 
         });
         /* End Update User Info */
-
-
         /* Update User Info */
         $("#CopyDesignFreeSize").click(function () {
             $inputProductTitle = $.trim($("#inputProductTitle").val());
@@ -213,8 +201,6 @@
 
         });
         /* End Update User Info */
-
-
         $("#addMoreProductImage").click(function () {
             $id = UUID();
             $addProductImageTemplate = '<div  id="parent-' + $id + '" class="col-xs-12"><div class="form-group"><div class="form-line"><input type="text" class="form-control" id="' + $id + '" name="inputProductSecondaryImage" /></div> <a data-target-id="' + $id + '" data-toggle="modal" href="#" data-target="#myModal" class="btn fileManagerHandler" type="button"> <span>انتخاب تصویر</span> </a> <button type="button" data-remove-id="' + $id + '" class="btn btn-xs btn-danger waves-effect waves-float remove-secondary-image"> <i class="material-icons">clear</i> </button></div></div>';

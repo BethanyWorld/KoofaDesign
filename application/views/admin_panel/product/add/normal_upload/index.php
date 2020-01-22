@@ -90,6 +90,39 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+
+                                <div class="col-xs-12 col-sm-3">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input
+                                                    type="checkbox"
+                                                    name="inputProductIsSpecial" class="filled-in"
+                                                    id="cat-10000" value="1"/>
+                                            <label for="cat-10000">آیا فروش ویژه است؟</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3">
+                                    <div class="form-group">
+                                        <label for="inputProductSpecialVirtualMaxPrice">قیمت قبل از تخفیف (تومان)</label>
+                                        <div class="form-group">
+                                            <div class="form-line">
+                                                <input type="text"
+                                                       class="form-control"
+                                                       value="0"
+                                                       id="inputProductSpecialVirtualMaxPrice"
+                                                       name="inputProductSpecialVirtualMaxPrice"
+                                                       style="font-family: tahoma; "/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
                                 <div class="col-xs-12">
                                     <label class="required"  for="inputProductDescription">شرح محصول</label>
                                     <div class="form-group">

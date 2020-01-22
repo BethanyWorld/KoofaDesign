@@ -12,7 +12,7 @@ class ModelProduct extends CI_Model{
             $this->db->like('ProductTitle',$inputs['inputProductTitle']);
         }
         if($inputs['inputProductType'] != ''){
-            if($inputs['inputProductType'] = 'ProductSpecial'){
+            if($inputs['inputProductType'] == 'ProductSpecial'){
                 $this->db->where('ProductIsSpecial',1);
             }
             else{
@@ -136,7 +136,7 @@ class ModelProduct extends CI_Model{
         $ProductSpecialEndDate = NULL;
         if($inputs['inputProductIsSpecial'] == 'true'){
             $ProductIsSpecial = 1;
-            $ProductSpecialEndDate = $inputs['inputProductSpecialEndDate'];
+            $inputProductSpecialVirtualMaxPrice = $inputs['inputProductSpecialVirtualMaxPrice'];
         }
         $Array = array(
             'ProductTitle' => $inputs['inputProductTitle'],
@@ -147,7 +147,7 @@ class ModelProduct extends CI_Model{
             'ProductBrief' => $inputs['inputProductBrief'],
             'ProductDescription' => $inputs['inputProductDescription'],
             'ProductIsSpecial' => $ProductIsSpecial,
-            'ProductSpecialEndDate' => $ProductSpecialEndDate,
+            'ProductSpecialVirtualMaxPrice' => $inputProductSpecialVirtualMaxPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
             'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
             'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
@@ -220,9 +220,10 @@ class ModelProduct extends CI_Model{
 
         $ProductIsSpecial = 0;
         $ProductSpecialEndDate = NULL;
+        $inputProductSpecialVirtualMaxPrice = 0;
         if($inputs['inputProductIsSpecial'] == 'true'){
             $ProductIsSpecial = 1;
-            $ProductSpecialEndDate = $inputs['inputProductSpecialEndDate'];
+            $inputProductSpecialVirtualMaxPrice = $inputs['inputProductSpecialVirtualMaxPrice'];
         }
         $Array = array(
             'ProductTitle' => $inputs['inputProductTitle'],
@@ -233,7 +234,7 @@ class ModelProduct extends CI_Model{
             'ProductBrief' => $inputs['inputProductBrief'],
             'ProductDescription' => $inputs['inputProductDescription'],
             'ProductIsSpecial' => $ProductIsSpecial,
-            'ProductSpecialEndDate' => $ProductSpecialEndDate,
+            'ProductSpecialVirtualMaxPrice' => $inputProductSpecialVirtualMaxPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
             'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
         );
@@ -327,14 +328,7 @@ class ModelProduct extends CI_Model{
         }
     }
 
-    public function doAddDesignFixSizeProduct($inputs)
-    {
-        $ProductIsSpecial = 0;
-        $ProductSpecialEndDate = NULL;
-        if($inputs['inputProductIsSpecial'] == 'true'){
-            $ProductIsSpecial = 1;
-            $ProductSpecialEndDate = $inputs['inputProductSpecialEndDate'];
-        }
+    public function doAddDesignFixSizeProduct($inputs){
 
         $installation = false;
         $installationPrice = 0;
@@ -349,8 +343,6 @@ class ModelProduct extends CI_Model{
             'ProductType' => $inputs['inputProductType'],
             'ProductBrief' => $inputs['inputProductBrief'],
             'ProductDescription' => $inputs['inputProductDescription'],
-            'ProductIsSpecial' => $ProductIsSpecial,
-            'ProductSpecialEndDate' => $ProductSpecialEndDate,
             'ProductHasInstallation' => $installation,
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
@@ -426,13 +418,6 @@ class ModelProduct extends CI_Model{
     public function doEditDesignFixSizeProduct($inputs)
     {
 
-        $ProductIsSpecial = 0;
-        $ProductSpecialEndDate = NULL;
-        if($inputs['inputProductIsSpecial'] == 'true'){
-            $ProductIsSpecial = 1;
-            $ProductSpecialEndDate = $inputs['inputProductSpecialEndDate'];
-        }
-
         $installation = 0;
         $installationPrice = 0;
         if($inputs['inputProductHasInstallation'] == 'true'){
@@ -446,8 +431,6 @@ class ModelProduct extends CI_Model{
             'ProductType' => $inputs['inputProductType'],
             'ProductBrief' => $inputs['inputProductBrief'],
             'ProductDescription' => $inputs['inputProductDescription'],
-            'ProductIsSpecial' => $ProductIsSpecial,
-            'ProductSpecialEndDate' => $ProductSpecialEndDate,
             'ProductHasInstallation' => $installation,
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
@@ -549,15 +532,7 @@ class ModelProduct extends CI_Model{
         }
     }
 
-    public function doAddDesignFreeSizeProduct($inputs)
-    {
-
-        $ProductIsSpecial = 0;
-        $ProductSpecialEndDate = NULL;
-        if($inputs['inputProductIsSpecial'] == 'true'){
-            $ProductIsSpecial = 1;
-            $ProductSpecialEndDate = $inputs['inputProductSpecialEndDate'];
-        }
+    public function doAddDesignFreeSizeProduct($inputs){
 
         $installation = false;
         $installationPrice = 0;
@@ -574,8 +549,6 @@ class ModelProduct extends CI_Model{
             'ProductDescription' => $inputs['inputProductDescription'],
             'ProductMaxHeight' => $inputs['inputProductMaxHeight'],
             'ProductMaxWidth' => $inputs['inputProductMaxWidth'],
-            'ProductIsSpecial' => $ProductIsSpecial,
-            'ProductSpecialEndDate' => $ProductSpecialEndDate,
             'ProductHasInstallation' => $installation,
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
@@ -649,15 +622,7 @@ class ModelProduct extends CI_Model{
             return $arr;
         }
     }
-    public function doEditDesignFreeSizeProduct($inputs)
-    {
-        $ProductIsSpecial = 0;
-        $ProductSpecialEndDate = NULL;
-        if($inputs['inputProductIsSpecial'] == 'true'){
-            $ProductIsSpecial = 1;
-            $ProductSpecialEndDate = $inputs['inputProductSpecialEndDate'];
-        }
-
+    public function doEditDesignFreeSizeProduct($inputs){
         $installation = false;
         $installationPrice = 0;
         if($inputs['inputProductHasInstallation'] == 'true'){
@@ -673,8 +638,6 @@ class ModelProduct extends CI_Model{
             'ProductMaxHeight' => $inputs['inputProductMaxHeight'],
             'ProductMaxWidth' => $inputs['inputProductMaxWidth'],
             'ProductDescription' => $inputs['inputProductDescription'],
-            'ProductIsSpecial' => $ProductIsSpecial,
-            'ProductSpecialEndDate' => $ProductSpecialEndDate,
             'ProductHasInstallation' => $installation,
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],

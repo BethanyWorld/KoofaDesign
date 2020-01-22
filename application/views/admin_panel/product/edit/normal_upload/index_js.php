@@ -29,7 +29,7 @@
             else{
                 $inputProductIsSpecial = false;
             }
-            $inputProductSpecialEndDate = $("#inputProductSpecialEndDate").val();
+            $inputProductSpecialVirtualMaxPrice = $("#inputProductSpecialVirtualMaxPrice").val();
             /*$inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
@@ -61,7 +61,7 @@
                     'inputProductCategory': $inputProductCategory,
                     'inputProductTag':$inputProductTag,
                     'inputProductIsSpecial':$inputProductIsSpecial,
-                    'inputProductSpecialEndDate':$inputProductSpecialEndDate
+                    'inputProductSpecialVirtualMaxPrice':$inputProductSpecialVirtualMaxPrice
                 }
                 toggleLoader();
                 $.ajax({

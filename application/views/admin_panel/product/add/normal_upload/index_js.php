@@ -20,6 +20,16 @@
             $inputProductCategory = $("[name=inputProductCategory]:checked").map(function () {
                 return $(this).val();
             }).get();
+
+
+            if ($("[name='inputProductIsSpecial']").is(':checked')){
+                $inputProductIsSpecial = true;
+            }
+            else{
+                $inputProductIsSpecial = false;
+            }
+            $inputProductSpecialVirtualMaxPrice = $("#inputProductSpecialVirtualMaxPrice").val();
+
             /*$inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
@@ -48,8 +58,9 @@
                     'inputProductSecondaryImage': $inputProductSecondaryImage,
                     'inputProductPrice': inputProductPrice,
                     'inputProductCategory': $inputProductCategory,
-                    /*'inputProductCategoryProperty': $inputProductCategoryProperty,*/
-                    'inputProductTag':$inputProductTag
+                    'inputProductTag':$inputProductTag,
+                    'inputProductIsSpecial':$inputProductIsSpecial,
+                    'inputProductSpecialVirtualMaxPrice':$inputProductSpecialVirtualMaxPrice
                 }
                 toggleLoader();
                 $.ajax({

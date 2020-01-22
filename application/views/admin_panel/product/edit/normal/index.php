@@ -114,14 +114,14 @@ $_DIR = base_url('assets/admin/');
                                 </div>
                                 <div class="col-xs-12 col-sm-3">
                                     <div class="form-group">
-                                        <label for="inputProductSpecialEndDate">تاریخ اتمام - مثلا 1398/01/21</label>
+                                        <label for="inputProductSpecialVirtualMaxPrice">قیمت قبل از تخفیف (تومان)</label>
                                         <div class="form-group">
                                             <div class="form-line">
                                                 <input type="text"
                                                        class="form-control"
-                                                       value="<?php echo $data['ProductSpecialEndDate']; ?>"
-                                                       id="inputProductSpecialEndDate"
-                                                       name="inputProductSpecialEndDate"
+                                                       value="<?php echo $data['ProductSpecialVirtualMaxPrice']; ?>"
+                                                       id="inputProductSpecialVirtualMaxPrice"
+                                                       name="inputProductSpecialVirtualMaxPrice"
                                                        style="font-family: tahoma; "/>
                                             </div>
                                         </div>
