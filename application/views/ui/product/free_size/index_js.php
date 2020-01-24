@@ -209,10 +209,19 @@
 
             $imageWidth = cropper.getImageData().width;
             $imageHeight = cropper.getImageData().height;
-            /*console.log("getContainerData" , cropper.getContainerData());
-            console.log("getCroppedCanvas" , cropper.getCroppedCanvas());
-            console.log("getCropBoxData" , cropper.getCropBoxData());
-            console.log("getImageData" , cropper.getImageData());*/
+
+            //check image oriention
+            $imageOriention = '';
+            if ( ($maxWidth / $maxHeight) < 1) {
+                $imageOriention = 'AMOODI'; //VERTICAL
+            }
+            else if(($maxWidth / $maxHeight) > 1){
+                $imageOriention = 'OFOGHI'; //HORIZONTAL
+            }
+            else{
+                $imageOriention = 'MORABAE'; //SQUARE
+            }
+
 
             $isPaddle = false;
             if($divideHeight == $divideWidth){
@@ -229,31 +238,93 @@
             }
             else {
                 var cropper = $image.data('cropper');
+                switch ($imageOriention) {
+                    case 'MORABAE':
+                    case 'AMOODI':
+                    case 'OFOGHI':
+                        $x = $maxWidth / $maxHeight;
+                        $y = $width / $height;
+                        $percentageOfMaxWidth = (100 * $width) / $maxWidth;
+                        $percentageOfMaxHeight = (100 * $height) / $maxHeight;
+                        if($x > $y){
+                            $tempWidth = ($maxHeight / $height) * $width;
+                            $percentageOfMaxWidth = (100 * $tempWidth) / $maxWidth;
+                            $tempWidth = ($percentageOfMaxWidth * $imageWidth) / 100;
+                            cropper.setCropBoxData({
+                                left: 0,
+                                top: 0,
+                                width: $tempWidth,
+                                height: $imageHeight
+                            });
+                            console.log("======================================");
+                            console.log("$x > $y");
+                            console.log("$maxWidth",$maxWidth);
+                            console.log("$maxHeight",$maxHeight);
+                            console.log("$width",$width);
+                            console.log("$height",$height);
+                            console.log("$imageHeight",$imageHeight);
+                            console.log("$imageWidth",$imageWidth);
+                            console.log("======================================");
+                        }
+                        if($y > $x){
+                            $tempHeight = ($maxWidth / $width) * $height;
+                            $percentageOfMaxHeigh = (100 * $tempHeight) / $maxHeight;
+                            $tempHeight = ($percentageOfMaxHeigh * $imageHeight) / 100;
+                            cropper.setCropBoxData({
+                                left: 0,
+                                top: 0,
+                                width: $imageWidth,
+                                height: $tempHeight
+                            });
+                            console.log("======================================");
+                            console.log("$y > $x");
+                            console.log("$maxWidth",$maxWidth);
+                            console.log("$maxHeight",$maxHeight);
+                            console.log("$width",$width);
+                            console.log("$height",$height);
+                            console.log("$imageHeight",$imageHeight);
+                            console.log("$imageWidth",$imageWidth);
+                            console.log("======================================");
+                        }
+                        if($x === $y){
 
+                        }
+                        break;
+                }
+
+
+                /*$percentageOfMaxWidth = (100 * $width) / $maxWidth;
                 $percentageOfMaxHeight = (100 * $height) / $maxHeight;
-                $percentageOfMaxWidth = (100 * $width) / $maxWidth;
-
+                $integerOfMaxWidth = ($percentageOfMaxWidth * $imageWidth) / 100;
                 $integerOfMaxHeight = ($percentageOfMaxHeight * $imageHeight) / 100;
-                $integerageOfMaxWidth = ($percentageOfMaxWidth * $imageWidth) / 100;
-
-
+                console.log("===================================================================");
+                console.log("===================================================================");
+                console.log("Width - Height:" + $width + " x " + $height);
+                console.log("Percentage Width - Height:" + $percentageOfMaxWidth + " x " + $percentageOfMaxHeight);
+                console.log("Integer Width - Height:" + $integerOfMaxWidth + " x " + $integerOfMaxHeight);
+                console.log("===================================================================");
+                console.log("===================================================================");
                 if(parseInt($width) > parseInt($height)){
+                    $tempHeight = ($maxWidth / $width) * $height;
+                    $percentageOfMaxHeigh = (100 * $tempHeight) / $maxHeight;
+                    $tempHeight = ($percentageOfMaxHeigh * $imageHeight) / 100;
+                    console.log($tempHeight);
+                    console.log($percentageOfMaxHeigh);
                     cropper.setCropBoxData({
                         left: 0,
                         top: 0,
                         width: $imageWidth,
-                        height: parseInt($integerOfMaxHeight)
+                        height: $tempHeight
                     });
                 }
                 else if(parseInt($height) > parseInt($width)){
                     cropper.setCropBoxData({
                         left: 0,
                         top: 0,
-                        width: parseInt($integerageOfMaxWidth),
+                        width: $integerOfMaxWidth,
                         height: $imageHeight
                     });
                 }
-
                 if(parseInt($width) === parseInt($height)){
                     if(parseInt($imageWidth) < parseInt($imageHeight)){
                         cropper.setCropBoxData({
@@ -271,10 +342,8 @@
                             height: $imageHeight
                         });
                     }
-                }
+                }*/
             }
-
-
 
             $price = parseInt($("#priceDropDown").find(":selected").data('price'));
             $html = "<p>" + ($price * $width * $height) + " تومان </p>";

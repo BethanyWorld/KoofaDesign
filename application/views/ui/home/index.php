@@ -140,7 +140,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                                 <div class="col-md-12 col-xs-12 padding-0 height100">
                                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>"
                                                        target="_blank">
-                                                        <img src="<?php echo $item['ProductPrimaryImage']; ?>"
+                                                        <img src="<?php echo $item['ProductMockUpImage']; ?>"
                                                              height="100%" width="100%"/>
                                                     </a>
                                                 </div>
@@ -179,7 +179,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                         <?php foreach ($specialProduct as $item) { ?>
                                             <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
                                                 <div class="item">
-                                                    <img src="<?php echo $item['ProductPrimaryImage']; ?>"
+                                                    <img src="<?php echo $item['ProductMockUpImage']; ?>"
                                                          height="100%"
                                                          width="100%"/>
                                                     <div class="div-on-slider2">
@@ -266,7 +266,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                         <?php setTypeBadge($item['ProductType']); ?>
                                     </div>
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                                        <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
+                                        <img src="<?php echo $item['ProductMockUpImage']; ?>" height="100%"
                                              width="100%"/>
                                     </a>
                                     <?php setSpecialBadge($item['ProductIsSpecial']); ?>
@@ -290,7 +290,7 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
         </div>
     </div>
-
+    <!-- Popular Products -->
     <div class="row index-product-Popular section-padding">
         <div class="container">
             <div class="row">
@@ -309,7 +309,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                         <?php setTypeBadge($item['ProductType']); ?>
                                     </div>
                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                                        <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
+                                        <img src="<?php echo $item['ProductMockUpImage']; ?>" height="100%"
                                              width="100%"/>
                                     </a>
                                     <?php setSpecialBadge($item['ProductIsSpecial']); ?>

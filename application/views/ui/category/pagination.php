@@ -23,7 +23,7 @@ if ($data) {
                         <?php setTypeBadge($item['ProductType']); ?>
                     </div>
                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                        <img src="<?php echo $item['ProductPrimaryImage']; ?>" height="100%"
+                        <img src="<?php echo $item['ProductMockUpImage']; ?>" height="100%"
                              width="100%"/>
                     </a>
                     <?php setSpecialBadge($item['ProductIsSpecial']); ?>

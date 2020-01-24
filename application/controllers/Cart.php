@@ -47,7 +47,7 @@ class Cart extends CI_Controller{
         $item['productId'] = $data['ProductId'];
         $item['productTitle'] = $data['ProductTitle'];
         $item['productPrice'] = $productPrice[0]['PriceValue'];
-        $item['productImage'] = $data['ProductPrimaryImage'];
+        $item['productImage'] = $data['ProductMockUpImage'];
         $item['productInstallation'] = false;
         $item['productUploadImage'] = '';
         $item['productSizeId'] = '';
@@ -74,7 +74,7 @@ class Cart extends CI_Controller{
         $item['productId'] = $data['ProductId'];
         $item['productTitle'] = $data['ProductTitle'];
         $item['productPrice'] = $productPrice[0]['PriceValue'];
-        $item['productImage'] = $data['ProductPrimaryImage'];
+        $item['productImage'] = $data['ProductMockUpImage'];
         $item['productInstallation'] = false;
         $item['productSizeId'] = '';
         $item['productMaterialId'] = '';
@@ -118,7 +118,7 @@ class Cart extends CI_Controller{
             $item['productInstallation'] = true;
         }
 
-        $item['productImage'] = $data['ProductPrimaryImage'];
+        $item['productImage'] = $data['ProductMockUpImage'];
         $item['productUploadImage'] = $productImage;
         $item['productCount'] = 1;
         $item['productType'] = 'DesignFixSize';
@@ -158,7 +158,7 @@ class Cart extends CI_Controller{
                 $item['productMaterialId'] = $price['MaterialId'];
             }
         }
-        $item['productImage'] = $data['ProductPrimaryImage'];
+        $item['productImage'] = $data['ProductMockUpImage'];
         $item['productUploadImage'] = $productImage;
         $item['productCount'] = 1;
         $item['productType'] = 'DesignFreeSize';

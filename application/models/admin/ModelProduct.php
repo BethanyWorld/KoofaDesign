@@ -149,6 +149,7 @@ class ModelProduct extends CI_Model{
             'ProductIsSpecial' => $ProductIsSpecial,
             'ProductSpecialVirtualMaxPrice' => $inputProductSpecialVirtualMaxPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
+            'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
             'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
             'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
         );
@@ -236,6 +237,7 @@ class ModelProduct extends CI_Model{
             'ProductIsSpecial' => $ProductIsSpecial,
             'ProductSpecialVirtualMaxPrice' => $inputProductSpecialVirtualMaxPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
+            'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
             'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
         );
         $this->db->trans_start();
@@ -346,6 +348,7 @@ class ModelProduct extends CI_Model{
             'ProductHasInstallation' => $installation,
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
+            'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
             'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
             'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
         );
@@ -434,6 +437,7 @@ class ModelProduct extends CI_Model{
             'ProductHasInstallation' => $installation,
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
+            'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
             'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
             'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
         );
@@ -552,6 +556,7 @@ class ModelProduct extends CI_Model{
             'ProductHasInstallation' => $installation,
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
+            'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
             'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
             'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
         );
@@ -641,6 +646,7 @@ class ModelProduct extends CI_Model{
             'ProductHasInstallation' => $installation,
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
+            'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
             'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
             'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
         );

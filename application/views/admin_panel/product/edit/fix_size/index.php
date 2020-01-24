@@ -128,7 +128,7 @@ $_DIR = base_url('assets/admin/');
                                 </div>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="productImages">
-                                <div class="col-xs-12">
+                                <div class="col-md-6 col-xs-12">
                                     <label class="required" for="inputProductPrimaryImage">تصویر اصلی محصول</label>
                                     <div class="form-group">
                                         <div class="form-line">
@@ -137,6 +137,24 @@ $_DIR = base_url('assets/admin/');
                                                    id="inputProductPrimaryImage" name="inputProductPrimaryImage"/>
                                         </div>
                                         <a data-target-id="inputProductPrimaryImage"
+                                           data-toggle="modal"
+                                           href="#"
+                                           data-target="#myModal"
+                                           class="btn fileManagerHandler"
+                                           type="button">
+                                            <span>انتخاب تصویر</span>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 col-xs-12">
+                                    <label  class="required" for="inputProductMockUpImage">تصویر موکاپ محصول</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="text" class="form-control"
+                                                   value="<?php echo $data['ProductMockUpImage']; ?>"
+                                                   id="inputProductMockUpImage" name="inputProductMockUpImage"/>
+                                        </div>
+                                        <a data-target-id="inputProductMockUpImage"
                                            data-toggle="modal"
                                            href="#"
                                            data-target="#myModal"
