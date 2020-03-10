@@ -1,26 +1,20 @@
 <?php
 $_URL = base_url();
 $_DIR = base_url('assets/ui/');
-$ci =& get_instance();
-$menu = $ci->db->select('*')->from('product_category')->get()->result_array();
-unset($menu[0]);
-$ref = array();
-$items = array();
-foreach ($menu as $data) {
-    // Assign by reference
-    $thisRef = &$ref[$data['CategoryId']];
-    // add the menu parent
-    $thisRef['parent'] = $data['CategoryParentId'];
-    $thisRef['label'] = $data['CategoryTitle'];
-    $thisRef['image'] = $data['CategoryImage'];
-    $thisRef['link'] = categoryUrl($data['CategoryId'], $data['CategoryTitle']);
-
-    // if there is no parent push it into items array()
-    if ($data['CategoryParentId'] == 1) {
-        $items[$data['CategoryId']] = &$thisRef;
-    } else {
-        $ref[$data['CategoryParentId']]['child'][$data['CategoryId']] = &$thisRef;
+$CI = &get_instance();
+function get_menu_tree($parent_id){
+    global $CI;
+    $CI->db->select("*");
+    $CI->db->from("product_category");
+    $CI->db->where("CategoryParentId", $parent_id);
+    $menuArray = $CI->db->get()->result_array();
+    $menu = "";
+    foreach ($menuArray as $row) {
+        $menu .="<li><a href='".categoryUrl($row['CategoryId'] , $row['CategoryTitle'])."'>".$row['CategoryTitle']."</a>";
+        $menu .= "<ul class='sub-menu'>".get_menu_tree($row['CategoryId'])."</ul>";
+        $menu .= "</li>";
     }
+    return $menu;
 }
 ?>
 <!doctype html>
@@ -74,7 +68,7 @@ foreach ($menu as $data) {
                                     </div>
                                     <span class="shop-text">سبد خرید</span>
                                     <span class="badge">
-                                    <?php if($this->session->userdata('cart')) echo count($this->session->userdata('cart')); else echo "0"; ?>
+                                    <?php if ($this->session->userdata('cart')) echo count($this->session->userdata('cart')); else echo "0"; ?>
                                 </span>
                                 </button>
                             </a>
@@ -123,7 +117,7 @@ foreach ($menu as $data) {
                         <span class="fa fa-search spansearch"></span>
                     </div>
                     <style>
-                        .search-result{
+                        .search-result {
                             position: absolute;
                             height: auto;
                             background: #fff;
@@ -136,18 +130,21 @@ foreach ($menu as $data) {
                             padding: 0;
                             width: 100%;
                         }
-                        .search-result .item-result{
+
+                        .search-result .item-result {
 
                         }
-                        .search-result span{
+
+                        .search-result span {
                             font-size: 12px;
                             font-weight: 900;
                         }
-                        .search-result .item-result h6{
+
+                        .search-result .item-result h6 {
                             margin: 0;
                         }
 
-                        .mobile-col-search .search-result{
+                        .mobile-col-search .search-result {
                             position: absolute;
                             height: auto;
                             background: #fff;
@@ -160,13 +157,12 @@ foreach ($menu as $data) {
                             padding: 0;
                             width: 100%;
                         }
-                        .mobile-col-search .search-result  a{
-                            color:blue;
+
+                        .mobile-col-search .search-result a {
+                            color: blue;
                         }
                     </style>
-                    <ul class="list-group search-result">
-
-                    </ul>
+                    <ul class="list-group search-result"></ul>
                 </div>
             </div>
             <figure id="logo">
@@ -225,23 +221,7 @@ foreach ($menu as $data) {
                             <nav class="mobile-menu-container">
                                 <ul>
                                     <li><a href="<?php echo base_url(); ?>">خانه</a></li>
-                                    <?php foreach ($items as $item) { ?>
-                                        <li>
-                                            <a href="<?php echo $item['link']; ?>"><?php echo $item['label']; ?></a>
-                                            <?php if (isset($item['child'])) { ?>
-                                                <span class="fa fa-plus"></span>
-                                                <ul>
-                                                    <?php foreach ($item['child'] as $itemChild) { ?>
-                                                        <li>
-                                                            <a href="<?php echo $itemChild['link']; ?>">
-                                                                <?php echo $itemChild['label']; ?>
-                                                            </a>
-                                                        </li>
-                                                    <?php } ?>
-                                                </ul>
-                                            <?php } ?>
-                                        </li>
-                                    <?php } ?>
+                                    <?php echo get_menu_tree(1); ?>
                                 </ul>
                             </nav>
                         </div>
@@ -280,7 +260,7 @@ foreach ($menu as $data) {
                         </div>
                         <div class="col-md-3 col-xs-12 profile-public-desc-left-text-heart">
                             <a href="<?php echo base_url('User/Home/wishList'); ?>">
-                            <p>علاقه مندی ها</p>
+                                <p>علاقه مندی ها</p>
                             </a>
 
                         </div>
@@ -452,30 +432,7 @@ foreach ($menu as $data) {
         <div class="ruby-wrapper">
             <ul class="ruby-menu">
                 <li><a href="<?php echo base_url(); ?>">خانه</a></li>
-                <?php foreach ($items as $item) { ?>
-                    <li class="ruby-menu-mega">
-                        <a href="<?php echo $item['link']; ?>"><?php echo $item['label']; ?></a>
-                        <?php if (isset($item['child'])) { ?>
-                            <div class="ruby-grid ruby-grid-lined"
-                                 style="background: url('<?php echo $item['image']; ?>');">
-                                <div class="ruby-row">
-                                    <div class="col-xs-12">
-                                        <ul>
-                                            <?php foreach ($item['child'] as $itemChild) { ?>
-                                                <li>
-                                                    <a href="<?php echo $itemChild['link']; ?>">
-                                                        <?php echo $itemChild['label']; ?>
-                                                    </a>
-                                                </li>
-                                            <?php } ?>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <span class="ruby-dropdown-toggle"></span>
-                        <?php } ?>
-                    </li>
-                <?php } ?>
+                <?php echo get_menu_tree(1); ?>
             </ul>
         </div>
     </div>

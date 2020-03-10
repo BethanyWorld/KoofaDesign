@@ -101,7 +101,9 @@ $_DIR = base_url('assets/ui/'); ?>
         <div class="container">
             <div class="row index-product-holder">
                 <section class="col-md-12 col-xs-12 index-category-products">
-                    <?php foreach ($categories as $category) { ?>
+                    <?php foreach ($categories as $category) {
+                        if($category['productCount'] >0){
+                        ?>
                         <div class="col-md-4 col-xs-12 col-sm-12 height100 rightFloat m-b-15">
                             <h3>
                                 <a class="index-feature-title"
@@ -112,30 +114,29 @@ $_DIR = base_url('assets/ui/'); ?>
                             <div class="col-md-12 col-xs-12  height100  z-p">
                                 <div class="col-md-12 col-xs-12 index-keeper height100">
                                     <div class="col-md-12 col-xs-9">
-                                        <a href="<?php echo categoryUrl($category['CategoryId'], $category['CategoryTitle']); ?>"
-                                           target="_blank">
-                                            <img src="<?php echo $category['CategoryImage']; ?>" width="100%"
-                                                 height="100%"
-                                                 class="index-height-image-div"/>
-                                            <div class="col-md-12 col-xs-12 padding-0 hidden">
-                                                <div class="col-md-9 col-xs-9 col-sm-9 rightFloat padding-0">
-                                                    <h4 class="index-item-title"><?php echo $category['CategoryTitle']; ?></h4>
+                                        <?php foreach ($category['products'] as $item) { ?>
+                                            <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
+                                                <img src="<?php echo $item['ProductMockUpImage']; ?>" width="100%"
+                                                     height="100%"
+                                                     class="index-height-image-div"/>
+                                                <div class="col-md-12 col-xs-12 padding-0 hidden">
+                                                    <div class="col-md-9 col-xs-9 col-sm-9 rightFloat padding-0">
+                                                        <h4 class="index-item-title"><?php echo $item['ProductMockUpImage']; ?></h4>
+                                                    </div>
+                                                    <div class="col-md-3 col-xs-3 col-sm-3 padding-0">
+                                                    <span class="index-price">
+                                                        40,500
+                                                    </span>
+                                                    </div>
                                                 </div>
-                                                <div class="col-md-3 col-xs-3 col-sm-3 padding-0">
-                                                <span class="index-price">
-                                                    40,500
-                                                </span>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <div class="index-product-tool hidden">
-                                            <a href="">
-                                                <i class="fa fa-heart-o"></i>
                                             </a>
-                                        </div>
+                                        <?php break; } ?>
                                     </div>
                                     <div class="col-md-12 col-xs-3 padding-0 index-gallery">
-                                        <?php foreach ($category['products'] as $item) { ?>
+                                        <?php $index = 0; foreach ($category['products'] as $item) {
+                                            $index +=1;
+                                            if($index > 1){
+                                            ?>
                                             <div class="col-md-4 index-gallery-item">
                                                 <div class="col-md-12 col-xs-12 padding-0 height100">
                                                     <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>"
@@ -145,7 +146,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                                     </a>
                                                 </div>
                                             </div>
-                                        <?php } ?>
+                                        <?php } } ?>
                                         <div class="col-md-4 col-xs-12 index-gallery-item index-gallery-other-item">
                                             <div class="col-md-12 col-xs-12 height100 index-gallery-other">
                                                 <a href="<?php echo categoryUrl($category['CategoryId'], $category['CategoryTitle']); ?>"
@@ -161,7 +162,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                 </div>
                             </div>
                         </div>
-                    <?php } ?>
+                    <?php } } ?>
                 </section>
             </div>
         </div>
@@ -260,7 +261,7 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                     <div class="col-md-12 col-xs-12 ">
                         <?php foreach ($latestProduct as $item) { ?>
-                            <div class="col-md-3 col-xs-12 one-product-detail">
+                            <div class="col-md-3 col-sm-6 col-xs-12 one-product-detail">
                                 <div class="col-md-12 col-xs-12 product-keeper">
                                     <div class="product-tool">
                                         <?php setTypeBadge($item['ProductType']); ?>
@@ -303,7 +304,7 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                     <div class="col-md-12 col-xs-12">
                         <?php foreach ($favoriteProduct as $item) { ?>
-                            <div class="col-md-3 col-xs-12 one-product-detail">
+                            <div class="col-md-3 col-sm-6 col-xs-12 one-product-detail">
                                 <div class="col-md-12 col-xs-12 product-keeper">
                                     <div class="product-tool">
                                         <?php setTypeBadge($item['ProductType']); ?>

@@ -17,10 +17,12 @@
                 '<i class="fa fa-angle-left" aria-hidden="true"></i>',
                 '<i class="fa fa-angle-right" aria-hidden="true"></i>'
             ]
-        }).on("changed.owl.carousel", syncPosition);
+        })
+            .on("changed.owl.carousel", syncPosition);
         thumbs.on("initialized.owl.carousel", function () {
             thumbs.find(".owl-item").eq(0).addClass("current");
-        }).owlCarousel({
+        })
+            .owlCarousel({
             items: 8,
             dots: true,
             mouseDrag: false,
@@ -34,7 +36,6 @@
             slideBy: 4,
             responsiveRefreshRate: 100
         }).on("changed.owl.carousel", syncPosition2);
-
         function syncPosition(el) {
             //if loop is set to false, then you have to uncomment the next line
             var current = el.item.index;
@@ -71,24 +72,20 @@
                 thumbs.data("owl.carousel").to(current - onscreen, 100, true);
             }
         }
-
         function syncPosition2(el) {
             if (syncedSecondary) {
                 var number = el.item.index;
                 bigimage.data("owl.carousel").to(number, 100, true);
             }
         }
-
         thumbs.on("click", ".owl-item", function (e) {
             e.preventDefault();
             var number = $(this).index();
             bigimage.data("owl.carousel").to(number, 300, true);
         });
-        /**/
         $("#priceDropDown").change(function () {
             setPrice();
         });
-
         function setPrice() {
             $height = $("#inputProductHeight").val();
             $width = $("#inputProductWidth").val();
@@ -100,7 +97,6 @@
             $mainPrice = $price;
             $('.product-detail-number').hide().fadeIn().html($html);
         }
-
         var URL = window.URL || window.webkitURL;
         var $image = $('.image');
         var $download = $('#download');
@@ -115,8 +111,8 @@
             viewMode: 2,
             restore: false,
             toggleDragModeOnDblclick: false,
-            aspectRatio: '',
-            autoCropArea: 1,
+            aspectRatio: 'NAN',
+            autoCropArea: 0,
             rotatable: false,
             scalable: false,
             zoomable: false,

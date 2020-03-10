@@ -87,46 +87,6 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                 </div>
                 <div class="col-md-7 col-xs-12 left-slide-image-div">
-                    <div class="col-md-12 col-xs-12 product-detail-social-div">
-                        <div class="col-xs-12 rightFloat product-detail-social">
-                            <h3 class="social-info">
-                                <span>به دوستانتان اطلاع دهید</span>
-                            </h3>
-                            <ul>
-                                <li class="telegram">
-                                    <a aria-label="telegram" title="telegram" href="" target="_blank">
-                                        <i class="fa fa-send"></i>
-                                    </a>
-                                </li>
-                                <li class="facebook">
-                                    <a aria-label="facebook" title="facebook" href="" target="_blank">
-                                        <i class="fa fa-facebook"></i>
-                                    </a>
-                                </li>
-                                <li class="linkedin">
-                                    <a aria-label="linkedin" title="linkedin" href="" target="_blank">
-                                        <i class="fa fa-linkedin-square"></i>
-                                    </a>
-                                </li>
-                                <li class="google-plus">
-                                    <a aria-label="google-plus" title="google-plus" href="" target="_blank">
-                                        <i class="fa fa-google-plus"></i>
-                                    </a>
-                                </li>
-                                <li class="pinterest">
-                                    <a aria-label="pinterest" title="pinterest" href="">
-                                        <i class="fa fa-pinterest-p"></i>
-                                    </a>
-                                </li>
-                                <li class="canEmailToFriend">
-                                    <a aria-label="canEmailToFriend" title="canEmailToFriend" href="">
-                                        <i class="fa fa-envelope-o"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!--                        <h2 class="product-code">CODE: KFB3587</h2>-->
-                    </div>
                     <div class="col-md-12 col-xs-12 product-slider">
                         <div class="col-md-12 col-sm-12 col-xs-12 padding-0" id="product-slider">
                             <div class="outer">

@@ -1086,14 +1086,15 @@ ul.ruby-menu > li > ul > li,ul.ruby-menu > li > ul > li > ul > li {
 }
 
 ul.ruby-menu > li > ul > li > a,ul.ruby-menu > li > ul > li > ul > li > a,ul.ruby-menu > li > ul > li > ul > li > ul > li > a {
+
     display: block;
-    width: 170px;
+    width: 250px;
     line-height: 40px;
     padding: 0 35px 0 25px;
     background: #fff;
     color: #666;
     text-decoration: none;
-    font-size: 14px
+    font-size: 14px;
 }
 
 ul.ruby-menu > li > ul > li:hover > a,ul.ruby-menu > li > ul > li > a:hover,ul.ruby-menu > li > ul > li > ul > li:hover > a,ul.ruby-menu > li > ul > li > ul > li > a:hover,ul.ruby-menu > li > ul > li > ul > li > ul > li:hover > a,ul.ruby-menu > li > ul > li > ul > li > ul > li > a:hover {
@@ -1114,9 +1115,10 @@ ul.ruby-menu > li.ruby-menu-right > ul {
 }
 
 ul.ruby-menu > li > ul > li > ul,ul.ruby-menu > li > ul > li > ul > li > ul {
-    left: 170px;
+
+    right: 100%;
     top: -4px;
-    z-index: 100
+    z-index: 100;
 }
 
 ul.ruby-menu > li > ul > li.ruby-open-to-left > ul,ul.ruby-menu > li > ul > li > ul > li.ruby-open-to-left > ul {
@@ -1634,7 +1636,7 @@ span.ruby-c-content {
         text-decoration: none;
         font-size: 16px;
         padding: 0;
-        content: '\f105';
+        content: '\f104';
         position: absolute;
         right: 15px
     }
@@ -2194,9 +2196,8 @@ span.ruby-c-content {
 
 .mobile-menu-container{
     height: 100vh;
-    background: #25472c;
+    background: rgba(0, 0, 0, 0.9);
     position: fixed;
-    width: 100%;
     top: 0;
     overflow: auto;
     overflow-x: hidden;

@@ -34,7 +34,7 @@
         width: 300px;
         top: 0px;
         height: 100%;
-        background-color: #151515d4;
+        background: linear-gradient(to left , #19422d , #000);
         position: absolute;
         z-index: 3000;
         right: 0px;
@@ -49,7 +49,7 @@
         line-height: 25px;
     }
     .slider2-desc {
-        color: #2D693A;
+        color: #e1e2e2;
         font-weight: bolder;
         font-size: 15px;
         margin-bottom: 0px;

@@ -226,7 +226,7 @@ class ModelProduct extends CI_Model
         $start = ($limit - 1) * $this->config->item('defaultPageSize');
         $end = $this->config->item('defaultPageSize');
 
-        $this->db->select('product.ProductId,ProductTitle,ProductPrimaryImage,ProductType,ProductIsSpecial');
+        $this->db->select('product.ProductId,ProductTitle,ProductPrimaryImage,ProductMockUpImage,ProductType,ProductIsSpecial');
         $this->db->from('product');
         $this->db->join('product_category_relation', 'product.ProductId = product_category_relation.ProductId');
         $this->db->join('product_price', 'product_price.ProductId = product.ProductId');

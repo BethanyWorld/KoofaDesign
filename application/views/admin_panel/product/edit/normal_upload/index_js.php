@@ -97,6 +97,8 @@
             $inputProductBrief = $.trim($("#inputProductBrief").val());
             $inputProductDescription = CKEDITOR.instances.inputProductDescription.getData();
             $inputProductPrimaryImage = $.trim($("#inputProductPrimaryImage").val());
+            $inputProductMockUpImage = $.trim($("#inputProductMockUpImage").val());
+
             $inputProductSecondaryImage = $("[name=inputProductSecondaryImage]").map(function () {
                 return $(this).val();
             }).get();
@@ -132,6 +134,7 @@
                     'inputProductBrief': $inputProductBrief,
                     'inputProductDescription': $inputProductDescription,
                     'inputProductPrimaryImage': $inputProductPrimaryImage,
+                    'inputProductMockUpImage': $inputProductMockUpImage,
                     'inputProductSecondaryImage': $inputProductSecondaryImage,
                     'inputProductPrice': inputProductPrice,
                     'inputProductCategory': $inputProductCategory,

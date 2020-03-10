@@ -82,24 +82,57 @@
             var number = $(this).index();
             bigimage.data("owl.carousel").to(number, 300, true);
         });
-        /**/
-        setPrice();
-        $('.product-detail-number').html($html);
-        $("#priceDropDown").change(function () {
+
+        //remove duplicate values from material drop down
+        var map = {};
+        $('#priceMaterialDropDown option').each(function () {
+            $materialId = $(this).data('material-id');
+            if (map[$materialId]) {
+                $(this).remove()
+            }
+            map[$materialId] = true;
+        });
+        //select first option selected in both drop downs
+        $("#priceMaterialDropDown").find('option').eq(0).attr('selected','selected');
+        $("#priceSizeDropDown").find('option').eq(0).attr('selected','selected');
+
+        $("#priceMaterialDropDown").change(function () {
+            $("#priceSizeDropDown").html('');
+            setTimeout(function() {
+                $("#priceSizeDropDown").html($("#priceDropDown").html());
+                $materialId = $("#priceMaterialDropDown").find(":selected").data('material-id');
+                $("#priceSizeDropDown").find('option').each(function(){
+                    if($(this).data('material-id') !== $materialId){
+                        $(this).remove();
+                    }
+                });
+                $("#priceSizeDropDown").find('option').eq(0).attr('selected','selected');
+                setPrice();
+            }, 500);
+        });
+        $("#priceSizeDropDown").change(function () {
             setPrice();
         });
         function setPrice() {
-            $price = parseInt($("#priceDropDown").find(":selected").data('price'));
-            console.log($price);
-            $html = "<p>" + ($price) + " تومان </p>";
-            $('.product-detail-number').hide().fadeIn().html($html);
+            $materialId = $("#priceMaterialDropDown").find(":selected").data('material-id');
+            $sizeId = $("#priceSizeDropDown").find(":selected").data('size-id');
+
+            $("#priceDropDown").find('option').each(function(){
+                if($(this).data('material-id') === $materialId && $(this).data('size-id') === $sizeId){
+                    $price = parseInt($(this).data('price'));
+                    $html = "<p>" + ($price) + " تومان </p>";
+                    $('.product-detail-number').hide().fadeIn().html($html);
+                }
+            });
         }
-        /**/
+        $("#priceMaterialDropDown").change();
+        setPrice();
+
         $("#addToCart").click(function () {
 
             $id = $(this).data('product-id');
-            $inputSizeId = $("#priceDropDown option:selected").data('size-id');
-            $inputMaterialId = $("#priceDropDown option:selected").data('material-id');
+            $inputSizeId = $("#priceSizeDropDown option:selected").data('size-id');
+            $inputMaterialId = $("#priceMaterialDropDown option:selected").data('material-id');
             $inputHastInstallation = $("#wantInstallation").val();
 
 
@@ -171,8 +204,6 @@
                 }
             });
         });
-
-
         var boxes = document.querySelectorAll('.box');
         for (let i = 0; i < boxes.length; i++) {
             let box = boxes[i];
@@ -200,7 +231,5 @@
             $(".upload-image-container").fadeOut();
             $("#upload-image").fadeOut().attr('src', '');
         });
-
-
     });
 </script>

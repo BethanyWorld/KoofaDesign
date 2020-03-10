@@ -80,7 +80,21 @@ $(document).ready(function () {
             $("body").css('overflow','hidden');
         }
     });
-    $(".mobile-menu-container .fa").click(function(){
+
+    $(".ruby-wrapper .sub-menu").each(function () {
+        if($(this).find('li').length <= 0){
+            $(this).remove();
+        }
+    });
+    $(".mobile-menu-container .sub-menu").each(function () {
+        if($(this).find('li').length > 0){
+            $(this).before('<span class="fa fa-plus"></span>');
+        }
+    });
+
+
+
+    $(document).on('click' , '.mobile-menu-container .fa',function(){
         if($(this).next('ul').is(':visible')){
             $(this).addClass('fa-plus');
             $(this).removeClass('fa-minus');
@@ -92,4 +106,5 @@ $(document).ready(function () {
             $(this).next('ul').slideToggle();
         }
     });
+
 });

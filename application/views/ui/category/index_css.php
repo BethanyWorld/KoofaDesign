@@ -156,9 +156,14 @@
         box-shadow: 2px 0 5px #ccc;
     }
 
+    .one-product-detail {
+        float: right;
+        margin-bottom: 5px;
+        padding: 0px;
+    }
 
     /*for product detail*/
-    .first-container-m-b {
+    /*.first-container-m-b {
         margin-bottom: 120px;
     }
 
@@ -224,7 +229,7 @@
         position: relative;
         left: 8px;
         overflow: hidden;
-    }
+    }*/
 
     .grouping-product-info-price {
         font-size: 23px;

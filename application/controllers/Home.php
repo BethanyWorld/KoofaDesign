@@ -18,7 +18,7 @@ class Home extends CI_Controller{
         $categories = $this->ModelProductCategory->getFavoriteProductCategory();
         for ($i=0;$i < count($categories);$i++) {
             $categories[$i]['productCount'] = $this->ModelProduct->getProductCountByProductCategoryId($categories[$i]['CategoryId']);
-            $categories[$i]['products'] = $this->ModelProduct->getProductByProductCategoryId($categories[$i]['CategoryId'] , 2);
+            $categories[$i]['products'] = $this->ModelProduct->getProductByProductCategoryId($categories[$i]['CategoryId'] , 3);
         }
         $data['categories'] = $categories;
 
