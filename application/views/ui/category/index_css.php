@@ -1,4 +1,5 @@
-<?php $_URL = base_url(); $_DIR = base_url('assets/ui/');  ?>
+<?php $_URL = base_url();
+$_DIR = base_url('assets/ui/'); ?>
 
 <style>
     /*helper*/
@@ -29,6 +30,7 @@
     .padding-t-3 {
         padding-top: 3px !important;
     }
+
     .padding-t-15 {
         padding-top: 15px !important;
     }
@@ -315,7 +317,8 @@
         background-color: gray;
         color: #D8D8D8;
     }
-    .bootpag li a:focus{
+
+    .bootpag li a:focus {
         background-color: gray;
         color: #fff;
     }
@@ -353,7 +356,7 @@
         padding-right: 15px;
     }
 
-    .selectBox select:hover{
+    .selectBox select:hover {
         cursor: pointer;
         background-color: #8BC53F;
         color: #fff;
@@ -470,10 +473,12 @@
         /* min-width: 200px; */
         width: 100%;
     }
+
     .range_slider {
         margin-left: 0% !important;
         width: 100% !important;
     }
+
     .hr {
         margin-top: 5px;
         margin-bottom: 5px;
@@ -496,22 +501,27 @@
     .bar {
         background-color: #ecf0f1;
     }
-    .suffix_tbx{
+
+    .suffix_tbx {
         float: left;
     }
+
     .bar.selected, .bar.reversed {
         background-color: #34495e;
     }
-    .suffix_tbx input{
+
+    .suffix_tbx input {
         background-color: transparent !important;
         border: none;
     }
-    span.suffix_tbx{
+
+    span.suffix_tbx {
         background-color: transparent !important;
         border: none !important;
         margin-top: 1px !important;
         font-family: font1;
     }
+
     #reverse {
         margin-left: 15px;
     }
@@ -546,29 +556,36 @@
             margin-left: 0px;
             padding-left: 0px;
         }
-        .all-div-style-image-row{
+
+        .all-div-style-image-row {
             padding-left: 0px;
         }
-        .grouping-rangeSlider-main-div{
+
+        .grouping-rangeSlider-main-div {
             margin-top: 3px;
         }
-        .Ordering-main-div label{
+
+        .Ordering-main-div label {
             padding-left: 0px;
         }
-        ul.breadcrumb{
+
+        ul.breadcrumb {
             padding-right: 10px;
         }
 
-        .Ordering-main-div{
+        .Ordering-main-div {
             padding-right: 25px;
         }
-        .grouping-filtering-main-div{
+
+        .grouping-filtering-main-div {
             padding-right: 5px;
         }
-        .product-info{
+
+        .product-info {
             padding-right: 15px;
         }
-        .item_price{
+
+        .item_price {
             left: 0px;
         }
     }
@@ -578,7 +595,7 @@
     }
 
     @media (max-width: 1199px) and (min-width: 992px) {
-        .Ordering-main-div label{
+        .Ordering-main-div label {
             padding-left: 0px;
         }
     }
@@ -587,11 +604,113 @@
 
 
     }
+
     .pagination {
         display: inline-block;
         padding-left: 0;
         margin: 0;
         border-radius: 4px;
+    }
+
+
+    .filter-products {
+        background: #fff;
+        margin: 0 0px;
+        border: 8px solid #f3f3f0;
+        padding: 0 0;
+    }
+    .filter-products .filter-item{
+
+    }
+    .filter-products .filter-item h4{
+        margin: 0;
+        font-size: 16px;
+        padding: 8px 15px;
+        background: #fbfbfb;
+        color: #000;
+        border: 1px solid #e8e8e8;
+        border-left: 0;
+        border-right: 0;
+    }
+    .filter-products .filter-item ul{
+        padding: 0;
+        display: inline-block;
+        width: 100%;
+        margin: 0;
+    }
+    .filter-products .filter-item ul li{
+        margin: 0;
+        display: inline-block;
+        width: 100%;
+        padding: 6px 15px;
+    }
+    .filter-products .filter-item ul li span{
+
+    }
+    .filter-products .filter-item ul li .styled-checkbox {
+        position: absolute;
+        opacity: 0;
+    }
+    .filter-products .filter-item ul li .styled-checkbox + label {
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+        width: 100%;
+    }
+    .filter-products .filter-item ul li .styled-checkbox + label:before {
+        content: '';
+        margin-left: 10px;
+        display: inline-block;
+        vertical-align: text-top;
+        width: 15px;
+        height: 15px;
+        background: #ffffff;
+        border: 1px solid #ccc;
+        position: relative;
+        top: 3px;
+    }
+    .filter-products .filter-item ul li .styled-checkbox:hover + label:before {
+        background: #f35429;
+    }
+    .filter-products .filter-item ul li .styled-checkbox:focus + label:before {
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+    }
+    .filter-products .filter-item ul li .styled-checkbox:checked + label:before {
+        background: #f35429;
+    }
+    .filter-products .filter-item ul li .styled-checkbox:disabled + label {
+        color: #b8b8b8;
+        cursor: auto;
+    }
+    .filter-products .filter-item ul li .styled-checkbox:disabled + label:before {
+        box-shadow: none;
+        background: #ddd;
+    }
+    .filter-products .filter-item ul li .styled-checkbox:checked + label:after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 9px;
+        background: white;
+        width: 2px;
+        height: 2px;
+        box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+    .filter-products .filter-item ul li .unstyled {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    .filter-products .filter-item ul li .centered {
+        width: 300px;
+        margin: auto;
+    }
+
+    .filter-products .filter-item ul li .title {
+        text-align: center;
+        color: #4571ec;
     }
 
 

@@ -10,32 +10,34 @@
             else{
                 $(this).next('input').val($count);
             }
+            updatePrice($(this));
         });
         $(".cart-product-increase").click(function(){
             $count = $(this).prev('input').val();
             $count = parseInt($count) +1;
             $(this).prev('input').val($count);
+            updatePrice($(this));
         });
-        $(".update-shopping-cart").click(function(){
-            $productId = $(this).data('product-id');
-            $parentId = $(this).data('parent-id');
+
+        function updatePrice($this){
+            $productId = $this.data('product-id');
+            $parentId =  $this.data('parent-id');
             $newCount = $("#"+$parentId).find("input[type='number']").val();
-            toggleLoader();
-            $inputProductId= $(this).data('product-id');
             $sendData = {
                 'inputNewCount': $newCount,
-                'inputProductId': $inputProductId
+                'inputProductId': $productId
             }
             $.ajax({
                 type: 'post',
                 url: base_url + 'Cart/updateCount',
                 data: $sendData,
                 success: function (data) {
-                    location.reload();
+                    $result = jQuery.parseJSON(data);
+                    $(".total-price").text($result['tp']);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {}
             });
-        });
+        }
         $(".remove-shopping-cart").click(function(){
             $productId = $(this).data('product-id');
             toggleLoader();

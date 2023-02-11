@@ -73,12 +73,12 @@ function activateNotificationAndTasksScroll() {
     });
 }
 //Helper Functions For Ajax Calls
-function notify($title , $type , $time = 5000 , $position = 'topLeft'){
+function notify($title , $type , $time = 10000 , $position = 'topLeft'){
     iziToast.show({
         title: $title,
         color: $type,
         zindex: 9060,
-        timeout: $time,
+        timeout: 100000,
         position: $position
     });
 }
@@ -130,7 +130,7 @@ $(document).on('click',".fileManagerHandler" , function(e){
     e.preventDefault();
     $inputId = $(this).attr('data-target-id');
     $url = "";
-    /*$url += "http://koofadesign.ir/";*/
+    /*$url += "http://koofaart.ir/";*/
     $url += "http://localhost:8080/KoofaDesign/";
     $url += 'media/responsivefilemanager/filemanager/dialog.php?type=2&field_id=";' +$inputId +'&akey=gWgMQVkXcjpKgkcr&fldr=';
     $(".fileManagerFrame").attr('src' , $url);

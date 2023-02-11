@@ -7,8 +7,7 @@
                 total: Math.ceil($numRows / $defaultPageSize),
                 maxVisible: 5
             });
-        }
-        else {
+        } else {
             $('#pagination').empty();
         }
     });
@@ -16,7 +15,7 @@
 <?php
 if ($data) {
     foreach ($data as $item) { ?>
-        <div class="col-md-3 col-sm-6 col-xs-12 grouping-li-style">
+        <div class="col-md-4 col-sm-6 col-xs-12 grouping-li-style">
             <div class="col-xs-12 one-product-detail">
                 <div class="col-md-12 col-xs-12 product-keeper">
                     <div class="product-tool">
@@ -36,7 +35,11 @@ if ($data) {
                 <div class="col-md-12 col-xs-12 price-box">
                     <p class="regular-price">
                         <span class="item_price">
-                            <?php showProductPrice($item['price'],$item['ProductType']); ?>
+                            <?php
+                            if(isset($item['price'][0])){
+                                showProductPrice($item['price'], $item['ProductType']);
+                            }
+                            ?>
                         </span>
                     </p>
                 </div>
@@ -45,7 +48,8 @@ if ($data) {
     <?php }
 } else {
     ?>
-    <div class="col-xs-12 alert alert-danger text-center">
-        موردی یافت نشد
+    <div class="text-center grouping-li-style">
+        <img src="<?php echo base_url('assets/ui/images/pnf.png') ?>" width="100%" />
+        <h2 class="text-center">محصولی یافت نشد</h2>
     </div>
 <?php } ?>

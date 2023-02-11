@@ -73,6 +73,7 @@
                                         </thead>
                                         <tbody class="table-rows">
                                         <?php
+                                        if(is_array($properties)){
                                         $counter = 1;
                                         foreach ($properties as $item) { ?>
                                             <tr>
@@ -98,7 +99,7 @@
                                                     </button>
                                                 </td>
                                             </tr>
-                                        <?php } ?>
+                                        <?php } } ?>
                                         </tbody>
                                     </table>
                                 </div>

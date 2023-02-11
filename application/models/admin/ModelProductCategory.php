@@ -1,6 +1,6 @@
 <?php
-
 class ModelProductCategory extends CI_Model{
+
     /*For Category*/
     public function getProductCategoryByPagination($inputs){
         $limit = $inputs['pageIndex'];
@@ -48,6 +48,9 @@ class ModelProductCategory extends CI_Model{
             'CategoryTitle' => $inputs['inputCategoryTitle'],
             'CategoryParentId' => $inputs['inputCategoryParentId'],
             'CategoryImage' => $inputs['inputCategoryImage'],
+            'CategoryPoster' => $inputs['inputCategoryPoster'],
+            'CategoryDescription' => $inputs['inputCategoryDescription'],
+            'CategoryDeliveryTime' => $inputs['inputCategoryDeliveryTime'],
             'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
         );
         $this->db->trans_start();
@@ -71,15 +74,27 @@ class ModelProductCategory extends CI_Model{
     }
     public function doUpdateCategory($inputs)
     {
+
+        $this->db->trans_start();
         $Array = array(
             'CategoryTitle' => $inputs['inputCategoryTitle'],
             'CategoryParentId' => $inputs['inputCategoryParentId'],
             'CategoryImage' => $inputs['inputCategoryImage'],
+            'CategoryPoster' => $inputs['inputCategoryPoster'],
+            'CategoryIsActive' => $inputs['inputCategoryIsActive'],
+            'CategoryDescription' => $inputs['inputCategoryDescription'],
+            'CategoryDeliveryTime' => $inputs['inputCategoryDeliveryTime'],
             'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
         );
-        $this->db->trans_start();
         $this->db->where('CategoryId', $inputs['inputCategoryId']);
         $this->db->update('product_category', $Array);
+
+        $this->db->reset_query();
+        $Array = array('CategoryIsActive' => $inputs['inputCategoryIsActive']);
+        $this->db->where('CategoryParentId', $inputs['inputCategoryId']);
+        $this->db->update('product_category', $Array);
+
+
         $this->db->trans_complete();
         if ($this->db->trans_status() === FALSE) {
             $arr = array(
@@ -161,7 +176,6 @@ class ModelProductCategory extends CI_Model{
             return $arr;
         }
     }
-
     /*End For Category*/
 
     /*For Category Property*/
@@ -390,7 +404,8 @@ class ModelProductCategory extends CI_Model{
         return $category;
     }
     public function printCategoryTree($hasSelectedCategory = null) {
-        $cat = '<select class="form-control" id="inputProductCategoryDropDown" name="inputProductCategoryDropDown">';
+        $cat = '<select  id="inputProductCategoryDropDown" name="inputProductCategoryDropDown">';
+        $cat .= '<option value="">-- انتخاب کنید --</option>';
         $cat .=$this->getCategoryTree($hasSelectedCategory);
         $cat .= '</select>';
         return $cat;
@@ -435,6 +450,47 @@ class ModelProductCategory extends CI_Model{
         return $this->getCategoryCheckBoxTree($hasSelectedCategory);
     }
 
+
+    protected function getCategoryLinkedTree($hasSelectedCategory = null , $level = 0, $prefix = '') {
+        $rows = $this->db
+            ->select('*')
+            ->where('CategoryParentId', $level)
+            ->order_by('CategoryId','asc')
+            ->get('product_category')
+            ->result();
+        $category = '';
+        if (count($rows) > 0) {
+            $category .= '<ul>';
+            foreach ($rows as $row) {
+                $isSelected = false;
+                $category .= '<li>';
+                if($hasSelectedCategory){
+                    foreach ($hasSelectedCategory as $item) {
+                        if($row->CategoryId == $item['CategoryId']){
+                            $isSelected = true;
+                            $category .= '<a href="'.base_url('Admin/Dashboard/Category/Edit/').$row->CategoryId.'"><button>ویرایش</button></a>';
+                            break;
+                        }
+                    }
+                }
+                if(!$isSelected){
+                    $category .= '<a href="'.base_url('Admin/Dashboard/Category/Edit/').$row->CategoryId.'"><button>ویرایش</button></a>';
+                    $category .= '<a href="'.base_url('Admin/Dashboard/Category/property/').$row->CategoryId.'"><button>ویژگی ها</button></a>';
+                }
+                $category .= '<label for="cat-'.$row->CategoryId.'">';
+                $category .= $prefix.$row->CategoryTitle;
+                $category .= '</label>';
+                $category .= '</li>';
+                $category .= $this->getCategoryLinkedTree($hasSelectedCategory , $row->CategoryId, $prefix . ' -- ');
+            }
+            $category .= '</ul>';
+        }
+        return $category;
+    }
+    public function printCategoryLinkedTree($hasSelectedCategory = null) {
+        return $this->getCategoryLinkedTree($hasSelectedCategory);
+    }
+
     public function getProductPropertyByCategoryId($categoryId){
         $this->db->select('*')->from('product_category');
         $this->db->join('product_category_property', 'product_category.CategoryId = product_category_property.PropertyCategoryId');
@@ -443,12 +499,9 @@ class ModelProductCategory extends CI_Model{
     }
     public function getProductPropertyOptionByPropertyId($propertyId){
         $this->db->select('*')->from('product_category_property_options');
-         $this->db->where('CategoryPropertyId', $propertyId);
+        $this->db->where('CategoryPropertyId', $propertyId);
         return $this->db->get()->result_array();
     }
-
     /*End For Category Property*/
-
 }
-
 ?>

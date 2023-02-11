@@ -30,7 +30,7 @@
                 $inputProductIsSpecial = false;
             }
             $inputProductSpecialVirtualMaxPrice = $("#inputProductSpecialVirtualMaxPrice").val();
-            /*$inputProductCategoryProperty = [];
+            $inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
                 $propertyOptionId = $(this).val();
@@ -38,7 +38,7 @@
                     'propertyId': $propertyId,
                     'propertyOptionId': $propertyOptionId
                 });
-            });*/
+            });
             if (isEmpty($inputProductTitle) ||
                 isEmpty($inputProductType) || isEmpty(inputProductPrice) ||
                 isEmpty($inputProductQuantity) || isEmpty($inputProductDescription) ||
@@ -59,6 +59,7 @@
                     'inputProductSecondaryImage': $inputProductSecondaryImage,
                     'inputProductPrice': inputProductPrice,
                     'inputProductCategory': $inputProductCategory,
+                    'inputProductCategoryProperty': $inputProductCategoryProperty,
                     'inputProductTag':$inputProductTag,
                     'inputProductIsSpecial':$inputProductIsSpecial,
                     'inputProductSpecialVirtualMaxPrice':$inputProductSpecialVirtualMaxPrice
@@ -72,12 +73,11 @@
                         toggleLoader();
                         $result = jQuery.parseJSON(data);
                         notify($result['content'], $result['type']);
-                        reloadPage(1000);
+                        //reloadPage(1000);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         notify($result['content'], $result['type']);
                         toggleLoader();
-                        reloadPage(1000);
                     }
                 });
             }
@@ -100,7 +100,7 @@
         $(document).on('click', '.remove-tag', function () {
             $("#parent-" + $(this).data('remove-id')).remove();
         });
-        /*$(document).on('change', '#inputProductCategoryDropDown', function () {
+        $(document).on('change', '#inputProductCategoryDropDown', function () {
             toggleLoader();
             $categoryId = $(this).val();
             $.ajax({
@@ -116,10 +116,10 @@
                 error: function (jqXHR, textStatus, errorThrown) {
                     notify($result['content'], $result['type']);
                     toggleLoader();
-                    reloadPage(1000);
+                    //reloadPage(1000);
                 }
             });
 
-        });*/
+        });
     });
 </script>

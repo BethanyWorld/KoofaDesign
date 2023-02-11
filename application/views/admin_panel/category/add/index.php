@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-3">
-                            <label class="required" for="inputCategoryImage">تصویر دسته بندی</label>
+                            <label class="required" for="inputCategoryImage">آیکن دسته بندی</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control"
@@ -47,6 +47,48 @@
                                    type="button">
                                     <span>انتخاب تصویر</span>
                                 </a>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4 col-md-3">
+                            <label class="required" for="inputCategoryPoster">پوستر دسته بندی</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control"
+                                           value="<?php echo $data['CategoryPoster']; ?>"
+                                           id="inputCategoryPoster" name="inputCategoryPoster"/>
+                                </div>
+                                <a data-target-id="inputCategoryPoster"
+                                   data-toggle="modal"
+                                   href="#"
+                                   data-target="#myModal"
+                                   class="btn fileManagerHandler"
+                                   type="button">
+                                    <span>انتخاب تصویر</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <label for="inputCategoryDeliveryTime">زمان تحویل</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="inputCategoryDeliveryTime"
+                                            name="inputCategoryDeliveryTime" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <label for="inputCategoryDescription">توضیحات دسته</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea
+                                            class="form-control"
+                                           id="inputCategoryDescription"
+                                            name="inputCategoryDescription"></textarea>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xs-12">

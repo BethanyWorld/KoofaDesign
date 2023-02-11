@@ -12,6 +12,7 @@
                             <li role="presentation"><a href="#productImages" data-toggle="tab">تصاویر محصول</a></li>
                             <li role="presentation"><a href="#productPrice" data-toggle="tab">قیمت محصول</a></li>
                             <li role="presentation"><a href="#productCategory" data-toggle="tab">دسته بندی محصول</a>
+                            <li role="presentation"><a href="#productCategoryProperty" data-toggle="tab">ویژگی های محصول</a>
 
                             <li role="presentation"><a href="#productTags" data-toggle="tab">برچسب محصول</a></li>
                             <li role="presentation"><a href="#productFinalizeOperation" data-toggle="tab">ثبت و
@@ -31,7 +32,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6">
-                                    <label for="inputProductSubTitle">زیر عنوان محصول</label>
+                                    <label for="inputProductSubTitle">کد محصول</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control"
@@ -95,7 +96,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12">
-                                    <label for="inputProductBrief">خلاصه ای از محصول</label>
+                                    <label for="inputProductBrief">زیرعنوان محصول</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control"

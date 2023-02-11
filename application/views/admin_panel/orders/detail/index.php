@@ -5,8 +5,6 @@
             <div class="col-xs-12 rtl">
                 <div class="row col-xs-12 card">
                     <div class="body">
-
-
                         <table class="table table-hover table-bordered table-striped">
                             <thead>
                             <tr>
@@ -89,8 +87,8 @@
                                                 تعداد :
                                             </p>
                                             <div class="col-lg-11 col-lg-offset-2 col-md-11 col-md-offset-0 col-xs-12  cart-product-main-div-IncrAndDecr">
-
                                                 <input
+                                                        disabled="disabled"
                                                         readonly
                                                         value="<?php echo $item['ProductCount']; ?>"
                                                         type="number" class="text-center cart-product-buy-number"/>
@@ -110,6 +108,24 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <table class="table table-hover table-bordered table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>عنوان خدمات</th>
+                                            <th class="fit">قیمت</th>
+                                            <th class="fit">نوع خدمت</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php foreach ($item['OrderedServices'] as $si) { ?>
+                                            <tr>
+                                                <td><?php echo $si['ServiceTitle']; ?></td>
+                                                <td class="fit"><?php echo number_format($si['ServiceItemPrice']); ?></td>
+                                                <td class="fit"><?php echo $si['ServiceItemTitle']; ?></td>
+                                            </tr>
+                                        <?php } ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             <?php } ?>
                         </div>

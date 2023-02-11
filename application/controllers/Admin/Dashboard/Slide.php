@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class Slide extends CI_Controller
-{
+class Slide extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
@@ -10,7 +8,6 @@ class Slide extends CI_Controller
         $this->load->helper('admin/admin_pipe');
         $this->load->model('ui/ModelWebSite');
     }
-
     public function index()
     {
         $headerData['pageTitle'] = 'فهرست اسلایدر محصولات';
@@ -20,7 +17,6 @@ class Slide extends CI_Controller
         $this->load->view('admin_panel/main_slider/home/index_js');
         $this->load->view('admin_panel/static/footer');
     }
-
     public function doPagination()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -29,7 +25,6 @@ class Slide extends CI_Controller
         unset($data['data']);
         echo json_encode($data);
     }
-
     public function add()
     {
         $headerData['pageTitle'] = 'افزودن اسلایدر جدید';
@@ -39,14 +34,12 @@ class Slide extends CI_Controller
         $this->load->view('admin_panel/main_slider/add/index_js');
         $this->load->view('admin_panel/static/footer');
     }
-
     public function doAddSlide()
     {
         $inputs = $this->input->post(NULL, TRUE);
         $result = $this->ModelWebSite->doAddSlide($inputs);
         echo json_encode($result);
     }
-
     public function edit($id)
     {
         $headerData['pageTitle'] = 'ویرایش اسلایدر';
@@ -57,14 +50,12 @@ class Slide extends CI_Controller
         $this->load->view('admin_panel/main_slider/edit/index_js', $data);
         $this->load->view('admin_panel/static/footer');
     }
-
     public function doEditSlide()
     {
         $inputs = $this->input->post(NULL, TRUE);
         $result = $this->ModelWebSite->doEditSlide($inputs);
         echo json_encode($result);
     }
-
     public function doDeleteSlide()
     {
         $inputs = $this->input->post(NULL, TRUE);

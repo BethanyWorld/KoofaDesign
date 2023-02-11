@@ -6,14 +6,6 @@ $_DIR = base_url('assets/ui/'); ?>
             <div class="col-md-12 col-xs-12 padding-0 margin-b-mines-75">
                 <?php echo $sidebar; ?>
                 <div class="col-md-9 col-xs-12 rightFloat profile-public-desc-left-div">
-                    <div class="col-md-12 col-xs-12 profile-login-image-div">
-                        <div class="discount-login-image-div">
-                            <i class="fa fa-user"></i>
-                        </div>
-                        <div class="col-md-10 col-xs-12 profile-public-desc-left-text">
-                            <p>مشخصات عمومی</p>
-                        </div>
-                    </div>
                     <div class="col-md-12 col-xs-12">
                         <div class="col-md-6 col-xs-12 rightFloat profile-form-div">
                             <label>نام</label>

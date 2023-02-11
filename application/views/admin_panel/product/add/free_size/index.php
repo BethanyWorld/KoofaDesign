@@ -7,15 +7,13 @@
                     <div class="body">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs tab-nav-right p-0" role="tablist">
-                            <li role="presentation" class="active"><a href="#productBasicInfo" data-toggle="tab">اطلاعات
-                                    ثابت محصول</a></li>
+                            <li role="presentation" class="active"><a href="#productBasicInfo" data-toggle="tab">اطلاعات ثابت محصول</a></li>
                             <li role="presentation"><a href="#productImages" data-toggle="tab">تصاویر محصول</a></li>
                             <li role="presentation"><a href="#productPrice" data-toggle="tab">قیمت محصول</a></li>
                             <li role="presentation"><a href="#productCategory" data-toggle="tab">دسته بندی محصول</a>
-
+                            <li role="presentation"><a href="#productCategoryProperty" data-toggle="tab">ویژگی های محصول</a>
                             <li role="presentation"><a href="#productTags" data-toggle="tab">برچسب محصول</a></li>
-                            <li role="presentation"><a href="#productFinalizeOperation" data-toggle="tab">ثبت و
-                                    ذخیره</a></li>
+                            <li role="presentation"><a href="#productFinalizeOperation" data-toggle="tab">ثبت و ذخیره</a></li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -31,7 +29,7 @@
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6">
-                                    <label for="inputProductSubTitle">زیر عنوان محصول</label>
+                                    <label for="inputProductSubTitle">کد محصول</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control"
@@ -105,8 +103,8 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xs-12">
-                                    <label for="inputProductInstallationPrice">هزینه نصب هر سانتی متر مربع بر حسب تومان</label>
+                                <div class="col-xs-12 col-sm-3">
+                                    <label for="inputProductInstallationPrice">هزینه نصب (cm)</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="number" class="form-control"
@@ -116,8 +114,27 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-xs-12 col-sm-3">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="checkbox"
+                                                   name="inputProductIsFullWidth" class="filled-in"
+                                                   id="inputProductIsFullWidth" value="1"/>
+                                            <label for="inputProductIsFullWidth">عرض کامل دارد</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3">
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="checkbox" name="inputProductIsFullHeight" class="filled-in"
+                                                   id="inputProductIsFullHeight" value="1"/>
+                                            <label for="inputProductIsFullHeight">آارتفاع کامل دارد</label>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-xs-12">
-                                    <label for="inputProductBrief">خلاصه ای از محصول</label>
+                                    <label for="inputProductBrief">زیرعنوان محصول</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control"

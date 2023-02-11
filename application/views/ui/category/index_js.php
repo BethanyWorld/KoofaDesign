@@ -3,9 +3,16 @@
         function loadData(num = 1) {
             toggleLoader();
             $inputOrderingProductPrice = $.trim($("#inputOrderingProductPrice").val());
+            $inputPropertyOptions = [];
+            $("input[type='checkbox'].property-option").each(function(){
+                if($(this).is(':checked')){
+                    $inputPropertyOptions.push($(this).val());
+                }
+            });
             $sendData = {
                 'pageIndex': num,
                 'inputOrderingProductPrice': $inputOrderingProductPrice,
+                'inputPropertyOptions': $inputPropertyOptions,
                 'inputCategoryId': <?php echo $categoryId ?>
             }
             $.ajax({
@@ -15,15 +22,10 @@
                 success: function (data) {
                     toggleLoader();
                     $("#product-container").html(data);
+                    $("html, body").animate({ scrollTop: 100 }, "slow");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     toggleLoader();
-                    iziToast.show({
-                        title: 'خطای ارتباط با سرور',
-                        color: 'red',
-                        zindex: 2030,
-                        position: 'topLeft'
-                    });
                 }
             });
         }
@@ -35,10 +37,8 @@
             maxVisible: 5
         }).on("page", function (event, num) {
             loadData(num);
-            $("html, body").animate({ scrollTop: 100 }, "slow");
             return false;
         });
-
         $("#inputOrderingProductPrice").change(function() {
             loadData();
             $('#pagination').bootpag({
@@ -47,6 +47,13 @@
                 maxVisible: 5
             });
         });
-
+        $("input[type='checkbox'].property-option").click(function() {
+            loadData();
+            $('#pagination').bootpag({
+                total: Math.ceil($numRows / $defaultPageSize),
+                page: 1,
+                maxVisible: 5
+            });
+        });
     });
 </script>

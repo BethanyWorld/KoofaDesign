@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Category extends CI_Controller {
-
     public function __construct(){
         parent::__construct();
         $this->load->helper('admin/admin_login');
@@ -11,8 +10,9 @@ class Category extends CI_Controller {
     }
     public function index(){
         $headerData['pageTitle'] = 'دسته بندی محصولات';
+        $data['categoryTree'] = $this->ModelProductCategory->printCategoryLinkedTree();
         $this->load->view('admin_panel/static/header', $headerData);
-	    $this->load->view('admin_panel/category/home/index');
+	    $this->load->view('admin_panel/category/home/index' , $data);
         $this->load->view('admin_panel/category/home/index_css');
         $this->load->view('admin_panel/category/home/index_js');
 	    $this->load->view('admin_panel/static/footer');
@@ -90,9 +90,12 @@ class Category extends CI_Controller {
         $data['allCategories'] = $this->ModelProductCategory->getAllProductCategory()['data'];
         $data['data'] = $this->ModelProductCategory->getProductCategoryByCategoryId($categoryId)['data'][0];
         $properties = $this->ModelProductCategory->getCategoryPropertyByCategoryId($categoryId)['data'];
-        for($i=0;$i<count($properties);$i++){
-            $propertyId  = $properties[$i]['PropertyId'];
-            $properties[$i]['properties'] = $this->ModelProductCategory->getCategoryPropertyOptionByPropertyId($propertyId);
+
+        if(is_array($properties)) {
+            for ($i = 0; $i < count($properties); $i++) {
+                $propertyId = $properties[$i]['PropertyId'];
+                $properties[$i]['properties'] = $this->ModelProductCategory->getCategoryPropertyOptionByPropertyId($propertyId);
+            }
         }
         $data['properties'] = $properties;
         //getCategoryProperty

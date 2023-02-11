@@ -1,8 +1,6 @@
 <?php $ci =& get_instance(); ?>
 <script type="text/javascript">
-
     $(document).ready(function () {
-
         $items = <?php echo $ci->config->item('defaultPageSize'); ?>;
         $itemsOnPage = <?php echo $ci->config->item('defaultPageSize'); ?>;
         $selectedPage = 1;
@@ -19,7 +17,6 @@
                 url: base_url + 'Category/doPagination',
                 data: $sendData,
                 success: function (data) {
-                    setTimeout(toggleLoader(),200);
                     hideLoader();
                     $result = JSON.parse(data);
                     $(".table-rows").html($result['htmlResult']);
@@ -44,7 +41,6 @@
                 }
             });
         }
-
         $(document).ready(function(){
             loadData();
             $("#searchButton").click(function () {
@@ -131,7 +127,5 @@
                 }
             });
         })
-
-
     });
 </script>

@@ -14,11 +14,11 @@ class Home extends CI_Controller{
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/user/home/index', $data);
-        $this->load->view('ui/user/home/index_css');
-        $this->load->view('ui/user/home/index_js');
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/user/home/index', $data);
+        $this->load->view('ui/v2/user/home/index_css');
+        $this->load->view('ui/v2/user/home/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
     public function doUpdateProfile()
     {
@@ -63,11 +63,11 @@ class Home extends CI_Controller{
         $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
         $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
 
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/user/address/index', $data);
-        $this->load->view('ui/user/address/index_css');
-        $this->load->view('ui/user/address/index_js');
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/user/address/index', $data);
+        $this->load->view('ui/v2/user/address/index_css');
+        $this->load->view('ui/v2/user/address/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
     public function doAddAddress()
     {
@@ -93,11 +93,11 @@ class Home extends CI_Controller{
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userAddress'] = $this->ModelUser->getUserAddressByAddressId($addressId)[0];
         $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/user/address_edit/index', $data);
-        $this->load->view('ui/user/address_edit/index_css');
-        $this->load->view('ui/user/address_edit/index_js');
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/user/address_edit/index', $data);
+        $this->load->view('ui/v2/user/address_edit/index_css');
+        $this->load->view('ui/v2/user/address_edit/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
     public function doEditAddress()
     {
@@ -124,11 +124,11 @@ class Home extends CI_Controller{
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userWishList'] = $this->ModelUser->getWishList($userId);
         $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/user/wish_list/index', $data);
-        $this->load->view('ui/user/wish_list/index_css');
-        $this->load->view('ui/user/wish_list/index_js');
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/user/wish_list/index', $data);
+        $this->load->view('ui/v2/user/wish_list/index_css');
+        $this->load->view('ui/v2/user/wish_list/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
     public function doDeleteWishList()
     {
@@ -156,11 +156,11 @@ class Home extends CI_Controller{
         $data['orders'] = $this->ModelUser->getUserOrdersByUserId($userId);
         $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
 
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/user/orders/index', $data);
-        $this->load->view('ui/user/orders/index_css');
-        $this->load->view('ui/user/orders/index_js');
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/user/orders/index', $data);
+        $this->load->view('ui/v2/user/orders/index_css');
+        $this->load->view('ui/v2/user/orders/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
     public function orderDetail($orderId){
         $data['noImg'] = $this->config->item('defaultImage');
@@ -171,11 +171,11 @@ class Home extends CI_Controller{
         $data['orderItems'] = $this->ModelUser->getUserOrdersItemsByOrderId($orderId);
         $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
 
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/user/order_detail/index', $data);
-        $this->load->view('ui/user/order_detail/index_css');
-        $this->load->view('ui/user/order_detail/index_js');
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/user/order_detail/index', $data);
+        $this->load->view('ui/v2/user/order_detail/index_css');
+        $this->load->view('ui/v2/user/order_detail/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
 
     public function doLogOut(){

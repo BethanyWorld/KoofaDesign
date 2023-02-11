@@ -121,6 +121,87 @@ class ModelUser extends CI_Model
         }
     }
 
+
+
+    public function getManagers()
+    {
+        $this->db->select('*');
+        $this->db->from('manager');
+        $query = $this->db->get()->result_array();
+        $queryCount = $this->db->count_all_results('user');
+        if (count($query) > 0) {
+            $result['data'] = $query;
+            $result['count'] = $queryCount;
+            return $result;
+        } else {
+            return false;
+        }
+    }
+    public function getManagerById($Id){
+        $this->db->select('*');
+        $this->db->from('manager');
+        $this->db->where('ManagerId', $Id);
+        $query = $this->db->get()->result_array();
+        $result['data'] = $query;
+        return $result;
+    }
+    public function doAddManager($inputs){
+        $Array = array(
+            'ManagerFullName' => $inputs['inputManagerFullName'],
+            'ManagerPhone' => $inputs['inputManagerPhone'],
+            'ManagerEmail' => $inputs['inputManagerEmail'],
+            'ManagerPassword' => md5($inputs['inputManagerPassword']),
+            'Role' => $inputs['inputRole']
+        );
+        $this->db->trans_start();
+        $this->db->insert('manager', $Array);
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            $arr = array(
+                'type' => "red",
+                'content' => "ویرایش کاربر ناموفق بود",
+                'success' => false
+            );
+            return $arr;
+        } else {
+            $arr = array(
+                'type' => "green",
+                'content' => "ویرایش کاربر با موفقیت انجام شد",
+                'success' => true
+            );
+            return $arr;
+        }
+    }
+    public function doUpdateManager($inputs){
+        $Array = array(
+            'ManagerFullName' => $inputs['inputManagerFullName'],
+            'ManagerPhone' => $inputs['inputManagerPhone'],
+            'ManagerEmail' => $inputs['inputManagerEmail'],
+            'ManagerPassword' => md5($inputs['inputManagerPassword']),
+            'Role' => $inputs['inputRole']
+        );
+
+        $this->db->trans_start();
+        $this->db->where('ManagerId', $inputs['inputManagerId']);
+        $this->db->update('manager', $Array);
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            $arr = array(
+                'type' => "red",
+                'content' => "ویرایش کاربر ناموفق بود",
+                'success' => false
+            );
+            return $arr;
+        } else {
+            $arr = array(
+                'type' => "green",
+                'content' => "ویرایش کاربر با موفقیت انجام شد",
+                'success' => true
+            );
+            return $arr;
+        }
+    }
+
     /*End For Product*/
 
 

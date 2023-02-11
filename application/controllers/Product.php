@@ -7,6 +7,7 @@ class Product extends CI_Controller{
         $this->load->model('ui/ModelProduct');
         $this->load->model('admin/ModelMaterial');
         $this->load->model('admin/ModelSizes');
+        $this->load->model('admin/ModelServices');
     }
     public function index() {}
     public function detail($productId , $productTitle = ""){
@@ -28,20 +29,27 @@ class Product extends CI_Controller{
         $data['allMaterials'] = $this->ModelMaterial->getAllMaterialsWithoutPagination();
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'محصول ';
-
-        $data['relatedProducts'] = $this->ModelProduct->getProductByProductCategoryId($data['rootCategoryId']['CategoryId']);
-
-        $this->load->view('ui/static/header', $data);
+        //$data['relatedProducts'] = $this->ModelProduct->getProductByProductCategoryId($data['rootCategoryId']['CategoryId']);
+        $data['relatedProducts'] = $this->ModelProduct->getProductByProductCategoryId(($data['productCategories'][count($data['productCategories'])-1])['CategoryId']);
+        $data['services'] = $this->ModelServices->getServicesByCategoryId(end($data['productCategories'])['CategoryId'])['data'];
+        $serviceIndex = 0;
+        foreach ($data['services'] as $item) {
+            $data['services'][$serviceIndex]['items'] = $this->ModelServices->getServicesItemsByServicesId($item['ServiceId']);
+            $serviceIndex +=1;
+        }
+        $this->load->view('ui/v2/static/header', $data);
+        $data['breadCrumb'] = $this->load->view('ui/v2/product/breadcrumb', $data , TRUE);
+        $data['productTitles'] = $this->load->view('ui/v2/product/product_titles', $data , TRUE);
         switch ($data['data']['ProductType']){
             case 'Normal':
-                $this->load->view('ui/product/normal/index', $data);
-                $this->load->view('ui/product/normal/index_css');
-                $this->load->view('ui/product/normal/index_js');
+                $this->load->view('ui/v2/product/normal/index', $data);
+                $this->load->view('ui/v2/product/normal/index_css');
+                $this->load->view('ui/v2/product/normal/index_js');
                 break;
             case 'NormalUpload':
-                $this->load->view('ui/product/normal_upload/index', $data);
-                $this->load->view('ui/product/normal_upload/index_css');
-                $this->load->view('ui/product/normal_upload/index_js');
+                $this->load->view('ui/v2/product/normal_upload/index', $data);
+                $this->load->view('ui/v2/product/normal_upload/index_css');
+                $this->load->view('ui/v2/product/normal_upload/index_js');
                 break;
             case 'DesignFixSize':
                 for($i=0;$i<count($data['productPrice']);$i++) {
@@ -58,9 +66,9 @@ class Product extends CI_Controller{
                         }
                     }
                 }
-                $this->load->view('ui/product/fix_size/index', $data);
-                $this->load->view('ui/product/fix_size/index_css');
-                $this->load->view('ui/product/fix_size/index_js');
+                $this->load->view('ui/v2/product/fix_size/index', $data);
+                $this->load->view('ui/v2/product/fix_size/index_css');
+                $this->load->view('ui/v2/product/fix_size/index_js');
                 break;
             case 'DesignFreeSize':
                 for($i=0;$i<count($data['productPrice']);$i++) {
@@ -70,14 +78,14 @@ class Product extends CI_Controller{
                         }
                     }
                 }
-                $this->load->view('ui/product/free_size/index', $data);
-                $this->load->view('ui/product/free_size/index_css');
-                $this->load->view('ui/product/free_size/index_js');
+                $this->load->view('ui/v2/product/free_size/index', $data);
+                $this->load->view('ui/v2/product/free_size/index_css');
+                $this->load->view('ui/v2/product/free_size/index_js');
                 break;
            default:
                 break;
         }
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/footer');
     }
     public function doAddWishList()
     {

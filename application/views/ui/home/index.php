@@ -1,7 +1,6 @@
 <?php $_URL = base_url();
 $_DIR = base_url('assets/ui/'); ?>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"
-        integrity="sha256-Ikk5myJowmDQaYVCUD0Wr+vIDkN8hGI58SGWdE671A8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js" integrity="sha256-Ikk5myJowmDQaYVCUD0Wr+vIDkN8hGI58SGWdE671A8=" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/index.css">
 <div id="main">
     <a id="button"></a>
@@ -257,7 +256,7 @@ $_DIR = base_url('assets/ui/'); ?>
                         </h3>
                     </div>
                     <div class="col-md-12 col-xs-12 index-new-product-desc">
-                        <h4>تازه ترین آثار از دید مخاطبان</h4>
+                        <h4>&nbsp;</h4>
                     </div>
                     <div class="col-md-12 col-xs-12 ">
                         <?php foreach ($latestProduct as $item) { ?>
@@ -277,7 +276,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                         <h3 class="product-info"><?php echo $item['ProductTitle']; ?></h3>
                                     </a>
                                 </div>
-                                <div class="col-md-12 col-xs-12 price-box">
+                                <div class="col-md-12 col-xs-12 price-box hidden">
                                     <p class="regular-price">
                                         <span class="item_price">
                                             <?php showProductPrice($item['price'], $item['ProductType']); ?>
@@ -300,7 +299,7 @@ $_DIR = base_url('assets/ui/'); ?>
                         <h3 class="index-new-product-title text-center">محبوب ترین آثار</h3>
                     </div>
                     <div class="col-md-12 col-xs-12 index-new-product-desc">
-                        <h4>پربیننده ترین آثار از دید مخاطبان</h4>
+                        <h4>&nbsp;</h4>
                     </div>
                     <div class="col-md-12 col-xs-12">
                         <?php foreach ($favoriteProduct as $item) { ?>
@@ -320,7 +319,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                         <h3 class="product-info"><?php echo $item['ProductTitle']; ?></h3>
                                     </a>
                                 </div>
-                                <div class="col-md-12 col-xs-12 price-box">
+                                <div class="col-md-12 col-xs-12 price-box hidden">
                                     <p class="regular-price">
                                         <span class="item_price">
                                             <?php showProductPrice($item['price'], $item['ProductType']); ?>

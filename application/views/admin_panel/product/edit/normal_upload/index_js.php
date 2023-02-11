@@ -31,7 +31,7 @@
                 $inputProductIsSpecial = false;
             }
             $inputProductSpecialVirtualMaxPrice = $("#inputProductSpecialVirtualMaxPrice").val();
-            /*$inputProductCategoryProperty = [];
+            $inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
                 $propertyOptionId = $(this).val();
@@ -39,7 +39,7 @@
                     'propertyId': $propertyId,
                     'propertyOptionId': $propertyOptionId
                 });
-            });*/
+            });
             if (isEmpty($inputProductTitle) ||
                 isEmpty($inputProductType) || isEmpty(inputProductPrice) ||
                 isEmpty($inputProductQuantity) || isEmpty($inputProductDescription) ||
@@ -61,6 +61,7 @@
                     'inputProductSecondaryImage': $inputProductSecondaryImage,
                     'inputProductPrice': inputProductPrice,
                     'inputProductCategory': $inputProductCategory,
+                    'inputProductCategoryProperty': $inputProductCategoryProperty,
                     'inputProductTag':$inputProductTag,
                     'inputProductIsSpecial':$inputProductIsSpecial,
                     'inputProductSpecialVirtualMaxPrice':$inputProductSpecialVirtualMaxPrice
@@ -74,12 +75,11 @@
                         toggleLoader();
                         $result = jQuery.parseJSON(data);
                         notify($result['content'], $result['type']);
-                        reloadPage(1000);
+                        //reloadPage(1000);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         notify($result['content'], $result['type']);
                         toggleLoader();
-                        reloadPage(1000);
                     }
                 });
             }
@@ -109,7 +109,7 @@
             $inputProductCategory = $("[name=inputProductCategory]:checked").map(function () {
                 return $(this).val();
             }).get();
-            /*$inputProductCategoryProperty = [];
+            $inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
                 $propertyOptionId = $(this).val();
@@ -117,7 +117,7 @@
                     'propertyId': $propertyId,
                     'propertyOptionId': $propertyOptionId
                 });
-            });*/
+            });
             if (isEmpty($inputProductTitle) ||
                 isEmpty($inputProductType) || isEmpty(inputProductPrice) ||
                 isEmpty($inputProductQuantity) || isEmpty($inputProductDescription) ||
@@ -136,6 +136,7 @@
                     'inputProductPrimaryImage': $inputProductPrimaryImage,
                     'inputProductMockUpImage': $inputProductMockUpImage,
                     'inputProductSecondaryImage': $inputProductSecondaryImage,
+                    'inputProductCategoryProperty': $inputProductCategoryProperty,
                     'inputProductPrice': inputProductPrice,
                     'inputProductCategory': $inputProductCategory,
                     'inputProductTag':$inputProductTag
@@ -149,12 +150,11 @@
                         toggleLoader();
                         $result = jQuery.parseJSON(data);
                         notify($result['content'], $result['type']);
-                        reloadPage(1000);
+                        //reloadPage(1000);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         notify($result['content'], $result['type']);
                         toggleLoader();
-                        reloadPage(1000);
                     }
                 });
             }
@@ -186,7 +186,7 @@
                 url: base_url + 'Product/getProductPropertyByCategoryId/' + $categoryId,
                 success: function (data) {
                     if ($.trim(data) == "") {
-                        notify('لطفا دسته بندی هایی را انتخاب کنید که والد آنها محصولات است', 'red', 10000);
+                        notify('ویژگی برای این دسته بندی تعریف نشده است', 'red', 10000);
                     }
                     $(".category-property-container").html(data);
                     toggleLoader();
@@ -194,7 +194,7 @@
                 error: function (jqXHR, textStatus, errorThrown) {
                     notify($result['content'], $result['type']);
                     toggleLoader();
-                    reloadPage(1000);
+                    //reloadPage(1000);
                 }
             })
             ;

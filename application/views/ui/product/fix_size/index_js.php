@@ -82,7 +82,6 @@
             var number = $(this).index();
             bigimage.data("owl.carousel").to(number, 300, true);
         });
-
         //remove duplicate values from material drop down
         var map = {};
         $('#priceMaterialDropDown option').each(function () {
@@ -95,7 +94,6 @@
         //select first option selected in both drop downs
         $("#priceMaterialDropDown").find('option').eq(0).attr('selected','selected');
         $("#priceSizeDropDown").find('option').eq(0).attr('selected','selected');
-
         $("#priceMaterialDropDown").change(function () {
             $("#priceSizeDropDown").html('');
             setTimeout(function() {
@@ -116,10 +114,14 @@
         function setPrice() {
             $materialId = $("#priceMaterialDropDown").find(":selected").data('material-id');
             $sizeId = $("#priceSizeDropDown").find(":selected").data('size-id');
-
             $("#priceDropDown").find('option').each(function(){
                 if($(this).data('material-id') === $materialId && $(this).data('size-id') === $sizeId){
                     $price = parseInt($(this).data('price'));
+                    $("[name='inputProductServices']").each(function(){
+                        if($(this).val() !== ""){
+                            $price += $(this).find('option:selected').data('service-item-price');
+                        }
+                    });
                     $html = "<p>" + ($price) + " تومان </p>";
                     $('.product-detail-number').hide().fadeIn().html($html);
                 }
@@ -127,14 +129,12 @@
         }
         $("#priceMaterialDropDown").change();
         setPrice();
-
         $("#addToCart").click(function () {
 
             $id = $(this).data('product-id');
             $inputSizeId = $("#priceSizeDropDown option:selected").data('size-id');
             $inputMaterialId = $("#priceMaterialDropDown option:selected").data('material-id');
             $inputHastInstallation = $("#wantInstallation").val();
-
 
             var file_data = $('#inputAttachment').prop('files')[0];
             var form_data = new FormData();
@@ -151,6 +151,10 @@
                 success: function (data) {
                     $result = jQuery.parseJSON(data);
                     if($result['success']){
+                        $inputServices = [];
+                        $("[name='inputProductServices']").each(function(){
+                            $inputServices.push($(this).val());
+                        });
                         $.ajax({
                             type: 'post',
                             url: base_url + 'Cart/addDesignFixSize',
@@ -159,7 +163,8 @@
                                 'inputSizeId': $inputSizeId,
                                 'inputMaterialId': $inputMaterialId,
                                 'inputProductUploadImage': $result['fileSrc'],
-                                'inputProductHasInstallation': 0
+                                'inputProductHasInstallation': 0,
+                                'inputServices': JSON.stringify($inputServices)
                                 /* This type of product has not upload file */
                             },
                             success: function () {
@@ -181,9 +186,6 @@
                     notify($result['content'], $result['type']);
                 }
             });
-
-
-
 
         });
         $(".add-like-div").click(function () {
@@ -230,6 +232,9 @@
         $("#remove-upload-file").click(function () {
             $(".upload-image-container").fadeOut();
             $("#upload-image").fadeOut().attr('src', '');
+        });
+        $("[name='inputProductServices']").change(function () {
+            setPrice();
         });
     });
 </script>

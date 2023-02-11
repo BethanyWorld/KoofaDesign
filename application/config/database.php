@@ -7,11 +7,10 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
-	'database' => 'carnoma',
-	/*'hostname' => 'localhost',
-	'username' => 'carnoma2_user',
-	'password' => 'GJg4l0u=hrRF',
-	'database' => 'carnoma2_db',*/
+	'database' => 'koofa_art',
+    /*'username' => 'koofaart_user',
+    'password' => 'w*7&a,kzpO=I',
+    'database' => 'koofaart_db',*/
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -25,5 +24,5 @@ $db['default'] = array(
 	'compress' => FALSE,
 	'stricton' => FALSE,
 	'failover' => array(),
-	'save_queries' => TRUE
+	'save_queries' => FALSE
 );

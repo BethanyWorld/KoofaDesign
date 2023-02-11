@@ -83,7 +83,8 @@ class ModelOrder extends CI_Model
                 'ProductHeight' => $input['productHeight'],
                 'ProductWidth' => $input['productWidth'],
                 'ProductDiscountPrice' => NULL,
-                'ProductDiscountCode' => NULL
+                'ProductDiscountCode' => NULL,
+                'ProductServices' => $input['productServices'],
             );
             $this->db->insert('order_items', $Array);
         }

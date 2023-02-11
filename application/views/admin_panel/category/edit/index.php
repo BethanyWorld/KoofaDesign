@@ -28,12 +28,13 @@
                                         foreach($options as $key => $val) { ?>
                                             <option value="<?php echo substr($key,1); ?>"><?php echo $val; ?></option>
                                         <?php } ?>
+                                        <option value="-1">مخفی و غیرفعال سازی</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-3">
-                            <label class="required" for="inputCategoryImage">تصویر دسته بندی</label>
+                            <label class="required" for="inputCategoryImage">آیکن دسته بندی</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control"
@@ -48,6 +49,59 @@
                                    type="button">
                                     <span>انتخاب تصویر</span>
                                 </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-3">
+                            <label class="required" for="inputCategoryPoster">پوستر دسته بندی</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control"
+                                           value="<?php echo $data['CategoryPoster']; ?>"
+                                           id="inputCategoryPoster" name="inputCategoryPoster"/>
+                                </div>
+                                <a data-target-id="inputCategoryPoster"
+                                   data-toggle="modal"
+                                   href="#"
+                                   data-target="#myModal"
+                                   class="btn fileManagerHandler"
+                                   type="button">
+                                    <span>انتخاب تصویر</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-4">
+                            <label for="inputCategoryIsActive">نمایش در منو / عدم نمایش</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <select id="inputCategoryIsActive" name="inputCategoryIsActive" class="btn-group bootstrap-select form-control show-tick">
+                                        <option <?php if($data['CategoryIsActive'] == 0) echo "selected"; ?> value="0">عدم نمایش در منو</option>
+                                        <option <?php if($data['CategoryIsActive'] == 1) echo "selected"; ?> value="1">نمایش در منو</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <label for="inputCategoryDeliveryTime">زمان تحویل</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input
+                                             value="<?php echo $data['CategoryDeliveryTime']; ?>"
+                                            type="text"
+                                            class="form-control"
+                                            id="inputCategoryDeliveryTime"
+                                            name="inputCategoryDeliveryTime" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <label for="inputCategoryDescription">توضیحات دسته</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea
+                                            class="form-control"
+                                            id="inputCategoryDescription"
+                                            name="inputCategoryDescription"><?php echo $data['CategoryDescription']; ?></textarea>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xs-12">

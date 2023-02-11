@@ -11,6 +11,8 @@ $_DIR = base_url('assets/admin/');
                             <label for="inputProductTitle">نام / کد محصول</label>
                             <input type="text" id="inputProductTitle"
                                    name="inputProductTitle" />
+                            <label>دسته محصول</label>
+                            <?php echo $categoryTree; ?>
                             <label>نوع محصول</label>
                             <select id="inputProductType" name="inputProductType">
                                 <option value="">همه</option>

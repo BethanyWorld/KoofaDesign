@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
-class PriceChange extends CI_Controller
-{
+class PriceChange extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->helper('admin/admin_login');
@@ -78,5 +76,12 @@ class PriceChange extends CI_Controller
         $result = $this->ModelDiscount->doChangeCategorySizePrice($inputs);
         echo json_encode($result);
     }
-
+	public function doChangeCategoryMaterialSizePrice() {
+		$inputs = $this->input->post(NULL, TRUE);
+		$inputs = array_map(function ($v) {return strip_tags($v);}, $inputs);
+		$inputs = array_map(function ($v) {return remove_invisible_characters($v);}, $inputs);
+		$inputs = array_map(function ($v) {return makeSafeInput($v);}, $inputs);
+		$result = $this->ModelDiscount->doChangeCategoryMaterialSizePrice($inputs);
+		echo json_encode($result);
+	}
 }
