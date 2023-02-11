@@ -7,6 +7,15 @@
 
 */OLD/*
 OLD/*
+
+*/content/*
+content/*
+
+*/media/*
+media/*
+*/uploads/*
+uploads/*
+
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
 user_guide_src/cilexer/dist/*
