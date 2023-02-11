@@ -22,7 +22,7 @@
                 return $(this).val();
             }).get();
 
-            /*$inputProductCategoryProperty = [];
+            $inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
                 $propertyOptionId = $(this).val();
@@ -30,7 +30,7 @@
                     'propertyId': $propertyId,
                     'propertyOptionId': $propertyOptionId
                 });
-            });*/
+            });
 
 
             if ($("[name='inputProductHasInstallation']").is(':checked')){
@@ -53,6 +53,11 @@
             $(".inputProductTempPrice").each(function () {
                 $inputProductPrice.push( $(this).val());
             });
+
+            if($inputProductPrice.length === 1 ){
+                notify('لطفا قیمت را کامل کنید' , 'red');
+                return false;
+            }
 
 
             if (isEmpty($inputProductTitle) ||
@@ -75,6 +80,7 @@
                     'inputProductMockUpImage': $inputProductMockUpImage,
                     'inputProductSecondaryImage': $inputProductSecondaryImage,
                     'inputProductCategory': $inputProductCategory,
+                    'inputProductCategoryProperty': $inputProductCategoryProperty,
                     'inputProductMaterial': $inputProductMaterial,
                     'inputProductSize': $inputProductSize,
                     'inputProductPrice': $inputProductPrice,
@@ -91,19 +97,17 @@
                         toggleLoader();
                         $result = jQuery.parseJSON(data);
                         notify($result['content'], $result['type']);
-                        reloadPage(1000);
+                        //reloadPage(1000);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         notify($result['content'], $result['type']);
                         toggleLoader();
-                        reloadPage(1000);
                     }
                 });
             }
 
         });
         /* End Update User Info */
-
 
         /* Update User Info */
         $("#CopyDesignFixSize").click(function () {
@@ -126,7 +130,7 @@
             $inputProductCategory = $("[name=inputProductCategory]:checked").map(function () {
                 return $(this).val();
             }).get();
-            /*$inputProductCategoryProperty = [];
+            $inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
                 $propertyOptionId = $(this).val();
@@ -134,7 +138,7 @@
                     'propertyId': $propertyId,
                     'propertyOptionId': $propertyOptionId
                 });
-            });*/
+            });
 
             if ($("[name='inputProductHasInstallation']").is(':checked')){
                 $inputProductHasInstallation = true;
@@ -158,6 +162,10 @@
             $(".inputProductTempPrice").each(function () {
                 $inputProductPrice.push( $(this).val());
             });
+            if($inputProductPrice.length === 1 ){
+                notify('لطفا قیمت را کامل کنید' , 'red');
+                return false;
+            }
 
             if (isEmpty($inputProductTitle) ||
                 isEmpty($inputProductType) ||
@@ -178,12 +186,13 @@
                     'inputProductMockUpImage': $inputProductMockUpImage,
                     'inputProductSecondaryImage': $inputProductSecondaryImage,
                     'inputProductCategory': $inputProductCategory,
+                    'inputProductCategoryProperty': $inputProductCategoryProperty,
                     'inputProductMaterial': $inputProductMaterial,
                     'inputProductSize': $inputProductSize,
                     'inputProductPrice': $inputProductPrice,
                     'inputProductTag': $inputProductTag,
                     'inputProductHasInstallation': $inputProductHasInstallation,
-                    'inputProductInstallationPrice': $inputProductInstallationPrice,
+                    'inputProductInstallationPrice': $inputProductInstallationPrice
                 }
                 toggleLoader();
                 $.ajax({
@@ -194,12 +203,11 @@
                         toggleLoader();
                         $result = jQuery.parseJSON(data);
                         notify($result['content'], $result['type']);
-                        reloadPage(1000);
+                        //reloadPage(1000);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         notify($result['content'], $result['type']);
                         toggleLoader();
-                        reloadPage(1000);
                     }
                 });
             }
@@ -233,7 +241,7 @@
                 url: base_url + 'Product/getProductPropertyByCategoryId/' + $categoryId,
                 success: function (data) {
                     if ($.trim(data) == "") {
-                        notify('لطفا دسته بندی هایی را انتخاب کنید که والد آنها محصولات است', 'red', 10000);
+                        notify('ویژگی برای این دسته بندی تعریف نشده است', 'red', 10000);
                     }
                     $(".category-property-container").html(data);
                     toggleLoader();
@@ -241,7 +249,7 @@
                 error: function (jqXHR, textStatus, errorThrown) {
                     notify($result['content'], $result['type']);
                     toggleLoader();
-                    reloadPage(1000);
+                    //reloadPage(1000);
                 }
             })
             ;

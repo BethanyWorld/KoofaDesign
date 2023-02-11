@@ -150,4 +150,20 @@
     .cropper-bg {
         background-image: linear-gradient(#fff,#fff) !important;
     }
+
+	.slider-active-buttons{
+
+	}
+    .slider-active-buttons span{
+	    display: inline-block;
+	    font-size: 22px;
+	    margin-left: 10px;
+	    margin-bottom: 10px;
+	    color: #b9b9b9;
+        cursor: pointer;
+    }
+    .slider-active-buttons span.active{
+	    color: #ff0000;
+	    font-weight: 900;
+    }
 </style>

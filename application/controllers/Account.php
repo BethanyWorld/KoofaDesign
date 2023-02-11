@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Account extends CI_Controller{
+
     public function __construct()
     {
         parent::__construct();
@@ -13,11 +14,11 @@ class Account extends CI_Controller{
     {
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'ثبت نام ';
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/register/index');
-        $this->load->view('ui/register/index_css');
-        $this->load->view('ui/register/index_js');
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/register/index');
+        $this->load->view('ui/v2/register/index_css');
+        $this->load->view('ui/v2/register/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
     public function doRegister()
     {
@@ -88,11 +89,11 @@ class Account extends CI_Controller{
         if (isset($inputs['returnUrl']) && !empty($inputs['returnUrl'])) {
             $this->session->set_userdata('returnUrl', $inputs['returnUrl']);
         }
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/login/index', $data);
-        $this->load->view('ui/login/index_css');
-        $this->load->view('ui/login/index_js');
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/login/index', $data);
+        $this->load->view('ui/v2/login/index_css');
+        $this->load->view('ui/v2/login/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
 
     public function doLogin()
@@ -172,11 +173,11 @@ class Account extends CI_Controller{
     {
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'ارسال مجدد کد فعال سازی ';
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/resend_code/index', $data);
-        $this->load->view('ui/resend_code/index_css');
-        $this->load->view('ui/resend_code/index_js');
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/resend_code/index', $data);
+        $this->load->view('ui/v2/resend_code/index_css');
+        $this->load->view('ui/v2/resend_code/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
     public function doResendCode()
     {
@@ -221,11 +222,11 @@ class Account extends CI_Controller{
     {
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'بازیابی رمز عبور ';
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/reset_password/index', $data);
-        $this->load->view('ui/reset_password/index_css', $data);
-        $this->load->view('ui/reset_password/index_js');
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/reset_password/index', $data);
+        $this->load->view('ui/v2/reset_password/index_css', $data);
+        $this->load->view('ui/v2/reset_password/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
     public function doResetPassword()
     {

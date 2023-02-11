@@ -6,6 +6,7 @@ class Orders extends CI_Controller {
         $this->load->helper('admin/admin_login');
         $this->load->helper('admin/admin_pipe');
         $this->load->model('admin/ModelOrder');
+        $this->load->model('admin/ModelServices');
     }
     public function index(){
         $headerData['pageTitle'] = 'فهرست خریدها';
@@ -22,11 +23,23 @@ class Orders extends CI_Controller {
         unset($data['data']);
         echo json_encode($data);
     }
-
     public function detail($id){
         $headerData['pageTitle'] = 'جزئیات سفارش';
         $data['orderInfo'] = $this->ModelOrder->getOrderByOrderId($id);
         $data['orderItems'] = $this->ModelOrder->getOrderItemsByOrderId($id);
+
+        $orderItemIndex = 0;
+        foreach ($data['orderItems'] as $item) {
+            $data['orderItems'][$orderItemIndex]['OrderedServices'] = array();
+            $services = json_decode($item['ProductServices']);
+            if($services != null && !empty($services) && $services != ""){
+                foreach ($services as $id) {
+                    $si = $this->ModelServices->getServicesItemsByServiceItemId($id)[0];
+                    array_push($data['orderItems'][$orderItemIndex]['OrderedServices'] , $si);
+                }
+            }
+            $orderItemIndex +=1;
+        }
         $this->load->view('admin_panel/static/header', $headerData);
         $this->load->view('admin_panel/orders/detail/index', $data);
         $this->load->view('admin_panel/orders/detail/index_css');
@@ -39,6 +52,4 @@ class Orders extends CI_Controller {
         $result = $this->ModelSizes->doEditSize($inputs);
         echo json_encode($result);
     }
-
-
 }

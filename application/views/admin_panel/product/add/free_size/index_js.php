@@ -24,7 +24,7 @@
             $inputProductCategory = $("[name=inputProductCategory]:checked").map(function () {
                 return $(this).val();
             }).get();
-            /*$inputProductCategoryProperty = [];
+            $inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
                 $propertyOptionId = $(this).val();
@@ -32,7 +32,7 @@
                     'propertyId': $propertyId,
                     'propertyOptionId': $propertyOptionId
                 });
-            });*/
+            });
 
             if ($("[name='inputProductHasInstallation']").is(':checked')){
                 $inputProductHasInstallation = true;
@@ -42,6 +42,25 @@
             }
             $inputProductInstallationPrice = $("#inputProductInstallationPrice").val();
 
+
+
+            if ($("[name='inputProductIsFullWidth']").is(':checked')){
+                $inputProductIsFullWidth = 1;
+            }
+            else{
+                $inputProductIsFullWidth = 0;
+            }
+            if ($("[name='inputProductIsFullHeight']").is(':checked')){
+                $inputProductIsFullHeight = 1;
+            }
+            else{
+                $inputProductIsFullHeight = 0;
+            }
+
+
+
+
+
             $inputProductMaterial = [];
             $inputProductPrice = [];
             $(".inputProductTempMaterial").each(function () {
@@ -50,6 +69,12 @@
             $(".inputProductTempPrice").each(function () {
                 $inputProductPrice.push( $(this).val());
             });
+
+            if($inputProductPrice.length === 1 ){
+                notify('لطفا قیمت را کامل کنید' , 'red');
+                return false;
+            }
+
 
             if (isEmpty($inputProductTitle) ||
                 isEmpty($inputProductMaxHeight) ||
@@ -72,6 +97,7 @@
                     'inputProductMockUpImage': $inputProductMockUpImage,
                     'inputProductSecondaryImage': $inputProductSecondaryImage,
                     'inputProductCategory': $inputProductCategory,
+                    'inputProductCategoryProperty': $inputProductCategoryProperty,
                     'inputProductMaterial': $inputProductMaterial,
                     'inputProductPrice': $inputProductPrice,
                     'inputProductMaxHeight': $inputProductMaxHeight,
@@ -79,6 +105,8 @@
                     'inputProductTag': $inputProductTag,
                     'inputProductHasInstallation': $inputProductHasInstallation,
                     'inputProductInstallationPrice': $inputProductInstallationPrice,
+                    'inputProductIsFullWidth': $inputProductIsFullWidth,
+                    'inputProductIsFullHeight': $inputProductIsFullHeight
                 }
                 toggleLoader();
                 $.ajax({
@@ -89,12 +117,11 @@
                         toggleLoader();
                         $result = jQuery.parseJSON(data);
                         notify($result['content'], $result['type']);
-                        reloadPage(1000);
+                        //reloadPage(1000);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         notify($result['content'], $result['type']);
                         toggleLoader();
-                        reloadPage(1000);
                     }
                 });
             }
@@ -134,7 +161,7 @@
                 error: function (jqXHR, textStatus, errorThrown) {
                     notify($result['content'], $result['type']);
                     toggleLoader();
-                    reloadPage(1000);
+                    //reloadPage(1000);
                 }
             })
             ;

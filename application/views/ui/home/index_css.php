@@ -222,5 +222,6 @@
             margin: 30px;
         }
     }
+
     /*for back to top btn*/
 </style>

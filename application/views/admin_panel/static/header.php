@@ -12,6 +12,7 @@
     <link rel="icon" href="<?php echo $_DIR; ?>favicon.ico" type="image/x-icon">
     <link href="<?php echo $_DIR; ?>plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo $_DIR; ?>plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet">
+    <link href="<?php echo $_DIR; ?>plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet"/>
     <link href="<?php echo $_DIR; ?>plugins/node-waves/waves.css" rel="stylesheet"/>
     <link href="<?php echo $_DIR; ?>plugins/animate-css/animate.css" rel="stylesheet"/>
     <link href="<?php echo $_DIR; ?>plugins/iziToast/css/iziToast.min.css" rel="stylesheet"/>
@@ -24,6 +25,7 @@
     <!-- =============================================================================================== -->
     <script src="<?php echo $_DIR; ?>plugins/jquery/jquery.min.js"></script>
     <script src="<?php echo $_DIR; ?>plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo $_DIR; ?>plugins/bootstrap-select/js/bootstrap-select.js"></script>
     <script src="<?php echo $_DIR; ?>plugins/ckeditor/ckeditor.js"></script>
     <script src="<?php echo $_DIR; ?>plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
     <script src="<?php echo $_DIR; ?>plugins/node-waves/waves.js"></script>
@@ -41,7 +43,18 @@
 
 <body class="theme-red">
 <!-- Page Loader -->
-<div class="page-loader-wrapper">
+<div class="page-loader-wrapper" style="
+    z-index: 99999999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255 ,255, 255, 0.3);
+    overflow: hidden;
+    text-align: center;">
     <div class="loader">
         <div class="preloader">
             <div class="spinner-layer pl-red">
@@ -53,7 +66,7 @@
                 </div>
             </div>
         </div>
-        <p>لطفا منتظر بمانید...</p>
+        <p style="color:#000;font-weight: 900;">لطفا منتظر بمانید...</p>
     </div>
 </div>
 <!-- #END# Page Loader -->
@@ -130,84 +143,6 @@
                     </ul>
                 </li>
                 <!-- #END# Notifications -->
-                <!-- Tasks -->
-                <!--                <li class="dropdown">-->
-                <!--                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">-->
-                <!--                        <i class="material-icons">flag</i>-->
-                <!--                        <span class="label-count">9</span>-->
-                <!--                    </a>-->
-                <!--                    <ul class="dropdown-menu">-->
-                <!--                        <li class="header">TASKS</li>-->
-                <!--                        <li class="body">-->
-                <!--                            <ul class="menu tasks">-->
-                <!--                                <li>-->
-                <!--                                    <a href="javascript:void(0);">-->
-                <!--                                        <h4>-->
-                <!--                                            Footer display issue-->
-                <!--                                            <small>32%</small>-->
-                <!--                                        </h4>-->
-                <!--                                        <div class="progress">-->
-                <!--                                            <div class="progress-bar bg-pink" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 32%">-->
-                <!--                                            </div>-->
-                <!--                                        </div>-->
-                <!--                                    </a>-->
-                <!--                                </li>-->
-                <!--                                <li>-->
-                <!--                                    <a href="javascript:void(0);">-->
-                <!--                                        <h4>-->
-                <!--                                            Make new buttons-->
-                <!--                                            <small>45%</small>-->
-                <!--                                        </h4>-->
-                <!--                                        <div class="progress">-->
-                <!--                                            <div class="progress-bar bg-cyan" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 45%">-->
-                <!--                                            </div>-->
-                <!--                                        </div>-->
-                <!--                                    </a>-->
-                <!--                                </li>-->
-                <!--                                <li>-->
-                <!--                                    <a href="javascript:void(0);">-->
-                <!--                                        <h4>-->
-                <!--                                            Create new dashboard-->
-                <!--                                            <small>54%</small>-->
-                <!--                                        </h4>-->
-                <!--                                        <div class="progress">-->
-                <!--                                            <div class="progress-bar bg-teal" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 54%">-->
-                <!--                                            </div>-->
-                <!--                                        </div>-->
-                <!--                                    </a>-->
-                <!--                                </li>-->
-                <!--                                <li>-->
-                <!--                                    <a href="javascript:void(0);">-->
-                <!--                                        <h4>-->
-                <!--                                            Solve transition issue-->
-                <!--                                            <small>65%</small>-->
-                <!--                                        </h4>-->
-                <!--                                        <div class="progress">-->
-                <!--                                            <div class="progress-bar bg-orange" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 65%">-->
-                <!--                                            </div>-->
-                <!--                                        </div>-->
-                <!--                                    </a>-->
-                <!--                                </li>-->
-                <!--                                <li>-->
-                <!--                                    <a href="javascript:void(0);">-->
-                <!--                                        <h4>-->
-                <!--                                            Answer GitHub questions-->
-                <!--                                            <small>92%</small>-->
-                <!--                                        </h4>-->
-                <!--                                        <div class="progress">-->
-                <!--                                            <div class="progress-bar bg-purple" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 92%">-->
-                <!--                                            </div>-->
-                <!--                                        </div>-->
-                <!--                                    </a>-->
-                <!--                                </li>-->
-                <!--                            </ul>-->
-                <!--                        </li>-->
-                <!--                        <li class="footer">-->
-                <!--                            <a href="javascript:void(0);">View All Tasks</a>-->
-                <!--                        </li>-->
-                <!--                    </ul>-->
-                <!--                </li>-->
-                <!-- #END# Tasks -->
             </ul>
         </div>
     </div>
@@ -260,169 +195,226 @@
         <!-- Menu -->
         <div class="menu">
             <ul class="list">
-                <li <?php echo $CI->uri->segment(3) == 'Home' ? 'class="active"' : '' ?> >
-                    <a href="<?php echo base_url('Admin/Dashboard/Home'); ?>">
-                        <i class="material-icons">home</i>
-                        <span>پیشخوان</span>
-                    </a>
-                </li>
+
+                <?php if($employerInfo['Role']=='Manager' ){ ?>
+                    <li <?php echo $CI->uri->segment(3) == 'Managers' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">people</i>
+                            <span>مدیران</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'User/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Managers/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'User/add') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Managers/add'); ?>" class=" waves-effect waves-block">افزودن</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php } ?>
+
+                <?php if($employerInfo['Role']=='Finance' || $employerInfo['Role']=='Manager' ){ ?>
+                    <li <?php echo $CI->uri->segment(3) == 'Home' ? 'class="active"' : '' ?> >
+                        <a href="<?php echo base_url('Admin/Dashboard/Home'); ?>">
+                            <i class="material-icons">home</i>
+                            <span>پیشخوان</span>
+                        </a>
+                    </li>
+                    <li <?php echo $CI->uri->segment(3) == 'Orders' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">donut_small</i>
+                            <span>خریدها</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'Orders/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Orders/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li <?php echo $CI->uri->segment(3) == 'PriceChange' ? 'class="active"' : '' ?> >
+                        <a href="<?php echo base_url('Admin/Dashboard/PriceChange/index'); ?>"
+                           class="waves-effect waves-block">
+                            <i class="material-icons">donut_small</i>
+                            <span>پنل قیمت</span>
+                        </a>
+                    </li>
+                    <li <?php echo $CI->uri->segment(3) == 'MSChange' ? 'class="active"' : '' ?> >
+                        <a href="<?php echo base_url('Admin/Dashboard/MSChange/index'); ?>"
+                           class="waves-effect waves-block">
+                            <i class="material-icons">donut_small</i>
+                            <span>پنل جنس و سایز</span>
+                        </a>
+                    </li>
+                    <li <?php echo $CI->uri->segment(3) == 'DiscountCode' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">donut_small</i>
+                            <span>کد های تخفیف</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'DiscountCode/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/DiscountCode/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'DiscountCode/add') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/DiscountCode/add'); ?>" class="waves-effect waves-block">افزودن</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li <?php echo $CI->uri->segment(3) == 'OrderSendMethod' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">donut_small</i>
+                            <span>روش های ارسال</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'OrderSendMethod/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/OrderSendMethod/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'OrderSendMethod/add') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/OrderSendMethod/add'); ?>" class=" waves-effect waves-block">افزودن</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php } ?>
+                <?php if($employerInfo['Role']=='Product' || $employerInfo['Role']=='Manager' ){ ?>
+                    <li <?php echo $CI->uri->segment(3) == 'Category' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">bookmark</i>
+                            <span>دسته بندی محصولات</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'Category/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Category/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'Category/add') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Category/add'); ?>" class=" waves-effect waves-block">افزودن</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="hidden" <?php echo $CI->uri->segment(3) == 'Brand' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">bookmark</i>
+                            <span>مدیریت برند ها</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'Brand/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Brand/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'Brand/add') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Brand/add'); ?>" class=" waves-effect waves-block">افزودن</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li <?php echo $CI->uri->segment(3) == 'Product' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">donut_small</i>
+                            <span>محصولات</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'Product/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Product/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'Product/addNormal') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Product/addNormal'); ?>" class=" waves-effect waves-block">افزودن محصول عادی</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'Product/addNormalUpload') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Product/addNormalUpload'); ?>" class=" waves-effect waves-block">افزودن محصول عادی/آپلود دلخواه</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'Product/addDesignFixSize') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Product/addDesignFixSize'); ?>" class=" waves-effect waves-block">افزودن محصول طراحی با سایز ثابت</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'Product/addDesignFreeSize') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Product/addDesignFreeSize'); ?>" class=" waves-effect waves-block">افزودن محصول طراحی با سایز دلخواه</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li <?php echo $CI->uri->segment(3) == 'Services' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">donut_small</i>
+                            <span>خدمات محصولات</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'Services/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Services/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'Services/add') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Services/add'); ?>" class=" waves-effect waves-block">افزودن</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li <?php echo $CI->uri->segment(3) == 'Material' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">donut_small</i>
+                            <span>جنس محصولات</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'Material/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Material/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'Material/add') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Material/add'); ?>" class=" waves-effect waves-block">افزودن</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li <?php echo $CI->uri->segment(3) == 'Sizes' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">donut_small</i>
+                            <span>سایز محصولات</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'Sizes/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Sizes/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'Sizes/add') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Sizes/add'); ?>" class=" waves-effect waves-block">افزودن</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li <?php echo $CI->uri->segment(3) == 'Slide' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">donut_small</i>
+                            <span>اسلاید صفحه اصلی</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'Slide/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Slide/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'Slide/add') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Slide/add'); ?>" class="waves-effect waves-block">افزودن</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li <?php echo $CI->uri->segment(3) == 'Plans' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">donut_small</i>
+                            <span>پلن ها صفحه اصلی</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'Plans/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Plans/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'Plans/add') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Plans/add'); ?>" class="waves-effect waves-block">افزودن</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php } ?>
+                <?php if($employerInfo['Role']=='Manager' ){ ?>
+                    <li <?php echo $CI->uri->segment(3) == 'User' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">people</i>
+                            <span>کاربران</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'User/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/User/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                            <li <?php if(strpos($CI->uri->uri_string , 'User/add') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/User/add'); ?>" class=" waves-effect waves-block">افزودن</a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php } ?>
 
 
-
-                <li <?php echo $CI->uri->segment(3) == 'Orders' ? 'class="active"' : '' ?> >
-                    <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                        <i class="material-icons">donut_small</i>
-                        <span>خریدها</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li <?php if(strpos($CI->uri->uri_string , 'Orders/index') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Orders/index'); ?>" class="waves-effect waves-block">فهرست</a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li <?php echo $CI->uri->segment(3) == 'Category' ? 'class="active"' : '' ?> >
-                    <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                        <i class="material-icons">bookmark</i>
-                        <span>دسته بندی محصولات</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li <?php if(strpos($CI->uri->uri_string , 'Category/index') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Category/index'); ?>" class="waves-effect waves-block">فهرست</a>
-                        </li>
-                        <li <?php if(strpos($CI->uri->uri_string , 'Category/add') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Category/add'); ?>" class=" waves-effect waves-block">افزودن</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="hidden" <?php echo $CI->uri->segment(3) == 'Brand' ? 'class="active"' : '' ?> >
-                    <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                        <i class="material-icons">bookmark</i>
-                        <span>مدیریت برند ها</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li <?php if(strpos($CI->uri->uri_string , 'Brand/index') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Brand/index'); ?>" class="waves-effect waves-block">فهرست</a>
-                        </li>
-                        <li <?php if(strpos($CI->uri->uri_string , 'Brand/add') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Brand/add'); ?>" class=" waves-effect waves-block">افزودن</a>
-                        </li>
-                    </ul>
-                </li>
-                <li <?php echo $CI->uri->segment(3) == 'Product' ? 'class="active"' : '' ?> >
-                    <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                        <i class="material-icons">donut_small</i>
-                        <span>محصولات</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li <?php if(strpos($CI->uri->uri_string , 'Product/index') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Product/index'); ?>" class="waves-effect waves-block">فهرست</a>
-                        </li>
-                        <li <?php if(strpos($CI->uri->uri_string , 'Product/addNormal') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Product/addNormal'); ?>" class=" waves-effect waves-block">افزودن محصول عادی</a>
-                        </li>
-                        <li <?php if(strpos($CI->uri->uri_string , 'Product/addNormalUpload') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Product/addNormalUpload'); ?>" class=" waves-effect waves-block">افزودن محصول عادی/آپلود دلخواه</a>
-                        </li>
-                        <li <?php if(strpos($CI->uri->uri_string , 'Product/addDesignFixSize') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Product/addDesignFixSize'); ?>" class=" waves-effect waves-block">افزودن محصول طراحی با سایز ثابت</a>
-                        </li>
-                        <li <?php if(strpos($CI->uri->uri_string , 'Product/addDesignFreeSize') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Product/addDesignFreeSize'); ?>" class=" waves-effect waves-block">افزودن محصول طراحی با سایز دلخواه</a>
-                        </li>
-                    </ul>
-                </li>
-                <li <?php echo $CI->uri->segment(3) == 'PriceChange' ? 'class="active"' : '' ?> >
-                    <a href="<?php echo base_url('Admin/Dashboard/PriceChange/index'); ?>"
-                       class="menu-toggle waves-effect waves-block">
-                        <i class="material-icons">donut_small</i>
-                        <span>تغییر قیمت</span>
-                    </a>
-                </li>
-                <li <?php echo $CI->uri->segment(3) == 'Material' ? 'class="active"' : '' ?> >
-                    <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                        <i class="material-icons">donut_small</i>
-                        <span>جنس محصولات</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li <?php if(strpos($CI->uri->uri_string , 'Material/index') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Material/index'); ?>" class="waves-effect waves-block">فهرست</a>
-                        </li>
-                        <li <?php if(strpos($CI->uri->uri_string , 'Material/add') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Material/add'); ?>" class=" waves-effect waves-block">افزودن</a>
-                        </li>
-                    </ul>
-                </li>
-                <li <?php echo $CI->uri->segment(3) == 'Sizes' ? 'class="active"' : '' ?> >
-                    <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                        <i class="material-icons">donut_small</i>
-                        <span>سایز محصولات</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li <?php if(strpos($CI->uri->uri_string , 'Sizes/index') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Sizes/index'); ?>" class="waves-effect waves-block">فهرست</a>
-                        </li>
-                        <li <?php if(strpos($CI->uri->uri_string , 'Sizes/add') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Sizes/add'); ?>" class=" waves-effect waves-block">افزودن</a>
-                        </li>
-                    </ul>
-                </li>
-                <li <?php echo $CI->uri->segment(3) == 'DiscountCode' ? 'class="active"' : '' ?> >
-                    <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                        <i class="material-icons">donut_small</i>
-                        <span>کد های تخفیف</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li <?php if(strpos($CI->uri->uri_string , 'DiscountCode/index') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/DiscountCode/index'); ?>" class="waves-effect waves-block">فهرست</a>
-                        </li>
-                        <li <?php if(strpos($CI->uri->uri_string , 'DiscountCode/add') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/DiscountCode/add'); ?>" class="waves-effect waves-block">افزودن</a>
-                        </li>
-                    </ul>
-                </li>
-                <li <?php echo $CI->uri->segment(3) == 'OrderSendMethod' ? 'class="active"' : '' ?> >
-                    <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                        <i class="material-icons">donut_small</i>
-                        <span>روش های ارسال</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li <?php if(strpos($CI->uri->uri_string , 'OrderSendMethod/index') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/OrderSendMethod/index'); ?>" class="waves-effect waves-block">فهرست</a>
-                        </li>
-                        <li <?php if(strpos($CI->uri->uri_string , 'OrderSendMethod/add') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/OrderSendMethod/add'); ?>" class=" waves-effect waves-block">افزودن</a>
-                        </li>
-                    </ul>
-                </li>
-                <li <?php echo $CI->uri->segment(3) == 'Slide' ? 'class="active"' : '' ?> >
-                    <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                        <i class="material-icons">donut_small</i>
-                        <span>اسلاید صفحه اصلی</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li <?php if(strpos($CI->uri->uri_string , 'Slide/index') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Slide/index'); ?>" class="waves-effect waves-block">فهرست</a>
-                        </li>
-                        <li <?php if(strpos($CI->uri->uri_string , 'Slide/add') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/Slide/add'); ?>" class="waves-effect waves-block">افزودن</a>
-                        </li>
-                    </ul>
-                </li>
-                <li <?php echo $CI->uri->segment(3) == 'User' ? 'class="active"' : '' ?> >
-                    <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                        <i class="material-icons">people</i>
-                        <span>کاربران</span>
-                    </a>
-                    <ul class="ml-menu">
-                        <li <?php if(strpos($CI->uri->uri_string , 'User/index') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/User/index'); ?>" class="waves-effect waves-block">فهرست</a>
-                        </li>
-                        <li <?php if(strpos($CI->uri->uri_string , 'User/add') !== false) echo "class='active'"; ?>>
-                            <a href="<?php echo base_url('Admin/Dashboard/User/add'); ?>" class=" waves-effect waves-block">افزودن</a>
-                        </li>
-                    </ul>
-                </li>
             </ul>
         </div>
         <!-- #Menu -->

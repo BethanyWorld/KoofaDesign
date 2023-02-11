@@ -6,15 +6,15 @@
                 <div class="col-md-12 col-xs-12 padding-0">
                     <ul class="col-md-8 col-md-offset-2 col-xs-12 padding-0">
                         <li class="col-md-4 col-xs-12">
-                            021 8851
-                            <i class="fa fa-question"></i>
-                        </li>
-                        <li class="col-md-4 col-xs-12">
-                            سوالات متداول
+                            <span style="display: inline-block;direction: ltr;">021&nbsp;-&nbsp;88760204</span>
                             <i class="fa fa-phone"></i>
                         </li>
                         <li class="col-md-4 col-xs-12">
-                            info@koufa.com
+                            سوالات متداول
+                            <i class="fa fa-question"></i>
+                        </li>
+                        <li class="col-md-4 col-xs-12">
+                            info@koofaart.ir
                             <i class="fa fa-mail-forward"></i>
                         </li>
                     </ul>
@@ -28,7 +28,7 @@
                         <img src="<?php echo $_DIR; ?>images/item_1.png" height="100" width="100"/>
                     </div>
                     <div class="col-md-12 col-xs-12 footer-title text-center">
-                        <h3>عضو کوفا شوید</h3>
+<!--                        <h3>عضو کوفا شوید</h3>-->
                     </div>
                     <div class="col-md-12 col-xs-12 footer-des text-center">
                         <p>
@@ -44,23 +44,24 @@
                     <div class="col-md-12 col-xs-12 footer-pic text-center">
                         <img src="<?php echo $_DIR; ?>images/item_2.png" height="100" width="100"/></div>
                     <div class="col-md-12 col-xs-12 footer-title text-center">
-                        <h3>عضو کوفا شوید</h3>
+<!--                        <h3>عضو کوفا شوید</h3>-->
                     </div>
                     <div class="col-md-12 col-xs-12 footer-des text-center">
                         <p>
-                            از تخفیف ها، ثبت علاقه مندی ها، شرکت در نقد آثار و بسیاری از خدمات دیگر کوفا
-                            بهره مند گردید.
+                            مجموعه هنر کوفا سعی دارد تجربه‌ای بی‌نظیر از سفارش آنلاین محصولات چاپی مانند
+                             به مشتریان خود ارائه دهد.
+                            به همین منظور در تلاشیم تا لذت خریدی متفاوت را با روش‌های گوناگون ارسال به سرتا‌سر ایران، برای شما کاربران عزیز فراهم آوریم.
                         </p>
                     </div>
                     <div class="col-md-12 col-xs-12 text-center">
-                        <a href="" class="btn footer-button">راهنمای ارسال آثار خود به کوفا</a>
+                        <a href="<?php echo $_URL.'content/?page_id=15'; ?>" class="btn footer-button">روش های ارسال</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-xs-12 footer-div">
                     <div class="col-md-12 col-xs-12 footer-pic text-center">
                         <img src="<?php echo $_DIR; ?>images/item_3.png" height="100" width="100"/></div>
                     <div class="col-md-12 col-xs-12 footer-title text-center">
-                        <h3>عضو کوفا شوید</h3>
+<!--                        <h3>عضو کوفا شوید</h3>-->
                     </div>
                     <div class="col-md-12 col-xs-12 footer-des text-center">
                         <p>
@@ -69,11 +70,11 @@
                         </p>
                     </div>
                     <div class="col-md-12 col-xs-12 text-center">
-                        <a href="" class="btn footer-button">ارسال خبرنامه</a>
+                        <a href="<?php echo base_url('Account/register'); ?>" class="btn footer-button">ارسال خبرنامه</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-10 col-md-offset-1  col-xs-12 footer-guide">
+            <div class="col-md-10 col-md-offset-1  col-xs-12 footer-guide hidden">
                 <div class="col-md-7 col-xs-12 rightFloat">
                     <div class="col-md-12 col-xs-12">
                         <h3 class="footer-guide-title">راهنمای خرید از کوفا</h3>
@@ -149,19 +150,19 @@
                             <div class="col-md-12 col-xs-12 footer-menu">
                                 <ul>
                                     <li>
-                                        <a href="">تماس با ما</a>
+                                        <a href="<?php echo $_URL.'content/?page_id=69'; ?>">تماس با ما</a>
                                     </li>
                                     <li>
-                                        <a href="">درباره ما</a>
+                                        <a href="<?php echo $_URL.'content/?page_id=67'; ?>">درباره ما</a>
                                     </li>
                                     <li>
-                                        <a href="">خدمات</a>
+                                        <a href="<?php echo $_URL.'content/?page_id=12'; ?>">روش‌های پرداخت</a>
                                     </li>
                                     <li>
-                                        <a href="">حریم شخصی</a>
+                                        <a href="<?php echo $_URL.'content/?page_id=18'; ?>">حریم شخصی</a>
                                     </li>
                                     <li>
-                                        <a href="">شرایط و ضوابط</a>
+                                        <a href="<?php echo $_URL.'content/?page_id=21'; ?>">شرایط و ضوابط</a>
                                     </li>
                                 </ul>
                             </div>

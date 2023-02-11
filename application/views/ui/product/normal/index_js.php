@@ -19,7 +19,6 @@
                 '<i class="fa fa-angle-right" aria-hidden="true"></i>'
             ]
         }).on("changed.owl.carousel", syncPosition);
-
         thumbs.on("initialized.owl.carousel", function() {
             thumbs
                 .find(".owl-item")
@@ -132,9 +131,6 @@
                 }
             });
         });
-
-
-
 
     });
 

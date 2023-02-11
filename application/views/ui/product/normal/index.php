@@ -7,32 +7,11 @@ $_DIR = base_url('assets/ui/'); ?>
         <div class="container first-container-m-b">
             <div class="col-md-12 col-xs-12 padding-0">
                 <div class="col-md-12 col-xs-12  padding-0">
-                    <ul class="breadcrumb">
-                        <?php foreach ($productCategories as $row) { ?>
-                            <li>
-                                <a href="<?php echo categoryUrl($row['CategoryId'], $row['CategoryTitle']); ?>">
-                                    <?php echo $row['CategoryTitle']; ?>
-                                </a>
-                            </li>
-                        <?php } ?>
-                        <li class="active">
-                            <?php echo $data['ProductTitle']; ?>
-                        </li>
-                    </ul>
+                    <?php echo $breadCrumb; ?>
                 </div>
                 <div class="col-md-5 col-xs-12 rightFloat padding-0 right-side-border-top">
-<!--                    <div class="col-md-12 col-xs-12 product-detail-text padding-right">-->
-<!--                        <p>ارسال رایگان برای خرید های بیشتر از 90 هزار تومان</p>-->
-<!--                    </div>-->
-                    <div class="col-md-1س2 col-xs-12 padding-right product-detail-title">
-                        <h1><?php echo $data['ProductTitle']; ?></h1>
-                    </div>
-                    <div class="col-md-12 col-xs-12 product-detail-print padding-right">
-                        <?php echo $data['ProductSubTitle']; ?>
-                    </div>
-                    <div class="col-md-12 col-xs-12 product-detail-print padding-right product-sub-title">
-                        <p><?php echo $data['ProductBrief']; ?></p>
-                    </div>
+                    <?php echo $productTitles; ?>
+
                     <div class="col-md-12 col-xs-12 padding-0 product-detail-pn">
                         <div class="col-md-6 col-xs-12 rightFloat product-detail-price">
                             <p>قیمت کل :</p>
@@ -105,12 +84,12 @@ $_DIR = base_url('assets/ui/'); ?>
                 <div class="container">
 
                     <div class="col-md-12 col-xs-12 product-description">
-                        <?php echo $data['ProductDescription']; ?>
+		                <?php echo $data['ProductDescription']; ?>
                     </div>
 
                     <div class="col-md-12 col-xs-12">
                         <div class="col-md-12 col-xs-12">
-                            <h2 class="product-title-h2">مناسب سلیقه ی شما :</h2>
+                            <h2 class="product-title-h2">محصولات مشابه :</h2>
                         </div>
                         <?php foreach ($relatedProducts as $item) { ?>
                             <div class="col-md-3 col-xs-12 one-product-detail">

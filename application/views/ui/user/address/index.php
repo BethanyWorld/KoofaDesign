@@ -1,5 +1,4 @@
-<?php $_URL = base_url();
-$_DIR = base_url('assets/ui/'); ?>
+<?php $_URL = base_url(); $_DIR = base_url('assets/ui/'); ?>
 <div id="main">
     <div class="row section-padding">
         <div class="container margin-t-15 container-padding">
@@ -136,4 +135,3 @@ $_DIR = base_url('assets/ui/'); ?>
         </div>
     </div>
 </div>
-

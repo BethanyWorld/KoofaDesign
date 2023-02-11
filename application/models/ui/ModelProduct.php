@@ -1,8 +1,5 @@
 <?php
-
-
-class ModelProduct extends CI_Model
-{
+class ModelProduct extends CI_Model{
     /*For Product*/
     public function getProductByPagination($limit = 1)
     {
@@ -167,6 +164,7 @@ class ModelProduct extends CI_Model
         $this->db->from('product');
         $this->db->join('product_category_relation', 'product.ProductId = product_category_relation.ProductId');
         $this->db->where('CategoryId', $categoryId);
+	    $this->db->order_by('product.ProductId', 'DESC');
         if ($limit) {
             $this->db->limit($limit);
         } else {
@@ -179,16 +177,28 @@ class ModelProduct extends CI_Model
         return $query;
     }
 
-    public function getLatestProduct()
-    {
+    public function getLatestProduct() {
+	    $this->db->select('CategoryId');
+	    $this->db->from('product_category');
+	    $this->db->where('CategoryParentId', 1);
+	    $this->db->where('CategoryIsActive', 1);
+	    $query = $this->db->get()->result_array();
+	    $categories = $query;
+	    $catArray  = array();
+	    foreach ($categories  as $item ) {
+		    array_push($catArray , $item['CategoryId'] );
+	    }
+
         $this->db->select('*');
         $this->db->from('product');
-        $this->db->order_by('ProductId', 'DESC');
-        $this->db->limit(8);
+        $this->db->join('product_category_relation' , 'product_category_relation.ProductId = product.ProductId');
+        $this->db->where_in('product_category_relation.CategoryId' , $catArray);
+	    $this->db->order_by('product.ProductId', 'RANDOM');
+        $this->db->limit(25);
         $query = $this->db->get()->result_array();
-        for ($i = 0; $i < sizeof($query); $i++) {
+        /*for ($i = 0; $i < sizeof($query); $i++) {
             $query[$i]['price'] = $this->getProductPriceProductId($query[$i]['ProductId']);
-        }
+        }*/
         return $query;
     }
 
@@ -216,21 +226,22 @@ class ModelProduct extends CI_Model
         }
         return $query;
     }
-
-
     /*End For Product*/
-
-    public function searchProduct($inputs)
-    {
-        $limit = $inputs['pageIndex'];
+    public function searchProduct($inputs){
+        /*$limit = $inputs['pageIndex'];
         $start = ($limit - 1) * $this->config->item('defaultPageSize');
         $end = $this->config->item('defaultPageSize');
-
         $this->db->select('product.ProductId,ProductTitle,ProductPrimaryImage,ProductMockUpImage,ProductType,ProductIsSpecial');
         $this->db->from('product');
         $this->db->join('product_category_relation', 'product.ProductId = product_category_relation.ProductId');
-        $this->db->join('product_price', 'product_price.ProductId = product.ProductId');
+        $this->db->join('product_price', 'product_price.ProductId = product.ProductId' , 'left');
+        $this->db->join('product_property', 'product.ProductId = product_property.ProductId' , 'left');
         $this->db->where('product_category_relation.CategoryId', $inputs['inputCategoryId']);
+        if(isset($inputs['inputPropertyOptions'])){
+            $this->db->where_in('product_property.PropertyOptionId', $inputs['inputPropertyOptions']);
+        }
+        $this->db->group_by("product.ProductId");
+	    $this->db->order_by('product_price.ProductId' , 'DESC');
 
         if(isset($inputs['inputOrderingProductPrice'])){
             if($inputs['inputOrderingProductPrice'] == 'ASC'){
@@ -240,10 +251,9 @@ class ModelProduct extends CI_Model
                 $this->db->order_by('product_price.PriceValue' , 'DESC');
             }
         }
-        $this->db->group_by("product.ProductId");
-        /*$query = $this->db->get()->result_array();
-        var_dump($query);*/
-
+        else{
+          $this->db->order_by('product_price.ProductId' , 'DESC');
+        }
         $tempDb = clone $this->db;
         $data['numRows'] = $tempDb->get()->num_rows();
         $this->db->limit($end, $start);
@@ -252,7 +262,51 @@ class ModelProduct extends CI_Model
         for ($i = 0; $i < sizeof($query); $i++) {
             $query[$i]['price'] = $this->getProductPriceProductId($query[$i]['ProductId']);
         }
+        if (count($query) > 0) {
+            $data['data'] = $query;
+            return $data;
+        } else {
+            $data['data'] = false;
+            return $data;
+        }*/
 
+        $limit = $inputs['pageIndex'];
+        $start = ($limit - 1) * $this->config->item('defaultPageSize');
+        $end = $this->config->item('defaultPageSize');
+        $this->db->select('product.ProductId,ProductTitle,ProductPrimaryImage,ProductMockUpImage,ProductType,ProductIsSpecial');
+        $this->db->from('product');
+        $this->db->join('product_category_relation', 'product.ProductId = product_category_relation.ProductId');
+        $this->db->join('product_price', 'product_price.ProductId = product.ProductId' , 'left');
+        $this->db->join('product_property', 'product.ProductId = product_property.ProductId' , 'left');
+        $this->db->where('product_category_relation.CategoryId', $inputs['inputCategoryId']);
+        if(isset($inputs['inputPropertyOptions'])){
+            $this->db->where_in('product_property.PropertyOptionId', $inputs['inputPropertyOptions']);
+        }
+        $this->db->group_by("product.ProductId");
+
+	    switch($inputs['inputOrdering']){
+            case 'Newest':
+            case 'Sale':
+                $this->db->order_by('product.ProductId' , 'DESC');
+                break;
+            case 'View':
+                $this->db->order_by('product.ProductViewCount' , 'DESC');
+                break;
+            case 'ASC':
+                $this->db->order_by('product_price.PriceValue' , 'ASC');
+                break;
+            case 'DESC':
+                $this->db->order_by('product_price.PriceValue' , 'DESC');
+                break;
+        }
+        $tempDb = clone $this->db;
+        $data['numRows'] = $tempDb->get()->num_rows();
+        $this->db->limit($end, $start);
+        $query = $this->db->get()->result_array();
+
+        for ($i = 0; $i < sizeof($query); $i++) {
+            $query[$i]['price'] = $this->getProductPriceProductId($query[$i]['ProductId']);
+        }
         if (count($query) > 0) {
             $data['data'] = $query;
             return $data;
@@ -260,8 +314,15 @@ class ModelProduct extends CI_Model
             $data['data'] = false;
             return $data;
         }
-    }
 
+
+
+
+
+
+
+
+    }
     public function autoSuggestProduct($inputs)
     {
         $this->db->select('product.ProductId , product.ProductTitle , product.ProductPrimaryImage , product_category.CategoryTitle ,product_category.CategoryId');
@@ -288,7 +349,6 @@ class ModelProduct extends CI_Model
         return $originalArray;
 
     }
-
     protected function isSetValue($value)
     {
         if (isset($value) && $value != "" && !empty($value)) {
@@ -297,5 +357,4 @@ class ModelProduct extends CI_Model
         return false;
     }
 }
-
 ?>

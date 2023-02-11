@@ -1,5 +1,11 @@
 <script type="text/javascript">
     $(document).ready(function () {
+
+        $.fn.selectpicker.Constructor.BootstrapVersion = '3';
+        $('select').each(function(){
+            $(this).selectpicker();
+        });
+
         $("#changeAllPrice").click(function () {
             toggleLoader();
             $inputCost = $("#AllPrice").find('[name="cost"]').val();
@@ -153,6 +159,38 @@
             $.ajax({
                 type: 'post',
                 url: base_url + 'PriceChange/doChangeCategorySizePrice',
+                data: $sendData,
+                success: function (data) {
+                    toggleLoader();
+                    $result = jQuery.parseJSON(data);
+                    notify($result['content'], $result['type']);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    notify($result['content'], $result['type']);
+                    toggleLoader();
+                }
+            });
+        });
+
+        $("#changeCategoryMaterialSizePrice").click(function () {
+            toggleLoader();
+            $inputCost = $("#CategoryMaterialSizePrice").find('[name="cost"]').val();
+            $inputCostType = $("#CategoryMaterialSizePrice").find('[name="cost-type"]').val();
+            $inputCostIncDec = $("#CategoryMaterialSizePrice").find('[name="cost-inc-dec"]').val();
+            $inputCostSizeId = $("#CategoryMaterialSizePrice").find('[name="size"]').val();
+            $inputCostMaterialId = $("#CategoryMaterialSizePrice").find('[name="material"]').val();
+            $inputCostCategoryId = $("#CategoryMaterialSizePrice").find('[name="category"]').val();
+            $sendData = {
+                'inputCost': $inputCost,
+                'inputCostType': $inputCostType,
+                'inputCostIncDec': $inputCostIncDec,
+                'inputCostSizeId': $inputCostSizeId,
+                'inputCostMaterialId': $inputCostMaterialId,
+                'inputCostCategoryId': $inputCostCategoryId,
+            }
+            $.ajax({
+                type: 'post',
+                url: base_url + 'PriceChange/doChangeCategoryMaterialSizePrice',
                 data: $sendData,
                 success: function (data) {
                     toggleLoader();

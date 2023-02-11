@@ -1,42 +1,17 @@
 <?php $_URL = base_url();
 $_DIR = base_url('assets/ui/'); ?>
-
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/product-detail.css"/>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/main.css"/>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/cropper.css"/>
-
-
 <div id="main" style="min-height: 100vh;">
     <div class="row">
         <div class="container first-container-m-b">
             <div class="col-md-12 col-xs-12 padding-0">
                 <div class="col-md-12 col-xs-12  padding-0">
-                    <ul class="breadcrumb">
-                        <?php foreach ($productCategories as $row) { ?>
-                            <li>
-                                <a href="<?php echo categoryUrl($row['CategoryId'], $row['CategoryTitle']); ?>">
-                                    <?php echo $row['CategoryTitle']; ?>
-                                </a>
-                            </li>
-                        <?php } ?>
-                        <li class="active">
-                            <?php echo $data['ProductTitle']; ?>
-                        </li>
-                    </ul>
+                    <?php echo $breadCrumb; ?>
                 </div>
                 <div class="col-md-5 col-xs-12 padding-0 rightFloat right-side-border-top">
-<!--                    <div class="col-md-12 col-xs-12 product-detail-text padding-right">-->
-<!--                        <p>ارسال رایگان برای خرید های بیشتر از 90 هزار تومان</p>-->
-<!--                    </div>-->
-                    <div class="col-md-12 col-xs-12 padding-right product-detail-title">
-                        <h1><?php echo $data['ProductTitle']; ?></h1>
-                    </div>
-                    <div class="col-md-12 col-xs-12 product-detail-print padding-right">
-                        <?php echo $data['ProductSubTitle']; ?>
-                    </div>
-                    <div class="col-md-12 col-xs-12 product-detail-print padding-right product-sub-title">
-                        <p><?php echo $data['ProductBrief']; ?></p>
-                    </div>
+                    <?php echo $productTitles; ?>
                     <div class="col-xs-12 padding-0 product-detail-Flax margin-b-10">
                         <div class="col-xs-12 col-md-4 pull-right padding-right-for-pc">
                             <div class="col-xs-12 rightFloat padding-0 product-size">
@@ -56,22 +31,6 @@ $_DIR = base_url('assets/ui/'); ?>
                         <div class="product-size col-xs-12 col-md-4 pull-right padding-right-for-pc">
                             <div class="col-xs-12 rightFloat padding-0 product-size">
                                 <label>
-                                    ارتفاع
-                                    -
-                                    حداکثر
-                                    <?php echo $data['ProductMaxHeight']; ?>
-                                    cm
-                                </label>
-                            </div>
-                            <input id="inputProductHeight"
-                                   class="metrics"
-                                   type="number" value="0" min="0"
-                                   max="<?php echo $data['ProductMaxHeight']; ?>"/>
-                        </div>
-                        <!--                        <span class="pull-right"> &nbsp;&nbsp; &nbsp;&nbsp;</span>-->
-                        <div class="product-size col-xs-12 col-md-4 pull-right padding-right-for-pc">
-                            <div class="col-xs-12 rightFloat padding-0 product-size">
-                                <label>
                                     عرض
                                     -
                                     حداکثر
@@ -81,15 +40,68 @@ $_DIR = base_url('assets/ui/'); ?>
                             </div>
                             <input id="inputProductWidth"
                                    class="metrics"
-                                   type="number" value="0" min="0"
-                                   max="<?php echo $data['ProductMaxWidth']; ?>"/>
+                                   type="number"
+                                   min="0"
+                                   max="<?php echo $data['ProductMaxWidth']; ?>"
+                                   <?php
+                                   if($data['ProductIsFullWidth']){
+	                                   echo ' value ="'.$data['ProductMaxWidth'].'"';
+                                       echo ' readonly = "readonly"';
+                                   }
+                                   else{
+	                                   echo ' value = "0" ';
+                                   }
+                                   ?> />
+                        </div>
+                        <div class="product-size col-xs-12 col-md-4 pull-right padding-right-for-pc">
+                            <div class="col-xs-12 rightFloat padding-0 product-size">
+                                <label>
+                                    ارتفاع
+                                    -
+                                    حداکثر
+                                    <?php echo $data['ProductMaxHeight']; ?>
+                                    cm
+                                </label>
+                            </div>
+                            <input id="inputProductHeight"
+                                   class="metrics"
+                                   type="number"
+                                   min="0"
+                                   max="<?php echo $data['ProductMaxHeight']; ?>"
+                                    <?php
+                                    if($data['ProductIsFullHeight']){
+                                        echo ' value ="'.$data['ProductMaxHeight'].'"';
+                                        echo ' readonly = "readonly"';
+                                    }
+                                    else{
+                                        echo ' value = "0" ';
+                                    }
+                                    ?> />
+                        </div>
+                        <div class="col-xs-12 rightFloat right-side-border-top z-p">
+                            <h4>خدمات:</h4>
+                            <?php
+                            foreach ($services as $item){ ?>
+                                <div class="col-md-4 col-xs-12 pull-right product-detail-Flax margin-b-10">
+                                    <div class="col-xs-12 rightFloat product-size padding-0">
+                                        <label><?php echo $item['ServiceTitle']; ?></label>
+                                    </div>
+                                    <div class="col-xs-12  padding-0">
+                                        <select class="width100" name="inputProductServices" data-service-id="<?php echo $item['ServiceId']; ?>">
+                                            <option value="">-- انتخاب کنید --</option>
+                                            <?php foreach ($item['items']['data'] as $option) { ?>
+                                                <option value="<?php echo $option['ServiceItemId']; ?>"
+                                                        data-service-item-price="<?php echo $option['ServiceItemPrice']; ?>">
+                                                    <?php echo $option['ServiceItemTitle']; ?>
+                                                </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
-
-
-
                     <div class="col-md-12 col-xs-12"></div>
-
                     <div class="col-md-12 col-xs-12 padding-0 product-detail-pn">
                         <div class="col-md-6 col-xs-12 rightFloat product-detail-price">
                             <p>قیمت کل :</p>
@@ -98,7 +110,6 @@ $_DIR = base_url('assets/ui/'); ?>
                         </div>
                     </div>
                     <div class="col-md-12 col-xs-12 padding-0 shopping-add-basket">
-
                         <div class="col-md-5 col-xs-12 rightFloat padding-0 basket HoverBtn">
                             <div class="col-md-3 col-xs-2 rightFloat shopping-basket">
                                 <span class="fa fa-shopping-basket"></span>
@@ -134,7 +145,11 @@ $_DIR = base_url('assets/ui/'); ?>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-7 col-xs-12 left-slide-image-div"> 
+                <div class="col-md-7 col-xs-12 left-slide-image-div">
+                    <div class="col-xs-12 slider-active-buttons padding-0">
+                        <span class="fa fa-image carousel"></span>
+                        <span class="fa fa-crop cropper"></span>
+                    </div>
                     <div class="col-md-12 col-xs-12 product-slider" id="carousel-div">
                         <div class="col-md-12 col-sm-12 col-xs-12 padding-0" id="product-slider">
                             <div class="outer">
@@ -165,9 +180,8 @@ $_DIR = base_url('assets/ui/'); ?>
                             </div>
                         </div>
                     </div>
-
                     <!-- for cropper-->
-                    <div class="col-md-12 col-xs-12 product-slider cropper-image">
+                    <div id="cropper-div" class="col-md-12 col-xs-12 product-slider cropper-image">
                         <div class="col-md-12 col-sm-12 col-xs-12 padding-0 height100">
                             <div class="outer height100">
                                 <div id="big" class="height100">
@@ -179,33 +193,33 @@ $_DIR = base_url('assets/ui/'); ?>
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="col-xs-12 col-md-4 padding-0">
-                        <div class="box">
-                            <!-- طرح دلخواه-->
-                            <label class="upload-options btn btn-upload" for="inputImage"
-                                   title="Upload image file">
-                                <input type="file" class="sr-only" id="inputImage" name="file"
-                                       accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">
-                                <span class="docs-tooltip" data-animation="false"
-                                      title="طرح دلخواه">
-                                    آپلود طرح دلخواه
-              <span class="fa fa-upload"></span>
-            </span>
-                            </label>
-                        </div>
-                    </div>
+<!--                    <div class="col-xs-12 col-md-4 padding-0">-->
+<!--                        <div class="box">-->
+<!--                            <label class="upload-options btn btn-upload" for="inputImage"-->
+<!--                                   title="Upload image file">-->
+<!--                                <input type="file" class="sr-only" id="inputImage" name="file"-->
+<!--                                       accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">-->
+<!--                                <span class="docs-tooltip" data-animation="false"-->
+<!--                                      title="طرح دلخواه">-->
+<!--                                    آپلود طرح دلخواه-->
+<!--              <span class="fa fa-upload"></span>-->
+<!--            </span>-->
+<!--                            </label>-->
+<!--                        </div>-->
+<!--                    </div>-->
                 </div>
             </div>
         </div>
-        <div class="col-md-12 col-xs-12 padding-0 second-container-m-b"
-             style="min-height: 300px;background-color: #fff;border-top: 1px solid gray;">
+        <div class="col-md-12 col-xs-12 padding-0 second-container-m-b" style="min-height: 300px;background-color: #fff;border-top: 1px solid gray;">
             <div class="col-md-12 col-xs-12 p-b-15">
                 <div class="container">
                     <div class="col-md-12 col-xs-12">
+                        <div class="col-md-12 col-xs-12 product-description">
+		                    <?php echo $data['ProductDescription']; ?>
+                        </div>
+
                         <div class="col-md-12 col-xs-12">
-                            <h2 class="product-title-h2">مناسب سلیقه ی شما :</h2>
+                            <h2 class="product-title-h2">محصولات مشابه :</h2>
                         </div>
                         <?php foreach ($relatedProducts as $item) { ?>
                             <div class="col-md-3 col-xs-12 one-product-detail">
@@ -236,9 +250,6 @@ $_DIR = base_url('assets/ui/'); ?>
             </div>
         </div>
     </div>
-
 </div>
-
-
 <script src="<?php echo $_DIR; ?>js/cropper.js"></script>
 <script src="<?php echo $_DIR; ?>js/jquery-cropper.js"></script>

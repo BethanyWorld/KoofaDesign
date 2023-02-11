@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 $config['base_url'] = 'http://localhost:8080/KoofaDesign/';
-//$config['base_url'] = 'http://koofadesign.ir/';
+//$config['base_url'] = 'http://koofaart.ir/';
 $config['index_page'] = '';
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['url_suffix'] = '';

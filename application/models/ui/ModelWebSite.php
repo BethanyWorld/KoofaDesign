@@ -1,6 +1,4 @@
 <?php
-
-
 /* this model is used for all minimal site sections  */
 class ModelWebSite extends CI_Model{
     public function getAllSlides($inputs){
@@ -100,6 +98,109 @@ class ModelWebSite extends CI_Model{
         $arr = array(
             'type' => "green",
             'content' => "حذف اسلاید محصول با موفقیت انجام شد",
+            'success' => true
+        );
+        return $arr;
+    }
+
+
+    public function getAllPlans($inputs){
+        $limit = $inputs['pageIndex'];
+        $start = ($limit - 1) * $this->config->item('defaultPageSize');
+        $end = $this->config->item('defaultPageSize');
+        $this->db->select('*');
+        $this->db->from('plans');
+        $this->db->order_by('PlanId', 'ASC');
+
+        $tempDb = clone $this->db;
+        $result['count'] = $tempDb->get()->num_rows();
+
+        $this->db->limit($end, $start);
+        $query = $this->db->get()->result_array();
+        if (count($query) > 0) {
+            $result['data'] = $query;
+            $result['startPage'] = $start;
+        } else {
+            $result['data'] = false;
+        }
+        return $result;
+    }
+    public function getAllPlansWithoutPagination(){
+        $this->db->select('*');
+        $this->db->from('plans');
+        $this->db->order_by('PlanId', 'ASC');
+        return $this->db->get()->result_array();
+    }
+    public function getPlanByPlanId($id){
+        $this->db->select('*');
+        $this->db->from('plans');
+        $this->db->where('PlanId', $id);
+        $query = $this->db->get()->result_array();
+        $result['data'] = $query;
+        return $result;
+    }
+
+    public function doAddPlan($inputs){
+
+        $Array = array(
+            'PlanTitle' => $inputs['inputPlanTitle'],
+            'PlanImage' => $inputs['inputPlanImage'],
+            'PlanUrl' => $inputs['inputPlanUrl']
+        );
+        $this->db->trans_start();
+        $this->db->insert('plans', $Array);
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            $arr = array(
+                'type' => "red",
+                'content' => "افزودن پلن محصول ناموفق بود",
+                'success' => false
+            );
+            return $arr;
+        } else {
+            $arr = array(
+                'type' => "green",
+                'content' => "افزودن پلن محصول با موفقیت انجام شد",
+                'success' => true
+            );
+            return $arr;
+        }
+    }
+    public function doEditPlan($inputs)
+    {
+        $Array = array(
+            'PlanTitle' => $inputs['inputPlanTitle'],
+            'PlanImage' => $inputs['inputPlanImage'],
+            'PlanUrl' => $inputs['inputPlanUrl']
+        );
+        $this->db->trans_start();
+        $this->db->where('PlanId', $inputs['inputPlanId']);
+        $this->db->update('plans', $Array);
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            $arr = array(
+                'type' => "red",
+                'content' => "بروزرسانی پلن محصول ناموفق بود",
+                'success' => false
+            );
+            return $arr;
+        } else {
+            $arr = array(
+                'type' => "green",
+                'content' => "بروزرسانی پلن محصول با موفقیت انجام شد",
+                'success' => true
+            );
+            return $arr;
+        }
+    }
+    public function doDeletePlan($inputs)
+    {
+        $this->db->delete('plans', array(
+            'PlanId' => $inputs['inputPlanId']
+        ));
+        $arr = array(
+            'type' => "green",
+            'content' => "حذف پلن محصول با موفقیت انجام شد",
             'success' => true
         );
         return $arr;

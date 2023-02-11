@@ -59,58 +59,5 @@
                 </div>
             </div>
         </div>
-        <!-- #END# Widgets -->
-        <div class="row clearfix rtl">
-            <!-- Task Info -->
-            <div class="col-xs-12">
-                <div class="card">
-                    <table class="table table-hover dashboard-task-infos">
-                        <thead>
-                        <tr>
-                            <th class="fit">#</th>
-                            <th class="fit">شناسه سفارش</th>
-                            <th class="fit">وضعیت</th>
-                            <th class="fit">مبلغ کل</th>
-                            <th class="fit">تاریخ ثبت</th>
-                            <th>سفارش دهنده</th>
-                            <th class="fit">تلفن</th>
-                            <th class="fit">جزئیات</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php if(empty($latestOrders)){ ?>
-                            <tr>
-                                <td colspan="8">
-                                    موردی یافت نشد
-                                </td>
-                            </tr>
-                        <?php } ?>
-                        <?php
-                        $count = 0;
-                        foreach ($latestOrders as $latestOrder) { $count +=1; ?>
-                            <tr>
-                                <td class="fit"><?php echo $count; ?></td>
-                                <td class="fit"><?php echo $latestOrder['OrderId']; ?></td>
-                                <td class="fit"><?php echo orderStatusPipe($latestOrder['OrderStatus']); ?></td>
-                                <td class="fit"><?php echo number_format($latestOrder['OrderTotalPrice']); ?></td>
-                                <td class="fit"><?php echo $latestOrder['OrderDateTime']; ?></td>
-                                <td><?php echo $latestOrder['UserFirstName']." ".$latestOrder['UserLastName']; ?></td>
-                                <td class="fit"><?php echo $latestOrder['UserPhone']; ?></td>
-                                <td class="fit">
-                                    <a href="<?php echo base_url('Admin/Dashboard/Orders/detail/') . $latestOrder['OrderId']; ?>">
-                                        <button type="button"
-                                                class="btn btn-success btn-circle waves-effect waves-circle waves-float">
-                                            <i class="material-icons">edit</i>
-                                        </button>
-                                    </a>
-                                </td>
-                            </tr>
-                        <?php } ?>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <!-- #END# Task Info -->
-        </div>
     </div>
 </section>

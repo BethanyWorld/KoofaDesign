@@ -11,6 +11,14 @@ foreach ($data as $item) { ?>
         </td>
         <td class="fit ltr"><?php echo $item['CreateDateTime']; ?></td>
         <td class="fit">
+            <a href="<?php echo base_url('Admin/Dashboard/Category/property/').$item['CategoryId']; ?>">
+                <button type="button"
+                        class="btn btn-success btn-circle waves-effect waves-circle waves-float">
+                    <i class="material-icons">extension</i>
+                </button>
+            </a>
+        </td>
+        <td class="fit">
             <a href="<?php echo base_url('Admin/Dashboard/Category/Edit/').$item['CategoryId']; ?>">
                 <button type="button"
                         class="btn btn-warning btn-circle waves-effect waves-circle waves-float">

@@ -6,7 +6,7 @@
 CKEDITOR.editorConfig = function( config ) {
 	// Define changes to default configuration here. For example:
 	 config.language = 'fa';
-    config.filebrowserBrowseUrl = 'http://localhost:8080/KoofaDesign/media/responsivefilemanager/filemanager/dialog.php?type=1&editor=ckeditor&akey=gWgMQVkXcjpKgkcr&fldr=';
+    config.filebrowserBrowseUrl = 'http://koofadesign.ir/media/responsivefilemanager/filemanager/dialog.php?type=1&editor=ckeditor&akey=gWgMQVkXcjpKgkcr&fldr=';
     // config.uiColor = '#AADC6E';
 };
 
@@ -14,7 +14,7 @@ $(document).on('click',".fileManagerHandler" , function(e){
     e.preventDefault();
     $inputId = $(this).attr('data-target-id');
     $url = "";
-    /*$url += "http://koofadesign.ir/";*/
+    /*$url += "http://koofaart.ir/";*/
     $url += "http://localhost:8080/KoofaDesign/";
     $url += 'media/responsivefilemanager/filemanager/dialog.php?type=2&field_id=";' +$inputId +'&akey=gWgMQVkXcjpKgkcr&fldr=';
     $(".fileManagerFrame").attr('src' , $url);

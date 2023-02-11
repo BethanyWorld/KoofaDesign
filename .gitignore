@@ -5,6 +5,17 @@
 !*/cache/index.html
 !*/cache/.htaccess
 
+*/OLD/*
+OLD/*
+
+*/content/*
+content/*
+
+*/media/*
+media/*
+*/uploads/*
+uploads/*
+
 user_guide_src/build/*
 user_guide_src/cilexer/build/*
 user_guide_src/cilexer/dist/*
@@ -17,3 +28,8 @@ application/logs/*
 /vendor/
 .idea/workspace.xml
 .idea/workspace.xml
+*/uploads/*
+*/media/*
+/uploads/
+/media/
+

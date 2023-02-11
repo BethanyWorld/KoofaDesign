@@ -5,6 +5,9 @@
             $inputCategoryTitle = $.trim($("#inputCategoryTitle").val());
             $inputCategoryParentId = $.trim($("#inputCategoryParentId").val());
             $inputCategoryImage = $.trim($("#inputCategoryImage").val());
+            $inputCategoryPoster = $.trim($("#inputCategoryPoster").val());
+            $inputCategoryDescription = $.trim($("#inputCategoryDescription").val());
+            $inputCategoryDeliveryTime = $.trim($("#inputCategoryDeliveryTime").val());
 
             /* Validation */
             if (!isNumber($inputCategoryParentId)) {
@@ -15,7 +18,10 @@
             $sendData = {
                 'inputCategoryTitle': $inputCategoryTitle,
                 'inputCategoryParentId': $inputCategoryParentId,
-                'inputCategoryImage': $inputCategoryImage
+                'inputCategoryImage': $inputCategoryImage,
+                'inputCategoryPoster': $inputCategoryPoster,
+                'inputCategoryDescription': $inputCategoryDescription,
+                'inputCategoryDeliveryTime': $inputCategoryDeliveryTime
             }
             toggleLoader();
             $.ajax({

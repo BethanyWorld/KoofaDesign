@@ -19,7 +19,7 @@
             $inputProductCategory = $("[name=inputProductCategory]:checked").map(function () {
                 return $(this).val();
             }).get();
-            /*$inputProductCategoryProperty = [];
+            $inputProductCategoryProperty = [];
             $("[name=inputProductCategoryProperty]").each(function () {
                 $propertyId = $(this).data('id');
                 $propertyOptionId = $(this).val();
@@ -27,7 +27,7 @@
                     'propertyId': $propertyId,
                     'propertyOptionId': $propertyOptionId
                 });
-            });*/
+            });
 
             if ($("[name='inputProductHasInstallation']").is(':checked')){
                 $inputProductHasInstallation = true;
@@ -51,6 +51,10 @@
                 $inputProductPrice.push( $(this).val());
             });
 
+            if($inputProductPrice.length === 1 ){
+                notify('لطفا قیمت را کامل کنید' , 'red');
+                return false;
+            }
 
             if (isEmpty($inputProductTitle) ||
                 isEmpty($inputProductType) || isEmpty(inputProductPrice) ||
@@ -70,6 +74,7 @@
                     'inputProductMockUpImage': $inputProductMockUpImage,
                     'inputProductSecondaryImage': $inputProductSecondaryImage,
                     'inputProductCategory': $inputProductCategory,
+                    'inputProductCategoryProperty': $inputProductCategoryProperty,
                     'inputProductMaterial': $inputProductMaterial,
                     'inputProductSize': $inputProductSize,
                     'inputProductPrice': $inputProductPrice,
@@ -86,12 +91,11 @@
                         toggleLoader();
                         $result = jQuery.parseJSON(data);
                         notify($result['content'], $result['type']);
-                        reloadPage(1000);
+                        //reloadPage(1000);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         notify($result['content'], $result['type']);
                         toggleLoader();
-                        reloadPage(1000);
                     }
                 });
             }
@@ -131,7 +135,7 @@
                 error: function (jqXHR, textStatus, errorThrown) {
                     notify($result['content'], $result['type']);
                     toggleLoader();
-                    reloadPage(1000);
+                    //reloadPage(1000);
                 }
             })
             ;
@@ -156,6 +160,5 @@
         $(document).on('click', '.remove-price', function () {
             $("#" + $(this).data('remove-id')).remove();
         });
-
     });
 </script>

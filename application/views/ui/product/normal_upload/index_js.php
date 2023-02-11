@@ -137,6 +137,7 @@
                     $result = jQuery.parseJSON(data);
                     if ($result['success']) {
                         $src = $result['fileSrc'];
+                        $inputServices = [];
                         $.ajax({
                             type: 'post',
                             url: base_url + 'Cart/addNormalUpload',

@@ -5,7 +5,7 @@ $_DIR = base_url('assets/ui/'); ?>
     <div class="row">
         <div class="container z-p">
             <!-- BreadCrumbs -->
-            <div class="col-md-12 col-xs-12"  style="padding: 0px 8px;">
+            <div class="col-md-12 col-xs-12" style="padding: 0px 8px;">
                 <ul class="breadcrumb">
                     <li>
                         <a href="<?php echo categoryUrl($breadCrumb['root']['CategoryId'], $breadCrumb['root']['CategoryTitle']); ?>">
@@ -51,90 +51,39 @@ $_DIR = base_url('assets/ui/'); ?>
                 <div class="col-xs-12 Ordering-main-div">
                     <label for="inputOrderingProductPrice">مرتب سازی بر اساس :</label>
                     <select name="inputOrderingProductPrice" id="inputOrderingProductPrice">
-                        <option value="ASC" selected>قیمت از کم به زیاد</option>
+                        <option value="" selected>-- انتخاب کنید --</option>
+                        <option value="ASC">قیمت از کم به زیاد</option>
                         <option value="DESC">قیمت از زیاد به کم</option>
                     </select>
                 </div>
             </div>
-
-            <div class="col-md-12 col-xs-12 z-p padding-t-15 hidden">
-                <div class="col-md-12 col-xs-12 grouping-filtering-main-div">
-                    <div class="multiselect">
-                        <div class="selectBox">
-                            <select class="ttt">
-                                <option> گروه محصول</option>
-                            </select>
-                            <select class="ttt">
-                                <option>مناسب برای</option>
-                            </select>
-                            <select class="ttt">
-                                <option>جنس</option>
-                            </select>
+            <?php if (isset($properties) && is_array($properties)) { ?>
+                <div class="col-md-3 col-xs-12 pull-right filter-products">
+                    <?php foreach ($properties as $property) { ?>
+                        <div class="filter-item">
+                            <h4 data-property-id="<?php echo $property['PropertyId']; ?>"><?php echo $property['PropertyTitle']; ?></h4>
+                            <ul>
+                                <?php foreach ($property['properties'] as $item) { ?>
+                                    <li>
+                                        <input class="styled-checkbox property-option"
+                                               data-property-id="<?php echo $item['CategoryPropertyOptionId']; ?>"
+                                               id="property-<?php echo $item['CategoryPropertyOptionId']; ?>"
+                                               type="checkbox" value="<?php echo $item['CategoryPropertyOptionId']; ?>">
+                                        <label for="property-<?php echo $item['CategoryPropertyOptionId']; ?>">
+                                            <?php echo $item['CategoryPropertyOptionTitle']; ?>
+                                        </label>
+                                    </li>
+                                <?php } ?>
+                            </ul>
                         </div>
-                        <div class="checkboxes">
-                            <label class="checkbox-container">1
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="checkbox-container">1-1
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="checkbox-container">1-1-1
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="checkbox-container">1-1-1-1
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="checkboxes">
-                            <label class="checkbox-container">2
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="checkbox-container">2-2
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="checkbox-container">2-2-2
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="checkbox-container">2-2-2-2
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                        <div class="checkboxes">
-                            <label class="checkbox-container">2
-                                <input type="checkbox" checked="checked">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="checkbox-container">3-2
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="checkbox-container">2-2-2
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                            <label class="checkbox-container">2-2-2-2
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                            </label>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
-            </div>
+            <?php } ?>
 
-
-            <div class="col-md-12 col-xs-12 z-p">
+            <div class="col-md-9 col-xs-12 z-p">
                 <div class="col-md-12 col-xs-12 grouping-ul-style" id="product-container">
                 </div>
             </div>
-
             <div class="col-md-12 col-xs-12 z-p pagination">
                 <nav style="direction: ltr" id="pagination"
                      class="pagination-list text-center Page navigation"></nav>

@@ -17,8 +17,7 @@
                 '<i class="fa fa-angle-left" aria-hidden="true"></i>',
                 '<i class="fa fa-angle-right" aria-hidden="true"></i>'
             ]
-        })
-            .on("changed.owl.carousel", syncPosition);
+        }).on("changed.owl.carousel", syncPosition);
         thumbs.on("initialized.owl.carousel", function () {
             thumbs.find(".owl-item").eq(0).addClass("current");
         })
@@ -93,8 +92,13 @@
             if (Math.ceil(($width / 100)) != ($width / 100)) {
                 $width = Math.ceil(($width / 100)) * 100;
             }
-            $html = "<p>" + ($price * $width * $height) + " تومان </p>";
-            $mainPrice = $price;
+            $mainPrice = ($price * $width * $height);
+            $("[name='inputProductServices']").each(function(){
+                if($(this).val() !== ""){
+                    $mainPrice += $(this).find('option:selected').data('service-item-price');
+                }
+            });
+            $html = "<p>" + $mainPrice + " تومان </p>";
             $('.product-detail-number').hide().fadeIn().html($html);
         }
         var URL = window.URL || window.webkitURL;
@@ -188,7 +192,6 @@
         else {
             $inputImage.prop('disabled', true).parent().addClass('disabled');
         }
-
         $(".metrics").on('input', function () {
             if ($(this).val() > parseInt($(this).attr('max'))) {
                 $(this).val(parseInt($(this).attr('max')));
@@ -252,15 +255,6 @@
                                 width: $tempWidth,
                                 height: $imageHeight
                             });
-                            console.log("======================================");
-                            console.log("$x > $y");
-                            console.log("$maxWidth",$maxWidth);
-                            console.log("$maxHeight",$maxHeight);
-                            console.log("$width",$width);
-                            console.log("$height",$height);
-                            console.log("$imageHeight",$imageHeight);
-                            console.log("$imageWidth",$imageWidth);
-                            console.log("======================================");
                         }
                         if($y > $x){
                             $tempHeight = ($maxWidth / $width) * $height;
@@ -272,75 +266,11 @@
                                 width: $imageWidth,
                                 height: $tempHeight
                             });
-                            console.log("======================================");
-                            console.log("$y > $x");
-                            console.log("$maxWidth",$maxWidth);
-                            console.log("$maxHeight",$maxHeight);
-                            console.log("$width",$width);
-                            console.log("$height",$height);
-                            console.log("$imageHeight",$imageHeight);
-                            console.log("$imageWidth",$imageWidth);
-                            console.log("======================================");
                         }
-                        if($x === $y){
-
-                        }
+                        if($x === $y){}
                         break;
                 }
-
-
-                /*$percentageOfMaxWidth = (100 * $width) / $maxWidth;
-                $percentageOfMaxHeight = (100 * $height) / $maxHeight;
-                $integerOfMaxWidth = ($percentageOfMaxWidth * $imageWidth) / 100;
-                $integerOfMaxHeight = ($percentageOfMaxHeight * $imageHeight) / 100;
-                console.log("===================================================================");
-                console.log("===================================================================");
-                console.log("Width - Height:" + $width + " x " + $height);
-                console.log("Percentage Width - Height:" + $percentageOfMaxWidth + " x " + $percentageOfMaxHeight);
-                console.log("Integer Width - Height:" + $integerOfMaxWidth + " x " + $integerOfMaxHeight);
-                console.log("===================================================================");
-                console.log("===================================================================");
-                if(parseInt($width) > parseInt($height)){
-                    $tempHeight = ($maxWidth / $width) * $height;
-                    $percentageOfMaxHeigh = (100 * $tempHeight) / $maxHeight;
-                    $tempHeight = ($percentageOfMaxHeigh * $imageHeight) / 100;
-                    console.log($tempHeight);
-                    console.log($percentageOfMaxHeigh);
-                    cropper.setCropBoxData({
-                        left: 0,
-                        top: 0,
-                        width: $imageWidth,
-                        height: $tempHeight
-                    });
-                }
-                else if(parseInt($height) > parseInt($width)){
-                    cropper.setCropBoxData({
-                        left: 0,
-                        top: 0,
-                        width: $integerOfMaxWidth,
-                        height: $imageHeight
-                    });
-                }
-                if(parseInt($width) === parseInt($height)){
-                    if(parseInt($imageWidth) < parseInt($imageHeight)){
-                        cropper.setCropBoxData({
-                            left: 0,
-                            top: 0,
-                            width: $imageWidth,
-                            height: parseInt($height)
-                        });
-                    }
-                    else{
-                        cropper.setCropBoxData({
-                            left: 0,
-                            top: 0,
-                            width: parseInt($width),
-                            height: $imageHeight
-                        });
-                    }
-                }*/
             }
-
             $price = parseInt($("#priceDropDown").find(":selected").data('price'));
             $html = "<p>" + ($price * $width * $height) + " تومان </p>";
             $mainPrice = $price;
@@ -348,7 +278,6 @@
 
         });
         setPrice();
-
         /**/
         $("#addToCart").click(function () {
             $id = $(this).data('product-id');
@@ -368,6 +297,10 @@
                     success: function (data) {
                         $result = jQuery.parseJSON(data);
                         if ($result['success']) {
+                            $inputServices = [];
+                            $("[name='inputProductServices']").each(function(){
+                                $inputServices.push($(this).val());
+                            });
                             $inputMaterialId = $("#priceDropDown option:selected").data('material-id');
                             $.ajax({
                                 type: 'post',
@@ -377,7 +310,8 @@
                                     'inputMaterialId': $inputMaterialId,
                                     'inputProductWidth': $("#inputProductWidth").val(),
                                     'inputProductUploadImage': $result['fileSrc'],
-                                    'inputProductHeight': $("#inputProductHeight").val()
+                                    'inputProductHeight': $("#inputProductHeight").val(),
+                                    'inputServices': JSON.stringify($inputServices)
                                 },
                                 success: function () {
                                     location.href = base_url + 'Cart'
@@ -417,6 +351,23 @@
                 }
             });
         });
-    })
-    ;
+
+        $(".slider-active-buttons span.carousel").click(function(){
+            $(".slider-active-buttons span").removeClass('active');
+            $(this).addClass('active');
+            $("#carousel-div").fadeIn();
+            $("#cropper-div").hide();
+        });
+        $(".slider-active-buttons span.cropper").click(function(){
+            $(".slider-active-buttons span").removeClass('active');
+            $(this).addClass('active');
+            $("#carousel-div").hide();
+            $("#cropper-div").fadeIn();
+        });
+        $(".slider-active-buttons span.cropper").click();
+
+        $("[name='inputProductServices']").change(function () {
+            setPrice();
+        });
+    });
 </script>

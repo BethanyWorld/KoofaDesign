@@ -1,5 +1,4 @@
 <?php
-
 class ModelProduct extends CI_Model{
     /*For Product*/
     public function getProductByPagination($inputs){
@@ -8,8 +7,10 @@ class ModelProduct extends CI_Model{
         $end = $this->config->item('defaultPageSize');
         $this->db->select('*');
         $this->db->from('product');
+        $this->db->join('product_category_relation' , 'product.ProductId = product_category_relation.ProductId');
         if($inputs['inputProductTitle'] != ''){
             $this->db->like('ProductTitle',$inputs['inputProductTitle']);
+            $this->db->or_like('ProductSubTitle',$inputs['inputProductTitle']);
         }
         if($inputs['inputProductType'] != ''){
             if($inputs['inputProductType'] == 'ProductSpecial'){
@@ -19,7 +20,11 @@ class ModelProduct extends CI_Model{
                 $this->db->where('ProductType',$inputs['inputProductType']);
             }
         }
-        $this->db->order_by('ProductId', 'DESC');
+        if($inputs['inputProductCategoryId'] != ''){
+            $this->db->where('CategoryId',$inputs['inputProductCategoryId']);
+        }
+        $this->db->order_by('product.ProductId', 'DESC');
+        $this->db->group_by('product.ProductId');
         $tempDb = clone $this->db;
         $result['count'] = $tempDb->get()->num_rows();
         $this->db->limit($end,$start);
@@ -87,7 +92,9 @@ class ModelProduct extends CI_Model{
     public function getProductPropertyByProductId($productId){
         $this->db->select('*');
         $this->db->from('product_property');
-         $this->db->where('ProductId', $productId);
+        $this->db->join('product_category_property', 'product_property.PropertyId = product_category_property.PropertyId');
+        $this->db->join('product_category_property_options', 'product_category_property.PropertyId = product_category_property_options.CategoryPropertyId');
+        $this->db->where('ProductId', $productId);
         $query = $this->db->get()->result_array();
         $result['data'] = $query;
         return $result;
@@ -115,7 +122,6 @@ class ModelProduct extends CI_Model{
         $this->db->where('ProductId', $productId);
         return $this->db->get()->result_array();
     }
-
     public function getProductByFilter($inputs){
         $this->db->select('*');
         $this->db->from('product');
@@ -133,6 +139,7 @@ class ModelProduct extends CI_Model{
     public function doAddNormalProduct($inputs)
     {
         $ProductIsSpecial = 0;
+        $inputProductSpecialVirtualMaxPrice = 0;
         $ProductSpecialEndDate = NULL;
         if($inputs['inputProductIsSpecial'] == 'true'){
             $ProductIsSpecial = 1;
@@ -192,14 +199,17 @@ class ModelProduct extends CI_Model{
             );
             $this->db->insert('product_category_relation', $Array);
         }
-        /*foreach ($inputs['inputProductCategoryProperty'] as $input) {
-            $Array = array(
-                'PropertyId' => $input['propertyId'],
-                'PropertyOptionId' => $input['propertyOptionId'],
-                'ProductId' => $insertId,
-            );
-            $this->db->insert('product_property', $Array);
-        }*/
+
+        if(isset($inputs['inputProductCategoryProperty'])) {
+            foreach ($inputs['inputProductCategoryProperty'] as $input) {
+                $Array = array(
+                    'PropertyId' => $input['propertyId'],
+                    'PropertyOptionId' => $input['propertyOptionId'],
+                    'ProductId' => $insertId,
+                );
+                $this->db->insert('product_property', $Array);
+            }
+        }
         $this->db->trans_complete();
         if ($this->db->trans_status() === FALSE) {
             $arr = array(
@@ -211,7 +221,7 @@ class ModelProduct extends CI_Model{
         } else {
             $arr = array(
                 'type' => "green",
-                'content' => "افزودن محصول با موفقیت انجام شد",
+                'content' => "افزودن محصول با موفقیت انجام شد.جهت درج محصول جدید اطلاعات همین صفحه را ویرایش کرده و  ذخیره کنید",
                 'success' => true
             );
             return $arr;
@@ -297,7 +307,7 @@ class ModelProduct extends CI_Model{
             }
         }
 
-        /*$this->db->delete('product_property', array(
+        $this->db->delete('product_property', array(
             'ProductId' => $inputs['inputProductId']
         ));
         if(isset($inputs['inputProductCategoryProperty'])) {
@@ -309,7 +319,7 @@ class ModelProduct extends CI_Model{
                 );
                 $this->db->insert('product_property', $Array);
             }
-        }*/
+        }
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === FALSE) {
@@ -392,14 +402,16 @@ class ModelProduct extends CI_Model{
             );
             $this->db->insert('product_category_relation', $Array);
         }
-        /*foreach ($inputs['inputProductCategoryProperty'] as $input) {
-            $Array = array(
-                'PropertyId' => $input['propertyId'],
-                'PropertyOptionId' => $input['propertyOptionId'],
-                'ProductId' => $insertId,
-            );
-            $this->db->insert('product_property', $Array);
-        }*/
+        if(isset($inputs['inputProductCategoryProperty'])) {
+            foreach ($inputs['inputProductCategoryProperty'] as $input) {
+                $Array = array(
+                    'PropertyId' => $input['propertyId'],
+                    'PropertyOptionId' => $input['propertyOptionId'],
+                    'ProductId' => $insertId,
+                );
+                $this->db->insert('product_property', $Array);
+            }
+        }
         $this->db->trans_complete();
         if ($this->db->trans_status() === FALSE) {
             $arr = array(
@@ -412,7 +424,7 @@ class ModelProduct extends CI_Model{
         else {
             $arr = array(
                 'type' => "green",
-                'content' => "افزودن محصول با موفقیت انجام شد",
+                'content' => "افزودن محصول با موفقیت انجام شد.جهت درج محصول جدید اطلاعات همین صفحه را ویرایش کرده و  ذخیره کنید",
                 'success' => true
             );
             return $arr;
@@ -503,7 +515,7 @@ class ModelProduct extends CI_Model{
             }
         }
 
-        /*$this->db->delete('product_property', array(
+        $this->db->delete('product_property', array(
             'ProductId' => $inputs['inputProductId']
         ));
         if(isset($inputs['inputProductCategoryProperty'])) {
@@ -515,7 +527,7 @@ class ModelProduct extends CI_Model{
                 );
                 $this->db->insert('product_property', $Array);
             }
-        }*/
+        }
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === FALSE) {
@@ -555,6 +567,8 @@ class ModelProduct extends CI_Model{
             'ProductMaxWidth' => $inputs['inputProductMaxWidth'],
             'ProductHasInstallation' => $installation,
             'ProductInstallationPrice' => $installationPrice,
+            'ProductIsFullWidth' => $inputs['inputProductIsFullWidth'],
+            'ProductIsFullHeight' => $inputs['inputProductIsFullHeight'],
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
             'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
             'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
@@ -601,14 +615,18 @@ class ModelProduct extends CI_Model{
             );
             $this->db->insert('product_category_relation', $Array);
         }
-        /*foreach ($inputs['inputProductCategoryProperty'] as $input) {
-            $Array = array(
-                'PropertyId' => $input['propertyId'],
-                'PropertyOptionId' => $input['propertyOptionId'],
-                'ProductId' => $insertId,
-            );
-            $this->db->insert('product_property', $Array);
-        }*/
+
+
+        if(isset($inputs['inputProductCategoryProperty'])) {
+            foreach ($inputs['inputProductCategoryProperty'] as $input) {
+                $Array = array(
+                    'PropertyId' => $input['propertyId'],
+                    'PropertyOptionId' => $input['propertyOptionId'],
+                    'ProductId' => $insertId,
+                );
+                $this->db->insert('product_property', $Array);
+            }
+        }
         $this->db->trans_complete();
         if ($this->db->trans_status() === FALSE) {
             $arr = array(
@@ -621,7 +639,7 @@ class ModelProduct extends CI_Model{
         else {
             $arr = array(
                 'type' => "green",
-                'content' => "افزودن محصول با موفقیت انجام شد",
+                'content' => "افزودن محصول با موفقیت انجام شد.جهت درج محصول جدید اطلاعات همین صفحه را ویرایش کرده و  ذخیره کنید",
                 'success' => true
             );
             return $arr;
@@ -645,6 +663,8 @@ class ModelProduct extends CI_Model{
             'ProductDescription' => $inputs['inputProductDescription'],
             'ProductHasInstallation' => $installation,
             'ProductInstallationPrice' => $installationPrice,
+            'ProductIsFullWidth' => $inputs['inputProductIsFullWidth'],
+            'ProductIsFullHeight' => $inputs['inputProductIsFullHeight'],
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
             'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
             'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
@@ -658,7 +678,6 @@ class ModelProduct extends CI_Model{
         $this->db->delete('product_price', array(
             'ProductId' => $inputs['inputProductId']
         ));
-
         for($i=1;$i<count($inputs['inputProductMaterial']);$i++){
             $Array = array(
                 'MaterialId' => $inputs['inputProductMaterial'][$i],
@@ -667,7 +686,6 @@ class ModelProduct extends CI_Model{
             );
             $this->db->insert('product_price', $Array);
         }
-
 
         $this->db->delete('media', array(
             'MediaType' => 'Product',
@@ -711,7 +729,7 @@ class ModelProduct extends CI_Model{
             }
         }
 
-        /*$this->db->delete('product_property', array(
+       $this->db->delete('product_property', array(
             'ProductId' => $inputs['inputProductId']
         ));
         if(isset($inputs['inputProductCategoryProperty'])) {
@@ -723,7 +741,7 @@ class ModelProduct extends CI_Model{
                 );
                 $this->db->insert('product_property', $Array);
             }
-        }*/
+        }
 
         $this->db->trans_complete();
         if ($this->db->trans_status() === FALSE) {
@@ -769,5 +787,4 @@ class ModelProduct extends CI_Model{
     }
     /*End For Product*/
 }
-
 ?>

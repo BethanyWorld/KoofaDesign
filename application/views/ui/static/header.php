@@ -7,6 +7,7 @@ function get_menu_tree($parent_id){
     $CI->db->select("*");
     $CI->db->from("product_category");
     $CI->db->where("CategoryParentId", $parent_id);
+    $CI->db->where("CategoryIsActive", 1);
     $menuArray = $CI->db->get()->result_array();
     $menu = "";
     foreach ($menuArray as $row) {

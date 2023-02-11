@@ -1,0 +1,115 @@
+/*breadcrumb*/
+.breadcrumb-container{
+    direction: rtl;
+    background: #f9f9f9;
+}
+.breadcrumb-container .breadcrumb{
+    background: #f9f9f9;
+    margin: 15px 0;
+    padding: 0;
+}
+.breadcrumb-container .breadcrumb li{
+    color: #b5b5b5;
+}
+.breadcrumb-container .breadcrumb li a{
+    color: #4abead;
+}
+.breadcrumb-container .breadcrumb li.active{
+}
+/*End breadCrumb*/
+
+/*sortbox*/
+.category-list-box .sort-box{
+    direction: rtl;
+    font-size: 10px;
+    padding: 12px 4px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+
+
+}
+.category-list-box .sort-box strong{
+    float: right;
+}
+.category-list-box .sort-box ul{
+    padding: 0;
+    margin: 0;
+}
+.category-list-box .sort-box ul li{
+    display: inline-block;
+    color: #989898;
+    margin-right: 20px;
+}
+.category-list-box .sort-box ul li.active{
+    color: #fd4a1a;
+}
+/*End sortbox*/
+
+/*product item*/
+.product-item{
+    padding: 10px;
+    margin: 10px 0px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    direction: rtl;
+}
+.product-item:hover{
+    box-shadow: 0px 0px 3px 0px #ccc;
+}
+.product-item .product-image{
+    height: 250px;
+    background-position: center !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    border-radius: 7px;
+}
+.product-item .product-info{
+
+}
+.product-item h4{
+    font-size: 12px;
+    padding: 0 2px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    text-align: right;
+}
+.product-item h4 strong{
+
+}
+.product-item h4 .fa{
+    float: left;
+    color: red;
+    font-size: 16px;
+}
+.product-item .price-begin{
+    display: inline-block;
+    width: 100%;
+    color: #808080;
+    font-size: 10px;
+}
+/* End product item*/
+
+.category-info{
+    direction: rtl;
+    display: inline-block;
+    width: 100%;
+    padding: 10px 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+.category-info h1{
+    font-size: 16px;
+    font-weight: 900;
+    margin: 0;
+    margin-bottom: 10px;
+}
+.category-info p{
+    color: #636363;
+    line-height: 30px;
+    font-size: 10px;
+}
+.product-container{
+    display: inline-block;
+    width: 100%;
+}

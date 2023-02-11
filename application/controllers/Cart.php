@@ -21,6 +21,7 @@ class Cart extends CI_Controller{
         $this->load->model('admin/ModelMaterial');
         $this->load->model('admin/ModelSizes');
         $this->load->model('admin/ModelOrder');
+        $this->load->model('admin/ModelServices');
         $this->load->model('user/ModelUser');
         if ($this->session->userdata('cart') == null) {
             $this->session->set_userdata('cart', array());
@@ -31,11 +32,14 @@ class Cart extends CI_Controller{
     {
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'سبد خرید ';
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/cart/index', $data);
-        $this->load->view('ui/cart/index_css');
-        $this->load->view('ui/cart/index_js');
-        $this->load->view('ui/static/footer');
+        $data['latestProduct'] = $this->ModelProduct->getLatestProduct();
+        $data['allSizes'] = $this->ModelSizes->getAllSizesWithoutPagination();
+        $data['allMaterials'] = $this->ModelMaterial->getAllMaterialsWithoutPagination();
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/cart/index', $data);
+        $this->load->view('ui/v2/cart/index_css');
+        $this->load->view('ui/v2/cart/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
     public function addNormal($productId)
     {
@@ -46,6 +50,7 @@ class Cart extends CI_Controller{
 
         $item['productId'] = $data['ProductId'];
         $item['productTitle'] = $data['ProductTitle'];
+        $item['productSubTitle'] = $data['ProductSubTitle'];
         $item['productPrice'] = $productPrice[0]['PriceValue'];
         $item['productImage'] = $data['ProductMockUpImage'];
         $item['productInstallation'] = false;
@@ -73,6 +78,7 @@ class Cart extends CI_Controller{
 
         $item['productId'] = $data['ProductId'];
         $item['productTitle'] = $data['ProductTitle'];
+        $item['productSubTitle'] = $data['ProductSubTitle'];
         $item['productPrice'] = $productPrice[0]['PriceValue'];
         $item['productImage'] = $data['ProductMockUpImage'];
         $item['productInstallation'] = false;
@@ -95,12 +101,15 @@ class Cart extends CI_Controller{
         $materialId = $data['inputMaterialId'];
         $productHasInstallation = $data['inputProductHasInstallation'];
         $productImage = $data['inputProductUploadImage'];
+        $services = $data['inputServices'];
+        $services = json_decode($services , true);
         $cartItems = $this->session->userdata('cart');
 
         $data = $this->ModelProduct->getProductByProductId($productId)['data'][0];
         $productPrice = $this->ModelProduct->getProductPriceProductId($productId);
         $item['productId'] = $data['ProductId'];
         $item['productTitle'] = $data['ProductTitle'];
+        $item['productSubTitle'] = $data['ProductSubTitle'];
         $item['productPrice'] = 0;
         $item['productInstallation'] = false;
         $item['productWidth'] = 0;
@@ -124,6 +133,13 @@ class Cart extends CI_Controller{
         $item['productType'] = 'DesignFixSize';
 
 
+        foreach ($services as $id) {
+            $si = $this->ModelServices->getServicesItemsByServiceItemId($id);
+            if(!empty($si)){
+                $item['productPrice'] += $si[0]['ServiceItemPrice'];
+            }
+        }
+        $item['productServices'] = json_encode($services);
         array_push($cartItems, $item);
         $this->session->set_userdata('cart', $this->uniqueArray($cartItems, 'productId'));
     }
@@ -135,14 +151,19 @@ class Cart extends CI_Controller{
         $productWidth = $data['inputProductWidth'];
         $productHeight = $data['inputProductHeight'];
         $productImage = $data['inputProductUploadImage'];
+        $services = $data['inputServices'];
+        $services = json_decode($services , true);
         $cartItems = $this->session->userdata('cart');
 
         $data = $this->ModelProduct->getProductByProductId($productId)['data'][0];
         $productPrice = $this->ModelProduct->getProductPriceProductId($productId);
         $item['productId'] = $data['ProductId'];
         $item['productTitle'] = $data['ProductTitle'];
+        $item['productSubTitle'] = $data['ProductSubTitle'];
         $item['productPrice'] = 0;
         $item['productInstallation'] = false;
+        $item['productOldWidth'] = $productWidth;
+        $item['productOldHeight'] = $productHeight;
         $item['productWidth'] = $productWidth;
         $item['productHeight'] = $productHeight;
         $item['productSizeId'] = '';//Free Size Has Not Size
@@ -163,6 +184,13 @@ class Cart extends CI_Controller{
         $item['productCount'] = 1;
         $item['productType'] = 'DesignFreeSize';
 
+        foreach ($services as $id) {
+            $si = $this->ModelServices->getServicesItemsByServiceItemId($id);
+            if(!empty($si)){
+                $item['productPrice'] += $si[0]['ServiceItemPrice'];
+            }
+        }
+        $item['productServices'] = json_encode($services);
         array_push($cartItems, $item);
         $this->session->set_userdata('cart', $this->uniqueArray($cartItems, 'productId'));
     }
@@ -201,6 +229,15 @@ class Cart extends CI_Controller{
             }
         }
         $this->session->set_userdata('cart' , $cartItems);
+
+        $items = $this->session->userdata('cart');
+        $totalPrice = 0;
+        foreach ($items as $item) {
+            $totalPrice += $item['productPrice'] * $item['productCount'];
+        }
+        echo json_encode(array(
+            'tp' => number_format($totalPrice)
+        ));
     }
     public function uploadFile()
     {
@@ -280,8 +317,6 @@ class Cart extends CI_Controller{
             die();
         }
     }
-
-
     public function updateDiscountCode(){
         $inputs = $this->input->post(NULL, TRUE);
         $inputs = array_map(function ($v) {return strip_tags($v);}, $inputs);
@@ -334,19 +369,22 @@ class Cart extends CI_Controller{
             $this->session->set_userdata($array);
         }
     }
-
-
     public function payment(){
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'اطلاعات ارسال ';
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        if(!isset($userId)){
+            redirect(base_url('Account/login'));
+            die();
+        }
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/cart/payment/index', $data);
-        $this->load->view('ui/cart/payment/index_css');
-        $this->load->view('ui/cart/payment/index_js');
-        $this->load->view('ui/static/footer');
+        $data['sendMethods'] = $this->ModelUser->getSendMethods();
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/cart/payment/index', $data);
+        $this->load->view('ui/v2/cart/payment/index_css');
+        $this->load->view('ui/v2/cart/payment/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
     public function updateAddressId($addressId){
         $this->session->set_userdata('addressId' , $addressId);
@@ -358,11 +396,11 @@ class Cart extends CI_Controller{
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
         $data['sendMethods'] = $this->ModelUser->getSendMethods();
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/cart/send_method/index', $data);
-        $this->load->view('ui/cart/send_method/index_css');
-        $this->load->view('ui/cart/send_method/index_js');
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/cart/send_method/index', $data);
+        $this->load->view('ui/v2/cart/send_method/index_css');
+        $this->load->view('ui/v2/cart/send_method/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
     public function updateSendMethodId($sendMethodId){
         $this->session->set_userdata('sendMethodId' , $sendMethodId);
@@ -372,11 +410,11 @@ class Cart extends CI_Controller{
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'روش پرداخت ';
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/cart/pay_method/index', $data);
-        $this->load->view('ui/cart/pay_method/index_css');
-        $this->load->view('ui/cart/pay_method/index_js');
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/cart/pay_method/index', $data);
+        $this->load->view('ui/v2/cart/pay_method/index_css');
+        $this->load->view('ui/v2/cart/pay_method/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
     public function finalCheck(){
         $this->session->userdata('cart');
@@ -386,13 +424,13 @@ class Cart extends CI_Controller{
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
         $data['sendMethods'] = $this->ModelUser->getSendMethods();
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/cart/final_check/index', $data);
-        $this->load->view('ui/cart/final_check/index_css');
-        $this->load->view('ui/cart/final_check/index_js');
-        $this->load->view('ui/static/footer');
+        $data['latestProduct'] = $this->ModelProduct->getLatestProduct();
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/cart/final_check/index', $data);
+        $this->load->view('ui/v2/cart/final_check/index_css');
+        $this->load->view('ui/v2/cart/final_check/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
-
     public function startPayment(){
         $orderInfo = $this->session->userdata('cart');
         $inputs = array();
@@ -401,8 +439,9 @@ class Cart extends CI_Controller{
         $inputs['inputOrderAddressId'] = $this->session->userdata('addressId');
         $inputs['inputOrderSendMethodId'] = $this->session->userdata('addressId');
         $inputs['inputOrderTotalPrice'] = $this->session->userdata('totalPrice');
-        $inputs['inputOrderSendMethodPrice'] = $this->session->userdata('sendMethodPrice');
+        $inputs['inputOrderSendMethodPrice'] = 0;//$this->session->userdata('sendMethodPrice');
 
+        $inputs['inputOrderDiscountCode'] = $this->session->userdata('CartDiscount');
         $inputs['inputOrderDiscountCode'] = $this->session->userdata('CartDiscount');
         if ($inputs['inputOrderDiscountCode']) {
             $inputs['inputOrderDiscountCode'] = $inputs['inputOrderDiscountCode']['DiscountCode'];
@@ -494,11 +533,10 @@ class Cart extends CI_Controller{
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'نتیجه پرداخت ';
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
-        $this->load->view('ui/static/header', $data);
-        $this->load->view('ui/cart/result/index', $data);
-        $this->load->view('ui/cart/result/index_css');
-        $this->load->view('ui/cart/result/index_js');
-        $this->load->view('ui/static/footer');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/cart/result/index', $data);
+        $this->load->view('ui/v2/cart/result/index_css');
+        $this->load->view('ui/v2/cart/result/index_js');
+        $this->load->view('ui/v2/static/footer');
     }
-
 }

@@ -1,7 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Product extends CI_Controller{
-
     public function __construct(){
         parent::__construct();
         $this->load->helper('admin/admin_login');
@@ -12,8 +11,9 @@ class Product extends CI_Controller{
     }
     public function index(){
         $headerData['pageTitle'] = 'فهرست محصولات';
+        $data['categoryTree'] = $this->ModelProductCategory->printCategoryTree();
         $this->load->view('admin_panel/static/header', $headerData);
-        $this->load->view('admin_panel/product/home/index');
+        $this->load->view('admin_panel/product/home/index' , $data);
         $this->load->view('admin_panel/product/home/index_css');
         $this->load->view('admin_panel/product/home/index_js');
         $this->load->view('admin_panel/static/footer');
@@ -42,8 +42,7 @@ class Product extends CI_Controller{
         $result = $this->ModelProduct->doAddNormalProduct($inputs);
         echo json_encode($result);
     }
-    public function editNormal($productId)
-    {
+    public function editNormal($productId){
         $headerData['pageTitle'] = 'ویرایش محصول';
         $data['productType'] = $this->config->item('productType');
         $data['allCategories'] = $this->ModelProductCategory->getAllProductCategory()['data'];
@@ -53,16 +52,16 @@ class Product extends CI_Controller{
         $data['categoryCheckBoxTree'] = $this->ModelProductCategory->printCategoryCheckBoxTree($data['productCategories']);
 
 
+        $childCategoryId = $data['productCategories'][count($data['productCategories'])-1]['CategoryId'];
+        $data['childCategoryId'] = $childCategoryId;
         $data['rootCategoryId'] = $this->ModelProduct->getProductRootCategoryByProductId($productId)['data'][0];
-        $data['categoryTree'] = $this->ModelProductCategory->printCategoryTree($data['rootCategoryId']['CategoryId']);
-        $data['productRootCategoryProperties'] = $this->getProductPropertyByCategoryId($data['rootCategoryId']['CategoryId'] , false);
         $data['productSelectedProperties'] = $this->ModelProduct->getProductPropertyByProductId($productId)['data'];
         $data['productSecondaryImages'] = $this->ModelProduct->getProductSecondaryByProductId($productId)['data'];
+
+        $data['productRootCategoryProperties'] = $this->getProductPropertyByCategoryId($data['productSelectedProperties'][0]['PropertyCategoryId'] , false);
         $data['productTags'] = $this->ModelProduct->getProductTagsByProductId($productId)['data'];
 
-        /*var_dump($data['productSelectedProperties']);
-        die();*/
-
+        $data['productTags'] = $this->ModelProduct->getProductTagsByProductId($productId)['data'];
         $this->load->view('admin_panel/static/header', $headerData);
         $this->load->view('admin_panel/product/edit/normal/index', $data);
         $this->load->view('admin_panel/product/edit/normal/index_css');
@@ -104,12 +103,13 @@ class Product extends CI_Controller{
         $data['productCategories'] = $this->ModelProduct->getProductCategoryByProductId($productId)['data'];
         $data['categoryCheckBoxTree'] = $this->ModelProductCategory->printCategoryCheckBoxTree($data['productCategories']);
 
+        $childCategoryId = $data['productCategories'][count($data['productCategories'])-1]['CategoryId'];
+        $data['childCategoryId'] = $childCategoryId;
 
-        $data['rootCategoryId'] = $this->ModelProduct->getProductRootCategoryByProductId($productId)['data'][0];
-        $data['categoryTree'] = $this->ModelProductCategory->printCategoryTree($data['rootCategoryId']['CategoryId']);
-        $data['productRootCategoryProperties'] = $this->getProductPropertyByCategoryId($data['rootCategoryId']['CategoryId'] , false);
         $data['productSelectedProperties'] = $this->ModelProduct->getProductPropertyByProductId($productId)['data'];
         $data['productSecondaryImages'] = $this->ModelProduct->getProductSecondaryByProductId($productId)['data'];
+
+        $data['productRootCategoryProperties'] = $this->getProductPropertyByCategoryId($data['productSelectedProperties'][0]['PropertyCategoryId'] , false);
         $data['productTags'] = $this->ModelProduct->getProductTagsByProductId($productId)['data'];
 
 
@@ -157,13 +157,16 @@ class Product extends CI_Controller{
         $data['productCategories'] = $this->ModelProduct->getProductCategoryByProductId($productId)['data'];
         $data['categoryCheckBoxTree'] = $this->ModelProductCategory->printCategoryCheckBoxTree($data['productCategories']);
 
+        $childCategoryId = $data['productCategories'][count($data['productCategories'])-1]['CategoryId'];
+        $data['childCategoryId'] = $childCategoryId;
+
         $data['rootCategoryId'] = $this->ModelProduct->getProductRootCategoryByProductId($productId)['data'][0];
         $data['categoryTree'] = $this->ModelProductCategory->printCategoryTree($data['rootCategoryId']['CategoryId']);
-        $data['productRootCategoryProperties'] = $this->getProductPropertyByCategoryId($data['rootCategoryId']['CategoryId'] , false);
         $data['productSelectedProperties'] = $this->ModelProduct->getProductPropertyByProductId($productId)['data'];
         $data['productSecondaryImages'] = $this->ModelProduct->getProductSecondaryByProductId($productId)['data'];
         $data['productTags'] = $this->ModelProduct->getProductTagsByProductId($productId)['data'];
 
+        $data['productRootCategoryProperties'] = $this->getProductPropertyByCategoryId($data['productSelectedProperties'][0]['PropertyCategoryId'] , false);
         $data['materials'] = $this->ModelMaterial->getAllMaterialsWithoutPagination();
         $data['sizes'] = $this->ModelSizes->getAllSizesWithoutPagination();
 
@@ -210,18 +213,20 @@ class Product extends CI_Controller{
         $data['data'] = $this->ModelProduct->getProductByProductId($productId)['data'][0];
         $data['productPrice'] = $this->ModelProduct->getProductPriceProductId($productId);
         $data['productCategories'] = $this->ModelProduct->getProductCategoryByProductId($productId)['data'];
+        $childCategoryId = $data['productCategories'][count($data['productCategories'])-1]['CategoryId'];
+        $data['childCategoryId'] = $childCategoryId;
         $data['categoryCheckBoxTree'] = $this->ModelProductCategory->printCategoryCheckBoxTree($data['productCategories']);
 
         $data['rootCategoryId'] = $this->ModelProduct->getProductRootCategoryByProductId($productId)['data'][0];
         $data['categoryTree'] = $this->ModelProductCategory->printCategoryTree($data['rootCategoryId']['CategoryId']);
-        $data['productRootCategoryProperties'] = $this->getProductPropertyByCategoryId($data['rootCategoryId']['CategoryId'] , false);
         $data['productSelectedProperties'] = $this->ModelProduct->getProductPropertyByProductId($productId)['data'];
         $data['productSecondaryImages'] = $this->ModelProduct->getProductSecondaryByProductId($productId)['data'];
         $data['productTags'] = $this->ModelProduct->getProductTagsByProductId($productId)['data'];
 
+        $data['productRootCategoryProperties'] = $this->getProductPropertyByCategoryId($data['productSelectedProperties'][0]['PropertyCategoryId'], false);
         $data['materials'] = $this->ModelMaterial->getAllMaterialsWithoutPagination();
         $data['sizes'] = $this->ModelSizes->getAllSizesWithoutPagination();
-
+ 
 
         $this->load->view('admin_panel/static/header', $headerData);
         $this->load->view('admin_panel/product/edit/free_size/index', $data);

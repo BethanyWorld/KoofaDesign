@@ -1,6 +1,0 @@
-[04-Sep-2017 14:19:11 Europe/Rome] PHP Warning:  copy(): Filename cannot be empty in /home/hfjir/pub.hfj.ir/media/responsivefilemanager/filemanager/upload.php on line 155
-[04-Sep-2017 14:19:11 Europe/Rome] PHP Warning:  unlink(): No such file or directory in /home/hfjir/pub.hfj.ir/media/responsivefilemanager/filemanager/upload.php on line 156
-[04-Sep-2017 14:19:11 Europe/Rome] PHP Warning:  chmod(): No such file or directory in /home/hfjir/pub.hfj.ir/media/responsivefilemanager/filemanager/upload.php on line 158
-[04-Sep-2017 14:19:54 Europe/Rome] PHP Warning:  copy(): Filename cannot be empty in /home/hfjir/pub.hfj.ir/media/responsivefilemanager/filemanager/upload.php on line 155
-[04-Sep-2017 14:19:54 Europe/Rome] PHP Warning:  unlink(): No such file or directory in /home/hfjir/pub.hfj.ir/media/responsivefilemanager/filemanager/upload.php on line 156
-[04-Sep-2017 14:19:54 Europe/Rome] PHP Warning:  chmod(): No such file or directory in /home/hfjir/pub.hfj.ir/media/responsivefilemanager/filemanager/upload.php on line 158

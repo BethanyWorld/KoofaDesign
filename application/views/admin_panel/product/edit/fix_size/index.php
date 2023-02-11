@@ -17,6 +17,7 @@ $_DIR = base_url('assets/admin/');
                             <li role="presentation"><a href="#productImages" data-toggle="tab">تصاویر محصول</a></li>
                             <li role="presentation"><a href="#productPrice" data-toggle="tab">قیمت محصول</a></li>
                             <li role="presentation"><a href="#productCategory" data-toggle="tab">دسته بندی محصول</a>
+                            <li role="presentation"><a href="#productCategoryProperty" data-toggle="tab">ویژگی های محصول</a>
                             <li role="presentation"><a href="#productTags" data-toggle="tab">برچسب محصول</a></li>
                             <li role="presentation"><a href="#productFinalizeOperation" data-toggle="tab">ثبت و
                                     ذخیره</a></li>
@@ -36,7 +37,7 @@ $_DIR = base_url('assets/admin/');
                                     </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6">
-                                    <label for="inputProductSubTitle">زیر عنوان محصول</label>
+                                    <label for="inputProductSubTitle">کد محصول</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control"
@@ -104,7 +105,7 @@ $_DIR = base_url('assets/admin/');
                                     </div>
                                 </div>
                                 <div class="col-xs-12">
-                                    <label for="inputProductBrief">خلاصه ای از محصول</label>
+                                    <label for="inputProductBrief">زیرعنوان محصول</label>
                                     <div class="form-group">
                                         <div class="form-line">
                                             <input type="text" class="form-control"
@@ -354,14 +355,22 @@ $_DIR = base_url('assets/admin/');
                                     <label for="email_address">انتخاب کنید</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <?php echo $categoryTree; ?>
+                                            <select id="inputProductCategoryDropDown" name="inputProductCategoryDropDown">
+                                                <?php foreach ($allCategories as $cat) {?>
+                                                    <option
+                                                        <?php if($cat['CategoryId'] == $productSelectedProperties[0]['PropertyCategoryId']) echo "selected";  ?>
+                                                            value="<?php echo $cat['CategoryId'] ?>">
+                                                        <?php echo $cat['CategoryTitle']; ?>
+                                                    </option>
+                                                <?php } ?>
+                                            </select>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xs-12 category-property-container">
                                     <!-- Category Properties Goes Here -->
-                                    <?php foreach ($productRootCategoryProperties as $item) { ?>
-
+                                    <?php
+                                    foreach ($productRootCategoryProperties as $item) { ?>
                                         <div class="col-xs-12 col-sm-6 col-xs-12">
                                             <label for="<?php echo $item['PropertyId']; ?>"><?php echo $item['PropertyTitle']; ?></label>
                                             <div class="form-group">

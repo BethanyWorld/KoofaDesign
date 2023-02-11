@@ -1,5 +1,7 @@
-<?php $_URL = base_url();
-$_DIR = base_url('assets/ui/'); ?>
+<?php
+$_URL = base_url();
+$_DIR = base_url('assets/ui/');
+?>
 
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/product-detail.css"/>
 <div id="main" style="min-height: 100vh;">
@@ -7,32 +9,10 @@ $_DIR = base_url('assets/ui/'); ?>
         <div class="container first-container-m-b">
             <div class="col-md-12 col-xs-12 padding-0">
                 <div class="col-md-12 col-xs-12  padding-0">
-                    <ul class="breadcrumb">
-                        <?php foreach ($productCategories as $row) { ?>
-                            <li>
-                                <a href="<?php echo categoryUrl($row['CategoryId'], $row['CategoryTitle']); ?>">
-                                    <?php echo $row['CategoryTitle']; ?>
-                                </a>
-                            </li>
-                        <?php } ?>
-                        <li class="active">
-                            <?php echo $data['ProductTitle']; ?>
-                        </li>
-                    </ul>
+                    <?php echo $breadCrumb; ?>
                 </div>
                 <div class="col-md-5 col-xs-12 rightFloat right-side-border-top">
-<!--                    <div class="col-md-12 col-xs-12 product-detail-text padding-right">-->
-<!--                        <p>ارسال رایگان برای خرید های بیشتر از 90 هزار تومان</p>-->
-<!--                    </div>-->
-                    <div class="col-md-12 col-xs-12 padding-right product-detail-title">
-                        <h1><?php echo $data['ProductTitle']; ?></h1>
-                    </div>
-                    <div class="col-md-12 col-xs-12 product-detail-print padding-right">
-                        <?php echo $data['ProductSubTitle']; ?>
-                    </div>
-                    <div class="col-md-12 col-xs-12 product-detail-print padding-right product-sub-title">
-                        <p><?php echo $data['ProductBrief']; ?></p>
-                    </div>
+                    <?php echo $productTitles; ?>
                     <div class="col-md-6 col-xs-12 padding-0 product-detail-Flax margin-b-10 pull-right">
                         <div class="col-xs-12 rightFloat product-size  padding-0">
                             <label>انتخاب جنس</label>
@@ -65,7 +45,6 @@ $_DIR = base_url('assets/ui/'); ?>
                             </select>
                         </div>
                     </div>
-
                     <select class="hidden" id="priceDropDown">
                         <?php foreach ($productPrice as $item) { ?>
                             <option data-size-id="<?php echo $item['SizeId']; ?>"
@@ -76,8 +55,28 @@ $_DIR = base_url('assets/ui/'); ?>
                         <?php } ?>
                     </select>
 
-
-
+                    <div class="col-xs-12 rightFloat right-side-border-top z-p">
+                        <h4>خدمات:</h4>
+                        <?php
+                        foreach ($services as $item){ ?>
+                            <div class="col-md-4 col-xs-12 product-detail-Flax margin-b-10 pull-right">
+                                <div class="col-xs-12 rightFloat product-size padding-0">
+                                    <label><?php echo $item['ServiceTitle']; ?></label>
+                                </div>
+                                <div class="col-xs-12  padding-0">
+                                    <select class="width100" name="inputProductServices" data-service-id="<?php echo $item['ServiceId']; ?>">
+                                        <option value="">-- انتخاب کنید --</option>
+                                        <?php foreach ($item['items']['data'] as $option) { ?>
+                                            <option value="<?php echo $option['ServiceItemId']; ?>"
+                                                    data-service-item-price="<?php echo $option['ServiceItemPrice']; ?>">
+                                                <?php echo $option['ServiceItemTitle']; ?>
+                                            </option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                        <?php } ?>
+                    </div>
 
                     <?php if ($data['ProductHasInstallation']) { ?>
                         <!--                    <div class="col-md-12 col-xs-12 padding-0 product-detail-Installation margin-b-10">-->
@@ -189,8 +188,7 @@ $_DIR = base_url('assets/ui/'); ?>
                 </div>
             </div>
         </div>
-        <div class="col-md-12 col-xs-12 padding-0 second-container-m-b"
-             style="min-height: 300px;background-color: #fff;border-top: 1px solid gray;">
+        <div class="col-md-12 col-xs-12 padding-0 second-container-m-b" style="min-height: 300px;background-color: #fff;border-top: 1px solid gray;">
             <div class="col-md-12 col-xs-12 p-b-15">
                 <div class="container">
                     <div class="col-md-12 col-xs-12 product-description">
@@ -198,7 +196,7 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                     <div class="col-md-12 col-xs-12">
                         <div class="col-md-12 col-xs-12">
-                            <h2 class="product-title-h2">مناسب سلیقه ی شما :</h2>
+                            <h2 class="product-title-h2">محصولات مشابه :</h2>
                         </div>
                         <?php foreach ($relatedProducts as $item) { ?>
                             <div class="col-md-3 col-xs-12 one-product-detail">

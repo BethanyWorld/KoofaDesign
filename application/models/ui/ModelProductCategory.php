@@ -173,9 +173,21 @@ class ModelProductCategory extends CI_Model{
         $this->db->where('CategoryIsFavorite', 1);
         return $this->db->get()->result_array();
     }
+    public function getChildProductCategory($catId){
+        $this->db->select('*');
+        $this->db->from('product_category');
+        $this->db->where('CategoryParentId', $catId);
+        return $this->db->get()->result_array();
+    }
+    public function getLastProductCategory($catId){
+        $this->db->select('*')->from('product_category_relation');
+        $this->db->join('product', 'product.ProductId = product_category_relation.ProductId');
+        $this->db->where('product_category_relation.CategoryId', $catId);
+        $this->db->limit(1);
+        return $this->db->get()->result_array();
+
+    }
     /*End For Category Property*/
 
 }
-
-
 ?>

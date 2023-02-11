@@ -11,6 +11,7 @@
         $sendData = {
             'inputProductTitle': $("#inputProductTitle").val(),
             'inputProductType': $("#inputProductType").val(),
+            'inputProductCategoryId': $("#inputProductCategoryDropDown").val(),
             'pageIndex': selectedPage
         }
         $.ajax({
