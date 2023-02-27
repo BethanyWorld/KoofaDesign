@@ -81,6 +81,18 @@
                             </div>
                         </div>
                         <div class="col-xs-12">
+                            <label for="inputCategoryInstallPrice">هزینه نصب</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="inputCategoryInstallPrice"
+                                            name="inputCategoryInstallPrice" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
                             <label for="inputCategoryDescription">توضیحات دسته</label>
                             <div class="form-group">
                                 <div class="form-line">

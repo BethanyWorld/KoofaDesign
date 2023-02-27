@@ -42,8 +42,8 @@ class ModelUser extends CI_Model
             'UserEmail' => $inputs['inputUserEmail'],
             'UserBirthDate' => $inputs['inputUserBirthDate'],
             'UserHomePhone' => $inputs['inputUserHomePhone'],
-            'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
-            'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'ModifiedDateTime' => time(),
+            'CreateDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->insert('user', $Array);
@@ -86,7 +86,7 @@ class ModelUser extends CI_Model
             'UserEmail' => $inputs['inputUserEmail'],
             'UserBirthDate' => $inputs['inputUserBirthDate'],
             'UserHomePhone' => $inputs['inputUserHomePhone'],
-            'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'ModifiedDateTime' => time()
         );
         $AddressArray = array(
             'UserAddressStateId' => $inputs['inputUserAddressStateId'],

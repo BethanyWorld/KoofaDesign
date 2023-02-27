@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+include(__DIR__ . '/../libraries/psp/RSAProcessor.class.php');
 class Cart extends CI_Controller{
-
     protected function uniqueArray($array, $key)
     {
         $temp_array = [];
@@ -27,7 +27,6 @@ class Cart extends CI_Controller{
             $this->session->set_userdata('cart', array());
         }
     }
-
     public function index()
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -143,8 +142,7 @@ class Cart extends CI_Controller{
         array_push($cartItems, $item);
         $this->session->set_userdata('cart', $this->uniqueArray($cartItems, 'productId'));
     }
-    public function addDesignFreeSize()
-    {
+    public function addDesignFreeSize(){
         $data = $this->input->post(NULL, TRUE);
         $productId = $data['inputProductId'];
         $materialId = $data['inputMaterialId'];
@@ -154,22 +152,21 @@ class Cart extends CI_Controller{
         $services = $data['inputServices'];
         $services = json_decode($services , true);
         $cartItems = $this->session->userdata('cart');
-
         $data = $this->ModelProduct->getProductByProductId($productId)['data'][0];
         $productPrice = $this->ModelProduct->getProductPriceProductId($productId);
         $item['productId'] = $data['ProductId'];
         $item['productTitle'] = $data['ProductTitle'];
         $item['productSubTitle'] = $data['ProductSubTitle'];
         $item['productPrice'] = 0;
-        $item['productInstallation'] = false;
+        $item['productInstallation'] = true;
         $item['productOldWidth'] = $productWidth;
         $item['productOldHeight'] = $productHeight;
         $item['productWidth'] = $productWidth;
         $item['productHeight'] = $productHeight;
         $item['productSizeId'] = '';//Free Size Has Not Size
 
-        if (ceil(($productWidth / 100)) != ($productWidth / 100)) {
-            $item['productWidth'] = ceil(($productWidth / 100))*100;
+        if (ceil(($productWidth / 10)) != ($productWidth / 10)) {
+            $item['productWidth'] = ceil(($productWidth / 10))*10;
         }
 
         /**/
@@ -190,9 +187,20 @@ class Cart extends CI_Controller{
                 $item['productPrice'] += $si[0]['ServiceItemPrice'];
             }
         }
+
+
+
+        $productCategories = $this->ModelProduct->getProductCategoryByProductId($productId)['data'];
+        $installPrice = $productCategories[count($productCategories)-1]['CategoryInstallPrice'];
+
+        $installPrice = $installPrice * $item['productHeight'] * $item['productWidth'];
+        $item['productPrice'] += $installPrice;
+        $item['productInstallationPrice'] = $installPrice;
+
         $item['productServices'] = json_encode($services);
         array_push($cartItems, $item);
-        $this->session->set_userdata('cart', $this->uniqueArray($cartItems, 'productId'));
+        $this->session->set_userdata('cart', $cartItems);
+
     }
     public function remove($productId)
     {
@@ -432,16 +440,17 @@ class Cart extends CI_Controller{
         $this->load->view('ui/v2/static/footer');
     }
     public function startPayment(){
+        $this->load->library("Uuid");
+        $resNum = $this->uuid->v4();
         $orderInfo = $this->session->userdata('cart');
         $inputs = array();
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $inputs['inputOrderResNum'] = $resNum;
         $inputs['inputOrderUserId'] = $userId;
         $inputs['inputOrderAddressId'] = $this->session->userdata('addressId');
         $inputs['inputOrderSendMethodId'] = $this->session->userdata('addressId');
         $inputs['inputOrderTotalPrice'] = $this->session->userdata('totalPrice');
-        $inputs['inputOrderSendMethodPrice'] = 0;//$this->session->userdata('sendMethodPrice');
-
-        $inputs['inputOrderDiscountCode'] = $this->session->userdata('CartDiscount');
+        $inputs['inputOrderSendMethodPrice'] = 0;
         $inputs['inputOrderDiscountCode'] = $this->session->userdata('CartDiscount');
         if ($inputs['inputOrderDiscountCode']) {
             $inputs['inputOrderDiscountCode'] = $inputs['inputOrderDiscountCode']['DiscountCode'];
@@ -449,39 +458,145 @@ class Cart extends CI_Controller{
         else{
             $inputs['inputOrderDiscountCode'] = "NONE";
         }
+        $inputs['inputOrderToken'] = $this->generate_pay_token($inputs['inputOrderTotalPrice'], $resNum);
         $orderId = $this->ModelOrder->doAddOrder($inputs);
         $this->ModelOrder->doAddOrderItems($orderInfo , $orderId);
         $this->session->set_userdata('OrderId' , $orderId);
-
-        $this->load->helper('payment/zarinpal/nusoap');
-        $MerchantID = '2e809336-c5d4-11e6-8edd-000c295eb8fc';
-        $Description = 'خرید اعتبار از درگاه';
-        $CallbackURL = base_url('Cart/endPayment');
-        $client = new nusoap_client('https://www.zarinpal.com/pg/services/WebGate/wsdl', 'wsdl');
-        $client->soap_defencoding = 'UTF-8';
-        $result = $client->call('PaymentRequest', [
-            [
-                'MerchantID' => $MerchantID,
-                'Amount' => 100,
-                'Description' => $Description,
-                'Email' => 'info@koofadesign.ir',
-                'CallbackURL' => $CallbackURL,
-            ],
-        ]);
-        if ($result['Status'] == 100) {
-            $to = $this->session->userdata('UserLoginInfo')[0]['UserPhone'];
-            $message = array(
-                'order-number'=> 'KFD-'.$orderId
-            );
-            $code = $this->config->item('SuccessOrderRegister');
-            sendSMS($to,$code,$message);
-            header('Location: https://www.zarinpal.com/pg/StartPay/' . $result['Authority']);
-        } else {
-            $CallbackURL = base_url('Cart/endPayment?error=true');
-            header('Location: ' . $CallbackURL);
-        }
+        $to = $this->session->userdata('UserLoginInfo')[0]['UserPhone'];
+        $message = array( 'order-number'=> 'KFD-'.$orderId );
+        $code = $this->config->item('SuccessOrderRegister');
+        sendSMS($to,$code,$message);
+        $data['Token'] = $inputs['inputOrderToken'];
+        $data['url'] = $this->config->item('pay_submit_url');
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/cart/payment_redirect/index' , $data);
+        $this->load->view('ui/v2/static/footer');
     }
-    public function endPayment()
+    public function endPayment(){
+
+
+        var_dump($_POST);
+        $token = $_POST['token'];
+        //Get Order
+        $order = $this->db->select('*')->from('orders')->where('OrderToken' , $token)->get()->result_array()[0];
+
+        $OrderId  = $order['OrderId'];
+        $orderId  = $order['OrderId'];
+        $OrderUserId = $order['OrderUserId'];
+
+        //Get User
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where(array('UserId' => $OrderUserId));
+        $userResult = $this->db->get()->result_array();
+        $this->session->set_userdata('UserIsLogged', TRUE);
+        $this->session->set_userdata('UserLoginInfo', $userResult);
+
+
+        if (isset($orderId) && $orderId != '' && $orderId != NULL) {
+            if ($this->input->post('State') == 'OK') {
+                $this->load->library("Enpayment");
+                $login = $this->enpayment->login(config_item('EN_WS_Username'), config_item('EN_WS_Password'));
+                $login = $login['return'];
+                $sessionId = $login['SessionId'];
+                $params['WSContext'] = array('SessionId' => $sessionId, 'UserId' => config_item('EN_WS_Username'), 'Password' => config_item('EN_WS_Password'));
+                $params['Token'] = $_POST['token'];
+                $params['RefNum'] = $_POST['RefNum'];
+                $VerifyTrans = $this->enpayment->tokenPurchaseVerifyTransaction($params);
+
+                if (isset($VerifyTrans['return']['Result']) && $VerifyTrans['return']['Result'] == 'erSucceed') {
+                    $this->ModelOrder->payment_update_after_pay(
+                        $this->input->post('ResNum'),
+                        $this->input->post('MID'),
+                        $this->input->post('RefNum'),
+                        $this->input->post('CustomerRefNum'),
+                        $this->input->post('State'),
+                        $this->input->post('CardPanHash'),
+                        1
+                    );
+                    $data['success'] = true;
+                } else {
+                    $logout = $this->enpayment->logout($login);
+                    $data['success'] = false;
+                }
+            }
+            else {
+                $this->payment_model->payment_update_failed($this->input->post('ResNum'), $this->input->post('State'), date("Y-m-d H:i:s"));
+                $this->session->set_userdata('payment_pay', 'failed');
+                $this->session->set_userdata('payment_pay_state', $this->input->post('State'));
+                $this->checkout_model->set_status('canceled_byuser');
+                $data['success'] = false;
+            }
+        } else {
+            $data['success'] = false;
+        }
+
+
+
+
+        /*$totalPrice = $this->session->userdata('totalPrice');
+        $orderId = $this->session->userdata('OrderId');
+        $result = NULL;
+        if(isset($orderId) && !empty($orderId)) {
+            $this->load->helper('payment/zarinpal/nusoap');
+            $MerchantID = '2e809336-c5d4-11e6-8edd-000c295eb8fc';
+            $Amount = 100;//$totalPrice;
+            $Authority = $_GET['Authority'];
+            if ($_GET['Status'] == 'OK') {
+                $client = new nusoap_client('https://www.zarinpal.com/pg/services/WebGate/wsdl', 'wsdl');
+                $client->soap_defencoding = 'UTF-8';
+                $result = $client->call('PaymentVerification', [
+                    [
+                        'MerchantID' => $MerchantID,
+                        'Authority' => $Authority,
+                        'Amount' => $Amount,
+                    ],
+                ]);
+                if ($result['Status'] == 100) {
+                    $data['success'] = true;
+                    $this->ModelOrder->setOrderPaid($orderId);
+                    $this->session->unset_userdata('OrderId');
+                    $this->session->unset_userdata('cart');
+                    $this->session->unset_userdata('CartDiscount');
+                    $this->session->unset_userdata('totalPrice');
+
+                    $to = $this->session->userdata('UserLoginInfo')[0]['UserPhone'];
+                    $message = array(
+                        'order-number'=> 'KFD-'.$orderId,
+                        'order-date'=> jDateTime::date("Y-m-d H:i", false, false)
+                    );
+                    $code = $this->config->item('SuccessOrderPayment');
+                    sendSMS($to,$code,$message);
+                } else {
+                    $data['success'] = false;
+                    $this->ModelOrder->setOrderFailed($orderId);
+                }
+            } else {
+                $data['success'] = false;
+                $this->ModelOrder->setOrderUnpaid($orderId);
+            }
+        }
+        else{
+            $data['success'] = false;
+        }
+        $data['result'] = $result;*/
+        $data['noImg'] = $this->config->item('defaultImage');
+        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'نتیجه پرداخت ';
+        $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
+
+        /*$this->session->unset_userdata('OrderId');
+        $this->session->unset_userdata('cart');
+        $this->session->unset_userdata('CartDiscount');
+        $this->session->unset_userdata('totalPrice');*/
+
+        $this->load->view('ui/v2/static/header', $data);
+        $this->load->view('ui/v2/cart/result/index', $data);
+        $this->load->view('ui/v2/cart/result/index_css');
+        $this->load->view('ui/v2/cart/result/index_js');
+        $this->load->view('ui/v2/static/footer');
+    }
+    public function endPaymentZarinPal()
     {
         $totalPrice = $this->session->userdata('totalPrice');
         $orderId = $this->session->userdata('OrderId');
@@ -538,5 +653,53 @@ class Cart extends CI_Controller{
         $this->load->view('ui/v2/cart/result/index_css');
         $this->load->view('ui/v2/cart/result/index_js');
         $this->load->view('ui/v2/static/footer');
+    }
+    private function generate_pay_token($amount = 10000, $resNum = 0){
+
+        $this->load->library("Enpayment");
+        $login = $this->enpayment->login(config_item('EN_WS_Username'), config_item('EN_WS_Password'));
+        $login = $login['return'];
+        $amount *= 10;
+        $amount = (int)$amount;
+        $sessionId = $login['SessionId'];
+        $params['ReserveNum'] = $resNum;
+        $params['Amount'] = $amount;
+        $params['RedirectUrl'] = $this->config->item('pay_redirect_url');
+        $params['WSContext'] = array('SessionId' => $sessionId, 'UserId' => config_item('EN_WS_Username'), 'Password' => config_item('EN_WS_Password'));
+        $params['TransType'] = "enGoods";
+        $getPurchaseParamsToSign = $this->enpayment->getPurchaseParamsToSign($params);
+        $getPurchaseParamsToSign = $getPurchaseParamsToSign['return'];
+        $uniqueId = $getPurchaseParamsToSign['UniqueId'];
+        $dataToSign = $getPurchaseParamsToSign['DataToSign'];
+        ///////////////////////state2
+        $fm = fopen($this->config->item('msg_file'), "w");
+        fwrite($fm, $dataToSign);
+        fclose($fm);
+        $fs = fopen($this->config->item('sign_file'), "w");
+        fwrite($fs, "test");
+        fclose($fs);
+        //ssl certificate
+        openssl_pkcs7_sign(realpath($this->config->item('msg_file')), realpath($this->config->item('sign_file')), $this->config->item('cert_file'),
+            array($this->config->item('cert_file'), $this->config->item('cert_file_secret_key')),
+            array(), PKCS7_NOSIGS
+        );
+        $data = file_get_contents($this->config->item('sign_file'));
+        $parts = explode("\n\n", $data, 2);
+        $string = $parts[1];
+        $parts1 = explode("\n\n", $string, 2);
+        $signature = $parts1[0];
+        ///////////////////////state3
+        $login = $this->enpayment->login(config_item('EN_WS_Username'), config_item('EN_WS_Password'));
+        $params['UniqueId'] = $uniqueId;
+        $params['Signature'] = $signature;
+        $params['WSContext'] = array('SessionId' => $sessionId, 'UserId' => config_item('EN_WS_Username'), 'Password' => config_item('EN_WS_Password'));
+        $generateSignedPurchaseToken = $this->enpayment->generateSignedPurchaseToken($params);
+        $generateSignedPurchaseToken = $generateSignedPurchaseToken['return'];
+        $token = $generateSignedPurchaseToken = $generateSignedPurchaseToken['Token'];
+        if (!$token) {
+            return 'ERROR';
+        }
+        return $token;
+
     }
 }

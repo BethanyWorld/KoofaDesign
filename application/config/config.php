@@ -54,7 +54,7 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 $config['defaultImage'] = $config['base_url'] . 'assets/ui/images/no-img.png';
-$config['defaultPageTitle'] = 'کوفادیزاین - ';
+$config['defaultPageTitle'] = 'مجموعه هنر کوفا ';
 $config['API_KEY'] = 'AIzaSyACQqvivCiQe0wFhh1R4q4x3Hfmeuig3Y8';
 
 $config['defaultPageSize'] = 12;
@@ -65,6 +65,19 @@ $config['AccountConfirmCode'] = 'h5q654ed8x';
 $config['AccountNewPasswordCode'] = 'c8922i2kjy';
 $config['SuccessOrderRegister'] = 'uia3n6frmp';
 $config['SuccessOrderPayment'] = 'x5y798y3sh';
+
+
+$config['EN_WS_Username'] = "011513975";
+$config['EN_WS_Password'] = "goofa@68";
+
+$config['msg_file'] = __DIR__ . '/../libraries/enp/msg.txt';
+$config['sign_file'] = __DIR__ . '/../libraries/enp/signed.txt';
+$config['pay_redirect_url'] = $config['base_url'].'Cart/endPayment';
+$config['pay_submit_url'] = "https://pna.shaparak.ir/_ipgw_/payment/";
+$config['cert_file'] = "file://" . realpath(__DIR__ . '/../libraries/enp/Kofaprintcomplex.pem');
+$config['cert_file_secret_key'] = "Kofaprintcomplex@372348";
+
+
 
 /* Enums */
 $config['discountType'] = array(

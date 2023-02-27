@@ -80,11 +80,9 @@ $_DIR = base_url('assets/ui/v2/');
                             <div class="col-md-9 col-xs-12 cart-product-detail">
                                 <div class="col-md-3 col-xs-12 cart-product-image RightFloat height100 p-0">
                                     <?php if ($item['productUploadImage'] !== null && $item['productUploadImage'] != '') { ?>
-                                        <img src="<?php echo $item['productUploadImage']; ?>"
-                                             style="height: 125px;width: auto;border: 10px solid #fff;    max-width: 100%;"/>
+                                        <img src="<?php echo $item['productUploadImage']; ?>" />
                                     <?php } else { ?>
-                                        <img src="<?php echo $item['productImage']; ?>"
-                                             style="height: 125px;width: auto;border: 10px solid #fff;    max-width: 100%;"/>
+                                        <img src="<?php echo $item['productImage']; ?>" />
                                     <?php } ?>
                                 </div>
                                 <div class="col-md-9 col-xs-12 padding-0 cart-product-title-div"
@@ -96,10 +94,8 @@ $_DIR = base_url('assets/ui/v2/');
                                         <?php if ($item['productType'] !== 'DesignFreeSize') { ?>
                                             <p><?php echo $item['productSubTitle']; ?></p>
                                         <?php } else { ?>
-                                            <p><?php echo $item['productOldWidth'] . "cm x " . $item['productOldHeight']; ?>
-                                                cm</p>
+                                            <p><?php echo $item['productOldWidth'] . "cm x " . $item['productOldHeight']; ?> cm</p>
                                         <?php } ?>
-
                                         <?php if ($item['productSizeId'] !== '') {
                                             foreach ($allSizes as $size) {
                                                 if($size['SizeId'] == $item['productSizeId']){
@@ -115,21 +111,10 @@ $_DIR = base_url('assets/ui/v2/');
                                             }
                                         } ?>
                                     </div>
-
                                     <div class="col-xs-12" style="margin-top: 10px;">
                                     <span data-product-id="<?php echo $item['productId']; ?>"
                                           class="col-md-4 col-xs-12 cart-shopping-button-div remove-shopping-cart">
-                                        <button class="btn cart-shopping-button padding-right" style="
-    width: max-content;
-    height: 100%;
-    background-color: #f3f3f0 !important;
-    color: #000;
-    line-height: 30px;
-    border-radius: 3px;
-    border: none;
-    outline: 0;
-    font-size: 13px;
-    padding: 2px 6px;">
+                                        <button class="btn cart-shopping-button-remove padding-right">
                                             <span class="fa fa-times pull-right cart-shopping-basket"></span>
                                             حذف
                                         </button>
@@ -157,10 +142,12 @@ $_DIR = base_url('assets/ui/v2/');
                                 <div class="col-md-12 col-xs-12 cart-product-number-detail">
                                     <div class="col-md-12 col-xs-12 cart-product-price">
                                     <span class="cart-discount-price" style="padding-top: 4px !important;display: inline-block;">
-                                        <span class="cart-toman-price pull-left">هزینه ارسال: رایگان</span>
+                                        <span class="cart-toman-price pull-left">
+                                            هزینه نصب:
+                                            <?php echo number_format($item['productInstallationPrice']); ?> تومان
+                                        </span>
                                         <span class="cart-toman-price pull-left">ارسال از ۴ روز کاری آینده</span>
                                         <span class="cart-toman-price-text pull-left">
-
                                             <?php echo number_format($item['productPrice']); ?>
                                             تومان
                                         </span>

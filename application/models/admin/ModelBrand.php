@@ -44,8 +44,8 @@ class ModelBrand extends CI_Model
             'BrandTitle' => $inputs['inputBrandTitle'],
             'BrandLogo' => $inputs['inputBrandLogo'],
             'BrandDescription' => $inputs['inputBrandDescription'],
-            'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
-            'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'CreateDateTime' => time(),
+            'ModifiedDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->insert('brand', $Array);
@@ -80,7 +80,7 @@ class ModelBrand extends CI_Model
             'BrandTitle' => $inputs['inputBrandTitle'],
             'BrandLogo' => $inputs['inputBrandLogo'],
             'BrandDescription' => $inputs['inputBrandDescription'],
-            'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'ModifiedDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->where('BrandId', $inputs['inputBrandId']);

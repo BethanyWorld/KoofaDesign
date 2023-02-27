@@ -136,7 +136,7 @@
             $materialId = $("#priceMaterialDropDown").find(":selected").data('material-id');
             $sizeId = $("#priceSizeDropDown").find(":selected").data('size-id');
             $("#priceDropDown").find('option').each(function(){
-                debugger
+
                 if($(this).data('material-id') === $materialId && $(this).data('size-id') === $sizeId){
                     $price = parseInt($(this).data('price'));
                     /*$("[name='inputProductServices']").each(function(){

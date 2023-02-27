@@ -1,8 +1,6 @@
 <?php $_URL = base_url();
 $_DIR = base_url('assets/ui/'); ?>
-
 <style>
-
     .category-lists{
         direction: rtl;
     }
@@ -102,9 +100,6 @@ $_DIR = base_url('assets/ui/'); ?>
     }
 
 
-
-
-
     /*breadcrumb*/
     .breadcrumb-container{
         direction: rtl;
@@ -173,28 +168,36 @@ $_DIR = base_url('assets/ui/'); ?>
         background-repeat: no-repeat !important;
         border-radius: 7px;
     }
-    .product-item .product-info{
 
-    }
     .product-item h4{
-        font-size: 12px;
-        padding: 0 2px;
+        font-size: 14px;
+        padding: 0 4px;
         border-bottom: 1px solid #ccc;
         padding-bottom: 10px;
         text-align: right;
+        clear: both;
+        display: inline-block;
+        width: 100%;
     }
     .product-item h4 strong{
-
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 90%;
+        display: block;
+        overflow: hidden;
+        float: right;
+        color: #000;
     }
     .product-item h4 .fa{
         float: left;
         color: red;
-        font-size: 16px;
+        font-size: 20px;
+        cursor: pointer;
     }
     .product-item .price-begin{
-        display: inline-block;
+        display: block;
         width: 100%;
-        color: #808080;
+        color: #757575;
         font-size: 10px;
     }
     /* End product item*/
@@ -222,6 +225,49 @@ $_DIR = base_url('assets/ui/'); ?>
     .product-container{
         display: inline-block;
         width: 100%;
+    }
+
+
+    .filter-title{
+        background: #fff;
+        padding: 10px;
+        border: 1px solid #c2c2c2;
+
+    }
+    .filter-title  .fa.toggle{
+        float: left;
+        font-size: 20px;
+        margin: 0px 6px;
+    }
+    .filter-items{
+
+    }
+    .filter-items-container{
+        position: relative;
+    }
+    .filter-items  label{
+        display: inline-block;
+        width: 100%;
+        margin: 0 0 0 0 !important;
+        float: none;
+        clear: both;
+        padding: 14px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+    .filter-items input[type="checkbox"]{
+        position: absolute;
+        left: 15px;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 20px;
+        display: inline-block;
+    }
+
+    .p-item .product-list-wrapper{
+        padding-left: 4px !important;
+        padding-right: 4px !important;
     }
 
 </style>

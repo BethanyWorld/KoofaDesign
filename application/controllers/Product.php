@@ -28,8 +28,9 @@ class Product extends CI_Controller{
         $data['allSizes'] = $this->ModelSizes->getAllSizesWithoutPagination();
         $data['allMaterials'] = $this->ModelMaterial->getAllMaterialsWithoutPagination();
         $data['noImg'] = $this->config->item('defaultImage');
-        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'محصول ';
+        $data['pageTitle'] =  $data['data']['ProductTitle'] . ' | '.$this->config->item('defaultPageTitle');
         //$data['relatedProducts'] = $this->ModelProduct->getProductByProductCategoryId($data['rootCategoryId']['CategoryId']);
+
         $data['relatedProducts'] = $this->ModelProduct->getProductByProductCategoryId(($data['productCategories'][count($data['productCategories'])-1])['CategoryId']);
         $data['services'] = $this->ModelServices->getServicesByCategoryId(end($data['productCategories'])['CategoryId'])['data'];
         $serviceIndex = 0;
@@ -37,6 +38,11 @@ class Product extends CI_Controller{
             $data['services'][$serviceIndex]['items'] = $this->ModelServices->getServicesItemsByServicesId($item['ServiceId']);
             $serviceIndex +=1;
         }
+
+
+        $data['installPrice'] = $data['productCategories'][count($data['productCategories'])-1]['CategoryInstallPrice'];
+
+
         $this->load->view('ui/v2/static/header', $data);
         $data['breadCrumb'] = $this->load->view('ui/v2/product/breadcrumb', $data , TRUE);
         $data['productTitles'] = $this->load->view('ui/v2/product/product_titles', $data , TRUE);

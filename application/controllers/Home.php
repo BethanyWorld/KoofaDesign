@@ -37,6 +37,43 @@ class Home extends CI_Controller{
         $this->load->view('ui/v2/home/index_js');
         $this->load->view('ui/v2/static/footer');
     }
+    public function time(){
+
+        /*$query = $this->db->select('ProductId   , CreateDateTime , ModifiedDateTime')->from('product')->get();
+        if ($query->num_rows() > 0) {
+            $data = $query->result_array();
+            foreach ($data as $item) {
+                if(!is_numeric($item['CreateDateTime'])) {
+                    $crtdate = explode(" ", $item['CreateDateTime'])[0];
+                    $moddate = explode(" ", $item['ModifiedDateTime'])[0];
+                    $this->db->reset_query();
+                    $this->db->where('ProductId', $item['ProductId']);
+                    $this->db->update('product', array(
+                        'CreateDateTime' => makeTime($crtdate),
+                        'ModifiedDateTime' => makeTime($moddate)
+                    ));
+                }
+            }
+        }*/
+
+        /*$query = $this->db->select('CategoryId   , CreateDateTime ')->from('product_category')->get();
+        if ($query->num_rows() > 0) {
+            $data = $query->result_array();
+            foreach ($data as $item) {
+                if(!is_numeric($item['CreateDateTime'])) {
+                    $crtdate = explode(" ", $item['CreateDateTime'])[0];
+                    $this->db->reset_query();
+                    $this->db->where('CategoryId', $item['CategoryId']);
+                    $this->db->update('product_category', array(
+                        'CreateDateTime' => makeTime($crtdate)
+                    ));
+                }
+            }
+        }*/
+
+
+
+    }
     public function sms(){
         $client = new SoapClient("http://ippanel.com/class/sms/wsdlservice/server.php?wsdl");
         $user = "miladghelich";

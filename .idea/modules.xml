@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/KoofaDesign.iml" filepath="$PROJECT_DIR$/.idea/KoofaDesign.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../KoofaPrintPanel/.idea/KoofaPrintPanel.iml" filepath="$PROJECT_DIR$/../KoofaPrintPanel/.idea/KoofaPrintPanel.iml" />
     </modules>
   </component>
 </project>

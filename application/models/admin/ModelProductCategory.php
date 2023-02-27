@@ -51,7 +51,8 @@ class ModelProductCategory extends CI_Model{
             'CategoryPoster' => $inputs['inputCategoryPoster'],
             'CategoryDescription' => $inputs['inputCategoryDescription'],
             'CategoryDeliveryTime' => $inputs['inputCategoryDeliveryTime'],
-            'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'CategoryInstallPrice' => $inputs['inputCategoryInstallPrice'],
+            'CreateDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->insert('product_category', $Array);
@@ -84,7 +85,8 @@ class ModelProductCategory extends CI_Model{
             'CategoryIsActive' => $inputs['inputCategoryIsActive'],
             'CategoryDescription' => $inputs['inputCategoryDescription'],
             'CategoryDeliveryTime' => $inputs['inputCategoryDeliveryTime'],
-            'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'CategoryInstallPrice' => $inputs['inputCategoryInstallPrice'],
+            'CreateDateTime' => time()
         );
         $this->db->where('CategoryId', $inputs['inputCategoryId']);
         $this->db->update('product_category', $Array);
@@ -218,7 +220,7 @@ class ModelProductCategory extends CI_Model{
         $Array = array(
             'PropertyTitle' => $inputs['inputPropertyTitle'],
             'PropertyCategoryId' => $inputs['inputCategoryId'],
-            'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'CreateDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->insert('product_category_property', $Array);
@@ -278,7 +280,7 @@ class ModelProductCategory extends CI_Model{
     {
         $Array = array(
             'PropertyTitle' => $inputs['inputPropertyTitle'],
-            'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'CreateDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->where('PropertyId', $inputs['inputPropertyId']);

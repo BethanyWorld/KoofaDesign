@@ -1,6 +1,5 @@
 <script type="text/javascript">
     $(document).ready(function () {
-
         setTimeout(function(){
             $('#product-slider img')
                 .wrap('<span style="display:inline-block"></span>')
@@ -12,8 +11,7 @@
             $(".slider-active-buttons span").removeClass('active');
             $(this).addClass('active');
         });
-
-
+        $inputInstallPrice = $("#inputInstallPrice").val();
         $mainPrice = 0;
         var bigimage = $("#big");
         var thumbs = $("#thumbs");
@@ -107,9 +105,9 @@
             bigimage.data("owl.carousel").to(number, 300, true);
         });
         $("#priceDropDown").change(function () {
-            setPrice();
+            $(".metrics").trigger('input');
         });
-        function setPrice() {
+        /*function setPrice() {
             $height = $("#inputProductHeight").val();
             $width = $("#inputProductWidth").val();
             $price = parseInt($("#priceDropDown").find(":selected").data('price'));
@@ -117,22 +115,22 @@
                 $width = Math.ceil(($width / 100)) * 100;
             }
             $mainPrice = ($price * $width * $height);
+            $mainInstallPrice = ($inputInstallPrice * $width * $height);
             $("[name='inputProductServices']").each(function(){
                 if($(this).val() !== ""){
                     $mainPrice += $(this).find('option:selected').data('service-item-price');
                 }
             });
-            $html = "<p>" + $mainPrice + " تومان </p>";
+            $html = "<p>" + (parseInt($mainPrice) + parseInt($mainInstallPrice )) + " تومان </p>";
             $('.product-detail-number').hide().fadeIn().html($html);
-        }
+        }*/
 
-
-        if(findBootstrapEnvironment() == 'lg' || findBootstrapEnvironment() == 'md') {
+        /*if(findBootstrapEnvironment() == 'lg' || findBootstrapEnvironment() == 'md') {
             $(".img-container-small").remove();
         }
         else{
             $(".img-container-large").remove();
-        }
+        }*/
 
         var URL = window.URL || window.webkitURL;
         var $image = $('.image');
@@ -183,23 +181,17 @@
         }
         else{
             $image.cropper({
+                autoCropArea: 0.7,
                 viewMode: 1,
-                restore: false,
-                toggleDragModeOnDblclick: false,
-                aspectRatio: 4/3,
-                autoCropArea: 0,
-                rotatable: false,
-                scalable: true,
-                zoomable: false,
-                movable: false,
-                zoomOnTouch: false,
-                zoomOnWheel: false,
-                wheelZoomRatio: false,
-                cropBoxResizable: false,
+                center: true,
                 dragMode: 'move',
-                preview: '.img-preview',
-                minContainerWidth: window.innerWidth,
-                minContainerHeight: 320,
+                movable: false,
+                scalable: false,
+                guides: false,
+                zoomOnWheel: false,
+                zoom: 0.2,
+                cropBoxMovable: true,
+                wheelZoomRatio: 0.1,
                 crop: function (e) {
                     $dataX.val(Math.round(e.detail.x));
                     $dataY.val(Math.round(e.detail.y));
@@ -320,14 +312,19 @@
                         break;
                 }
             }
+            $mainInstallPrice = ($inputInstallPrice * $width * $height);
             $price = parseInt($("#priceDropDown").find(":selected").data('price'));
-            $html = "<p>" + ($price * $width * $height) + " تومان </p>";
+            console.log($price);
+            console.log($width * $height);
+            console.log(parseInt($price * $width * $height));
+            $html = "<p>" + (parseInt($price * $width * $height) + parseInt($mainInstallPrice )) + " تومان </p>";
             $mainPrice = $price;
             $('.product-detail-number').hide().fadeIn().html($html);
 
         });
-        setPrice();
-        /**/
+        //setPrice();
+
+
         $("#addToCart").click(function () {
             $id = $(this).data('product-id');
             var cropper = $image.data('cropper');

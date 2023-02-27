@@ -1,6 +1,6 @@
 <script type="text/javascript">
     $(document).ready(function () {
-        $top = 0;
+        /*$top = 0;
         $productTop = 0;
         $(document).on('scroll' , function(){
             $top = $("html").scrollTop();
@@ -12,7 +12,7 @@
             else{
                 $(".category-lists").removeClass('sticky').css('top', '0px');
             }
-        });
+        });*/
 
         function loadData(num = 1) {
             $inputOrderingProductPrice = $(".ordering li.active").data('type');

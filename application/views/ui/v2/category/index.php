@@ -30,23 +30,45 @@ $_DIR = base_url('assets/ui/'); ?>
         <div class="container" style="position: relative;">
             <div class="col-xs-12" style="padding: 0;">
                 <div class="col-md-2 col-xs-12 pull-right category-lists p-0">
-                    <h2>دسته بندی محصولات</h2>
-                    <ul class="list-group p-0">
-                        <?php foreach ($rootCategories as $rootCategory) { ?>
-                            <li class="list-group-item <?php if($rootCategory['CategoryId'] == $breadCrumb['current']['CategoryId']) echo "active"; ?>">
-                                <a href="<?php echo categoryUrl($rootCategory['CategoryId'], $rootCategory['CategoryTitle']); ?>">
-                                    <?php echo $rootCategory['CategoryTitle']; ?>
-                                </a>
-                            </li>
+
+                    <div>
+                        <h2>دسته بندی محصولات</h2>
+                        <ul class="list-group p-0">
+                            <?php foreach ($childCategories as $rootCategory) { ?>
+                                <li class="list-group-item <?php if ($rootCategory['CategoryId'] == $breadCrumb['current']['CategoryId']) echo "active"; ?>">
+                                    <a href="<?php echo categoryUrl($rootCategory['CategoryId'], $rootCategory['CategoryTitle']); ?>">
+                                        <?php echo $rootCategory['CategoryTitle']; ?>
+                                    </a>
+                                </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h2>فیلتر محصولات</h2>
+                        <?php foreach ($properties as $property) { ?>
+                            <div class="filter-title">
+                                <?php echo $property['PropertyTitle']; ?>
+                                <i class="fa fa-angle-down toggle"></i>
+                            </div>
+                            <div class="filter-items">
+                                <?php foreach ($property['properties'] as $pr) { ?>
+                                        <div class="filter-items-container">
+                                            <label for="inputCategoryPropertyOptionId-<?php echo $pr['CategoryPropertyOptionId'] ?>"><?php echo $pr['CategoryPropertyOptionTitle'] ?></label>
+                                            <input type="checkbox" class="property-option"  id="inputCategoryPropertyOptionId-<?php echo $pr['CategoryPropertyOptionId'] ?>"  value="<?php echo $pr['CategoryPropertyOptionId'] ?>"/>
+                                        </div>
+                                <?php } ?>
+                            </div>
                         <?php } ?>
-                    </ul>
+                    </div>
+
                 </div>
                 <div class="col-md-10 col-xs-12 category-list-box">
-                    <div class="col-xs-12 pl-0 p-x-0">
+                    <div class="col-xs-12 p-0" style="padding: 0px 4px !important;">
                         <div class="col-xs-12 sort-box hidden-xs hidden-sm">
                             <strong>مرتب سازی بر اساس:</strong>
                             <ul class="ordering" name="inputOrderingProductPrice">
-                                <li data-type="Newest"  class="active">جدیدترین</li>
+                                <li data-type="Newest" class="active">جدیدترین</li>
                                 <li data-type="Sale">پرفروش ترین</li>
                                 <li data-type="View">پربازدیدترین</li>
                                 <li data-type="ASC">ارزان ترین</li>
@@ -67,15 +89,14 @@ $_DIR = base_url('assets/ui/'); ?>
                     <div class="product-container section-min-xs">
                         <!-- Ordering -->
                         <div class="col-xs-12 p-0">
-                            <div class="col-md-12 col-xs-12 grouping-ul-style p-0" id="product-container">
+                            <div class="grouping-ul-style" id="product-container">
                             </div>
                         </div>
                         <div class="col-xs-12 z-p pagination">
-                            <nav style="direction: ltr" id="pagination"
-                                 class="pagination-list text-center Page navigation"></nav>
+                            <nav style="direction: ltr" id="pagination" class="pagination-list text-center Page navigation"></nav>
                         </div>
                     </div>
-                    <div class="row hidden">
+                    <div class="row">
                         <div class="col-xs-12 pl-0">
                             <div class="category-info rtl text-justify">
                                 <h1><?php echo $categoryInfo['CategoryTitle']; ?></h1>

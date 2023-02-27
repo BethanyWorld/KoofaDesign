@@ -13,7 +13,7 @@ class Home extends CI_Controller{
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'پروفایل ';
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
-        $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
+        $data['sidebar'] = $this->load->view('ui/v2/user/sidebar' , NULL,TRUE);
         $this->load->view('ui/v2/static/header', $data);
         $this->load->view('ui/v2/user/home/index', $data);
         $this->load->view('ui/v2/user/home/index_css');
@@ -61,7 +61,7 @@ class Home extends CI_Controller{
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
-        $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
+        $data['sidebar'] = $this->load->view('ui/v2/user/sidebar' , NULL,TRUE);
 
         $this->load->view('ui/v2/static/header', $data);
         $this->load->view('ui/v2/user/address/index', $data);
@@ -92,7 +92,7 @@ class Home extends CI_Controller{
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userAddress'] = $this->ModelUser->getUserAddressByAddressId($addressId)[0];
-        $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
+        $data['sidebar'] = $this->load->view('ui/v2/user/sidebar' , NULL,TRUE);
         $this->load->view('ui/v2/static/header', $data);
         $this->load->view('ui/v2/user/address_edit/index', $data);
         $this->load->view('ui/v2/user/address_edit/index_css');
@@ -123,7 +123,7 @@ class Home extends CI_Controller{
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userWishList'] = $this->ModelUser->getWishList($userId);
-        $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
+        $data['sidebar'] = $this->load->view('ui/v2/user/sidebar' , NULL,TRUE);
         $this->load->view('ui/v2/static/header', $data);
         $this->load->view('ui/v2/user/wish_list/index', $data);
         $this->load->view('ui/v2/user/wish_list/index_css');
@@ -154,7 +154,7 @@ class Home extends CI_Controller{
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['orders'] = $this->ModelUser->getUserOrdersByUserId($userId);
-        $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
+        $data['sidebar'] = $this->load->view('ui/v2/user/sidebar' , NULL,TRUE);
 
         $this->load->view('ui/v2/static/header', $data);
         $this->load->view('ui/v2/user/orders/index', $data);
@@ -169,7 +169,7 @@ class Home extends CI_Controller{
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['orderInfo'] = $this->ModelUser->getUserOrdersByOrderId($orderId);
         $data['orderItems'] = $this->ModelUser->getUserOrdersItemsByOrderId($orderId);
-        $data['sidebar'] = $this->load->view('ui/user/sidebar' , NULL,TRUE);
+        $data['sidebar'] = $this->load->view('ui/v2/user/sidebar' , NULL,TRUE);
 
         $this->load->view('ui/v2/static/header', $data);
         $this->load->view('ui/v2/user/order_detail/index', $data);

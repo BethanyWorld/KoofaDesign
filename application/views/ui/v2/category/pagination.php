@@ -7,7 +7,8 @@
                 total: Math.ceil($numRows / $defaultPageSize),
                 maxVisible: 5
             });
-        } else {
+        }
+        else {
             $('#pagination').empty();
         }
     });
@@ -16,12 +17,20 @@
 if ($data) {
     foreach ($data as $item) { ?>
         <div class="col-md-4 col-xs-6 p-0 pull-right p-item">
-            <a target="_blank" href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
+            <div class="col-xs-12 product-list-wrapper">
                 <div class="col-xs-12 product-item">
-                    <div class="product-image" style="background: url('<?php echo $item['ProductMockUpImage']; ?>');"></div>
+                    <a target="_blank" href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
+                        <div class="product-image"
+                             style="background: url('<?php echo $item['ProductMockUpImage']; ?>');"></div>
+                    </a>
                     <div class="product-info">
                         <h4 class="text-center">
-                            <strong><?php echo $item['ProductTitle']; ?></strong>
+                            <a target="_blank"
+                               href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
+                                <strong>
+                                    <?php echo $item['ProductTitle']; ?>
+                                </strong>
+                            </a>
                             <i class="fa fa-heart-o"></i>
                         </h4>
                         <span class="price-begin">
@@ -33,7 +42,7 @@ if ($data) {
                         </span>
                     </div>
                 </div>
-            </a>
+            </div>
         </div>
     <?php }
 } else {

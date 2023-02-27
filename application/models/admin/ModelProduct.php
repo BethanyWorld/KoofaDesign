@@ -157,8 +157,8 @@ class ModelProduct extends CI_Model{
             'ProductSpecialVirtualMaxPrice' => $inputProductSpecialVirtualMaxPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
             'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
-            'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
-            'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'CreateDateTime' => time(),
+            'ModifiedDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->insert('product', $Array);
@@ -248,7 +248,7 @@ class ModelProduct extends CI_Model{
             'ProductSpecialVirtualMaxPrice' => $inputProductSpecialVirtualMaxPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
             'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
-            'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'ModifiedDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->where('ProductId', $inputs['inputProductId']);
@@ -359,8 +359,8 @@ class ModelProduct extends CI_Model{
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
             'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
-            'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
-            'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'CreateDateTime' => time(),
+            'ModifiedDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->insert('product', $Array);
@@ -450,8 +450,8 @@ class ModelProduct extends CI_Model{
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
             'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
-            'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
-            'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'CreateDateTime' => time(),
+            'ModifiedDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->where('ProductId', $inputs['inputProductId']);
@@ -571,8 +571,8 @@ class ModelProduct extends CI_Model{
             'ProductIsFullHeight' => $inputs['inputProductIsFullHeight'],
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
             'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
-            'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
-            'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'CreateDateTime' => time(),
+            'ModifiedDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->insert('product', $Array);
@@ -667,8 +667,8 @@ class ModelProduct extends CI_Model{
             'ProductIsFullHeight' => $inputs['inputProductIsFullHeight'],
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
             'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
-            'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
-            'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'CreateDateTime' => time(),
+            'ModifiedDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->where('ProductId', $inputs['inputProductId']);

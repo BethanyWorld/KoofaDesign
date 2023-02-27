@@ -5,7 +5,7 @@ $_DIR = base_url('assets/ui/'); ?>
         <div class="container margin-t-15 container-padding">
             <div class="col-md-12 col-xs-12 padding-0 margin-b-mines-75">
                 <?php echo $sidebar; ?>
-                <div class="col-md-9 col-xs-12" style="direction: rtl">
+                <div class="col-md-9 col-xs-12 main-form">
                     <style>
                         .table td,
                         .table th{

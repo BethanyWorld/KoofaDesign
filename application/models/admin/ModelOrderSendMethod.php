@@ -34,8 +34,8 @@ class ModelOrderSendMethod extends CI_Model{
         $Array = array(
             'OrderSendMethodTitle' => $inputs['inputOrderSendMethodTitle'],
             'OrderSendMethodPrice' => $inputs['inputOrderSendMethodPrice'],
-            'CreateDateTime' => jDateTime::date("Y/m/d H:i:s", false, false),
-            'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'CreateDateTime' => time(),
+            'ModifiedDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->insert('orders_sending_method', $Array);
@@ -62,7 +62,7 @@ class ModelOrderSendMethod extends CI_Model{
             'OrderSendMethodTitle' => $inputs['inputOrderSendMethodTitle'],
             'OrderSendMethodPrice' => $inputs['inputOrderSendMethodPrice'],
             'OrderSendMethodActive' => $inputs['inputOrderSendMethodActive'],
-            'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'ModifiedDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->where('OrderSendMethodId', $inputs['inputOrderSendMethodId']);
@@ -88,7 +88,7 @@ class ModelOrderSendMethod extends CI_Model{
     public function doDeleteSendMethod($inputs){
         $Array = array(
             'OrderSendMethodActive' => 'InActive',
-            'ModifiedDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'ModifiedDateTime' => time()
         );
         $this->db->trans_start();
         $this->db->where('OrderSendMethodId', $inputs['inputOrderSendMethodId']);

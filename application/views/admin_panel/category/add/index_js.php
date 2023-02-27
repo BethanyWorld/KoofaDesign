@@ -8,6 +8,7 @@
             $inputCategoryPoster = $.trim($("#inputCategoryPoster").val());
             $inputCategoryDescription = $.trim($("#inputCategoryDescription").val());
             $inputCategoryDeliveryTime = $.trim($("#inputCategoryDeliveryTime").val());
+            $inputCategoryInstallPrice  = $.trim($("#inputCategoryInstallPrice").val());
 
             /* Validation */
             if (!isNumber($inputCategoryParentId)) {
@@ -21,7 +22,8 @@
                 'inputCategoryImage': $inputCategoryImage,
                 'inputCategoryPoster': $inputCategoryPoster,
                 'inputCategoryDescription': $inputCategoryDescription,
-                'inputCategoryDeliveryTime': $inputCategoryDeliveryTime
+                'inputCategoryDeliveryTime': $inputCategoryDeliveryTime,
+                'inputCategoryInstallPrice': $inputCategoryInstallPrice
             }
             toggleLoader();
             $.ajax({

@@ -22,5 +22,12 @@
                 }
             });
         });
+
+        if($(".profile-login-image-div4").length  % 2 == 0){
+            $(".profile-login-image-div4").last().addClass('no-border');
+            $(".profile-login-image-div4").last().prev().addClass('no-border');
+        } else{
+            $(".profile-login-image-div4").last().addClass('no-border');
+        }
     });
 </script>

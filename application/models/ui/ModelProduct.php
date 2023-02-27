@@ -280,9 +280,13 @@ class ModelProduct extends CI_Model{
         $this->db->join('product_property', 'product.ProductId = product_property.ProductId' , 'left');
         $this->db->where('product_category_relation.CategoryId', $inputs['inputCategoryId']);
         if(isset($inputs['inputPropertyOptions'])){
+            /*foreach ($inputs['inputPropertyOptions'] as $option) {
+                $this->db->where('product_property.PropertyOptionId', $option);
+            }*/
             $this->db->where_in('product_property.PropertyOptionId', $inputs['inputPropertyOptions']);
         }
         $this->db->group_by("product.ProductId");
+        $this->db->having(' COUNT(DISTINCT product_property.PropertyOptionId) = ' . sizeof($inputs['inputPropertyOptions']));
 
 	    switch($inputs['inputOrdering']){
             case 'Newest':
@@ -303,6 +307,7 @@ class ModelProduct extends CI_Model{
         $data['numRows'] = $tempDb->get()->num_rows();
         $this->db->limit($end, $start);
         $query = $this->db->get()->result_array();
+
 
         for ($i = 0; $i < sizeof($query); $i++) {
             $query[$i]['price'] = $this->getProductPriceProductId($query[$i]['ProductId']);

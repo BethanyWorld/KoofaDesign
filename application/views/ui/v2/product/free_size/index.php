@@ -26,6 +26,7 @@ $_DIR = base_url('assets/ui/'); ?>
         <div class="col-xs-12">
             <div class="col-md-12 col-xs-12  padding-0">
                 <?php echo $breadCrumb; ?>
+                <input id="inputInstallPrice"  type="hidden"  value="<?php echo $installPrice; ?>" />
             </div>
         </div>
 
@@ -89,27 +90,10 @@ $_DIR = base_url('assets/ui/'); ?>
                         </style>
 
                         <div class="img-container img-container-large">
-                            <img class="image" height="400px" src="<?php echo $data['ProductPrimaryImage']; ?>" id="cropperImage">
-                        </div>
-                        <div class="img-container img-container-small">
-                            <img class="image" width="100%" src="<?php echo $data['ProductPrimaryImage']; ?>" id="cropperImage">
+                            <img class="image"  style="max-width: 100%;" src="<?php echo $data['ProductPrimaryImage']; ?>" id="cropperImage">
                         </div>
 
                     </div>
-                    <!--                    <div class="col-xs-12 col-md-4 padding-0">-->
-                    <!--                        <div class="box">-->
-                    <!--                            <label class="upload-options btn btn-upload" for="inputImage"-->
-                    <!--                                   title="Upload image file">-->
-                    <!--                                <input type="file" class="sr-only" id="inputImage" name="file"-->
-                    <!--                                       accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff">-->
-                    <!--                                <span class="docs-tooltip" data-animation="false"-->
-                    <!--                                      title="طرح دلخواه">-->
-                    <!--                                    آپلود طرح دلخواه-->
-                    <!--              <span class="fa fa-upload"></span>-->
-                    <!--            </span>-->
-                    <!--                            </label>-->
-                    <!--                        </div>-->
-                    <!--                    </div>-->
                 </div>
                 <div class="col-md-5 col-xs-12">
                     <?php echo $productTitles; ?>
@@ -134,7 +118,6 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                     <div class="col-xs-12 pull-right product-size padding-0">
                         <label>سایز دلخواه</label>
-
                         <input id="inputProductWidth"
                                class="metrics"
                                type="number"

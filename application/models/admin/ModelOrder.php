@@ -64,8 +64,10 @@ class ModelOrder extends CI_Model
             'OrderSendMethodId' => $inputs['inputOrderSendMethodId'],
             'OrderSendMethodPrice' => $inputs['inputOrderSendMethodPrice'],
             'OrderDiscountCode' => $inputs['inputOrderDiscountCode'],
+            'OrderToken' => $inputs['inputOrderToken'],
+            'OrderResNum' => $inputs['inputOrderResNum'],
             'OrderStatus' => 'Pend',
-            'OrderDateTime' => jDateTime::date("Y/m/d H:i:s", false, false)
+            'OrderDateTime' => time()
         );
         $this->db->insert('orders', $Array);
         return $this->db->insert_id();
@@ -112,6 +114,19 @@ class ModelOrder extends CI_Model
         );
         $this->db->where('OrderId', $orderId);
         $this->db->update('orders', $Array);
+    }
+
+
+    public function payment_update_after_pay($id,$MID,$RefNum,$CustomerRefNum,$State,$CardPanHash,$is_pay){
+        $this->db->reset_query();
+        $this->db->where('OrderResNum',$id);
+        $this->db->set('OrderMID',$MID);
+        $this->db->set('OrderRefNum',$RefNum);
+        $this->db->set('OrderCustomerRefNum',$CustomerRefNum);
+        $this->db->set('OrderStatus','Done');
+        $this->db->set('OrderCardPanHash',$CardPanHash);
+        $this->db->set('OrderIsPay',$is_pay);
+        $this->db->update('orders');
     }
 
 }

@@ -20,6 +20,9 @@ html , body{
     width: 100%;
     overflow-x: hidden;
 }
+.iziToast > .iziToast-body .iziToast-title{
+    font-family: 'iransans', serif;
+}
 .bold-font{
     font-family: 'iransans', serif;
     font-weight: bold;
@@ -53,16 +56,16 @@ header .top-header ul li{
 }
 header .top-header ul li a{
     position: relative;
-    color:#fd4a1a''
+    color:#fd4a1a;
 }
 header .top-header ul li .cart-count{
-    background: #fd4a1a;
+    background: #fd4a1ab3;
     color: #fff;
     position: absolute;
-    top: -5px;
+    top: -6px;
     left: -6px;
-    padding: 2px 4px;
-    font-size: 6px;
+    padding: 5px 12px;
+    font-size: 12px;
     border-radius: 50%;
 }
 
@@ -99,6 +102,7 @@ header .top-header form button{
     position: absolute;
     left: 0;
     outline: 0;
+    height: 100%;
 }
 header .top-header form button img{
     width: 39px;
@@ -367,7 +371,6 @@ color: #e7472c;
 }
 .slogans{
     text-align: center;
-    border-bottom: 1px solid #ccc;
     font-size: 12px;
 }
 .slogans span{
@@ -416,6 +419,9 @@ color: #e7472c;
     color: #fff;
     padding: 12px 40px;
     border-radius: 7px;
+}
+.product-slider .list{
+    overflow: hidden;
 }
 .product-slider .list .item-slide{
     /*border-radius: 6px;*/
@@ -633,8 +639,12 @@ color: #e7472c;
     text-align: center;
     border: 1px solid #ccc;
     border-radius: 7px;
-    background: yellow;
     margin-bottom: 15px;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+}
+.offers .owl-overlay{
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: center !important;

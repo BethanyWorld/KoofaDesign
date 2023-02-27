@@ -45,21 +45,25 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/KoofaDesign&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/KoofaDesign/application/views/ui/v2/cart&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\KoofaDesign\assets\ui\v2\assets\fonts" />
-      <recent name="C:\wamp64\www\KoofaDesign\assets\ui\v2\assets\css" />
-      <recent name="C:\wamp64\www\KoofaDesign\assets\ui\v2\assets\js" />
-      <recent name="C:\wamp64\www\KoofaDesign\application\views\ui\v2\category" />
-      <recent name="C:\wamp64\www\KoofaDesign\application\views\admin_panel" />
+      <recent name="C:\wamp64\www\KoofaDesign\application\views\ui\v2\cart" />
+      <recent name="C:\wamp64\www\KoofaDesign\application\views\ui\v2\user" />
+      <recent name="C:\wamp64\www\KoofaDesign\assets\ui\v2\assets\img" />
+      <recent name="C:\wamp64\www\KoofaDesign\application\views\ui\cart" />
+      <recent name="C:\wamp64\www\KoofaDesign" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\KoofaDesign\application\views\ui\old" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -154,6 +158,21 @@
       <workItem from="1676140007909" duration="1247000" />
       <workItem from="1676145689839" duration="1654000" />
       <workItem from="1676184250691" duration="788000" />
+      <workItem from="1676306766667" duration="4964000" />
+      <workItem from="1676374495660" duration="4766000" />
+      <workItem from="1676471058655" duration="1704000" />
+      <workItem from="1676552314704" duration="9000" />
+      <workItem from="1676723034502" duration="611000" />
+      <workItem from="1676739046471" duration="340000" />
+      <workItem from="1676739743151" duration="653000" />
+      <workItem from="1676822323420" duration="5346000" />
+      <workItem from="1676874866979" duration="611000" />
+      <workItem from="1676881375054" duration="7352000" />
+      <workItem from="1677142991319" duration="10346000" />
+      <workItem from="1677222714466" duration="5647000" />
+      <workItem from="1677302847489" duration="236000" />
+      <workItem from="1677434890159" duration="4807000" />
+      <workItem from="1677484778969" duration="716000" />
     </task>
     <servers />
   </component>
@@ -162,20 +181,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="-1377" y="64" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1613726500999">
-      <screen x="-1920" y="-209" width="1920" height="1040" />
-    </state>
-    <state x="-1377" y="64" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/-1920.-209.1920.1040@-1920.-209.1920.1040" timestamp="1613726500999" />
-    <state x="413" y="0" key="FileChooserDialogImpl" timestamp="1620286557040">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="-953" y="0" key="FileChooserDialogImpl/0.0.1366.728/-1366.0.1366.728@-1366.0.1366.728" timestamp="1612808925042" />
-    <state x="413" y="0" key="FileChooserDialogImpl/0.0.1366.728/1366.-75.1600.860@0.0.1366.728" timestamp="1614319084701" />
-    <state x="413" y="0" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1360.728@0.0.1366.728" timestamp="1615401149023" />
-    <state x="1777" y="0" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1360.728@1366.0.1360.728" timestamp="1614844110330" />
-    <state x="413" y="0" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1680.1010@0.0.1366.728" timestamp="1620286557040" />
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>C:\wamp64\www\KoofaDesign\content</wordpressPath>

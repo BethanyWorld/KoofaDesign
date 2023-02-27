@@ -84,18 +84,18 @@ foreach ($categories as $category) {
 <div class="row offers white-bg">
     <div class="container">
         <div class="col-xs-12 section">
-            <div class="col-md-6 col-xs-6 pull-right box large" style="background: url(<?php echo $plans[0]['PlanImage']; ?>)">
-                <a href="<?php echo $plans[0]['PlanUrl']; ?>">
-                    <div class="owl-overlay"></div>
-                </a>
+            <div class="col-md-6 col-xs-12 pull-right box large">
+                    <a href="<?php echo $plans[0]['PlanUrl']; ?>">
+                        <div class="owl-overlay" style="background: url(<?php echo $plans[0]['PlanImage']; ?>)"></div>
+                    </a>
             </div>
-            <div class="col-md-6 col-xs-6">
-                <div class="col-xs-12 pull-right box min" style="background: url(<?php echo $plans[1]['PlanImage']; ?>)">
+            <div class="col-md-6 col-xs-12 p-xs-0">
+                <div class="col-md-12 col-xs-6 box min" style="background: url(<?php echo $plans[1]['PlanImage']; ?>)">
                     <a href="<?php echo $plans[1]['PlanUrl']; ?>">
                         <div class="owl-overlay"></div>
                     </a>
                 </div>
-                <div class="col-xs-12 pull-right box min" style="background: url(<?php echo $plans[2]['PlanImage']; ?>)">
+                <div class="col-md-12 col-xs-6 box min" style="background: url(<?php echo $plans[2]['PlanImage']; ?>)">
                     <a href="<?php echo $plans[2]['PlanUrl']; ?>">
                         <div class="owl-overlay"></div>
                     </a>
@@ -202,7 +202,8 @@ foreach ($categories as $category) {
                 <div class="owl-carousel">
                     <?php foreach ($latestProduct as $product) { ?>
                         <a href="<?php echo productUrl($product['ProductId'], $product['ProductTitle']); ?>">
-                            <div class="item-slide" style="background: url('<?php echo $product['ProductMockUpImage']; ?>');">
+                            <div class="item-slide"
+                                 style="background: url('<?php echo $product['ProductMockUpImage']; ?>');">
                             </div>
                         </a>
                     <?php } ?>
@@ -221,7 +222,8 @@ foreach ($categories as $category) {
             <?php foreach ($favoriteCategory as $item) { ?>
                 <div class="col-md-6 col-xs-12">
                     <a href="<?php echo categoryUrl($item['CategoryId'], $item['CategoryTitle']); ?>">
-                        <div class="col-xs-12 pull-right box min" style="background: url('<?php echo $item['CategoryPoster']; ?>');">
+                        <div class="col-xs-12 pull-right box min"
+                             style="background: url('<?php echo $item['CategoryPoster']; ?>');">
                             <h3 class="hidden"><?php echo $item['CategoryTitle']; ?></h3>
                         </div>
                     </a>
@@ -258,8 +260,8 @@ foreach ($categories as $category) {
 </div>
 
 
-<div class="section white-bg">
-    <div class="container section">
+<div class="section white-bg p-0 p-xs-0">
+    <div class="container section p-0 p-xs-0">
         <div class="new-letter">
             <div class="top"></div>
             <div class="col-xs-12">

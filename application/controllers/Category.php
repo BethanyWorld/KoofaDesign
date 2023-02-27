@@ -1,8 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Category extends CI_Controller
-{
+class Category extends CI_Controller{
     public function __construct()
     {
         parent::__construct();
@@ -11,26 +10,22 @@ class Category extends CI_Controller
         $this->load->model('admin/ModelMaterial');
         $this->load->model('admin/ModelSizes');
     }
-
     public function index()
     {
     }
-
     public function detail($categoryId, $categoryTitle = ""){
         $data['noImg'] = $this->config->item('defaultImage');
-        $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'دسته بندی محصول ';
         $data['categoryId'] = $categoryId;
         $allCategories = $this->ModelProductCategory->getAllProductCategory()['data'];
         $data['categoryInfo'] = $this->ModelProductCategory->getCategoryByCategoryId($categoryId)[0];
-        $data['categoryTree'] = $this->ModelProductCategory->printCategoryTree($categoryId);
         $data['rootCategories'] = $this->ModelProductCategory->getChildProductCategory(1);
         $data['products'] = $this->ModelProductCategory->getProductByCategoryId($categoryId);
         $data['defaultPageSize'] = $this->config->item('defaultPageSize');
         $data['productCount'] = $this->ModelProduct->getProductCountByProductCategoryId($categoryId);
-
-
         $data['latestProduct'] = $this->ModelProduct->getLatestProduct();
 
+        //$data['pageTitle'] = $this->config->item('defaultPageTitle') . 'دسته بندی  ' . $data['categoryInfo']['CategoryTitle'];
+        $data['pageTitle'] =  $data['categoryInfo']['CategoryTitle'] . ' | '.$this->config->item('defaultPageTitle');
 
         $breadCrumb = array();
         //get root category
@@ -60,6 +55,9 @@ class Category extends CI_Controller
 
         if ($data['categoryInfo']['CategoryParentId'] == 1) {
             $data['childCategories'] = $this->ModelProductCategory->getChildProductCategory($data['categoryInfo']['CategoryId']);
+
+
+
             $this->load->view('ui/v2/static/header', $data);
             $this->load->view('ui/v2/category/sub_index', $data);
             $this->load->view('ui/v2/category/sub_index_css');
@@ -67,6 +65,8 @@ class Category extends CI_Controller
             $this->load->view('ui/v2/static/footer');
         }
         else{
+            $data['childCategories'] = $this->ModelProductCategory->getChildProductCategory($data['categoryInfo']['CategoryParentId']);
+
             $this->load->view('ui/v2/static/header', $data);
             $this->load->view('ui/v2/category/index', $data);
             $this->load->view('ui/v2/category/index_css');
