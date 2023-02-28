@@ -307,7 +307,7 @@
         width: 100%;
         border: 2px solid #fff;
         max-width: 100%;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     .cart-product-title p {

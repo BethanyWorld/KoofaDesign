@@ -6,7 +6,7 @@
                 .css('display', 'block')
                 .parent()
                 .zoom({magnify:2});
-        } , 1000);
+        } , 300);
         $(".slider-active-buttons span").click(function(){
             $(".slider-active-buttons span").removeClass('active');
             $(this).addClass('active');
@@ -180,28 +180,7 @@
              $image.cropper(options);
         }
         else{
-            $image.cropper({
-                autoCropArea: 0.7,
-                viewMode: 1,
-                center: true,
-                dragMode: 'move',
-                movable: false,
-                scalable: false,
-                guides: false,
-                zoomOnWheel: false,
-                zoom: 0.2,
-                cropBoxMovable: true,
-                wheelZoomRatio: 0.1,
-                crop: function (e) {
-                    $dataX.val(Math.round(e.detail.x));
-                    $dataY.val(Math.round(e.detail.y));
-                    $dataHeight.val(Math.round(e.detail.height));
-                    $dataWidth.val(Math.round(e.detail.width));
-                    $dataRotate.val(e.detail.rotate);
-                    $dataScaleX.val(e.detail.scaleX);
-                    $dataScaleY.val(e.detail.scaleY);
-                }
-            });
+            $image.cropper(options);
         }
 
         // Import image

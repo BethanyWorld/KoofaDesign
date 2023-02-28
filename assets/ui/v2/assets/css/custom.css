@@ -420,9 +420,9 @@ color: #e7472c;
     padding: 12px 40px;
     border-radius: 7px;
 }
-.product-slider .list{
+/*{
     overflow: hidden;
-}
+}*/
 .product-slider .list .item-slide{
     /*border-radius: 6px;*/
     overflow: hidden;

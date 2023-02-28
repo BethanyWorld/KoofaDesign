@@ -11,11 +11,15 @@
     }
     .breadcrumb-container .breadcrumb li{
         color: #b5b5b5;
+        font-size: 10px;
     }
     .breadcrumb-container .breadcrumb li a{
         color: #b5b5b5;
     }
     .breadcrumb-container .breadcrumb li.active{
+    }
+    .breadcrumb>li+li:before {
+        padding: 0 0px;
     }
     /*End breadCrumb*/
 </style>

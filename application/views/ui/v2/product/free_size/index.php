@@ -71,22 +71,35 @@ $_DIR = base_url('assets/ui/'); ?>
                         </div>
                     </div>
                     <!-- for cropper-->
-                    <div id="cropper-div" class="col-xs-12 product-slider cropper-image padding-0">
-<!--                        <img src="--><?php //echo $data['ProductPrimaryImage']; ?><!--"-->
-<!--                             style="max-width: 100%";-->
-<!--                             height="400px" width="100%" class="image"/>-->
-
+                    <div id="cropper-div" class="col-xs-12  cropper-image padding-0">
                         <style>
-                            .img-container-small{
-                                min-width: 70vw; /*your responsive value here*/
-                                min-height: 40vh; /*your responsive value here*/
+                            @media (max-width: 767px) {
+                                #cropper-div *{
+                                    max-width: 100% !important;
+                                }
+                                .cropper-crop-box{
+                                    max-width: 100% !important;
+                                }
+                                .cropper-view-box img{
+                                    display: none;
+                                }
+                                .cropper-modal {
+                                    opacity: 0.2;
+                                }
+                                .cropper-face {
+                                    opacity: 0.5;
+                                }
+                            }
+                           /* .img-container-small{
+                                min-width: 70vw;
+                                min-height: 40vh;
                             }
                             .img-container-small img{
                                 height: 320px;
                             }
                             #cropperImage{
-                                max-width: 100%; /* prevent the overflow blip when the modal loads */
-                            }
+                                max-width: 100%;
+                            }*/
                         </style>
 
                         <div class="img-container img-container-large">
