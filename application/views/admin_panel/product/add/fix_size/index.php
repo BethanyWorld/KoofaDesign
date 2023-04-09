@@ -74,6 +74,47 @@
                                         </a>
                                     </div>
                                 </div>
+
+
+                                <div class="col-xs-12 col-sm-3">
+                                    <label for="inputProductMaxHeight">حداکثر ارتفاع (cm)</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="number" class="form-control"
+                                                   min="1"
+                                                   id="inputProductMaxHeight"
+                                                   name="inputProductMaxHeight"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-3">
+                                    <label for="inputProductMaxWidth">حداکثر عرض (cm)</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <input type="number" class="form-control"
+                                                   min="1"
+                                                   id="inputProductMaxWidth"
+                                                   name="inputProductMaxWidth"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-4">
+                                    <label class="required" for="inputProductShape">شکل محصول</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <select class="form-control"
+                                                    id="inputProductShape" name="inputProductShape">
+                                                <?php foreach ($productShape as $key => $value) { ?>
+                                                    <option
+                                                            value="<?php echo $key; ?>">
+                                                        <?php echo $value; ?>
+                                                    </option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div class="col-xs-12 col-sm-3">
                                     <div class="form-group">
                                         <div class="form-line">

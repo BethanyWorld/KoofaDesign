@@ -92,6 +92,11 @@ $config['productType'] = array(
     'NormalUpload' => 'معمولی /قابلیت آپلود',
     'Normal' => 'معمولی',
 );
+$config['productShape'] = array(
+    'Square' => 'مربع',
+    'Rectangle' => 'مستطیل',
+    'RectangleLong' => 'مستطیل کشیده'
+);
 $config['orderStatus'] = array('Pend' ,'Failed','Done');
 /* End Enums */
 

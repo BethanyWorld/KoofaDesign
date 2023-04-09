@@ -14,6 +14,7 @@ class MSChange extends CI_Controller {
 
     public function index(){
         $headerData['pageTitle'] = 'تغییر جنس و سایز';
+        $data['productShape'] = $this->config->item('productShape');
         $data['categories'] = $this->ModelProductCategory->getAllProductCategory()['data'];
         $data['materials'] = $this->ModelMaterial->getAllMaterialsWithoutPagination();
         $data['sizes'] = $this->ModelSizes->getAllSizesWithoutPagination();

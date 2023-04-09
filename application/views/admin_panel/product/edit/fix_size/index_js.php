@@ -11,6 +11,9 @@
             $inputProductDescription = CKEDITOR.instances.inputProductDescription.getData();
             $inputProductPrimaryImage = $.trim($("#inputProductPrimaryImage").val());
             $inputProductMockUpImage = $.trim($("#inputProductMockUpImage").val());
+            $inputProductMaxHeight = $.trim($("#inputProductMaxHeight").val());
+            $inputProductMaxWidth  = $.trim($("#inputProductMaxWidth").val());
+            $inputProductShape = $.trim($("#inputProductShape").val());
             $inputProductSecondaryImage = $("[name=inputProductSecondaryImage]").map(function () {
                 return $(this).val();
             }).get();
@@ -86,7 +89,10 @@
                     'inputProductPrice': $inputProductPrice,
                     'inputProductTag': $inputProductTag,
                     'inputProductHasInstallation': $inputProductHasInstallation,
-                    'inputProductInstallationPrice': $inputProductInstallationPrice
+                    'inputProductInstallationPrice': $inputProductInstallationPrice,
+                    'inputProductMaxHeight': $inputProductMaxHeight,
+                    'inputProductMaxWidth': $inputProductMaxWidth,
+                    'inputProductShape': $inputProductShape
                 }
                 toggleLoader();
                 $.ajax({

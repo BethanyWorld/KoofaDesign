@@ -151,6 +151,7 @@ class Product extends CI_Controller{
     {
         $headerData['pageTitle'] = 'ویرایش محصول';
         $data['productType'] = $this->config->item('productType');
+        $data['productShape'] = $this->config->item('productShape');
         $data['allCategories'] = $this->ModelProductCategory->getAllProductCategory()['data'];
         $data['data'] = $this->ModelProduct->getProductByProductId($productId)['data'][0];
         $data['productPrice'] = $this->ModelProduct->getProductPriceProductId($productId);

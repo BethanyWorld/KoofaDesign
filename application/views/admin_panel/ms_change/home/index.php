@@ -53,7 +53,7 @@
                             <h2>افزودن سایز تمامی محصولات بر اساس دسته بندی و سایز</h2>
                         </div>
                         <div class="body">
-                            <div class="col-xs-12 col-sm-3">
+                            <div class="col-xs-12 col-sm-2">
                                 <label>دسته بندی</label>
                                 <div class="form-group">
                                     <div class="form-line">
@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xs-12 col-sm-3">
+                            <div class="col-xs-12 col-sm-2">
                                 <label for="inputDiscountType">سایز</label>
                                 <div class="form-group">
                                     <div class="form-line">
@@ -75,6 +75,23 @@
                                             <?php foreach ($sizes as $size) { ?>
                                                 <option value="<?php echo $size['SizeId']; ?>">
                                                     <?php echo $size['SizeTitle']; ?>
+                                                </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-2">
+                                <label class="required" for="inputProductShape">شکل محصول</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <select class="form-control"
+                                                id="inputProductShape" name="inputProductShape">
+                                            <option value="">همه</option>
+                                            <?php foreach ($productShape as $key => $value) { ?>
+                                                <option
+                                                        value="<?php echo $key; ?>">
+                                                    <?php echo $value; ?>
                                                 </option>
                                             <?php } ?>
                                         </select>
@@ -120,6 +137,22 @@
 									                <?php echo $size['SizeTitle']; ?>
                                                 </option>
 							                <?php } ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-2">
+                                <label class="required" for="inputProductShape">شکل محصول</label>
+                                <div class="form-group">
+                                    <div class="form-line">
+                                        <select class="form-control" id="inputProductShape" name="inputProductShape">
+                                            <option value="">همه</option>
+                                            <?php foreach ($productShape as $key => $value) { ?>
+                                                <option
+                                                        value="<?php echo $key; ?>">
+                                                    <?php echo $value; ?>
+                                                </option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                 </div>

@@ -359,6 +359,9 @@ class ModelProduct extends CI_Model{
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
             'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
+            'ProductMaxHeight' => $inputs['inputProductMaxHeight'],
+            'ProductMaxWidth' => $inputs['inputProductMaxWidth'],
+            'ProductShape' => $inputs['inputProductShape'],
             'CreateDateTime' => time(),
             'ModifiedDateTime' => time()
         );
@@ -450,6 +453,9 @@ class ModelProduct extends CI_Model{
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
             'ProductMockUpImage' => $inputs['inputProductMockUpImage'],
+            'ProductMaxHeight' => $inputs['inputProductMaxHeight'],
+            'ProductMaxWidth' => $inputs['inputProductMaxWidth'],
+            'ProductShape' => $inputs['inputProductShape'],
             'CreateDateTime' => time(),
             'ModifiedDateTime' => time()
         );

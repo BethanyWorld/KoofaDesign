@@ -27,13 +27,16 @@
                 }
             });
         });
+
         $("#changeCategorySize").click(function () {
             toggleLoader();
             $inputCostSizeId = $("#CategorySizePrice").find('[name="size"]').val();
             $inputCostCategoryId = $("#CategorySizePrice").find('[name="category"]').val();
+            $inputProductShape= $("#CategorySizePrice").find('[name="inputProductShape"]').val();
             $sendData = {
                 'inputCostSizeId': $inputCostSizeId,
                 'inputCostCategoryId': $inputCostCategoryId,
+                'inputProductShape': $inputProductShape
             }
             $.ajax({
                 type: 'post',
@@ -55,10 +58,12 @@
             $inputCostSizeId = $("#CategoryMaterialSizePrice").find('[name="size"]').val();
             $inputCostMaterialId = $("#CategoryMaterialSizePrice").find('[name="material"]').val();
             $inputCostCategoryId = $("#CategoryMaterialSizePrice").find('[name="category"]').val();
+            $inputProductShape= $("#CategoryMaterialSizePrice").find('[name="inputProductShape"]').val();
             $sendData = {
                 'inputCostSizeId': $inputCostSizeId,
                 'inputCostMaterialId': $inputCostMaterialId,
                 'inputCostCategoryId': $inputCostCategoryId,
+                'inputProductShape': $inputProductShape
             }
             $.ajax({
                 type: 'post',
@@ -104,9 +109,11 @@
             toggleLoader();
             $inputCostSizeId = $("#CategorySizePrice").find('[name="size"]').val();
             $inputCostCategoryId = $("#CategorySizePrice").find('[name="category"]').val();
+            $inputProductShape= $("#CategorySizePrice").find('[name="inputProductShape"]').val();
             $sendData = {
                 'inputCostSizeId': $inputCostSizeId,
                 'inputCostCategoryId': $inputCostCategoryId,
+                'inputProductShape': $inputProductShape
             }
             $.ajax({
                 type: 'post',
@@ -128,10 +135,12 @@
             $inputCostSizeId = $("#CategoryMaterialSizePrice").find('[name="size"]').val();
             $inputCostMaterialId = $("#CategoryMaterialSizePrice").find('[name="material"]').val();
             $inputCostCategoryId = $("#CategoryMaterialSizePrice").find('[name="category"]').val();
+            $inputProductShape= $("#CategoryMaterialSizePrice").find('[name="inputProductShape"]').val();
             $sendData = {
                 'inputCostSizeId': $inputCostSizeId,
                 'inputCostMaterialId': $inputCostMaterialId,
                 'inputCostCategoryId': $inputCostCategoryId,
+                'inputProductShape': $inputProductShape
             }
             $.ajax({
                 type: 'post',
