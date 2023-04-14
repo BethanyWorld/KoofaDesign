@@ -154,7 +154,6 @@ $_DIR = base_url('assets/ui/'); ?>
         padding: 10px;
         margin: 10px 0px;
         border: 1px solid #ccc;
-        border-radius: 7px;
         direction: rtl;
         margin-bottom: 6px;
     }
@@ -166,7 +165,6 @@ $_DIR = base_url('assets/ui/'); ?>
         background-position: center !important;
         background-size: cover !important;
         background-repeat: no-repeat !important;
-        border-radius: 7px;
     }
 
     .product-item h4{

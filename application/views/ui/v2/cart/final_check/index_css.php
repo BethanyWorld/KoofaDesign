@@ -95,7 +95,6 @@
         background: #35bfa3;
         padding: 18px 0;
         margin: 15px 0px;
-        border-radius: 5px;
         height: 65px;
     }
     .discount-input{

@@ -153,7 +153,7 @@ $_DIR = base_url('assets/ui/');
     .category-list-box .item{
         padding: 25% 0;
         margin-bottom: 25px;
-        border-radius: 10px;
+        border-radius: 0;
         overflow: hidden;
     }
     .category-list-box .item .overlay{
@@ -187,7 +187,6 @@ $_DIR = base_url('assets/ui/');
         color: #fff;
         padding: 10px 20px;
         border: 1px solid #fff;
-        border-radius: 7px;
         margin-top: 40px;
         font-size: 18px;
     }
