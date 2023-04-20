@@ -130,6 +130,7 @@ class Product extends CI_Controller{
     public function addDesignFixSize(){
         $headerData['pageTitle'] = 'افزودن محصول';
         $data['productType'] = $this->config->item('productType');
+        $data['productShape'] = $this->config->item('productShape');
         $data['categoryTree'] = $this->ModelProductCategory->printCategoryTree();
         $data['categoryCheckBoxTree'] = $this->ModelProductCategory->printCategoryCheckBoxTree();
         $data['materials'] = $this->ModelMaterial->getAllMaterialsWithoutPagination();

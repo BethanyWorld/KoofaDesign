@@ -181,6 +181,7 @@
       <workItem from="1681305284264" duration="1933000" />
       <workItem from="1681315494926" duration="1190000" />
       <workItem from="1681464185235" duration="5884000" />
+      <workItem from="1681971114851" duration="13752000" />
     </task>
     <servers />
   </component>
@@ -192,5 +193,16 @@
   </component>
   <component name="WordPressConfiguration" enabled="true">
     <wordpressPath>C:\wamp64\www\KoofaDesign\content</wordpressPath>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/../KoofaPrintPanel/application/models/ModelForms.php</url>
+          <line>677</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
