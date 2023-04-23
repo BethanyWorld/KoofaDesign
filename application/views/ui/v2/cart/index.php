@@ -164,17 +164,11 @@ $_DIR = base_url('assets/ui/v2/');
                 <?php if (!empty($this->session->userdata('cart'))) { ?>
                 <div class="col-md-3 col-xs-12" style="direction: rtl">
                     <div class="col-md-12 col-xs-12 cart-product-right-panel">
-
                         <div class="col-md-12 col-xs-12 cart-product-discount-border-b-div">
                             <div class="col-lg-7 col-md-7 col-xs-12 RightFloat p-0 cart-product-discount-desc">
                                 <p class="cart-first-title">جمع کل خرید شما :</p>
                                 <div class="clearfix"></div>
-                                <p>تخفیف حراجی کوفا :</p>
-                                <div class="clearfix"></div>
-                                <p>تخفیف اعتباری کوفا :</p>
-                                <div class="clearfix"></div>
-                                <p>اعمال کارت تخفیف :</p>
-                                <div class="clearfix"></div>
+                                <p>تخفیف :</p>
                             </div>
                             <div class="col-lg-5 col-md-5 col-xs-12 p-0 cart-product-discount-desc cart-product-discount-price">
                                 <p class="cart-first-title">
@@ -185,17 +179,6 @@ $_DIR = base_url('assets/ui/v2/');
                                 <p>0
                                     <span>تومان</span>
                                 </p>
-                                <div class="clearfix"></div>
-                                <p>
-                                    0
-                                    <span>تومان</span>
-                                </p>
-                                <div class="clearfix"></div>
-                                <p>
-                                    0
-                                    <span>تومان</span>
-                                </p>
-                                <div class="clearfix"></div>
                             </div>
                         </div>
                         <div class="col-md-12 col-xs-12 cart-product-amount-payable-text">
@@ -208,7 +191,6 @@ $_DIR = base_url('assets/ui/v2/');
                             </p>
                         </div>
                         <div class="col-md-12 col-xs-12 cart-left-panel-button">
-
                             <a href="<?php echo base_url('Cart/payment'); ?>">
                                 <button class="btn cart-shopping-button">
                                     خرید خود را نهایی کنید
@@ -231,8 +213,7 @@ $_DIR = base_url('assets/ui/v2/');
                         <div class="owl-carousel">
                             <?php foreach ($latestProduct as $product) { ?>
                                 <a href="<?php echo productUrl($product['ProductId'], $product['ProductTitle']); ?>">
-                                    <div class="item-slide"
-                                         style="background: url('<?php echo $product['ProductMockUpImage']; ?>');"></div>
+                                    <div class="item-slide" style="background: url('<?php echo $product['ProductMockUpImage']; ?>');"></div>
                                 </a>
                             <?php } ?>
                         </div>

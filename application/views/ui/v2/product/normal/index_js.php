@@ -3,7 +3,7 @@
 
 
         setTimeout(function(){
-            $('#product-slider img')
+            $('#product-slider #big img')
                 .wrap('<span style="display:inline-block"></span>')
                 .css('display', 'block')
                 .parent()

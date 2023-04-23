@@ -45,7 +45,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/KoofaDesign/application/views/ui/v2/cart&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/KoofaDesign&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -182,6 +182,11 @@
       <workItem from="1681315494926" duration="1190000" />
       <workItem from="1681464185235" duration="5884000" />
       <workItem from="1681971114851" duration="13752000" />
+      <workItem from="1681998854587" duration="1083000" />
+      <workItem from="1682062713207" duration="1166000" />
+      <workItem from="1682083513568" duration="2916000" />
+      <workItem from="1682117381178" duration="4441000" />
+      <workItem from="1682260955632" duration="595000" />
     </task>
     <servers />
   </component>

@@ -26,15 +26,7 @@ $_DIR = base_url('assets/ui/v2/');
                         </span>
                     </div>
                 </div>
-                <?php if (!empty($this->session->userdata('cart'))) { ?>
-                    <div class="col-md-3 col-xs-12 finalize-shopping">
-                        <div id="discount-form"
-                             class="col-md-12 col-md-offset-0 col-xs-10 col-xs-offset-1 cart-product-factor-main-div">
-                            <input type="text" id="inputDiscountCode" name="inputDiscountCode" class="discount-input">
-                            <button id="addDiscountCode" class="cart-product-factor-button height100">ثبت کد تخفیف</button>
-                        </div>
-                    </div>
-                <?php } else { ?>
+                <?php if (empty($this->session->userdata('cart'))) { ?>
                     <style>
                         .cart-product-factor-main-div {
                             background: #35bfa3;
@@ -121,6 +113,11 @@ $_DIR = base_url('assets/ui/v2/');
                     <?php
                     $totalPrice = 0;
                     $items = $this->session->userdata('cart');
+
+
+                    $discount = $this->session->userdata('CartDiscount');
+
+
                     foreach ($items as $item) {
                         $uniqueId = rand(1000, 9999);
                         $totalPrice += $item['productPrice'] * $item['productCount'];
@@ -146,20 +143,30 @@ $_DIR = base_url('assets/ui/v2/');
                             </td>
                         </tr>
                     <?php }
-                    $this->session->set_userdata('totalPrice' , $totalPrice);
+
+                    if(!empty($discount)){
+                        if($discount['DiscountPercent'] != null && $discount['DiscountPercent'] > 0){
+                            $discoutnPrice  =  $totalPrice * ($discount['DiscountPercent']/100) ;
+                        }
+                        if($discount['DiscountPrice'] != null && $discount['DiscountPrice'] > 0){
+                            $discoutnPrice  = $discount['DiscountPrice'];
+                        }
+                    }
+                    $this->session->set_userdata('totalPrice' , $totalPrice - $discoutnPrice);
                     ?>
                     <tr>
                         <td></td>
                         <td class="fit" colspan="2" style="color: red">مجموع تخفیف</td>
                         <td class="fit">
-                            0 تومان
+                             <?php echo number_format($discoutnPrice); ?>
+                             تومان
                         </td>
                     </tr>
                     <tr>
                         <td></td>
                         <td class="fit" colspan="2">جمع قابل پرداخت</td>
                         <td style="padding: 30px 30px !important;background: #5dc0a4;color: #fff;font-size: 18px;" class="fit">
-                            <?php echo number_format($totalPrice); ?> تومان
+                            <?php echo number_format( $totalPrice - $discoutnPrice); ?> تومان
                         </td>
                     </tr>
                     </tbody>

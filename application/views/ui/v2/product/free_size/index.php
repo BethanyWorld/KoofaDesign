@@ -29,7 +29,6 @@ $_DIR = base_url('assets/ui/'); ?>
                 <input id="inputInstallPrice"  type="hidden"  value="<?php echo $installPrice; ?>" />
             </div>
         </div>
-
         <div class="col-xs-12">
             <div class="container product-container">
                 <div class="col-md-7 col-xs-12 padding-0">
@@ -76,9 +75,11 @@ $_DIR = base_url('assets/ui/'); ?>
                             @media (max-width: 767px) {
                                 #cropper-div *{
                                     max-width: 100% !important;
+                                    width: 100% !important;
                                 }
                                 .cropper-crop-box{
                                     max-width: 100% !important;
+                                    width: 100% !important;
                                 }
                                 .cropper-view-box img{
                                     display: none;

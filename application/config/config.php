@@ -57,7 +57,7 @@ $config['defaultImage'] = $config['base_url'] . 'assets/ui/images/no-img.png';
 $config['defaultPageTitle'] = 'مجموعه هنر کوفا ';
 $config['API_KEY'] = 'AIzaSyACQqvivCiQe0wFhh1R4q4x3Hfmeuig3Y8';
 
-$config['defaultPageSize'] = 12;
+$config['defaultPageSize'] = 10;
 $config['upload_path']= './uploads/';
 
 /* SMS Panel */
