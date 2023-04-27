@@ -14,7 +14,6 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control ltr"
-                                           maxlength="30" minlength="1"
                                            value="<?php echo $data['PlanTitle']; ?>"
                                            id="inputPlanTitle" name="inputPlanTitle"/>
                                 </div>
@@ -43,7 +42,6 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control ltr"
-                                           maxlength="30" minlength="1"
                                            value="<?php echo $data['PlanUrl']; ?>"
                                            id="inputPlanUrl" name="inputPlanUrl"/>
                                 </div>

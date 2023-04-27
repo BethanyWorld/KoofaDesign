@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d07bf66-edc3-4fcc-9842-f70a8126f37a" name="Default Changelist" comment="" />
+    <list default="true" id="6d07bf66-edc3-4fcc-9842-f70a8126f37a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/KoofaDesign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/KoofaDesign.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/application.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/ui/ModelAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ui/ModelAccount.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/ui/ModelProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ui/ModelProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/ui/ModelProductCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ui/ModelProductCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/main_slider/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/main_slider/add/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/main_slider/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/main_slider/edit/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/plans/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/plans/add/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/plans/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/plans/edit/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +57,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/KoofaDesign&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/KoofaPrint&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -186,7 +198,11 @@
       <workItem from="1682062713207" duration="1166000" />
       <workItem from="1682083513568" duration="2916000" />
       <workItem from="1682117381178" duration="4441000" />
-      <workItem from="1682260955632" duration="595000" />
+      <workItem from="1682260955632" duration="1187000" />
+      <workItem from="1682357121579" duration="1386000" />
+      <workItem from="1682587983776" duration="3047000" />
+      <workItem from="1682598598291" duration="618000" />
+      <workItem from="1682624121319" duration="1817000" />
     </task>
     <servers />
   </component>

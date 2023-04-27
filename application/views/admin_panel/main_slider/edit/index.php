@@ -15,7 +15,6 @@
                                 <div class="form-line">
                                     <input type="text" class="form-control ltr"
                                            value="<?php echo $data['SlideTitle']; ?>"
-                                           maxlength="30" minlength="1"
                                            id="inputSlideTitle" name="inputSlideTitle"/>
                                 </div>
                             </div>
@@ -44,7 +43,6 @@
                                 <div class="form-line">
                                     <input type="text" class="form-control ltr"
                                            value="<?php echo $data['SlideUrl']; ?>"
-                                           maxlength="30" minlength="1"
                                            id="inputSlideUrl" name="inputSlideUrl"/>
                                 </div>
                             </div>

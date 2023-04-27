@@ -10,7 +10,6 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control ltr"
-                                           maxlength="30" minlength="1"
                                            id="inputPlanTitle" name="inputPlanTitle"/>
                                 </div>
                             </div>
@@ -37,7 +36,6 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control ltr"
-                                           maxlength="30" minlength="1"
                                            id="inputPlanUrl" name="inputPlanUrl"/>
                                 </div>
                             </div>

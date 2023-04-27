@@ -10,7 +10,6 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control ltr"
-                                           maxlength="30" minlength="1"
                                            id="inputSlideTitle" name="inputSlideTitle"/>
                                 </div>
                             </div>
@@ -37,7 +36,6 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control ltr"
-                                           maxlength="30" minlength="1"
                                            id="inputSlideUrl" name="inputSlideUrl"/>
                                 </div>
                             </div>
@@ -47,7 +45,6 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control ltr"
-                                           maxlength="30" minlength="1"
                                            id="inputSlideButtonTitle" name="inputSlideButtonTitle"/>
                                 </div>
                             </div>

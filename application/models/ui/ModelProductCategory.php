@@ -183,6 +183,7 @@ class ModelProductCategory extends CI_Model{
         $this->db->select('*')->from('product_category_relation');
         $this->db->join('product', 'product.ProductId = product_category_relation.ProductId');
         $this->db->where('product_category_relation.CategoryId', $catId);
+        $this->db->order_by('product.ProductId', 'RANDOM');
         $this->db->limit(1);
         return $this->db->get()->result_array();
 
