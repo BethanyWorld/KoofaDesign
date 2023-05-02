@@ -43,6 +43,7 @@ $_DIR = base_url('assets/admin/');
                                     <th class="fit">نوع محصول</th>
                                     <th class="fit">تاریخ ثبت</th>
                                     <th class="fit">مشاهده محصول</th>
+                                    <th class="fit">کپی لینک</th>
                                     <th class="fit">ویرایش</th>
                                     <th class="fit">حذف</th>
                                 </tr>

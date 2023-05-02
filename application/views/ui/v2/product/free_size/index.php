@@ -14,6 +14,7 @@ $_DIR = base_url('assets/ui/'); ?>
     .owl-carousel .caption {
         text-align: center;
     }
+
     /*.owl-carousel .owl-item img {
         display: inline-block;
         width: 100%;
@@ -26,7 +27,7 @@ $_DIR = base_url('assets/ui/'); ?>
         <div class="col-xs-12">
             <div class="col-md-12 col-xs-12  padding-0">
                 <?php echo $breadCrumb; ?>
-                <input id="inputInstallPrice"  type="hidden"  value="<?php echo $installPrice; ?>" />
+                <input id="inputInstallPrice" type="hidden" value="<?php echo $installPrice; ?>"/>
             </div>
         </div>
         <div class="col-xs-12">
@@ -35,78 +36,54 @@ $_DIR = base_url('assets/ui/'); ?>
                     <div class="col-xs-12 slider-active-buttons padding-0 text-left">
                         <span class="fa fa-image carousel"></span>
                         <span class="fa fa-crop cropper"></span>
-                        <span data-product-id="<?php echo $data['ProductId']; ?>" class="fa fa-heart-o add-like-div"></span>
+                        <span data-product-id="<?php echo $data['ProductId']; ?>"
+                              class="fa fa-heart-o add-like-div"></span>
                     </div>
                     <div class="col-md-12 col-xs-12 product-slider  padding-0" id="carousel-div">
-                        <div class="col-md-12 col-sm-12 col-xs-12 padding-0" id="product-slider">
-                            <div class="outer">
-                                <div id="big" class="owl-carousel owl-theme">
-                                    <div class="item">
-                                        <img src="<?php echo $data['ProductPrimaryImage']; ?>"
-                                             style="object-fit: contain;"
-                                             height="460px"
-                                             width="100%"/>
-                                    </div>
-                                    <?php foreach ($productSecondaryImages as $productSecondaryImage) { ?>
-                                        <div class="item">
-                                            <img src="<?php echo $productSecondaryImage['MediaUrl']; ?>"
-                                                 style="object-fit: contain;"
-                                                 height="460px"
-                                                 width="100%"/>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                                <div id="thumbs" class="owl-carousel owl-theme">
-                                    <div class="item">
-                                        <img src="<?php echo $data['ProductPrimaryImage']; ?>"/>
-                                    </div>
-                                    <?php foreach ($productSecondaryImages as $productSecondaryImage) { ?>
-                                        <div class="item">
-                                            <img src="<?php echo $productSecondaryImage['MediaUrl']; ?>"/>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                        </div>
+                        <?php echo $slider; ?>
                     </div>
                     <!-- for cropper-->
                     <div id="cropper-div" class="col-xs-12  cropper-image padding-0">
                         <style>
                             @media (max-width: 767px) {
-                                #cropper-div *{
+                                #cropper-div * {
                                     max-width: 100% !important;
                                     width: 100% !important;
                                 }
-                                .cropper-crop-box{
+
+                                .cropper-crop-box {
                                     max-width: 100% !important;
                                     width: 100% !important;
                                 }
-                                .cropper-view-box img{
+
+                                .cropper-view-box img {
                                     display: none;
                                 }
+
                                 .cropper-modal {
                                     opacity: 0.2;
                                 }
+
                                 .cropper-face {
                                     opacity: 0.5;
                                 }
                             }
-                           /* .img-container-small{
-                                min-width: 70vw;
-                                min-height: 40vh;
-                            }
-                            .img-container-small img{
-                                height: 320px;
-                            }
-                            #cropperImage{
-                                max-width: 100%;
-                            }*/
+
+                            /* .img-container-small{
+                                 min-width: 70vw;
+                                 min-height: 40vh;
+                             }
+                             .img-container-small img{
+                                 height: 320px;
+                             }
+                             #cropperImage{
+                                 max-width: 100%;
+                             }*/
                         </style>
-
                         <div class="img-container img-container-large">
-                            <img class="image"  style="max-width: 100%;" src="<?php echo $data['ProductPrimaryImage']; ?>" id="cropperImage">
+                            <img class="image" style="max-width: 100%;"
+                                 src="<?php echo $data['ProductPrimaryImage']; ?>" id="cropperImage">
                         </div>
-
                     </div>
                 </div>
                 <div class="col-md-5 col-xs-12">
@@ -126,7 +103,8 @@ $_DIR = base_url('assets/ui/'); ?>
                     <div class="col-xs-12 pull-right product-size padding-0">
                         <p style=" color: #9a9a9a;font-size: 14px;margin: 0;">
                             <b>بزرگترین سایز چاپ این تصویر</b>
-                            <b style="direction: ltr;display: inline-block"><?php echo $data['ProductMaxWidth']; ?> X <?php echo $data['ProductMaxHeight']; ?></b>
+                            <b style="direction: ltr;display: inline-block"><?php echo $data['ProductMaxWidth']; ?>
+                                X <?php echo $data['ProductMaxHeight']; ?></b>
                             <b>سانتی متر می باشد.</b>
                         </p>
                     </div>
@@ -157,7 +135,9 @@ $_DIR = base_url('assets/ui/'); ?>
                             }
                             ?> />
                     </div>
-                    <div class="col-xs-12 pull-right product-size services padding-0 <?php if(empty($services)){ echo 'hidden'; } ?>">
+                    <div class="col-xs-12 pull-right product-size services padding-0 <?php if (empty($services)) {
+                        echo 'hidden';
+                    } ?>">
                         <label>خدمات:</label>
                         <?php
                         foreach ($services as $item) { ?>
@@ -178,7 +158,7 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                     <div class="col-xs-12 padding-0">
                         <h4 style="font-size: 14px;margin-top: 16px;color: #6c6c6c;">
-                            <?php echo $productCategories[sizeof($productCategories)-1]['CategoryDeliveryTime']; ?>
+                            <?php echo $productCategories[sizeof($productCategories) - 1]['CategoryDeliveryTime']; ?>
                         </h4>
                     </div>
                     <div class="col-xs-12 padding-0 shopping-add-basket">
@@ -189,27 +169,12 @@ $_DIR = base_url('assets/ui/'); ?>
                 </div>
             </div>
             <div class="container">
-                <div class="col-md-12 col-xs-12 product-description">
-                    <?php echo $data['ProductDescription']; ?>
-                </div>
+                <?php echo $product_description; ?>
             </div>
         </div>
         <div id="related" class="row col-xs-12 related-product product-slider min grey-bg">
             <div class="container">
-                <div class="col-xs-12 section">
-                    <h2 class="text-center">محصولات مشابه</h2>
-                    <div class="col-xs-12 pull-left list min">
-                        <div class="owl-carousel">
-                            <?php foreach ($relatedProducts as $item) { ?>
-                                <div class="item">
-                                    <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                                        <img src="<?php echo $item['ProductMockUpImage']; ?>" height="100%" width="100%"/>
-                                    </a>
-                                </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
+                <?php echo $related_products; ?>
             </div>
         </div>
     </div>

@@ -223,7 +223,7 @@ foreach ($categories as $category) {
                 <div class="col-md-6 col-xs-12">
                     <a href="<?php echo categoryUrl($item['CategoryId'], $item['CategoryTitle']); ?>">
                         <div class="col-xs-12 pull-right box min"
-                             style="background: url('<?php echo $item['CategoryPoster']; ?>');">
+                             style="background: url('<?php echo $item['CategorySpecialPoster']; ?>');">
                             <h3 class="hidden"><?php echo $item['CategoryTitle']; ?></h3>
                         </div>
                     </a>

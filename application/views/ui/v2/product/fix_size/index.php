@@ -1,15 +1,9 @@
-<?php
-$_URL = base_url();
-$_DIR = base_url('assets/ui/');
-?>
+<?php $_URL = base_url(); $_DIR = base_url('assets/ui/');  ?>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/index.css">
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/product-detail.css"/>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/main.css"/>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/cropper.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js"
-        integrity="sha512-m5kAjE5cCBN5pwlVFi4ABsZgnLuKPEx0fOnzaH5v64Zi3wKnhesNUYq4yKmHQyTa3gmkR6YeSKW1S+siMvgWtQ=="
-        crossorigin="anonymous"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js" integrity="sha512-m5kAjE5cCBN5pwlVFi4ABsZgnLuKPEx0fOnzaH5v64Zi3wKnhesNUYq4yKmHQyTa3gmkR6YeSKW1S+siMvgWtQ==" crossorigin="anonymous"></script>
 <style>
     .owl-carousel .owl-stage {
         display: flex;
@@ -34,43 +28,14 @@ $_DIR = base_url('assets/ui/');
                 <?php echo $breadCrumb; ?>
             </div>
         </div>
-
         <div class="col-xs-12">
             <div class="container product-container">
                 <div class="col-md-7 col-xs-12 padding-0">
                     <div class="col-xs-12 slider-active-buttons padding-0 text-left">
                         <span data-product-id="<?php echo $data['ProductId']; ?>" class="fa fa-heart-o add-like-div"></span>
-
                     </div>
                     <div class="col-md-12 col-xs-12 product-slider  padding-0" id="carousel-div">
-                        <div class="col-md-12 col-sm-12 col-xs-12 padding-0" id="product-slider">
-                            <div class="outer">
-                                <div id="big" class="owl-carousel owl-theme">
-                                    <div class="item">
-                                        <img src="<?php echo $data['ProductPrimaryImage']; ?>"
-                                             style="object-fit: contain;"
-                                             height="460px"/>
-                                    </div>
-                                    <?php foreach ($productSecondaryImages as $productSecondaryImage) { ?>
-                                        <div class="item">
-                                            <img src="<?php echo $productSecondaryImage['MediaUrl']; ?>"
-                                                 style="object-fit: contain;"
-                                                 height="460px"/>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                                <div id="thumbs" class="owl-carousel owl-theme">
-                                    <div class="item">
-                                        <img src="<?php echo $data['ProductPrimaryImage']; ?>"/>
-                                    </div>
-                                    <?php foreach ($productSecondaryImages as $productSecondaryImage) { ?>
-                                        <div class="item">
-                                            <img src="<?php echo $productSecondaryImage['MediaUrl']; ?>"/>
-                                        </div>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                        </div>
+                        <?php echo $slider; ?>
                     </div>
                     <!--                    <div class="col-xs-12 col-md-4 padding-0">-->
                     <!--                        <div class="box">-->
@@ -119,9 +84,7 @@ $_DIR = base_url('assets/ui/');
                             <?php } ?>
                         </select>
                     </div>
-                    <div class="col-xs-12 pull-right product-size services padding-0 <?php if (empty($services)) {
-                        echo 'hidden';
-                    } ?>">
+                    <div class="col-xs-12 pull-right product-size services padding-0 <?php if (empty($services)) { echo 'hidden'; } ?>">
                         <div class="col-xs-12 pull-right product-size services padding-0">
                             <label>خدمات:</label>
                             <?php
@@ -157,29 +120,13 @@ $_DIR = base_url('assets/ui/');
             </div>
             <div class="col-xs-12 padding-0">
                 <div class="container">
-                    <div class="col-md-12 col-xs-12 product-description">
-                        <?php echo $data['ProductDescription']; ?>
-                    </div>
+                    <?php echo $product_description; ?>
                 </div>
             </div>
         </div>
         <div id="related" class="row col-xs-12 related-product product-slider min grey-bg">
             <div class="container">
-                <div class="col-xs-12 section">
-                    <h2 class="text-center">محصولات مشابه</h2>
-                    <div class="col-xs-12 pull-left list min">
-                        <div class="owl-carousel">
-                            <?php foreach ($relatedProducts as $item) { ?>
-                                <div class="item">
-                                    <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
-                                        <img src="<?php echo $item['ProductMockUpImage']; ?>" height="100%"
-                                             width="100%"/>
-                                    </a>
-                                </div>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </div>
+                <?php echo $related_products; ?>
             </div>
         </div>
     </div>

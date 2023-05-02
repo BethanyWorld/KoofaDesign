@@ -9,6 +9,7 @@
             $inputProductType = $.trim($("#inputProductType").val());
             $inputProductBrief = $.trim($("#inputProductBrief").val());
             $inputProductDescription = CKEDITOR.instances.inputProductDescription.getData();
+            $inputProductDescriptionTable = CKEDITOR.instances.inputProductDescriptionTable.getData();
             $inputProductPrimaryImage = $.trim($("#inputProductPrimaryImage").val());
 
             $inputProductMockUpImage = $.trim($("#inputProductMockUpImage").val());
@@ -89,6 +90,7 @@
                     'inputProductType': $inputProductType,
                     'inputProductBrief': $inputProductBrief,
                     'inputProductDescription': $inputProductDescription,
+                    'inputProductDescriptionTable': $inputProductDescriptionTable,
                     'inputProductPrimaryImage': $inputProductPrimaryImage,
                     'inputProductMockUpImage': $inputProductMockUpImage,
                     'inputProductSecondaryImage': $inputProductSecondaryImage,

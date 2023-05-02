@@ -136,6 +136,7 @@ class ModelProduct extends CI_Model{
         $result['data'] = $query;
         return $result;
     }
+
     public function doAddNormalProduct($inputs)
     {
         $ProductIsSpecial = 0;
@@ -153,6 +154,7 @@ class ModelProduct extends CI_Model{
             'ProductType' => $inputs['inputProductType'],
             'ProductBrief' => $inputs['inputProductBrief'],
             'ProductDescription' => $inputs['inputProductDescription'],
+            'ProductDescriptionTable' => $inputs['inputProductDescriptionTable'],
             'ProductIsSpecial' => $ProductIsSpecial,
             'ProductSpecialVirtualMaxPrice' => $inputProductSpecialVirtualMaxPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
@@ -244,6 +246,7 @@ class ModelProduct extends CI_Model{
             'ProductType' => $inputs['inputProductType'],
             'ProductBrief' => $inputs['inputProductBrief'],
             'ProductDescription' => $inputs['inputProductDescription'],
+            'ProductDescriptionTable' => $inputs['inputProductDescriptionTable'],
             'ProductIsSpecial' => $ProductIsSpecial,
             'ProductSpecialVirtualMaxPrice' => $inputProductSpecialVirtualMaxPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
@@ -355,6 +358,7 @@ class ModelProduct extends CI_Model{
             'ProductType' => $inputs['inputProductType'],
             'ProductBrief' => $inputs['inputProductBrief'],
             'ProductDescription' => $inputs['inputProductDescription'],
+            'ProductDescriptionTable' => $inputs['inputProductDescriptionTable'],
             'ProductHasInstallation' => $installation,
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
@@ -449,6 +453,7 @@ class ModelProduct extends CI_Model{
             'ProductType' => $inputs['inputProductType'],
             'ProductBrief' => $inputs['inputProductBrief'],
             'ProductDescription' => $inputs['inputProductDescription'],
+            'ProductDescriptionTable' => $inputs['inputProductDescriptionTable'],
             'ProductHasInstallation' => $installation,
             'ProductInstallationPrice' => $installationPrice,
             'ProductPrimaryImage' => $inputs['inputProductPrimaryImage'],
@@ -569,6 +574,7 @@ class ModelProduct extends CI_Model{
             'ProductType' => $inputs['inputProductType'],
             'ProductBrief' => $inputs['inputProductBrief'],
             'ProductDescription' => $inputs['inputProductDescription'],
+            'ProductDescriptionTable' => $inputs['inputProductDescriptionTable'],
             'ProductMaxHeight' => $inputs['inputProductMaxHeight'],
             'ProductMaxWidth' => $inputs['inputProductMaxWidth'],
             'ProductHasInstallation' => $installation,
@@ -667,6 +673,7 @@ class ModelProduct extends CI_Model{
             'ProductMaxHeight' => $inputs['inputProductMaxHeight'],
             'ProductMaxWidth' => $inputs['inputProductMaxWidth'],
             'ProductDescription' => $inputs['inputProductDescription'],
+            'ProductDescriptionTable' => $inputs['inputProductDescriptionTable'],
             'ProductHasInstallation' => $installation,
             'ProductInstallationPrice' => $installationPrice,
             'ProductIsFullWidth' => $inputs['inputProductIsFullWidth'],

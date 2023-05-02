@@ -7,6 +7,7 @@
             $inputCategoryIsActive = $.trim($("#inputCategoryIsActive").val());
             $inputCategoryImage = $.trim($("#inputCategoryImage").val());
             $inputCategoryPoster = $.trim($("#inputCategoryPoster").val());
+            $inputCategorySpecialPoster = $.trim($("#inputCategorySpecialPoster").val());
             $inputCategoryDescription = $.trim($("#inputCategoryDescription").val());
             $inputCategoryId = $.trim($("#inputCategoryId").val());
             $inputCategoryDeliveryTime = $.trim($("#inputCategoryDeliveryTime").val());
@@ -25,6 +26,7 @@
                 'inputCategoryParentId': $inputCategoryParentId,
                 'inputCategoryImage': $inputCategoryImage,
                 'inputCategoryPoster': $inputCategoryPoster,
+                'inputCategorySpecialPoster': $inputCategorySpecialPoster,
                 'inputCategoryDescription': $inputCategoryDescription,
                 'inputCategoryDeliveryTime': $inputCategoryDeliveryTime,
                 'inputCategoryInstallPrice': $inputCategoryInstallPrice

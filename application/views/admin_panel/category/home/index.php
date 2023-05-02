@@ -41,6 +41,7 @@ $_DIR = base_url('assets/empanel/');
                                                 <th class="fit">ویژه</th>
                                                 <th class="fit">تاریخ ثبت</th>
                                                 <th class="fit">ویژگی ها</th>
+                                                <th class="fit">کپی لینک</th>
                                                 <th class="fit">ویرایش</th>
                                                 <th class="fit">حذف</th>
                                             </tr>

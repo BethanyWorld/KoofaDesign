@@ -91,5 +91,15 @@
                 }
             });
         });
+
+        $(document).on('click' , '.content_copy', function(){
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(this).data('link')).select();
+            document.execCommand("copy");
+            $temp.remove();
+            notify('لینک محصول کپی شد' , 'green');
+        });
+
     });
 </script>

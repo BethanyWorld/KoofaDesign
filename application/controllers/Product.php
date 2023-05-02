@@ -39,12 +39,13 @@ class Product extends CI_Controller{
             $serviceIndex +=1;
         }
 
-
         $data['installPrice'] = $data['productCategories'][count($data['productCategories'])-1]['CategoryInstallPrice'];
-
 
         $this->load->view('ui/v2/static/header', $data);
         $data['breadCrumb'] = $this->load->view('ui/v2/product/breadcrumb', $data , TRUE);
+        $data['slider'] = $this->load->view('ui/v2/product/slider', $data , TRUE);
+        $data['product_description'] = $this->load->view('ui/v2/product/description', $data , TRUE);
+        $data['related_products'] = $this->load->view('ui/v2/product/related', $data , TRUE);
         $data['productTitles'] = $this->load->view('ui/v2/product/product_titles', $data , TRUE);
         switch ($data['data']['ProductType']){
             case 'Normal':

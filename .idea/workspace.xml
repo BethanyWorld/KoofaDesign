@@ -5,17 +5,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d07bf66-edc3-4fcc-9842-f70a8126f37a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/KoofaDesign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/KoofaDesign.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/ui/v2/product/description.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/ui/v2/product/related.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application/views/ui/v2/product/slider.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/application.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/ui/ModelAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ui/ModelAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/ui/ModelProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ui/ModelProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/ui/ModelProductCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ui/ModelProductCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/main_slider/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/main_slider/add/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/main_slider/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/main_slider/edit/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/plans/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/plans/add/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/plans/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/plans/edit/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/admin/admin_pipe_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/admin/admin_pipe_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/admin/ModelProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/admin/ModelProductCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelProductCategory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/category/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/category/add/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/category/add/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/category/add/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/category/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/category/edit/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/category/edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/category/edit/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/category/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/category/home/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/category/home/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/category/home/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/category/home/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/category/home/pagination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/add/fix_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/add/fix_size/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/add/fix_size/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/add/fix_size/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/add/free_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/add/free_size/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/add/free_size/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/add/free_size/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/add/normal/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/add/normal/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/add/normal/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/add/normal/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/edit/fix_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/edit/fix_size/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/edit/fix_size/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/edit/fix_size/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/edit/free_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/edit/free_size/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/edit/free_size/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/edit/free_size/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/edit/normal/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/edit/normal/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/edit/normal/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/edit/normal/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/home/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/home/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/home/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/home/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/home/pagination.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/home/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/fix_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/fix_size/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/normal/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/normal/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/css/product-detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/ui/css/product-detail.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/v2/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/ui/v2/assets/css/custom.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -203,6 +229,10 @@
       <workItem from="1682587983776" duration="3047000" />
       <workItem from="1682598598291" duration="618000" />
       <workItem from="1682624121319" duration="1817000" />
+      <workItem from="1682666259663" duration="32000" />
+      <workItem from="1682797025783" duration="1138000" />
+      <workItem from="1682864137537" duration="1119000" />
+      <workItem from="1683044793199" duration="7496000" />
     </task>
     <servers />
   </component>

@@ -134,6 +134,18 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="col-xs-12">
+                                    <label for="inputProductDescription">توضیحات محصول</label>
+                                    <div class="form-group">
+                                        <div class="form-line">
+                                            <textarea
+                                                    type="text"
+                                                    class="form-control ckeditor"
+                                                    id="inputProductDescriptionTable"
+                                                    name="inputProductDescriptionTable"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             <div role="tabpanel" class="tab-pane fade" id="productImages">
                                 <div class="col-md-6 col-xs-12">

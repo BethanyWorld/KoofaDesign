@@ -55,10 +55,26 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control"
-                                           value="<?php echo $data['CategoryPoster']; ?>"
                                            id="inputCategoryPoster" name="inputCategoryPoster"/>
                                 </div>
                                 <a data-target-id="inputCategoryPoster"
+                                   data-toggle="modal"
+                                   href="#"
+                                   data-target="#myModal"
+                                   class="btn fileManagerHandler"
+                                   type="button">
+                                    <span>انتخاب تصویر</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-3">
+                            <label class="required" for="inputCategorySpecialPoster">پوستر ویژه دسته بندی</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control"
+                                           id="inputCategorySpecialPoster" name="inputCategorySpecialPoster"/>
+                                </div>
+                                <a data-target-id="inputCategorySpecialPoster"
                                    data-toggle="modal"
                                    href="#"
                                    data-target="#myModal"

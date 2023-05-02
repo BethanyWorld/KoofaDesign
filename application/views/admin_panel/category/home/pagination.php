@@ -19,6 +19,14 @@ foreach ($data as $item) { ?>
             </a>
         </td>
         <td class="fit">
+            <button type="button"
+                    data-link="<?php echo base_url('Category/detail/') . $item['CategoryId']."/".seoUrl($item['CategoryTitle']); ?>"
+                    class="btn btn-success btn-circle waves-effect waves-circle waves-float content_copy">
+                <i class="material-icons">content_copy</i>
+
+            </button>
+        </td>
+        <td class="fit">
             <a href="<?php echo base_url('Admin/Dashboard/Category/Edit/').$item['CategoryId']; ?>">
                 <button type="button"
                         class="btn btn-warning btn-circle waves-effect waves-circle waves-float">

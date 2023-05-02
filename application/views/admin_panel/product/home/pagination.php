@@ -23,6 +23,14 @@ if ((isset($data) && !$data) || $data == NULL) { ?>
                 </a>
             </td>
             <td class="fit">
+                <button type="button"
+                        data-link="<?php echo base_url('Product/detail/') . $item['ProductId']."/".seoUrl($item['ProductTitle']); ?>"
+                        class="btn btn-success btn-circle waves-effect waves-circle waves-float content_copy">
+                    <i class="material-icons">content_copy</i>
+
+                </button>
+            </td>
+            <td class="fit">
                 <?php
                 $url = "";
                 switch ($item['ProductType']) {
