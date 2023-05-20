@@ -10,7 +10,11 @@
             else {
                 $sendData = {
                     'inputSizeId': $inputSizeId,
-                    'inputSizeTitle': $inputSizeTitle
+                    'inputSizeTitle': $inputSizeTitle,
+                    'inputSizeWidth': $("#inputSizeWidth").val(),
+                    'inputSizeHeight': $("#inputSizeHeight").val(),
+                    'inputSizeErtefa': $("#inputSizeErtefa").val(),
+                    'inputSizeWeight': $("#inputSizeWeight").val(),
                 }
                 toggleLoader();
                 $.ajax({

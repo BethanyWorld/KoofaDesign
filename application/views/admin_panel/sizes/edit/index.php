@@ -5,7 +5,7 @@
             <div class="col-xs-12 rtl">
                 <div class="row col-xs-12 card">
                     <div class="body">
-                        <div class="col-xs-12 col-sm-4 col-md-4">
+                        <div class="col-xs-12 col-sm-4 col-md-2">
                             <label for="inputSizeTitle">عنوان سایز</label>
                             <div class="form-group">
                                 <div class="form-line">
@@ -17,6 +17,50 @@
                                            value="<?php echo $data['SizeTitle']; ?>"
                                            maxlength="30" minlength="1"
                                            id="inputSizeTitle" name="inputSizeTitle"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-2">
+                            <label for="inputSizeTitle">عرض</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control"
+                                           value="<?php echo $data['SizeWidth']; ?>"
+                                           maxlength="30" minlength="1"
+                                           id="inputSizeWidth" name="inputSizeWidth"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-2">
+                            <label for="inputSizeTitle">طول</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control"
+                                           value="<?php echo $data['SizeHeight']; ?>"
+                                           maxlength="30" minlength="1"
+                                           id="inputSizeHeight" name="inputSizeHeight"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-2">
+                            <label for="inputSizeTitle">ارتفاع</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control"
+                                           value="<?php echo $data['SizeErtefa']; ?>"
+                                           maxlength="30" minlength="1"
+                                           id="inputSizeErtefa" name="inputSizeErtefa"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-2">
+                            <label for="inputSizeTitle">وزن</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control"
+                                           value="<?php echo $data['SizeWeight']; ?>"
+                                           maxlength="30" minlength="1"
+                                           id="inputSizeWeight" name="inputSizeWeight"/>
                                 </div>
                             </div>
                         </div>

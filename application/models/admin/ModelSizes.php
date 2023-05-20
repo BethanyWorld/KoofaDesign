@@ -41,7 +41,11 @@ class ModelSizes extends CI_Model{
     public function doAddSize($inputs)
     {
         $Array = array(
-            'SizeTitle' => $inputs['inputSizeTitle']
+            'SizeTitle' => $inputs['inputSizeTitle'],
+            'SizeWidth' => $inputs['inputSizeWidth'],
+            'SizeHeight' => $inputs['inputSizeHeight'],
+            'SizeErtefa' => $inputs['inputSizeErtefa'],
+            'SizeWeight' => $inputs['inputSizeWeight']
         );
         $this->db->trans_start();
         $this->db->insert('product_size', $Array);
@@ -65,7 +69,11 @@ class ModelSizes extends CI_Model{
     public function doEditSize($inputs)
     {
         $Array = array(
-            'SizeTitle' => $inputs['inputSizeTitle']
+            'SizeTitle' => $inputs['inputSizeTitle'],
+            'SizeWidth' => $inputs['inputSizeWidth'],
+            'SizeHeight' => $inputs['inputSizeHeight'],
+            'SizeErtefa' => $inputs['inputSizeErtefa'],
+            'SizeWeight' => $inputs['inputSizeWeight']
         );
         $this->db->trans_start();
         $this->db->where('SizeId', $inputs['inputSizeId']);

@@ -7,6 +7,10 @@ if ((isset($data) && !$data) || $data == NULL) { ?>
         <tr>
             <td class="fit"><?php echo $counter += 1; ?></td>
             <td><?php echo $item['SizeTitle']; ?></td>
+            <td class="fit"><?php echo $item['SizeWidth']; ?></td>
+            <td class="fit"><?php echo $item['SizeHeight']; ?></td>
+            <td class="fit"><?php echo $item['SizeErtefa']; ?></td>
+            <td class="fit"><?php echo $item['SizeWeight']; ?></td>
             <td class="fit">
                 <a href="<?php echo base_url('Admin/Dashboard/Sizes/edit/') . $item['SizeId']; ?>">
                     <button type="button"

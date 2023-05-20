@@ -12,7 +12,11 @@ $_DIR = base_url('assets/admin/');
                                 <thead>
                                 <tr>
                                     <th class="fit">#</th>
-                                    <th>عنوان اندازه</th>
+                                    <th>اندازه</th>
+                                    <th class="fit">طول</th>
+                                    <th class="fit">عرض</th>
+                                    <th class="fit">ارتفاع</th>
+                                    <th class="fit">وزن</th>
                                     <th class="fit">ویرایش</th>
                                     <th class="fit">حذف</th>
                                 </tr>
