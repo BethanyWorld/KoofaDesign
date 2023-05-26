@@ -135,9 +135,7 @@ $_DIR = base_url('assets/ui/'); ?>
                             }
                             ?> />
                     </div>
-                    <div class="col-xs-12 pull-right product-size services padding-0 <?php if (empty($services)) {
-                        echo 'hidden';
-                    } ?>">
+                    <div class="col-xs-12 pull-right product-size services padding-0 <?php if (empty($services)) { echo 'hidden'; } ?>">
                         <label>خدمات:</label>
                         <?php
                         foreach ($services as $item) { ?>
@@ -154,7 +152,7 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                     <div class="col-xs-12  product-detail-price padding-0">
                         <span>قیمت کل :</span>
-                        <span class="product-detail-number">قیمت کل :</span>
+                        <span class="product-detail-number"></span>
                     </div>
                     <div class="col-xs-12 padding-0">
                         <h4 style="font-size: 14px;margin-top: 16px;color: #6c6c6c;">

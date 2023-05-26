@@ -120,6 +120,17 @@
                             </div>
                         </div>
                         <div class="col-xs-12">
+                            <label for="inputCategoryProductDescription">توضیحات دسته در محصول</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea
+                                            class="form-control"
+                                            id="inputCategoryProductDescription"
+                                            name="inputCategoryProductDescription"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
                             <button type="button" id="addCategory" class="btn btn-primary waves-effect">ذخیره</button>
                         </div>
                     </div>

@@ -84,6 +84,14 @@ class ModelProduct extends CI_Model{
         return $result;
     }
 
+    public function getProductCommentByProductId($productId)
+    {
+        $this->db->select('*');
+        $this->db->from('product_comment');
+        $this->db->where('CommentProductId', $productId);
+        $this->db->where('CommentStatus', 'Accept');
+        return $this->db->get()->result_array();
+    }
     public function getProductPriceProductId($productId)
     {
         $this->db->select('*');
@@ -144,6 +152,34 @@ class ModelProduct extends CI_Model{
             $arr = array(
                 'type' => "green",
                 'content' => "افزودن به علاقه مندی ها با موفقیت انجام شد",
+                'success' => true
+            );
+            return $arr;
+        }
+    }
+    public function doSubmitComment($inputs){
+        $this->db->trans_start();
+        $this->db->insert('product_comment', array(
+            'CommentProductId' => $inputs['inputProductId'],
+            'CommentContent' => $inputs['inputComment'],
+            'CommentUserId' => $inputs['inputUserId'],
+            'CommentUserFullName' => $inputs['inputFullName'],
+            'CommentEmail' => $inputs['inputEmail'],
+            'CommentRate' => $inputs['inputRate'],
+            'CreateDateTime' => time()
+        ));
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            $arr = array(
+                'type' => "red",
+                'content' => "ثبت نظر با مشکل مواجه شد",
+                'success' => false
+            );
+            return $arr;
+        } else {
+            $arr = array(
+                'type' => "green",
+                'content' => "ثبت نظر با موفقیت انجام شد",
                 'success' => true
             );
             return $arr;
@@ -227,6 +263,9 @@ class ModelProduct extends CI_Model{
         }
         return $query;
     }
+
+
+
     /*End For Product*/
     public function searchProduct($inputs){
         /*$limit = $inputs['pageIndex'];

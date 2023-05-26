@@ -42,8 +42,11 @@ $_DIR = base_url('assets/admin/');
                                 <thead>
                                 <tr>
                                     <th class="fit">#</th>
-                                    <th>نام و نام خانوداگی</th>
+                                    <th class="fit">نام و نام خانوداگی</th>
                                     <th class="fit">شماره سفارش</th>
+                                    <th class="fit">عنوان محصول</th>
+                                    <th class="fit">نوع</th>
+                                    <th class="fit">تعداد</th>
                                     <th class="fit">تلفن</th>
                                     <th class="fit">هزینه کل (تومان)</th>
                                     <th class="fit">وضعیت</th>

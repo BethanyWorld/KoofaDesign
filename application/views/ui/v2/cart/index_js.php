@@ -18,6 +18,8 @@
             $(this).prev('input').val($count);
             updatePrice($(this));
         });
+
+
         function updatePrice($this){
             $productId = $this.data('product-id');
             $parentId =  $this.data('parent-id');

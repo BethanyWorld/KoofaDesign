@@ -231,6 +231,17 @@
                             </li>
                         </ul>
                     </li>
+                    <li <?php echo $CI->uri->segment(3) == 'Comments' ? 'class="active"' : '' ?> >
+                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
+                            <i class="material-icons">donut_small</i>
+                            <span>نظرات</span>
+                        </a>
+                        <ul class="ml-menu">
+                            <li <?php if(strpos($CI->uri->uri_string , 'Comments/index') !== false) echo "class='active'"; ?>>
+                                <a href="<?php echo base_url('Admin/Dashboard/Comments/index'); ?>" class="waves-effect waves-block">فهرست</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li <?php echo $CI->uri->segment(3) == 'PriceChange' ? 'class="active"' : '' ?> >
                         <a href="<?php echo base_url('Admin/Dashboard/PriceChange/index'); ?>"
                            class="waves-effect waves-block">

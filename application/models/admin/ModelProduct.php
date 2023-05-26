@@ -1,4 +1,5 @@
 <?php
+
 class ModelProduct extends CI_Model{
     /*For Product*/
     public function getProductByPagination($inputs){
@@ -793,6 +794,90 @@ class ModelProduct extends CI_Model{
             $arr = array(
                 'type' => "green",
                 'content' => "حذف محصول با موفقیت انجام شد",
+                'success' => true
+            );
+            return $arr;
+        }
+    }
+
+
+    public function getComments($inputs){
+        $limit = $inputs['pageIndex'];
+        $start = ($limit - 1) * $this->config->item('defaultPageSize');
+        $end = $this->config->item('defaultPageSize');
+        $this->db->select('* , product_comment.CreateDateTime AS cdt');
+        $this->db->from('product_comment');
+        $this->db->join('product' , 'product.ProductId = product_comment.CommentProductId');
+        if(isset($inputs['inputStatus'] ) && $inputs['inputStatus'] != ''){
+            $this->db->where('CommentStatus',$inputs['inputStatus']);
+        }
+        $this->db->order_by('product_comment.CommentId', 'DESC');
+        $tempDb = clone $this->db;
+        $result['count'] = $tempDb->get()->num_rows();
+        $this->db->limit($end,$start);
+        $query = $this->db->get()->result_array();
+        if (count($query) > 0) {
+            $result['data'] = $query;
+            $result['startPage'] = $start;
+            return $result;
+        } else {
+            return false;
+        }
+    }
+    public function getCommentById($id){
+        $this->db->select('*');
+        $this->db->from('product_comment');
+        $this->db->where('CommentId', $id);
+        $query = $this->db->get()->result_array();
+        $result['data'] = $query;
+        return $result;
+    }
+    public function doDeleteComment($inputs){
+        $this->db->trans_start();
+        $this->db->delete('product_comment', array(
+            'CommentId' => $inputs['inputCommentId']
+        ));
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            $arr = array(
+                'type' => "red",
+                'content' => "حذف محصول ناموفق بود",
+                'success' => false
+            );
+            return $arr;
+        }
+        else {
+            $arr = array(
+                'type' => "green",
+                'content' => "حذف محصول با موفقیت انجام شد",
+                'success' => true
+            );
+            return $arr;
+        }
+    }
+    public function doEditComment($inputs){
+        $Array = array(
+            'CommentStatus' => $inputs['inputStatus'],
+            'CommentContent' => $inputs['inputCommentContent']
+        );
+        $this->db->trans_start();
+        $this->db->where('CommentId', $inputs['inputCommentId']);
+        $this->db->update('product_comment', $Array);
+
+
+        $this->db->trans_complete();
+        if ($this->db->trans_status() === FALSE) {
+            $arr = array(
+                'type' => "red",
+                'content' => "ویرایش ناموفق بود",
+                'success' => false
+            );
+            return $arr;
+        }
+        else {
+            $arr = array(
+                'type' => "green",
+                'content' => "ویرایش با موفقیت انجام شد",
                 'success' => true
             );
             return $arr;

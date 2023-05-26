@@ -51,6 +51,7 @@ class ModelProductCategory extends CI_Model{
             'CategoryPoster' => $inputs['inputCategoryPoster'],
             'CategorySpecialPoster' => $inputs['inputCategorySpecialPoster'],
             'CategoryDescription' => $inputs['inputCategoryDescription'],
+            'CategoryProductDescription' => $inputs['inputCategoryProductDescription'],
             'CategoryDeliveryTime' => $inputs['inputCategoryDeliveryTime'],
             'CategoryInstallPrice' => $inputs['inputCategoryInstallPrice'],
             'CreateDateTime' => time()
@@ -86,6 +87,7 @@ class ModelProductCategory extends CI_Model{
             'CategorySpecialPoster' => $inputs['inputCategorySpecialPoster'],
             'CategoryIsActive' => $inputs['inputCategoryIsActive'],
             'CategoryDescription' => $inputs['inputCategoryDescription'],
+            'CategoryProductDescription' => $inputs['inputCategoryProductDescription'],
             'CategoryDeliveryTime' => $inputs['inputCategoryDeliveryTime'],
             'CategoryInstallPrice' => $inputs['inputCategoryInstallPrice'],
             'CreateDateTime' => time()

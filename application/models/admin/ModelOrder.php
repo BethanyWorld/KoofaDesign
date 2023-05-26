@@ -10,7 +10,8 @@ class ModelOrder extends CI_Model
         $end = $this->config->item('defaultPageSize');
         $this->db->select('*');
         $this->db->from('orders');
-        $this->db->join('user' , 'orders.OrderUserId = user.UserId');
+        $this->db->join('user' , 'orders.OrderUserId = user.UserId'); 
+        $this->db->join('user_address' , 'user_address.AddressId = orders.OrderAddressId');
 
         if($inputs['inputOrderId'] != ''){
             $this->db->where('OrderId',$inputs['inputOrderId']);
@@ -24,12 +25,16 @@ class ModelOrder extends CI_Model
         if($inputs['inputOrderStatus'] != ''){
             $this->db->where('OrderStatus',$inputs['inputOrderStatus']);
         }
-
-        $this->db->order_by('OrderId', 'ASC');
+        $this->db->order_by('OrderId', 'DESC');
         $this->db->limit($end, $start);
         $query = $this->db->get()->result_array();
         $queryCount = $this->db->count_all_results('orders');
         if (count($query) > 0) {
+            $index = 0;
+            foreach ($query as $item) {
+                $query[$index]['items'] = $this->getOrderItemsByOrderId($query[$index]['OrderId']);
+                $index +=1;
+            }
             $result['data'] = $query;
             $result['count'] = $queryCount;
             return $result;
@@ -51,6 +56,8 @@ class ModelOrder extends CI_Model
         $this->db->select('*');
         $this->db->from('order_items');
         $this->db->join('product' , 'order_items.ProductId = product.ProductId');
+        $this->db->join('product_size' , 'product_size.SizeId = order_items.ProductSizeId' , 'left');
+        $this->db->join('product_material' , 'product_material.MaterialId = order_items.ProductMaterialId' , 'left');
         $this->db->where('OrderId', $brandId);
         $query = $this->db->get()->result_array();
         return $query;

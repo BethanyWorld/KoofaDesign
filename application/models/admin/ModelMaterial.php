@@ -1,12 +1,15 @@
 <?php
-class ModelMaterial extends CI_Model{
-    public function getAllMaterials($inputs){
+
+class ModelMaterial extends CI_Model
+{
+    public function getAllMaterials($inputs)
+    {
         $limit = $inputs['pageIndex'];
         $start = ($limit - 1) * $this->config->item('defaultPageSize');
         $end = $this->config->item('defaultPageSize');
         $this->db->select('*');
         $this->db->from('product_material');
-        if(isset($inputs['inputMaterialTitle']) && !empty($inputs['inputMaterialTitle'])){
+        if (isset($inputs['inputMaterialTitle']) && !empty($inputs['inputMaterialTitle'])) {
             $this->db->or_where('MaterialTitle', $inputs['inputMaterialTitle']);
         }
         $this->db->order_by('MaterialId', 'ASC');
@@ -24,13 +27,17 @@ class ModelMaterial extends CI_Model{
         }
         return $result;
     }
-    public function getAllMaterialsWithoutPagination(){
+
+    public function getAllMaterialsWithoutPagination()
+    {
         $this->db->select('*');
         $this->db->from('product_material');
         $this->db->order_by('MaterialId', 'ASC');
         return $this->db->get()->result_array();
     }
-    public function getMaterialByMaterialId($id){
+
+    public function getMaterialByMaterialId($id)
+    {
         $this->db->select('*');
         $this->db->from('product_material');
         $this->db->where('MaterialId', $id);
@@ -38,6 +45,7 @@ class ModelMaterial extends CI_Model{
         $result['data'] = $query;
         return $result;
     }
+
     public function doAddMaterial($inputs)
     {
         $Array = array(
@@ -62,6 +70,7 @@ class ModelMaterial extends CI_Model{
             return $arr;
         }
     }
+
     public function doEditMaterial($inputs)
     {
         $Array = array(
@@ -87,17 +96,28 @@ class ModelMaterial extends CI_Model{
             return $arr;
         }
     }
+
     public function doDeleteMaterial($inputs)
     {
-        $this->db->delete('product_material', array(
-            'MaterialId' => $inputs['inputMaterialId']
-        ));
-        $arr = array(
-            'type' => "green",
-            'content' => "حذف جنس محصول با موفقیت انجام شد",
-            'success' => true
-        );
-        return $arr;
+        $query = $this->db->get_where('product_price', array('MaterialId' => $inputs['inputMaterialId']))->num_rows();
+        if ($query > 0) {
+            $arr = array(
+                'type' => "red",
+                'content' => " این جنس در قیمت دهی " . $query . " محصول دیگر مورد استفاده قرار گرفته است. ",
+                'success' => true
+            );
+            return $arr;
+        } else {
+            $this->db->delete('product_material', array(
+                'MaterialId' => $inputs['inputMaterialId']
+            ));
+            $arr = array(
+                'type' => "green",
+                'content' => "حذف جنس محصول با موفقیت انجام شد",
+                'success' => true
+            );
+            return $arr;
+        }
         /*End For Brand*/
     }
 }

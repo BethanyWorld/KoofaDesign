@@ -15,6 +15,7 @@ class Product extends CI_Controller{
         $data['allCategories'] = $this->ModelProductCategory->getAllProductCategory()['data'];
         $data['data'] = $this->ModelProduct->getProductByProductId($productId)['data'][0];
         $data['productPrice'] = $this->ModelProduct->getProductPriceProductId($productId);
+        $data['productComment'] = $this->ModelProduct->getProductCommentByProductId($productId);
         /* For Breadcrumbs just selected categories*/
         $data['productCategories'] = $this->ModelProduct->getProductCategoryByProductId($productId)['data'];
         /* For search in sidebar */
@@ -130,6 +131,46 @@ class Product extends CI_Controller{
 
         echo json_encode($this->ModelProduct->doAddWishList($inputs));
     }
+    public function doSubmitComment()
+    {
+        $inputs = $this->input->post(NULL, TRUE);
+        $inputs = array_map(function ($v) {
+            return strip_tags($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return remove_invisible_characters($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return makeSafeInput($v);
+        }, $inputs);
+        $inputs['inputUserId'] = getLoggedUserId();
+
+        $this->form_validation->set_data($inputs);
+        $this->form_validation->set_rules('inputProductId', 'شناسه محصول', 'trim|required|min_length[1]|numeric');
+        $this->form_validation->set_rules('inputFullName', 'نام و نام خانوادگی', 'trim|required|min_length[2]');
+        $this->form_validation->set_rules('inputComment', 'نظر', 'trim|required|min_length[1]');
+        $this->form_validation->set_rules('inputRate', 'رتبه محصول', 'trim|required|min_length[1]|numeric');
+        if ($this->form_validation->run() == FALSE) {
+            $arr = array(
+                'type' => "red",
+                'content' => validation_errors()
+            );
+            echo json_encode($arr);
+            die();
+        }
+        /*if($inputs['inputUserId'] == NULL){
+            $arr = array(
+                'type' => "red",
+                'content' => 'ابتدا وارد حساب کاربری خود شوید'
+            );
+            echo json_encode($arr);
+            die();
+        }*/
+
+
+        echo json_encode($this->ModelProduct->doSubmitComment($inputs));
+    }
+
     protected function getProductPropertyByCategoryId($categoryId , $print=true)
     {
         $result = $this->ModelProductCategory->getProductPropertyByCategoryId($categoryId);

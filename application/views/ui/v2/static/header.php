@@ -85,18 +85,17 @@ function get_mobile_root_menu_tree(){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php
-        if (isset($pageTitle))
-            echo $pageTitle;
-        else
-            echo "مجموعه هنر کوفا";
-        ?></title>
+    <title>
+        <?php  if (isset($pageTitle))  echo $pageTitle;  else echo "مجموعه هنر کوفا";
+        ?>
+    </title>
     <link rel="stylesheet" href="<?php echo $_DIR; ?>assets/plugins/bootstrap/v3/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="<?php echo $_DIR; ?>assets/plugins/bootstrap/v3/css/bootstrap-theme.css"/>
     <link rel="stylesheet" href="<?php echo $_DIR; ?>assets/plugins/fontawesome/css/font-awesome-css.min.css"/>
     <link rel="stylesheet" href="<?php echo $_DIR; ?>assets/plugins/animate/animate.min.css"/>
     <link rel="stylesheet" href="<?php echo $_DIR; ?>assets/plugins/owl/owl.carousel.min.css"/>
     <link rel="stylesheet" href="<?php echo $_DIR; ?>assets/plugins/owl/owl.theme.default.min.css"/>
+    <link rel="stylesheet" href="<?php echo $_DIR; ?>assets/plugins/rate/star-rating-svg.css"/>
     <link rel="stylesheet" href="<?php echo $_DIR; ?>assets/css/iziToast.min.css"/>
     <link rel="stylesheet" href="<?php echo $_DIR; ?>assets/css/helper-css.css"/>
     <link rel="stylesheet" href="<?php echo $_DIR; ?>assets/css/custom.css?v=<?php echo md5(rand()) ?>"/>
@@ -104,6 +103,7 @@ function get_mobile_root_menu_tree(){
     <script type="text/javascript" src="<?php echo $_DIR; ?>assets/plugins/jquery/jquery.js"></script>
     <script type="text/javascript" src="<?php echo $_DIR; ?>assets/plugins/bootstrap/v3/js/bootstrap.js"></script>
     <script type="text/javascript" src="<?php echo $_DIR; ?>assets/plugins/owl/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="<?php echo $_DIR; ?>assets/plugins/rate/jquery.star-rating-svg.js"></script>
     <script type="text/javascript" src="<?php echo $_DIR; ?>assets/js/bootpage.min.js"></script>
     <script type="text/javascript" src="<?php echo $_DIR; ?>assets/js/iziToast.min.js"></script>
     <script type="text/javascript" src="<?php echo $_DIR; ?>assets/js/helper.js?v=<?php echo md5(rand()) ?>"></script>

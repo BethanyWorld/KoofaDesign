@@ -127,6 +127,7 @@ $_DIR = base_url('assets/ui/v2/');
                                             <span class="fa fa-minus"></span>
                                         </button>
                                         <input value="<?php echo $item['productCount']; ?>"
+                                               style="pointer-events: none;"
                                                type="number" class="text-center cart-product-buy-number"/>
                                         <button
                                                 data-parent-id="<?php echo $uniqueId; ?>"

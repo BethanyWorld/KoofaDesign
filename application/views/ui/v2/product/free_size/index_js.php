@@ -177,7 +177,7 @@
 
         // Cropper
         if(findBootstrapEnvironment() == 'lg' || findBootstrapEnvironment() == 'md') {
-             $image.cropper(options);
+            $image.cropper(options);
         }
         else{
             $image.cropper(options);

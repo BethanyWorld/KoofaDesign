@@ -1,4 +1,5 @@
 <?php
+
 class ModelSizes extends CI_Model{
     public function getAllSizes($inputs){
         $limit = $inputs['pageIndex'];
@@ -97,15 +98,25 @@ class ModelSizes extends CI_Model{
     }
     public function doDeleteSize($inputs)
     {
-        $this->db->delete('product_size', array(
-            'SizeId' => $inputs['inputSizeId']
-        ));
-        $arr = array(
-            'type' => "green",
-            'content' => "حذف سایز با موفقیت انجام شد",
-            'success' => true
-        );
-        return $arr;
+        $query = $this->db->get_where('product_price', array( 'SizeId' => $inputs['inputSizeId']))->num_rows();
+        if($query > 0){
+            $arr = array(
+                'type' => "red",
+                'content' => " این سایز در قیمت دهی ".$query." محصول دیگر مورد استفاده قرار گرفته است. ",
+                'success' => true
+            );
+            return $arr;
+        } else {
+            $this->db->delete('product_size', array(
+                'SizeId' => $inputs['inputSizeId']
+            ));
+            $arr = array(
+                'type' => "green",
+                'content' => "حذف سایز با موفقیت انجام شد",
+                'success' => true
+            );
+            return $arr;
+        }
         /*End For Brand*/
     }
 }
