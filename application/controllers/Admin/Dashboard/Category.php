@@ -37,9 +37,6 @@ class Category extends CI_Controller {
     public function doAddCategory()
     {
         $inputs = $this->input->post(NULL, TRUE);
-        $inputs =array_map(function($v){ return strip_tags($v); }, $inputs);
-        $inputs =array_map(function($v){ return remove_invisible_characters($v); }, $inputs);
-        $inputs =array_map(function($v){ return makeSafeInput($v); }, $inputs);
         $result = $this->ModelProductCategory->doAddCategory($inputs);
         echo json_encode($result);
     }
@@ -58,9 +55,6 @@ class Category extends CI_Controller {
     public function doUpdateCategory()
     {
         $inputs = $this->input->post(NULL, TRUE);
-        $inputs =array_map(function($v){ return strip_tags($v); }, $inputs);
-        $inputs =array_map(function($v){ return remove_invisible_characters($v); }, $inputs);
-        $inputs =array_map(function($v){ return makeSafeInput($v); }, $inputs);
         $result = $this->ModelProductCategory->doUpdateCategory($inputs);
         echo json_encode($result);
     }

@@ -7,8 +7,9 @@
             $inputCategoryImage = $.trim($("#inputCategoryImage").val());
             $inputCategoryPoster = $.trim($("#inputCategoryPoster").val());
             $inputCategorySpecialPoster = $.trim($("#inputCategorySpecialPoster").val());
-            $inputCategoryDescription = $.trim($("#inputCategoryDescription").val());
-            $inputCategoryProductDescription = $.trim($("#inputCategoryProductDescription").val());
+            $inputCategoryDescription = CKEDITOR.instances.inputCategoryDescription.getData();
+            $inputCategoryProductDescription = CKEDITOR.instances.inputCategoryProductDescription.getData();
+            $inputCategoryProductDescriptionTable = CKEDITOR.instances.inputCategoryProductDescriptionTable.getData();
             $inputCategoryDeliveryTime = $.trim($("#inputCategoryDeliveryTime").val());
             $inputCategoryInstallPrice  = $.trim($("#inputCategoryInstallPrice").val());
 
@@ -26,6 +27,7 @@
                 'inputCategorySpecialPoster': $inputCategorySpecialPoster,
                 'inputCategoryDescription': $inputCategoryDescription,
                 'inputCategoryProductDescription': $inputCategoryProductDescription,
+                'inputCategoryProductDescriptionTable': $inputCategoryProductDescriptionTable,
                 'inputCategoryDeliveryTime': $inputCategoryDeliveryTime,
                 'inputCategoryInstallPrice': $inputCategoryInstallPrice
             }

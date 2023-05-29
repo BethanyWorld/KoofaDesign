@@ -38,7 +38,7 @@ $_DIR = base_url('assets/ui/'); ?>
                             <?php foreach ($orderInfo as $order) { ?>
                                 <tr>
                                     <td class="fit"><?php echo $order['OrderId']; ?></td>
-                                    <td><?php echo $order['OrderDateTime']; ?></td>
+                                    <td><?php echo convertDate($order['OrderDateTime']); ?></td>
                                     <td class="fit"><?php echo orderStatusPipe($order['OrderStatus']); ?></td>
                                     <td class="fit"><?php echo number_format($order['OrderTotalPrice']); ?></td>
                                     <td class="fit"><?php echo number_format($order['OrderSendMethodPrice']); ?></td>
@@ -62,7 +62,10 @@ $_DIR = base_url('assets/ui/'); ?>
                                             </a>
                                         </div>
                                         <div class="col-md-12 col-xs-12 cart-product-desc">
-                                            <p>محصول <?php echo productTypePipe($item['ProductType']); ?></p>
+                                            <p>
+                                                محصول
+                                                <?php echo productTypePipe($item['ProductType']); ?>
+                                            </p>
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="col-md-12 col-xs-12 cart-product-price">

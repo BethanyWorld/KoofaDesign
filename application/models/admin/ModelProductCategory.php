@@ -1,4 +1,5 @@
 <?php
+
 class ModelProductCategory extends CI_Model{
 
     /*For Category*/
@@ -52,6 +53,7 @@ class ModelProductCategory extends CI_Model{
             'CategorySpecialPoster' => $inputs['inputCategorySpecialPoster'],
             'CategoryDescription' => $inputs['inputCategoryDescription'],
             'CategoryProductDescription' => $inputs['inputCategoryProductDescription'],
+            'CategoryProductDescriptionTable' => $inputs['inputCategoryProductDescriptionTable'],
             'CategoryDeliveryTime' => $inputs['inputCategoryDeliveryTime'],
             'CategoryInstallPrice' => $inputs['inputCategoryInstallPrice'],
             'CreateDateTime' => time()
@@ -88,6 +90,7 @@ class ModelProductCategory extends CI_Model{
             'CategoryIsActive' => $inputs['inputCategoryIsActive'],
             'CategoryDescription' => $inputs['inputCategoryDescription'],
             'CategoryProductDescription' => $inputs['inputCategoryProductDescription'],
+            'CategoryProductDescriptionTable' => $inputs['inputCategoryProductDescriptionTable'],
             'CategoryDeliveryTime' => $inputs['inputCategoryDeliveryTime'],
             'CategoryInstallPrice' => $inputs['inputCategoryInstallPrice'],
             'CreateDateTime' => time()

@@ -513,14 +513,14 @@ class ModelDiscount extends CI_Model
         $products = $this->db->get()->result_array();
 
 
-        $this->db->select('*');
+        /*$this->db->select('*');
         $this->db->from('product_size');
         $this->db->where('SizeId', $inputs['inputCostSizeId']);
         $size = $this->db->get()->result_array()[0];
-        $widthAndHeight = explode('*', $size['SizeTitle']);
-
 
         if ( is_array($widthAndHeight) && sizeof($widthAndHeight) == 2 ) {
+            var_dump($size);
+            var_dump($widthAndHeight);
             foreach ($products as $product) {
                 if ($product['ProductMaxWidth'] > floatval($widthAndHeight[0]) || $product['ProductMaxHeight'] > floatval($widthAndHeight[1])) {
                     $this->db->delete('product_price', array(
@@ -541,7 +541,7 @@ class ModelDiscount extends CI_Model
                     $this->db->insert('product_price', $Array);
                 }
             }
-        } else{
+        } else{*/
             foreach ($products as $product) {
                 $this->db->delete('product_price', array(
                     'ProductId' => $product['ProductId'],
@@ -558,7 +558,7 @@ class ModelDiscount extends CI_Model
                 );
                 $this->db->insert('product_price', $Array);
             }
-        }
+        /*}*/
 
 
         $arr = array(

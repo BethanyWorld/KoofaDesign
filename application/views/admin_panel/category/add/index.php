@@ -113,7 +113,7 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <textarea
-                                            class="form-control"
+                                            class="form-control ckeditor"
                                            id="inputCategoryDescription"
                                             name="inputCategoryDescription"></textarea>
                                 </div>
@@ -124,9 +124,20 @@
                             <div class="form-group">
                                 <div class="form-line">
                                     <textarea
-                                            class="form-control"
+                                            class="form-control ckeditor"
                                             id="inputCategoryProductDescription"
                                             name="inputCategoryProductDescription"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <label for="inputCategoryProductDescription">مشخصات دسته در محصول</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <textarea
+                                            class="form-control ckeditor"
+                                            id="inputCategoryProductDescriptionTable"
+                                            name="inputCategoryProductDescriptionTable"></textarea>
                                 </div>
                             </div>
                         </div>

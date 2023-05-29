@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 include(__DIR__ . '/../libraries/psp/RSAProcessor.class.php');
 class Cart extends CI_Controller{
+
     protected function uniqueArray($array, $key)
     {
         $temp_array = [];
@@ -475,7 +476,6 @@ class Cart extends CI_Controller{
     public function endPayment(){
 
 
-        var_dump($_POST);
         $token = $_POST['token'];
         //Get Order
         $order = $this->db->select('*')->from('orders')->where('OrderToken' , $token)->get()->result_array()[0];

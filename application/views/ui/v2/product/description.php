@@ -12,6 +12,7 @@
     <?php echo $data['ProductDescription']; ?>
 </div>
 <div class="col-md-12 col-xs-12 tab-content product-description product-description-table">
+    <?php echo $productCategories[sizeof($productCategories) - 1]['CategoryProductDescriptionTable']; ?>
     <?php echo $data['ProductDescriptionTable']; ?>
 </div>
 <div class="col-md-12 col-xs-12 tab-content product-description product-description-comment">

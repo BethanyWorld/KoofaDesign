@@ -221,6 +221,7 @@ class ModelUser extends CI_Model{
         $this->db->where(array(
             'OrderUserId' => $userId
         ));
+        $this->db->order_by('OrderId' , 'DESC');
         $data = $this->db->get()->result_array();
         return $data;
     }
