@@ -20,6 +20,22 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-xs-12 col-sm-4 col-md-2">
+                            <label for="inputSizeTitle">ارسال</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <select class="form-control selectpicker" id="inputShipment" multiple>
+                                        <?php foreach ($shipment as $key => $value) { ?>
+                                            <option
+                                                <?php foreach ($data['Shipment'] as $sh) {
+                                                    if($sh['Shipment'] == $key) { echo 'selected'; }
+                                                } ?>
+                                                    value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         <div class="col-xs-12">
                             <button type="button" id="editMaterial" class="btn btn-primary waves-effect">ذخیره</button>
                         </div>

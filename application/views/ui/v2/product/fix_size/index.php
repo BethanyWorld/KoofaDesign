@@ -7,7 +7,7 @@
 <style>
     .owl-carousel .owl-stage {
         display: flex;
-        align-items: center;
+        align-items: unset;
     }
 
     .owl-carousel .caption {

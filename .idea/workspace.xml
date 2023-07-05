@@ -4,21 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d07bf66-edc3-4fcc-9842-f70a8126f37a" name="Default Changelist" comment="">
+    <list default="true" id="71973b14-b7ec-4785-9eae-66d9d1ca0437" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/KoofaDesign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/KoofaDesign.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/MSChange.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/MSChange.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/Material.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/Material.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/Sizes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/Sizes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/libraries/enp/signed.txt" beforeDir="false" afterPath="$PROJECT_DIR$/application/libraries/enp/signed.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/User/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/User/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/User/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/User/Profile.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/pipes/pipe_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/pipes/pipe_helper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/admin/ModelDiscount.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelDiscount.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/admin/ModelMaterial.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelMaterial.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/models/admin/ModelProductCategory.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelProductCategory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/user/ModelUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/user/ModelUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/category/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/category/add/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/category/add/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/category/add/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/category/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/category/edit/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/category/edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/category/edit/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/description.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/description.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/user/order_detail/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/user/order_detail/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/admin/ModelSizes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelSizes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/ui/ModelProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ui/ModelProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/category/home/index_css.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/category/home/index_css.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/material/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/material/add/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/material/add/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/material/add/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/material/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/material/edit/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/material/edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/material/edit/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/sizes/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/sizes/add/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/sizes/add/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/sizes/add/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/sizes/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/sizes/edit/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/sizes/edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/sizes/edit/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/category/sub_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/category/sub_index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/fix_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/fix_size/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/normal/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/normal/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/static/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/static/header.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/user/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/user/sidebar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/v2/assets/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/ui/v2/assets/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/koofaart_db.sql" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,39 +52,21 @@
   <component name="ComposerSettings">
     <execution />
   </component>
-  <component name="DatabaseView">
-    <option name="SHOW_INTERMEDIATE" value="true" />
-    <option name="GROUP_DATA_SOURCES" value="true" />
-    <option name="GROUP_SCHEMA" value="false" />
-    <option name="GROUP_CONTENTS" value="false" />
-    <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_EMPTY_GROUPS" value="false" />
-    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <option name="HIDDEN_KINDS">
-      <set />
-    </option>
-    <expand />
-    <select />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="1dda9YHJEkbPFuyN659mgL8fUak" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2RA3EuKxTxK5mL7DI1NcUIrjk90" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/Blog/wp-content/themes&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/MajlessExam2&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -71,173 +77,30 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\KoofaDesign\application\views\admin_panel" />
-      <recent name="C:\wamp64\www\KoofaDesign\application\models\ui" />
-      <recent name="C:\wamp64\www\KoofaDesign\application\views\ui\v2\cart" />
-      <recent name="C:\wamp64\www\KoofaDesign\application\views\ui\v2\user" />
-      <recent name="C:\wamp64\www\KoofaDesign\assets\ui\v2\assets\img" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\wamp64\www\KoofaDesign\application\views\ui\old" />
+      <recent name="C:\wamp64\www\KoofaDesignBlog\wp-content\themes\Koofa\v2\assets\css" />
+      <recent name="C:\wamp64\www\KoofaDesignBlog\wp-content\themes\Koofa" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="6d07bf66-edc3-4fcc-9842-f70a8126f37a" name="Default Changelist" comment="" />
-      <created>1592757272732</created>
+      <changelist id="71973b14-b7ec-4785-9eae-66d9d1ca0437" name="Changes" comment="" />
+      <created>1686678950271</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1592757272732</updated>
-      <workItem from="1592757279883" duration="1183000" />
-      <workItem from="1593149773816" duration="5826000" />
-      <workItem from="1593548207761" duration="636000" />
-      <workItem from="1593584120429" duration="609000" />
-      <workItem from="1593630863860" duration="2698000" />
-      <workItem from="1593668960280" duration="3781000" />
-      <workItem from="1594383814232" duration="3505000" />
-      <workItem from="1594527145576" duration="609000" />
-      <workItem from="1596276351609" duration="2442000" />
-      <workItem from="1596285536102" duration="43000" />
-      <workItem from="1596650632979" duration="1845000" />
-      <workItem from="1596785025367" duration="608000" />
-      <workItem from="1597315121842" duration="2696000" />
-      <workItem from="1597327517953" duration="7680000" />
-      <workItem from="1597385295845" duration="530000" />
-      <workItem from="1598621925866" duration="623000" />
-      <workItem from="1598623363134" duration="10820000" />
-      <workItem from="1598682122227" duration="238000" />
-      <workItem from="1603956465797" duration="10965000" />
-      <workItem from="1604642774018" duration="8394000" />
-      <workItem from="1604654291410" duration="619000" />
-      <workItem from="1604682892453" duration="620000" />
-      <workItem from="1606754474173" duration="1974000" />
-      <workItem from="1607056256895" duration="23059000" />
-      <workItem from="1607101278381" duration="260000" />
-      <workItem from="1607105645923" duration="594000" />
-      <workItem from="1607184896206" duration="680000" />
-      <workItem from="1607450203196" duration="1446000" />
-      <workItem from="1607494843478" duration="597000" />
-      <workItem from="1607526119827" duration="2467000" />
-      <workItem from="1607798940714" duration="1717000" />
-      <workItem from="1607962404481" duration="6629000" />
-      <workItem from="1608137893122" duration="1838000" />
-      <workItem from="1608184945257" duration="15186000" />
-      <workItem from="1608264077665" duration="758000" />
-      <workItem from="1608292708864" duration="3152000" />
-      <workItem from="1608314222362" duration="1580000" />
-      <workItem from="1608392605767" duration="1817000" />
-      <workItem from="1609226788614" duration="17554000" />
-      <workItem from="1610558774146" duration="2577000" />
-      <workItem from="1610809126879" duration="1796000" />
-      <workItem from="1610816597251" duration="659000" />
-      <workItem from="1611922212303" duration="8008000" />
-      <workItem from="1612027988225" duration="3719000" />
-      <workItem from="1612115188417" duration="736000" />
-      <workItem from="1612285197380" duration="5152000" />
-      <workItem from="1612450783333" duration="277000" />
-      <workItem from="1612717287185" duration="838000" />
-      <workItem from="1612803161041" duration="1895000" />
-      <workItem from="1613672033222" duration="1357000" />
-      <workItem from="1613716253892" duration="23553000" />
-      <workItem from="1613745006132" duration="290000" />
-      <workItem from="1613757842331" duration="1197000" />
-      <workItem from="1613925866473" duration="3577000" />
-      <workItem from="1614100911782" duration="2332000" />
-      <workItem from="1614257518169" duration="1481000" />
-      <workItem from="1614318901312" duration="891000" />
-      <workItem from="1614363065918" duration="596000" />
-      <workItem from="1614540649735" duration="2431000" />
-      <workItem from="1614620052285" duration="632000" />
-      <workItem from="1614621228801" duration="11000" />
-      <workItem from="1614623585247" duration="3083000" />
-      <workItem from="1614712536350" duration="2738000" />
-      <workItem from="1614790604859" duration="1792000" />
-      <workItem from="1614843843122" duration="9603000" />
-      <workItem from="1615141958286" duration="4305000" />
-      <workItem from="1615230326352" duration="32000" />
-      <workItem from="1615314709381" duration="1197000" />
-      <workItem from="1615400974216" duration="176000" />
-      <workItem from="1616929109573" duration="1534000" />
-      <workItem from="1616933422334" duration="736000" />
-      <workItem from="1620111447739" duration="371000" />
-      <workItem from="1620238870894" duration="1417000" />
-      <workItem from="1620285390318" duration="712000" />
-      <workItem from="1675934052690" duration="5611000" />
-      <workItem from="1676020877156" duration="12379000" />
-      <workItem from="1676097556793" duration="116000" />
-      <workItem from="1676104885194" duration="11400000" />
-      <workItem from="1676140007909" duration="1247000" />
-      <workItem from="1676145689839" duration="1654000" />
-      <workItem from="1676184250691" duration="788000" />
-      <workItem from="1676306766667" duration="4964000" />
-      <workItem from="1676374495660" duration="4766000" />
-      <workItem from="1676471058655" duration="1704000" />
-      <workItem from="1676552314704" duration="9000" />
-      <workItem from="1676723034502" duration="611000" />
-      <workItem from="1676739046471" duration="340000" />
-      <workItem from="1676739743151" duration="653000" />
-      <workItem from="1676822323420" duration="5346000" />
-      <workItem from="1676874866979" duration="611000" />
-      <workItem from="1676881375054" duration="7352000" />
-      <workItem from="1677142991319" duration="10346000" />
-      <workItem from="1677222714466" duration="5647000" />
-      <workItem from="1677302847489" duration="236000" />
-      <workItem from="1677434890159" duration="4807000" />
-      <workItem from="1677484778969" duration="1296000" />
-      <workItem from="1677612910333" duration="3367000" />
-      <workItem from="1680770265677" duration="1354000" />
-      <workItem from="1681025141586" duration="4244000" />
-      <workItem from="1681046960107" duration="701000" />
-      <workItem from="1681048649771" duration="432000" />
-      <workItem from="1681305284264" duration="1933000" />
-      <workItem from="1681315494926" duration="1190000" />
-      <workItem from="1681464185235" duration="5884000" />
-      <workItem from="1681971114851" duration="13752000" />
-      <workItem from="1681998854587" duration="1083000" />
-      <workItem from="1682062713207" duration="1166000" />
-      <workItem from="1682083513568" duration="2916000" />
-      <workItem from="1682117381178" duration="4441000" />
-      <workItem from="1682260955632" duration="1187000" />
-      <workItem from="1682357121579" duration="1386000" />
-      <workItem from="1682587983776" duration="3047000" />
-      <workItem from="1682598598291" duration="618000" />
-      <workItem from="1682624121319" duration="1817000" />
-      <workItem from="1682666259663" duration="32000" />
-      <workItem from="1682797025783" duration="1138000" />
-      <workItem from="1682864137537" duration="1119000" />
-      <workItem from="1683044793199" duration="7496000" />
-      <workItem from="1684616141651" duration="794000" />
-      <workItem from="1684617532398" duration="989000" />
-      <workItem from="1684687430884" duration="1769000" />
-      <workItem from="1684767976983" duration="7821000" />
-      <workItem from="1684829036300" duration="4019000" />
-      <workItem from="1685104887067" duration="5045000" />
-      <workItem from="1685377656512" duration="3118000" />
+      <updated>1686678950271</updated>
+      <workItem from="1686678951574" duration="229000" />
+      <workItem from="1686679195231" duration="3862000" />
+      <workItem from="1686690327479" duration="600000" />
+      <workItem from="1686756535713" duration="594000" />
+      <workItem from="1686809735989" duration="64000" />
+      <workItem from="1687200507674" duration="2650000" />
+      <workItem from="1687271929625" duration="1263000" />
+      <workItem from="1687343567742" duration="3908000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-  </component>
-  <component name="WordPressConfiguration" enabled="true">
-    <wordpressPath>C:\wamp64\www\KoofaDesign\content</wordpressPath>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/../KoofaPrintPanel/application/models/ModelForms.php</url>
-          <line>677</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

@@ -28,8 +28,9 @@ class Sizes extends CI_Controller {
     public function add()
     {
         $headerData['pageTitle'] = 'افزودن سایز جدید';
+        $data['shipment'] = $this->config->item('shipment');
         $this->load->view('admin_panel/static/header', $headerData);
-        $this->load->view('admin_panel/sizes/add/index');
+        $this->load->view('admin_panel/sizes/add/index' , $data);
         $this->load->view('admin_panel/sizes/add/index_css');
         $this->load->view('admin_panel/sizes/add/index_js');
         $this->load->view('admin_panel/static/footer');
@@ -44,6 +45,7 @@ class Sizes extends CI_Controller {
     {
         $headerData['pageTitle'] = 'ویرایش سایز';
         $data['data'] = $this->ModelSizes->getSizeBySizeId($id)['data'][0];
+        $data['shipment'] = $this->config->item('shipment');
         $this->load->view('admin_panel/static/header', $headerData);
         $this->load->view('admin_panel/sizes/edit/index', $data);
         $this->load->view('admin_panel/sizes/edit/index_css');

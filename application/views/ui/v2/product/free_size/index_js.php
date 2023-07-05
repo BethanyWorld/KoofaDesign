@@ -21,11 +21,11 @@
             items: 1,
             slideSpeed: 4000,
             nav: true,
-            autoplay: true,
+            autoplay: false,
+            center: true,
             dots: false,
             animateOut: 'fadeOut',
             loop: true,
-            responsiveRefreshRate: 200,
             navText: [
                 '<i class="fa fa-angle-left" aria-hidden="true"></i>',
                 '<i class="fa fa-angle-right" aria-hidden="true"></i>'

@@ -8,7 +8,8 @@
             }
             else {
                 $sendData = {
-                    'inputMaterialTitle': $inputMaterialTitle
+                    'inputMaterialTitle': $inputMaterialTitle,
+                    'inputShipment': $("#inputShipment").val(),
                 }
                 toggleLoader();
                 $.ajax({

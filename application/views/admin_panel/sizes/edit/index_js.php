@@ -15,6 +15,7 @@
                     'inputSizeHeight': $("#inputSizeHeight").val(),
                     'inputSizeErtefa': $("#inputSizeErtefa").val(),
                     'inputSizeWeight': $("#inputSizeWeight").val(),
+                    'inputShipment': $("#inputShipment").val(),
                 }
                 toggleLoader();
                 $.ajax({

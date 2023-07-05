@@ -10,6 +10,7 @@
             else {
                 $sendData = {
                     'inputMaterialId': $inputMaterialId,
+                    'inputShipment': $("#inputShipment").val(),
                     'inputMaterialTitle': $inputMaterialTitle
                 }
                 toggleLoader();

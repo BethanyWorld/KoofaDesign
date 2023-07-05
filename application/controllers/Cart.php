@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 include(__DIR__ . '/../libraries/psp/RSAProcessor.class.php');
 class Cart extends CI_Controller{
 
+
     protected function uniqueArray($array, $key)
     {
         $temp_array = [];
@@ -383,12 +384,32 @@ class Cart extends CI_Controller{
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'اطلاعات ارسال ';
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
         if(!isset($userId)){
+            $this->session->set_userdata('returnUrl'  , base_url('Cart/payment'));
             redirect(base_url('Account/login'));
             die();
         }
+
+
+        $data['cart'] = $this->session->userdata('cart');
+        $shipments = array();
+        foreach ($data['cart'] as $crt) {
+            if($crt['productSizeId'] != NULL) {
+                $shipment = $this->ModelSizes->getShipmentBySizeId($crt['productSizeId']);
+            }
+            else {
+                $shipment = $this->ModelMaterial->getShipmentByMaterialId($crt['productMaterialId']);
+            }
+            foreach ($shipment as $sh){
+                $shipments[]  = $sh;
+            }
+
+        }
+        $shipments = $this->uniqueArray($shipments, 'Shipment');
+
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
         $data['sendMethods'] = $this->ModelUser->getSendMethods();
+        $data['shipments'] = $shipments;
         $this->load->view('ui/v2/static/header', $data);
         $this->load->view('ui/v2/cart/payment/index', $data);
         $this->load->view('ui/v2/cart/payment/index_css');

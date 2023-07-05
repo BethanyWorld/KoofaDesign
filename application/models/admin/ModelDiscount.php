@@ -569,7 +569,6 @@ class ModelDiscount extends CI_Model
         return $arr;
     }
 
-
     /*Works Fine */
     public function doDeleteCategoryMaterial($inputs)
     {

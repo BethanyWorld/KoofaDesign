@@ -26,7 +26,7 @@ function get_menu_tree($parent_id){
     $menuArray = $CI->db->get()->result_array();
     $menu = "";
     foreach ($menuArray as $row) {
-        $menu .="<li><a href='".categoryUrl($row['CategoryId'] , $row['CategoryTitle'])."'>".$row['CategoryTitle']."</a>";
+        $menu .="<li class='menu-image-change' data-bg='".$row['CategorySpecialPoster']."'><a href='".categoryUrl($row['CategoryId'] , $row['CategoryTitle'])."'>".$row['CategoryTitle']."</a>";
         $menu .= "<ul>".get_menu_tree($row['CategoryId'])."</ul>";
         $menu .= "</li>";
     }
@@ -47,7 +47,7 @@ function get_root_menu_tree(){
                 <span><?php echo $row['CategoryTitle']; ?></span>
                 <img width="150px" height="150px" src="<?php echo $row['CategoryImage']; ?>"/>
             </a>
-            <div class="mega-menu" style="background-image: url(<?php echo $row['CategoryPoster'];?>);">
+            <div class="mega-menu" style="background-image: url(<?php echo $row['CategoryImage'];?>);">
                 <div class="mega-menu-item">
                     <div class="wrapper">
                         <ul>

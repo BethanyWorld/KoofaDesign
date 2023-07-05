@@ -225,7 +225,7 @@ class ModelProduct extends CI_Model{
 		    array_push($catArray , $item['CategoryId'] );
 	    }
 
-        $this->db->select('*');
+        $this->db->select('ProductTitle');
         $this->db->from('product');
         $this->db->join('product_category_relation' , 'product_category_relation.ProductId = product.ProductId');
         $this->db->join('product_category' , 'product_category.CategoryId = product_category_relation.CategoryId');
@@ -263,8 +263,6 @@ class ModelProduct extends CI_Model{
         }
         return $query;
     }
-
-
 
     /*End For Product*/
     public function searchProduct($inputs){
@@ -407,5 +405,10 @@ class ModelProduct extends CI_Model{
         }
         return false;
     }
+
+
+
+
+
 }
 ?>

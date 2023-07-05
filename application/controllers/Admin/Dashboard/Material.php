@@ -25,8 +25,9 @@ class Material extends CI_Controller {
     public function add()
     {
         $headerData['pageTitle'] = 'افزودن جنس جدید';
+        $data['shipment'] = $this->config->item('shipment');
         $this->load->view('admin_panel/static/header', $headerData);
-        $this->load->view('admin_panel/material/add/index');
+        $this->load->view('admin_panel/material/add/index' , $data);
         $this->load->view('admin_panel/material/add/index_css');
         $this->load->view('admin_panel/material/add/index_js');
         $this->load->view('admin_panel/static/footer');
@@ -40,6 +41,7 @@ class Material extends CI_Controller {
     {
         $headerData['pageTitle'] = 'ویرایش جنس';
         $data['data'] = $this->ModelMaterial->getMaterialByMaterialId($id)['data'][0];
+        $data['shipment'] = $this->config->item('shipment');
         $this->load->view('admin_panel/static/header', $headerData);
         $this->load->view('admin_panel/material/edit/index', $data);
         $this->load->view('admin_panel/material/edit/index_css');

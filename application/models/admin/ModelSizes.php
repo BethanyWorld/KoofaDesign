@@ -36,11 +36,19 @@ class ModelSizes extends CI_Model{
         $this->db->from('product_size');
         $this->db->where('SizeId', $id);
         $query = $this->db->get()->result_array();
+        $query[0]['Shipment'] = $this->getShipmentBySizeId($id);
         $result['data'] = $query;
         return $result;
     }
-    public function doAddSize($inputs)
-    {
+    public function getShipmentBySizeId($id){
+        $this->db->select('*');
+        $this->db->from('shipment');
+        $this->db->where('SizeId', $id);
+        return $this->db->get()->result_array();
+    }
+    public function doAddSize($inputs){
+
+        $this->db->trans_start();
         $Array = array(
             'SizeTitle' => $inputs['inputSizeTitle'],
             'SizeWidth' => $inputs['inputSizeWidth'],
@@ -48,8 +56,19 @@ class ModelSizes extends CI_Model{
             'SizeErtefa' => $inputs['inputSizeErtefa'],
             'SizeWeight' => $inputs['inputSizeWeight']
         );
-        $this->db->trans_start();
         $this->db->insert('product_size', $Array);
+        $id = $this->db->insert_id();
+
+        foreach ($inputs['inputShipment'] as $item){
+            $Array = array(
+                'SizeId' => $id,
+                'Shipment' => $item,
+                'CreateDateTime' => time()
+            );
+            $this->db->insert('shipment', $Array);
+        }
+
+
         $this->db->trans_complete();
         if ($this->db->trans_status() === FALSE) {
             $arr = array(
@@ -67,8 +86,8 @@ class ModelSizes extends CI_Model{
             return $arr;
         }
     }
-    public function doEditSize($inputs)
-    {
+    public function doEditSize($inputs){
+        $this->db->trans_start();
         $Array = array(
             'SizeTitle' => $inputs['inputSizeTitle'],
             'SizeWidth' => $inputs['inputSizeWidth'],
@@ -76,9 +95,23 @@ class ModelSizes extends CI_Model{
             'SizeErtefa' => $inputs['inputSizeErtefa'],
             'SizeWeight' => $inputs['inputSizeWeight']
         );
-        $this->db->trans_start();
         $this->db->where('SizeId', $inputs['inputSizeId']);
         $this->db->update('product_size', $Array);
+
+
+        $this->db->delete('shipment', array(
+            'SizeId'=> $inputs['inputSizeId']
+        ));
+        foreach ($inputs['inputShipment'] as $item){
+            $Array = array(
+                'SizeId' => $inputs['inputSizeId'],
+                'Shipment' => $item,
+                'CreateDateTime' => time()
+            );
+            $this->db->insert('shipment', $Array);
+        }
+
+
         $this->db->trans_complete();
         if ($this->db->trans_status() === FALSE) {
             $arr = array(

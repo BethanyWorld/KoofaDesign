@@ -28,8 +28,7 @@ class Home extends CI_Controller{
         $data['favoriteProduct'] = $this->ModelProduct->getFavoriteProduct();
         $data['specialProduct'] = $this->ModelProduct->getSpecialProduct();
 
-        /*var_dump($data['categories'][0]['childCategory'][0]);
-        die();*/
+
 
         $this->load->view('ui/v2/static/header', $data);
         $this->load->view('ui/v2/home/index', $data);
@@ -84,4 +83,40 @@ class Home extends CI_Controller{
         $input_data = array( "verification-code" => "10544-41");
         echo $client->sendPatternSms($fromNum,$toNum,$user,$pass,$pattern_code,$input_data);
     }
+
+
+    public function pd(){
+
+
+        $this->db->select('product.ProductId , ProductTitle');
+        $this->db->from('product');
+        $this->db->join('product_category_relation' , 'product_category_relation.ProductId = product.ProductId');
+        $this->db->join('product_category' , 'product_category.CategoryId = product_category_relation.CategoryId');
+        $this->db->where_in('product_category_relation.CategoryId' , array(91));
+        $product = $this->db->get()->result_array();
+        $allPr = array();
+        foreach ($product as $item) {
+            $this->db->select('product.ProductId , ProductTitle');
+            $this->db->from('product');
+            $this->db->join('product_category_relation' , 'product_category_relation.ProductId = product.ProductId');
+            $this->db->where_in('product_category_relation.CategoryId' , array(7,22,87,100));
+            $this->db->where('product.ProductId' , $item['ProductId']);
+            $pr = $this->db->get()->result_array();
+            if(!empty($pr)){
+                $allPr[] = $pr[0];
+            }
+        }
+        var_dump($allPr);
+        foreach ($allPr as $item) {
+            $this->db->reset_query();
+            $this->db->where('product_category_relation.CategoryId' , 91);
+            $this->db->where('product_category_relation.ProductId' , $item['ProductId']);
+            $this->db->delete('product_category_relation');
+        }
+
+
+    }
+
+
+
 }

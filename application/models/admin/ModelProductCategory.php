@@ -477,14 +477,14 @@ class ModelProductCategory extends CI_Model{
                     foreach ($hasSelectedCategory as $item) {
                         if($row->CategoryId == $item['CategoryId']){
                             $isSelected = true;
-                            $category .= '<a href="'.base_url('Admin/Dashboard/Category/Edit/').$row->CategoryId.'"><button>ویرایش</button></a>';
+                            $category .= '<a class="cat-'.$row->CategoryIsActive.'" href="'.base_url('Admin/Dashboard/Category/Edit/').$row->CategoryId.'"><button>ویرایش</button></a>';
                             break;
                         }
                     }
                 }
                 if(!$isSelected){
-                    $category .= '<a href="'.base_url('Admin/Dashboard/Category/Edit/').$row->CategoryId.'"><button>ویرایش</button></a>';
-                    $category .= '<a href="'.base_url('Admin/Dashboard/Category/property/').$row->CategoryId.'"><button>ویژگی ها</button></a>';
+                    $category .= '<a  class="cat-'.$row->CategoryIsActive.'" href="'.base_url('Admin/Dashboard/Category/Edit/').$row->CategoryId.'"><button>ویرایش</button></a>';
+                    $category .= '<a  class="cat-'.$row->CategoryIsActive.'" href="'.base_url('Admin/Dashboard/Category/property/').$row->CategoryId.'"><button>ویژگی ها</button></a>';
                 }
                 $category .= '<label for="cat-'.$row->CategoryId.'">';
                 $category .= $prefix.$row->CategoryTitle;

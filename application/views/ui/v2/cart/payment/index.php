@@ -103,18 +103,13 @@ $_DIR = base_url('assets/ui/v2/');
 
 
                     <!-- for address detail-->
-                    <?php foreach ($sendMethods as $sendMethod) { ?>
+                    <?php foreach ($shipments as $sendMethod) { ?>
                         <div class="col-md-3 col-xs-12 pull-right" style="background: #fff;padding: 20px 20px;direction: rtl;margin-bottom: 10px;">
-
-                            <span class="step-product-toman-text hidden">تومان</span>
-                            <span class="step-product-price hidden">
-                                <?php echo number_format($sendMethod['OrderSendMethodPrice']); ?>
-                            </span>
-                            <label for="method-<?php echo $sendMethod['OrderSendMethodId']; ?>">
+                            <label for="method-<?php echo $sendMethod['Shipment']; ?>">
                                 <p>
-                                    <?php echo $sendMethod['OrderSendMethodTitle']; ?>
+                                    <?php echo pipeEnum('shipment' , $sendMethod['Shipment']); ?>
                                 </p>
-                                <input id="method-<?php echo $sendMethod['OrderSendMethodId']; ?>" value="<?php echo $sendMethod['OrderSendMethodId']; ?>" type="radio" name="send-method">
+                                <input id="method-<?php echo $sendMethod['Shipment']; ?>" value="<?php echo $sendMethod['Shipment']; ?>" type="radio" name="send-method">
                             </label>
                         </div>
                     <?php } ?>

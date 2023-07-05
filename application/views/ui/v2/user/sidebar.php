@@ -21,6 +21,9 @@
             <li class=<?php if (strpos($url, 'orders') !== false) echo "active"; ?>>
                 <a href="<?php echo base_url('User/Home/orders'); ?>">سفارش ها</a>
             </li>
+            <li class=<?php if (strpos($url, 'orders11') !== false) echo "active"; ?>>
+                <a href="<?php echo base_url('User/Home/doLogOut'); ?>">خروج</a>
+            </li>
         </ul>
     </div>
 </div>

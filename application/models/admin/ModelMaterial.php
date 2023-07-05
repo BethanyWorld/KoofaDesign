@@ -42,8 +42,16 @@ class ModelMaterial extends CI_Model
         $this->db->from('product_material');
         $this->db->where('MaterialId', $id);
         $query = $this->db->get()->result_array();
+        $query[0]['Shipment'] = $this->getShipmentByMaterialId($id);
         $result['data'] = $query;
         return $result;
+    }
+
+    public function getShipmentByMaterialId($id){
+        $this->db->select('*');
+        $this->db->from('shipment');
+        $this->db->where('MaterialId', $id);
+        return $this->db->get()->result_array();
     }
 
     public function doAddMaterial($inputs)
@@ -53,6 +61,18 @@ class ModelMaterial extends CI_Model
         );
         $this->db->trans_start();
         $this->db->insert('product_material', $Array);
+
+        $id = $this->db->insert_id();
+
+        foreach ($inputs['inputShipment'] as $item){
+            $Array = array(
+                'MaterialId' => $id,
+                'Shipment' => $item,
+                'CreateDateTime' => time()
+            );
+            $this->db->insert('shipment', $Array);
+        }
+
         $this->db->trans_complete();
         if ($this->db->trans_status() === FALSE) {
             $arr = array(
@@ -79,6 +99,21 @@ class ModelMaterial extends CI_Model
         $this->db->trans_start();
         $this->db->where('MaterialId', $inputs['inputMaterialId']);
         $this->db->update('product_material', $Array);
+
+
+        $this->db->delete('shipment', array(
+            'SizeId'=> $inputs['inputMaterialId']
+        ));
+        foreach ($inputs['inputShipment'] as $item){
+            $Array = array(
+                'MaterialId' => $inputs['inputMaterialId'],
+                'Shipment' => $item,
+                'CreateDateTime' => time()
+            );
+            $this->db->insert('shipment', $Array);
+        }
+
+
         $this->db->trans_complete();
         if ($this->db->trans_status() === FALSE) {
             $arr = array(
