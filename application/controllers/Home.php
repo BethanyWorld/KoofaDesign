@@ -1,12 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller{
+
     public function __construct(){
         parent::__construct();
         $this->load->model('ui/ModelProductCategory');
         $this->load->model('ui/ModelProduct');
         $this->load->model('ui/ModelWebSite');
     }
+
     public function index(){
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'صفحه اصلی ';
@@ -36,6 +38,7 @@ class Home extends CI_Controller{
         $this->load->view('ui/v2/home/index_js');
         $this->load->view('ui/v2/static/footer');
     }
+
     public function time(){
 
         /*$query = $this->db->select('ProductId   , CreateDateTime , ModifiedDateTime')->from('product')->get();
@@ -73,6 +76,7 @@ class Home extends CI_Controller{
 
 
     }
+
     public function sms(){
         $client = new SoapClient("http://ippanel.com/class/sms/wsdlservice/server.php?wsdl");
         $user = "miladghelich";
@@ -83,7 +87,6 @@ class Home extends CI_Controller{
         $input_data = array( "verification-code" => "10544-41");
         echo $client->sendPatternSms($fromNum,$toNum,$user,$pass,$pattern_code,$input_data);
     }
-
 
     public function pd(){
 
@@ -116,7 +119,6 @@ class Home extends CI_Controller{
 
 
     }
-
 
 
 }

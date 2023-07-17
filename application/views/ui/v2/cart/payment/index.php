@@ -55,11 +55,7 @@ $_DIR = base_url('assets/ui/v2/');
     <div class="row cart-shopping-product-div">
         <div class="container">
             <div class="col-md-12 col-xs-12 padding-0">
-                <div class="<?php if (empty($this->session->userdata('cart'))) {
-                    echo 'col-md-12';
-                } else {
-                    echo 'col-md-9';
-                } ?> col-xs-12 RightFloat p-0" style="background: #fff;">
+                <div class="<?php if (empty($this->session->userdata('cart'))) { echo 'col-md-12'; } else { echo 'col-md-9'; } ?> col-xs-12 RightFloat p-0" style="background: #fff;">
                     <?php foreach ($userAddress as $item) { ?>
                         <div class="col-md-12 col-xs-12" style="direction: rtl;padding: 10px 0;">
                             <div class="col-md-12 col-xs-12">
@@ -103,7 +99,9 @@ $_DIR = base_url('assets/ui/v2/');
 
 
                     <!-- for address detail-->
-                    <?php foreach ($shipments as $sendMethod) { ?>
+
+                    <?php
+                    foreach ($shipments as $sendMethod) { ?>
                         <div class="col-md-3 col-xs-12 pull-right" style="background: #fff;padding: 20px 20px;direction: rtl;margin-bottom: 10px;">
                             <label for="method-<?php echo $sendMethod['Shipment']; ?>">
                                 <p>
@@ -113,11 +111,7 @@ $_DIR = base_url('assets/ui/v2/');
                             </label>
                         </div>
                     <?php } ?>
-                    <!-- for address detail-->
-
-
                 </div>
-
                 <?php
                 if (!empty($this->session->userdata('cart'))) { ?>
                     <?php

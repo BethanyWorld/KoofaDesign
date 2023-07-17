@@ -41,7 +41,9 @@ class Material extends CI_Controller {
     {
         $headerData['pageTitle'] = 'ویرایش جنس';
         $data['data'] = $this->ModelMaterial->getMaterialByMaterialId($id)['data'][0];
+        $data['materialShipment'] = $this->ModelMaterial->getMaterialShipmentByMaterialId($id);
         $data['shipment'] = $this->config->item('shipment');
+
         $this->load->view('admin_panel/static/header', $headerData);
         $this->load->view('admin_panel/material/edit/index', $data);
         $this->load->view('admin_panel/material/edit/index_css');

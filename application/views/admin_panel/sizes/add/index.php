@@ -46,7 +46,7 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-2">
-                            <label for="inputSizeTitle">وزن</label>
+                            <label for="inputSizeTitle">وزن گرمی به ازای هر سانتی مترمربع</label>
                             <div class="form-group">
                                 <div class="form-line">
                                     <input type="text" class="form-control"

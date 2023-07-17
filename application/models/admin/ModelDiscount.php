@@ -1,5 +1,6 @@
 <?php
 
+
 class ModelDiscount extends CI_Model
 {
     public function getDiscountByPagination($limit = 1)
@@ -438,7 +439,8 @@ class ModelDiscount extends CI_Model
     }
 
     /*Works Fine */
-    public function doChangeCategorySize($inputs){
+    public function doChangeCategorySize($inputs)
+    {
         $this->db->select('*');
         $this->db->from('product_category_relation');
         if (isset($inputs['inputProductShape']) && $inputs['inputProductShape'] != '') {
@@ -455,7 +457,7 @@ class ModelDiscount extends CI_Model
         $size = $this->db->get()->result_array()[0];
         $widthAndHeight = explode('*', $size['SizeTitle']);
 
-        if ( is_array($widthAndHeight) && sizeof($widthAndHeight) == 2 ) {
+        if (is_array($widthAndHeight) && sizeof($widthAndHeight) == 2) {
             foreach ($products as $product) {
                 if ($product['ProductMaxWidth'] > floatval($widthAndHeight[0]) || $product['ProductMaxHeight'] > floatval($widthAndHeight[1])) {
                     $this->db->delete('product_price', array(
@@ -542,22 +544,22 @@ class ModelDiscount extends CI_Model
                 }
             }
         } else{*/
-            foreach ($products as $product) {
-                $this->db->delete('product_price', array(
-                    'ProductId' => $product['ProductId'],
-                    'MaterialId' => $inputs['inputCostMaterialId'],
-                    'SizeId' => $inputs['inputCostSizeId']
-                ));
-            }
-            foreach ($products as $product) {
-                $Array = array(
-                    'PriceValue' => 0,
-                    'MaterialId' => $inputs['inputCostMaterialId'],
-                    'SizeId' => $inputs['inputCostSizeId'],
-                    'ProductId' => $product['ProductId']
-                );
-                $this->db->insert('product_price', $Array);
-            }
+        foreach ($products as $product) {
+            $this->db->delete('product_price', array(
+                'ProductId' => $product['ProductId'],
+                'MaterialId' => $inputs['inputCostMaterialId'],
+                'SizeId' => $inputs['inputCostSizeId']
+            ));
+        }
+        foreach ($products as $product) {
+            $Array = array(
+                'PriceValue' => 0,
+                'MaterialId' => $inputs['inputCostMaterialId'],
+                'SizeId' => $inputs['inputCostSizeId'],
+                'ProductId' => $product['ProductId']
+            );
+            $this->db->insert('product_price', $Array);
+        }
         /*}*/
 
 

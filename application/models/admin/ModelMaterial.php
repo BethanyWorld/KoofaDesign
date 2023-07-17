@@ -50,14 +50,23 @@ class ModelMaterial extends CI_Model
     public function getShipmentByMaterialId($id){
         $this->db->select('*');
         $this->db->from('shipment');
-        $this->db->where('MaterialId', $id);
+        $this->db->where('shipment.MaterialId', $id);
         return $this->db->get()->result_array();
     }
+
+    public function getMaterialShipmentByMaterialId($id){
+        $this->db->select('*');
+        $this->db->from('shipment');
+        $this->db->where('shipment.MaterialId', $id);
+        return $this->db->get()->result_array();
+    }
+
 
     public function doAddMaterial($inputs)
     {
         $Array = array(
-            'MaterialTitle' => $inputs['inputMaterialTitle']
+            'MaterialTitle' => $inputs['inputMaterialTitle'],
+            'MaterialWeight' => $inputs['inputMaterialWeight']
         );
         $this->db->trans_start();
         $this->db->insert('product_material', $Array);
@@ -94,7 +103,8 @@ class ModelMaterial extends CI_Model
     public function doEditMaterial($inputs)
     {
         $Array = array(
-            'MaterialTitle' => $inputs['inputMaterialTitle']
+            'MaterialTitle' => $inputs['inputMaterialTitle'],
+            'MaterialWeight' => $inputs['inputMaterialWeight']
         );
         $this->db->trans_start();
         $this->db->where('MaterialId', $inputs['inputMaterialId']);
@@ -102,7 +112,7 @@ class ModelMaterial extends CI_Model
 
 
         $this->db->delete('shipment', array(
-            'SizeId'=> $inputs['inputMaterialId']
+            'MaterialId'=> $inputs['inputMaterialId']
         ));
         foreach ($inputs['inputShipment'] as $item){
             $Array = array(

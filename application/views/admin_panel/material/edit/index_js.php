@@ -4,6 +4,7 @@
         $("#editMaterial").click(function () {
             $inputMaterialId = $.trim($("#inputMaterialId").val());
             $inputMaterialTitle = $.trim($("#inputMaterialTitle").val());
+            $inputMaterialWeight  = $.trim($("#inputMaterialWeight").val());
             if (isEmpty($inputMaterialTitle)) {
                 notify('لطفا تمامی موارد را کامل کنید', 'red');
             }
@@ -11,7 +12,8 @@
                 $sendData = {
                     'inputMaterialId': $inputMaterialId,
                     'inputShipment': $("#inputShipment").val(),
-                    'inputMaterialTitle': $inputMaterialTitle
+                    'inputMaterialTitle': $inputMaterialTitle,
+                    'inputMaterialWeight': $inputMaterialWeight
                 }
                 toggleLoader();
                 $.ajax({

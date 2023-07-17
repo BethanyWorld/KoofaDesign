@@ -43,9 +43,16 @@ class ModelSizes extends CI_Model{
     public function getShipmentBySizeId($id){
         $this->db->select('*');
         $this->db->from('shipment');
-        $this->db->where('SizeId', $id);
+        $this->db->where('shipment.SizeId', $id);
         return $this->db->get()->result_array();
     }
+    public function getSizeShipmentBySizeId($id){
+        $this->db->select('*');
+        $this->db->from('shipment');
+        $this->db->where('shipment.SizeId', $id);
+        return $this->db->get()->result_array();
+    }
+
     public function doAddSize($inputs){
 
         $this->db->trans_start();

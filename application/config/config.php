@@ -98,9 +98,8 @@ $config['productShape'] = array(
     'RectangleLong' => 'مستطیل کشیده'
 );
 $config['shipment'] = array(
-    'PEIK' => 'پیک',
-    'POST' => 'پست',
-    'CAR' => 'وانت'
+    'ECO' => 'اکوپیک',
+    'MAHEX' => 'ماهکس'
 );
 $config['orderStatus'] = array('Pend' ,'Failed','Done');
 /* End Enums */

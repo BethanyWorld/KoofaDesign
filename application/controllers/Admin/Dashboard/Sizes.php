@@ -41,10 +41,10 @@ class Sizes extends CI_Controller {
         echo json_encode($result);
     }
 
-    public function edit($id)
-    {
+    public function edit($id){
         $headerData['pageTitle'] = 'ویرایش سایز';
         $data['data'] = $this->ModelSizes->getSizeBySizeId($id)['data'][0];
+        $data['sizeShipment'] = $this->ModelSizes->getSizeShipmentBySizeId($id);
         $data['shipment'] = $this->config->item('shipment');
         $this->load->view('admin_panel/static/header', $headerData);
         $this->load->view('admin_panel/sizes/edit/index', $data);

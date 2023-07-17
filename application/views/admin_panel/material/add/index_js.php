@@ -3,12 +3,14 @@
         /* Update User Info */
         $("#addMaterial").click(function () {
             $inputMaterialTitle = $.trim($("#inputMaterialTitle").val());
+            $inputMaterialWeight  = $.trim($("#inputMaterialWeight").val());
             if (isEmpty($inputMaterialTitle)) {
                 notify('لطفا تمامی موارد را کامل کنید', 'red');
             }
             else {
                 $sendData = {
                     'inputMaterialTitle': $inputMaterialTitle,
+                    'inputMaterialWeight': $inputMaterialWeight,
                     'inputShipment': $("#inputShipment").val(),
                 }
                 toggleLoader();

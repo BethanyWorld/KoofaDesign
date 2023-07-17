@@ -391,25 +391,61 @@ class Cart extends CI_Controller{
 
 
         $data['cart'] = $this->session->userdata('cart');
-        $shipments = array();
+        $shipment = array();
+        $index = 0;
         foreach ($data['cart'] as $crt) {
-            if($crt['productSizeId'] != NULL) {
-                $shipment = $this->ModelSizes->getShipmentBySizeId($crt['productSizeId']);
-            }
+            if($crt['productSizeId'] != null && $crt['productSizeId'] != '' ) {
+                $data['cart'][$index]['meta'] = $this->ModelSizes->getSizeBySizeId($crt['productSizeId'])['data'];
+             }
             else {
-                $shipment = $this->ModelMaterial->getShipmentByMaterialId($crt['productMaterialId']);
-            }
-            foreach ($shipment as $sh){
-                $shipments[]  = $sh;
-            }
+                $data['cart'][$index]['meta']= $this->ModelMaterial->getMaterialByMaterialId($crt['productMaterialId'])['data'];
+             }
+            $index+=1;
+        }
+
+        foreach ($data['cart'] as $item) {
+            var_dump($item['meta'][0]['Shipment']);
 
         }
-        $shipments = $this->uniqueArray($shipments, 'Shipment');
+
+        $cartShipmentTotalWeight = 0;
+        foreach ($data['cart'] as $crt) {
+            if($crt['productType'] == 'DesignFreeSize'){
+                $width = $crt['productWidth'];
+                $height = $crt['productHeight'];
+                $zekhamat = 5; /* prodcut zekhamat is default 5cm */
+                $vaznhajmi =  ($width  * $height * $zekhamat) / 6000;
+                $vazngerami=  ($width  * $height * $zekhamat)/1000;
+                $VAZNAKHAR = 0;
+                if($vaznhajmi > $vazngerami){
+                    $VAZNAKHAR = $vaznhajmi;
+                } else{
+                    $VAZNAKHAR = $vazngerami;
+                }
+                $cartShipmentTotalWeight+=$VAZNAKHAR;
+            }
+            if($crt['productType'] == 'DesignFixSize'){
+                $width = $crt['meta']['SizeWidth'];
+                $height = $crt['meta']['SizeHeight'];
+                $zekhamat = $crt['meta']['SizeErtefa'];
+                $vaznhajmi =  ($width  * $height * $zekhamat) / 6000;
+                $vazngerami=  $crt['meta']['SizeWeight']/1000;
+                $VAZNAKHAR = 0;
+                if($vaznhajmi > $vazngerami){
+                    $VAZNAKHAR = $vaznhajmi;
+                } else{
+                    $VAZNAKHAR = $vazngerami;
+                }
+                $cartShipmentTotalWeight+=$VAZNAKHAR;
+            }
+        }
+
+
 
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
         $data['sendMethods'] = $this->ModelUser->getSendMethods();
-        $data['shipments'] = $shipments;
+        $data['shipments'] = $shipment;
         $this->load->view('ui/v2/static/header', $data);
         $this->load->view('ui/v2/cart/payment/index', $data);
         $this->load->view('ui/v2/cart/payment/index_css');
