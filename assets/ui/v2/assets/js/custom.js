@@ -176,7 +176,7 @@ $(document).ready(function () {
         }
     });
 
-    $(".menu-image-change").hover(
+    $("[data-bg]").hover(
         function () {
             $bg = $(this).data('bg');
             console.log($bg);
@@ -184,5 +184,8 @@ $(document).ready(function () {
         }, function () {
         }
     );
-    $(".menu-image-change").eq(0).hover();
+    $(".mega-menu").each(function(){
+        $bg = $(this).find('.menu-image-change').eq(0).data('bg');
+        $(this).parents('li').find('.mega-menu').eq(0).css('background-image' , 'url('+$bg+')');
+    });
 });

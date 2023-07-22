@@ -1,8 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 include(__DIR__ . '/../libraries/psp/RSAProcessor.class.php');
-class Cart extends CI_Controller{
 
+class Cart extends CI_Controller{
 
     protected function uniqueArray($array, $key)
     {
@@ -14,6 +14,7 @@ class Cart extends CI_Controller{
         $array = array_values($temp_array);
         return $array;
     }
+
     public function __construct()
     {
         parent::__construct();
@@ -29,6 +30,7 @@ class Cart extends CI_Controller{
             $this->session->set_userdata('cart', array());
         }
     }
+
     public function index()
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -42,6 +44,7 @@ class Cart extends CI_Controller{
         $this->load->view('ui/v2/cart/index_js');
         $this->load->view('ui/v2/static/footer');
     }
+
     public function addNormal($productId)
     {
         /* Get Items On Cart */
@@ -67,6 +70,7 @@ class Cart extends CI_Controller{
         $this->session->set_userdata('cart', $this->uniqueArray($cartItems, 'productId'));
         redirect(base_url('Cart'));
     }
+
     public function addNormalUpload()
     {
         $data = $this->input->post(NULL, TRUE);
@@ -94,6 +98,7 @@ class Cart extends CI_Controller{
         array_push($cartItems, $item);
         $this->session->set_userdata('cart', $this->uniqueArray($cartItems, 'productId'));
     }
+
     public function addDesignFixSize()
     {
         $data = $this->input->post(NULL, TRUE);
@@ -103,7 +108,7 @@ class Cart extends CI_Controller{
         $productHasInstallation = $data['inputProductHasInstallation'];
         $productImage = $data['inputProductUploadImage'];
         $services = $data['inputServices'];
-        $services = json_decode($services , true);
+        $services = json_decode($services, true);
         $cartItems = $this->session->userdata('cart');
 
         $data = $this->ModelProduct->getProductByProductId($productId)['data'][0];
@@ -136,7 +141,7 @@ class Cart extends CI_Controller{
 
         foreach ($services as $id) {
             $si = $this->ModelServices->getServicesItemsByServiceItemId($id);
-            if(!empty($si)){
+            if (!empty($si)) {
                 $item['productPrice'] += $si[0]['ServiceItemPrice'];
             }
         }
@@ -144,7 +149,9 @@ class Cart extends CI_Controller{
         array_push($cartItems, $item);
         $this->session->set_userdata('cart', $this->uniqueArray($cartItems, 'productId'));
     }
-    public function addDesignFreeSize(){
+
+    public function addDesignFreeSize()
+    {
         $data = $this->input->post(NULL, TRUE);
         $productId = $data['inputProductId'];
         $materialId = $data['inputMaterialId'];
@@ -152,7 +159,7 @@ class Cart extends CI_Controller{
         $productHeight = $data['inputProductHeight'];
         $productImage = $data['inputProductUploadImage'];
         $services = $data['inputServices'];
-        $services = json_decode($services , true);
+        $services = json_decode($services, true);
         $cartItems = $this->session->userdata('cart');
         $data = $this->ModelProduct->getProductByProductId($productId)['data'][0];
         $productPrice = $this->ModelProduct->getProductPriceProductId($productId);
@@ -168,7 +175,7 @@ class Cart extends CI_Controller{
         $item['productSizeId'] = '';//Free Size Has Not Size
 
         if (ceil(($productWidth / 10)) != ($productWidth / 10)) {
-            $item['productWidth'] = ceil(($productWidth / 10))*10;
+            $item['productWidth'] = ceil(($productWidth / 10)) * 10;
         }
 
         /**/
@@ -185,15 +192,14 @@ class Cart extends CI_Controller{
 
         foreach ($services as $id) {
             $si = $this->ModelServices->getServicesItemsByServiceItemId($id);
-            if(!empty($si)){
+            if (!empty($si)) {
                 $item['productPrice'] += $si[0]['ServiceItemPrice'];
             }
         }
 
 
-
         $productCategories = $this->ModelProduct->getProductCategoryByProductId($productId)['data'];
-        $installPrice = $productCategories[count($productCategories)-1]['CategoryInstallPrice'];
+        $installPrice = $productCategories[count($productCategories) - 1]['CategoryInstallPrice'];
 
         $installPrice = $installPrice * $item['productHeight'] * $item['productWidth'];
         $item['productPrice'] += $installPrice;
@@ -204,6 +210,7 @@ class Cart extends CI_Controller{
         $this->session->set_userdata('cart', $cartItems);
 
     }
+
     public function remove($productId)
     {
         $removeIndex = -1;
@@ -219,17 +226,28 @@ class Cart extends CI_Controller{
             $this->session->set_userdata('cart', $cartItems);
         }
     }
+
     public function clear(){
         $this->session->set_userdata('cart', array());
     }
-    public function show(){
+
+    public function show()
+    {
         var_dump($this->session->userdata('cart'));
     }
-    public function updateCount(){
+
+    public function updateCount()
+    {
         $inputs = $this->input->post(NULL, TRUE);
-        $inputs = array_map(function ($v) {return strip_tags($v);}, $inputs);
-        $inputs = array_map(function ($v) {return remove_invisible_characters($v);}, $inputs);
-        $inputs = array_map(function ($v) {return makeSafeInput($v);}, $inputs);
+        $inputs = array_map(function ($v) {
+            return strip_tags($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return remove_invisible_characters($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return makeSafeInput($v);
+        }, $inputs);
         $newCount = $inputs['inputNewCount'];
         $productId = $inputs['inputProductId'];
         $cartItems = $this->session->userdata('cart');
@@ -238,7 +256,7 @@ class Cart extends CI_Controller{
                 $cartItems[$i]['productCount'] = $newCount;
             }
         }
-        $this->session->set_userdata('cart' , $cartItems);
+        $this->session->set_userdata('cart', $cartItems);
 
         $items = $this->session->userdata('cart');
         $totalPrice = 0;
@@ -249,6 +267,7 @@ class Cart extends CI_Controller{
             'tp' => number_format($totalPrice)
         ));
     }
+
     public function uploadFile()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -327,16 +346,24 @@ class Cart extends CI_Controller{
             die();
         }
     }
-    public function updateDiscountCode(){
+
+    public function updateDiscountCode()
+    {
         $inputs = $this->input->post(NULL, TRUE);
-        $inputs = array_map(function ($v) {return strip_tags($v);}, $inputs);
-        $inputs = array_map(function ($v) {return remove_invisible_characters($v);}, $inputs);
-        $inputs = array_map(function ($v) {return makeSafeInput($v);}, $inputs);
+        $inputs = array_map(function ($v) {
+            return strip_tags($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return remove_invisible_characters($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return makeSafeInput($v);
+        }, $inputs);
         $inputDiscountCode = $inputs['inputDiscountCode'];
 
         $data = $this->ModelDiscount->getDiscountByDiscountCode($inputDiscountCode);
 
-        if(empty($data)){
+        if (empty($data)) {
             $result = array(
                 'type' => "red",
                 'content' => "کد تخفیف نامعتبر است",
@@ -344,10 +371,9 @@ class Cart extends CI_Controller{
             );
             echo json_encode($result);
             die();
-        }
-        else{
+        } else {
             $data = $data[0];
-            if($data['DiscountPercent'] > 0){
+            if ($data['DiscountPercent'] > 0) {
                 $massage = "مبلغ";
                 $massage .= " ";
                 $massage .= $data['DiscountPercent'];
@@ -360,7 +386,7 @@ class Cart extends CI_Controller{
                 );
                 echo json_encode($result);
             }
-            if($data['DiscountPrice'] > 0){
+            if ($data['DiscountPrice'] > 0) {
                 $massage = "مبلغ";
                 $massage .= " ";
                 $massage .= $data['DiscountPrice'];
@@ -379,68 +405,158 @@ class Cart extends CI_Controller{
             $this->session->set_userdata($array);
         }
     }
-    public function payment(){
+
+    public function payment()
+    {
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'اطلاعات ارسال ';
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
-        if(!isset($userId)){
-            $this->session->set_userdata('returnUrl'  , base_url('Cart/payment'));
+        if (!isset($userId)) {
+            $this->session->set_userdata('returnUrl', base_url('Cart/payment'));
             redirect(base_url('Account/login'));
             die();
         }
 
 
         $data['cart'] = $this->session->userdata('cart');
+
+
         $shipment = array();
         $index = 0;
         foreach ($data['cart'] as $crt) {
-            if($crt['productSizeId'] != null && $crt['productSizeId'] != '' ) {
+            if ($crt['productSizeId'] != null && $crt['productSizeId'] != '') {
                 $data['cart'][$index]['meta'] = $this->ModelSizes->getSizeBySizeId($crt['productSizeId'])['data'];
-             }
-            else {
-                $data['cart'][$index]['meta']= $this->ModelMaterial->getMaterialByMaterialId($crt['productMaterialId'])['data'];
-             }
-            $index+=1;
+            } else {
+                $data['cart'][$index]['meta'] = $this->ModelMaterial->getMaterialByMaterialId($crt['productMaterialId'])['data'];
+            }
+            $index += 1;
         }
 
+
+        $hasMahex = false;
         foreach ($data['cart'] as $item) {
-            var_dump($item['meta'][0]['Shipment']);
-
-        }
-
-        $cartShipmentTotalWeight = 0;
-        foreach ($data['cart'] as $crt) {
-            if($crt['productType'] == 'DesignFreeSize'){
-                $width = $crt['productWidth'];
-                $height = $crt['productHeight'];
-                $zekhamat = 5; /* prodcut zekhamat is default 5cm */
-                $vaznhajmi =  ($width  * $height * $zekhamat) / 6000;
-                $vazngerami=  ($width  * $height * $zekhamat)/1000;
-                $VAZNAKHAR = 0;
-                if($vaznhajmi > $vazngerami){
-                    $VAZNAKHAR = $vaznhajmi;
-                } else{
-                    $VAZNAKHAR = $vazngerami;
+            foreach ($item['meta'][0]['Shipment'] as $ship) {
+                if ($ship['Shipment'] == 'MAHEX') {
+                    $hasMahex = true;
                 }
-                $cartShipmentTotalWeight+=$VAZNAKHAR;
-            }
-            if($crt['productType'] == 'DesignFixSize'){
-                $width = $crt['meta']['SizeWidth'];
-                $height = $crt['meta']['SizeHeight'];
-                $zekhamat = $crt['meta']['SizeErtefa'];
-                $vaznhajmi =  ($width  * $height * $zekhamat) / 6000;
-                $vazngerami=  $crt['meta']['SizeWeight']/1000;
-                $VAZNAKHAR = 0;
-                if($vaznhajmi > $vazngerami){
-                    $VAZNAKHAR = $vaznhajmi;
-                } else{
-                    $VAZNAKHAR = $vazngerami;
-                }
-                $cartShipmentTotalWeight+=$VAZNAKHAR;
             }
         }
 
 
+        $hasMahex = false;
+        $totalShipmentPrice = 0;
+
+        if ($hasMahex) {
+            $cartShipmentTotalWeight = 0;
+            foreach ($data['cart'] as $crt) {
+                if ($crt['productType'] == 'DesignFreeSize') {
+                    $width = $crt['productWidth'];
+                    $height = $crt['productHeight'];
+                    $zekhamat = 5; /* prodcut zekhamat is default 5cm */
+                    $vaznhajmi = ($width * $height * $zekhamat) / 6000;
+                    $vazngerami = ($width * $height * $zekhamat) / 1000;
+                    $VAZNAKHAR = 0;
+                    if ($vaznhajmi > $vazngerami) {
+                        $VAZNAKHAR = $vaznhajmi;
+                    } else {
+                        $VAZNAKHAR = $vazngerami;
+                    }
+                    $cartShipmentTotalWeight += $VAZNAKHAR;
+                }
+                if ($crt['productType'] == 'DesignFixSize') {
+                    $width = $crt['meta']['SizeWidth'];
+                    $height = $crt['meta']['SizeHeight'];
+                    $zekhamat = $crt['meta']['SizeErtefa'];
+                    $vaznhajmi = ($width * $height * $zekhamat) / 6000;
+                    $vazngerami = $crt['meta']['SizeWeight'] / 1000;
+                    $VAZNAKHAR = 0;
+                    if ($vaznhajmi > $vazngerami) {
+                        $VAZNAKHAR = $vaznhajmi;
+                    } else {
+                        $VAZNAKHAR = $vazngerami;
+                    }
+                    $cartShipmentTotalWeight += $VAZNAKHAR;
+                }
+            }
+        } else {
+            $cartIndex = 0;
+            $cartShipmentTotalWeight = 0;
+
+            foreach ($data['cart'] as $crt) {
+                /* For Free Size */
+                if($crt['productType'] == 'DesignFreeSize') {
+                    $width = $crt['productWidth'];
+                    $height = $crt['productHeight'];
+                    if ($width <= 35 && $height <= 45) {
+                        /*$data['cart'][$cartIndex++]['SizeNumber'] = 3;
+                        $totalShipmentPrice += ($data['cart'][$cartIndex++]['productCount'] * 30000);*/
+                    } else {
+                        $data['cart'][$cartIndex]['SizeNumber'] = 9;
+                        $totalShipmentPrice += ($data['cart'][$cartIndex]['productCount'] * 40000);
+                    }
+                }
+                /* End For Free Size */
+
+                if($crt['productType'] == 'DesignFixSize') {
+                    $width = $crt['meta'][0]['SizeWidth'];
+                    $height = $crt['meta'][0]['SizeHeight'];
+                    if ($width <= 35 && $height <= 45) {
+                        /*$data['cart'][$cartIndex++]['SizeNumber'] = 3;
+                        $totalShipmentPrice += ($data['cart'][$cartIndex++]['productCount'] * 30000);*/
+                    } else {
+                        $data['cart'][$cartIndex]['SizeNumber'] = 9;
+                        $totalShipmentPrice += ($data['cart'][$cartIndex]['productCount'] * 40000);
+                    }
+                }
+
+                $cartIndex+=1;
+            }
+
+            $totalWidth = 0;
+            $totalHeight = 0;
+            $cartIndex = 0;
+            foreach ($data['cart'] as $crt) {
+                //var_dump($crt);
+                /* For Free Size */
+                if($crt['productType'] == 'DesignFreeSize') {
+                    $width = $crt['productWidth'];
+                    $height = $crt['productHeight'];
+                    if ($width <= 35 && $height <= 45) {
+                        $totalWidth += $width * $data['cart'][$cartIndex]['productCount'];
+                        $totalHeight += $height * $data['cart'][$cartIndex]['productCount'];
+
+                        $data['cart'][$cartIndex]['SizeNumber'] = 3;
+                        /*$totalShipmentPrice += ($data['cart'][$cartIndex++]['productCount'] * 30000);*/
+                    }
+                }
+                /* End For Free Size */
+
+                if($crt['productType'] == 'DesignFixSize') {
+                    $width = $crt['meta'][0]['SizeWidth'];
+                    $height = $crt['meta'][0]['SizeHeight'];
+                    if ($width <= 35 && $height <= 45) {
+                        $totalWidth += $width * $data['cart'][$cartIndex]['productCount'];
+                        $totalHeight += $height * $data['cart'][$cartIndex]['productCount'];
+                        $data['cart'][$cartIndex]['SizeNumber'] = 3;
+                        /*$totalShipmentPrice += ($data['cart'][$cartIndex++]['productCount'] * 30000);*/
+                    }
+                }
+                $cartIndex+=1;
+            }
+            $totalSizeThreeBoxCount = 0;
+            while ($totalWidth > 35 || $totalHeight > 45){
+                $totalWidth -= 35;
+                $totalHeight -= 45;
+                $totalSizeThreeBoxCount++;
+            };
+            if($totalWidth > 0 || $totalHeight > 0){
+                $totalSizeThreeBoxCount+=1;
+            }
+
+            $totalShipmentPrice+= $totalSizeThreeBoxCount * 30000;
+
+        }
+        $this->session->set_userdata('totalShipmentPrice' , $totalShipmentPrice);
 
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
@@ -452,10 +568,14 @@ class Cart extends CI_Controller{
         $this->load->view('ui/v2/cart/payment/index_js');
         $this->load->view('ui/v2/static/footer');
     }
-    public function updateAddressId($addressId){
-        $this->session->set_userdata('addressId' , $addressId);
+
+    public  function updateAddressId($addressId)
+    {
+        $this->session->set_userdata('addressId', $addressId);
     }
-    public function sendMethod(){
+
+    public function sendMethod()
+    {
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'نحوه ارسال ';
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
@@ -468,10 +588,14 @@ class Cart extends CI_Controller{
         $this->load->view('ui/v2/cart/send_method/index_js');
         $this->load->view('ui/v2/static/footer');
     }
-    public function updateSendMethodId($sendMethodId){
-        $this->session->set_userdata('sendMethodId' , $sendMethodId);
+
+    public function updateSendMethodId($sendMethodId)
+    {
+        $this->session->set_userdata('sendMethodId', $sendMethodId);
     }
-    public function payMethod(){
+
+    public function payMethod()
+    {
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'روش پرداخت ';
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
@@ -482,6 +606,7 @@ class Cart extends CI_Controller{
         $this->load->view('ui/v2/cart/pay_method/index_js');
         $this->load->view('ui/v2/static/footer');
     }
+
     public function finalCheck(){
         $this->session->userdata('cart');
         $data['noImg'] = $this->config->item('defaultImage');
@@ -497,7 +622,9 @@ class Cart extends CI_Controller{
         $this->load->view('ui/v2/cart/final_check/index_js');
         $this->load->view('ui/v2/static/footer');
     }
-    public function startPayment(){
+
+    public function startPayment()
+    {
         $this->load->library("Uuid");
         $resNum = $this->uuid->v4();
         $orderInfo = $this->session->userdata('cart');
@@ -508,37 +635,38 @@ class Cart extends CI_Controller{
         $inputs['inputOrderAddressId'] = $this->session->userdata('addressId');
         $inputs['inputOrderSendMethodId'] = $this->session->userdata('addressId');
         $inputs['inputOrderTotalPrice'] = $this->session->userdata('totalPrice');
-        $inputs['inputOrderSendMethodPrice'] = 0;
+        $inputs['inputOrderSendMethodPrice'] = $this->session->userdata('totalShipmentPrice');
         $inputs['inputOrderDiscountCode'] = $this->session->userdata('CartDiscount');
         if ($inputs['inputOrderDiscountCode']) {
             $inputs['inputOrderDiscountCode'] = $inputs['inputOrderDiscountCode']['DiscountCode'];
-        }
-        else{
+        } else {
             $inputs['inputOrderDiscountCode'] = "NONE";
         }
         $inputs['inputOrderToken'] = $this->generate_pay_token($inputs['inputOrderTotalPrice'], $resNum);
         $orderId = $this->ModelOrder->doAddOrder($inputs);
-        $this->ModelOrder->doAddOrderItems($orderInfo , $orderId);
-        $this->session->set_userdata('OrderId' , $orderId);
+        $this->ModelOrder->doAddOrderItems($orderInfo, $orderId);
+        $this->session->set_userdata('OrderId', $orderId);
         $to = $this->session->userdata('UserLoginInfo')[0]['UserPhone'];
-        $message = array( 'order-number'=> 'KFD-'.$orderId );
+        $message = array('order-number' => 'KFD-' . $orderId);
         $code = $this->config->item('SuccessOrderRegister');
-        sendSMS($to,$code,$message);
+        sendSMS($to, $code, $message);
         $data['Token'] = $inputs['inputOrderToken'];
         $data['url'] = $this->config->item('pay_submit_url');
         $this->load->view('ui/v2/static/header', $data);
-        $this->load->view('ui/v2/cart/payment_redirect/index' , $data);
+        $this->load->view('ui/v2/cart/payment_redirect/index', $data);
         $this->load->view('ui/v2/static/footer');
     }
-    public function endPayment(){
+
+    public function endPayment()
+    {
 
 
         $token = $_POST['token'];
         //Get Order
-        $order = $this->db->select('*')->from('orders')->where('OrderToken' , $token)->get()->result_array()[0];
+        $order = $this->db->select('*')->from('orders')->where('OrderToken', $token)->get()->result_array()[0];
 
-        $OrderId  = $order['OrderId'];
-        $orderId  = $order['OrderId'];
+        $OrderId = $order['OrderId'];
+        $orderId = $order['OrderId'];
         $OrderUserId = $order['OrderUserId'];
 
         //Get User
@@ -576,8 +704,7 @@ class Cart extends CI_Controller{
                     $logout = $this->enpayment->logout($login);
                     $data['success'] = false;
                 }
-            }
-            else {
+            } else {
                 $this->payment_model->payment_update_failed($this->input->post('ResNum'), $this->input->post('State'), date("Y-m-d H:i:s"));
                 $this->session->set_userdata('payment_pay', 'failed');
                 $this->session->set_userdata('payment_pay_state', $this->input->post('State'));
@@ -587,8 +714,6 @@ class Cart extends CI_Controller{
         } else {
             $data['success'] = false;
         }
-
-
 
 
         /*$totalPrice = $this->session->userdata('totalPrice');
@@ -653,12 +778,13 @@ class Cart extends CI_Controller{
         $this->load->view('ui/v2/cart/result/index_js');
         $this->load->view('ui/v2/static/footer');
     }
+
     public function endPaymentZarinPal()
     {
         $totalPrice = $this->session->userdata('totalPrice');
         $orderId = $this->session->userdata('OrderId');
         $result = NULL;
-        if(isset($orderId) && !empty($orderId)) {
+        if (isset($orderId) && !empty($orderId)) {
             $this->load->helper('payment/zarinpal/nusoap');
             $MerchantID = '2e809336-c5d4-11e6-8edd-000c295eb8fc';
             $Amount = 100;//$totalPrice;
@@ -683,11 +809,11 @@ class Cart extends CI_Controller{
 
                     $to = $this->session->userdata('UserLoginInfo')[0]['UserPhone'];
                     $message = array(
-                        'order-number'=> 'KFD-'.$orderId,
-                        'order-date'=> jDateTime::date("Y-m-d H:i", false, false)
+                        'order-number' => 'KFD-' . $orderId,
+                        'order-date' => jDateTime::date("Y-m-d H:i", false, false)
                     );
                     $code = $this->config->item('SuccessOrderPayment');
-                    sendSMS($to,$code,$message);
+                    sendSMS($to, $code, $message);
                 } else {
                     $data['success'] = false;
                     $this->ModelOrder->setOrderFailed($orderId);
@@ -696,8 +822,7 @@ class Cart extends CI_Controller{
                 $data['success'] = false;
                 $this->ModelOrder->setOrderUnpaid($orderId);
             }
-        }
-        else{
+        } else {
             $data['success'] = false;
         }
         $data['result'] = $result;
@@ -711,7 +836,9 @@ class Cart extends CI_Controller{
         $this->load->view('ui/v2/cart/result/index_js');
         $this->load->view('ui/v2/static/footer');
     }
-    private function generate_pay_token($amount = 10000, $resNum = 0){
+
+    private function generate_pay_token($amount = 10000, $resNum = 0)
+    {
 
         $this->load->library("Enpayment");
         $login = $this->enpayment->login(config_item('EN_WS_Username'), config_item('EN_WS_Password'));

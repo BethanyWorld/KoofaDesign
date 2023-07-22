@@ -6,21 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="71973b14-b7ec-4785-9eae-66d9d1ca0437" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/Material.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/Material.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/Sizes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/Sizes.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/admin/ModelDiscount.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelDiscount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/admin/ModelMaterial.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelMaterial.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/admin/ModelSizes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelSizes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/material/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/material/add/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/material/add/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/material/add/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/material/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/material/edit/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/material/edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/material/edit/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/sizes/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/sizes/add/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/sizes/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/sizes/edit/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/libraries/enp/signed.txt" beforeDir="false" afterPath="$PROJECT_DIR$/application/libraries/enp/signed.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/cart/final_check/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/cart/final_check/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/v2/assets/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/ui/v2/assets/js/custom.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,6 +70,10 @@
       <workItem from="1689145897171" duration="1895000" />
       <workItem from="1689231758634" duration="504000" />
       <workItem from="1689610904756" duration="3034000" />
+      <workItem from="1689690637968" duration="596000" />
+      <workItem from="1689802196627" duration="3399000" />
+      <workItem from="1689832112780" duration="598000" />
+      <workItem from="1690052755481" duration="3284000" />
     </task>
     <servers />
   </component>

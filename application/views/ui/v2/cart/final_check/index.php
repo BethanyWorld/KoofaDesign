@@ -112,9 +112,8 @@ $_DIR = base_url('assets/ui/v2/');
                     </style>
                     <?php
                     $totalPrice = 0;
+                    $totalShipmentPrice = $this->session->userdata('totalShipmentPrice');
                     $items = $this->session->userdata('cart');
-
-
                     $discount = $this->session->userdata('CartDiscount');
 
 
@@ -153,6 +152,10 @@ $_DIR = base_url('assets/ui/v2/');
                         }
                     }
                     $this->session->set_userdata('totalPrice' , $totalPrice - $discoutnPrice);
+
+
+                    $this->session->set_userdata('totalPrice' , $totalPrice - $discoutnPrice+$totalShipmentPrice);
+
                     ?>
                     <tr>
                         <td></td>
@@ -164,9 +167,17 @@ $_DIR = base_url('assets/ui/v2/');
                     </tr>
                     <tr>
                         <td></td>
+                        <td class="fit" colspan="2" style="color: red">هزینه ارسال</td>
+                        <td class="fit">
+                             <?php echo number_format($totalShipmentPrice); ?>
+                             تومان
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
                         <td class="fit" colspan="2">جمع قابل پرداخت</td>
                         <td style="padding: 30px 30px !important;background: #5dc0a4;color: #fff;font-size: 18px;" class="fit">
-                            <?php echo number_format( $totalPrice - $discoutnPrice); ?> تومان
+                            <?php echo number_format( $totalPrice - $discoutnPrice+$totalShipmentPrice); ?> تومان
                         </td>
                     </tr>
                     </tbody>
