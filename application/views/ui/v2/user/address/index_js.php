@@ -29,9 +29,7 @@
                     toggleLoader();
                     $result = jQuery.parseJSON(data);
                     notify($result['content'], $result['type']);
-                    setTimeout(function () {
                         location.reload();
-                    } , 3000);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                 }

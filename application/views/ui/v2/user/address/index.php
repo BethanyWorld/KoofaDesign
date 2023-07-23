@@ -38,16 +38,14 @@ $_DIR = base_url('assets/ui/'); ?>
                                    required="" placeholder="">
                         </div>
                         <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0">
-                            <label> کد پستی :</label>
-                            <input class="form-control" type="number"
-                                   name="inputAddressPostalCode" id="inputAddressPostalCode"
-                                   required="" placeholder=" ">
-                        </div>
-                        <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0">
                             <label> استان :</label>
-                            <input class="form-control" type="text"
-                                   name="inputAddressStateId" id="inputAddressStateId"
-                                   required="" placeholder=" ">
+                            <select   name="inputAddressStateId" id="inputAddressStateId">
+                                <?php foreach ($states as $state) { ?>
+                                    <option
+                                            value="<?php echo $state['StateId']; ?>"
+                                        <?php echo $state['StateId'] ?>><?php echo $state['StateName']; ?></option>
+                                <?php } ?>
+                            </select>
                         </div>
                         <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0">
                             <label> شهر :</label>
@@ -56,6 +54,12 @@ $_DIR = base_url('assets/ui/'); ?>
                                    required="" placeholder=" ">
                         </div>
                         <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0">
+                            <label> کد پستی :</label>
+                            <input class="form-control" type="number"
+                                   name="inputAddressPostalCode" id="inputAddressPostalCode"
+                                   required="" placeholder=" ">
+                        </div>
+                        <div class="form-group pull-right  col-xs-12" style="padding-right: 0">
                             <label> آدرس :</label>
                             <input class="form-control" type="text"
                                    name="inputAddress" id="inputAddress"
@@ -81,7 +85,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                     </div>
                                     <div class="col-md-12 col-xs-12 padding-0 profile-client-address">
                                         <p>
-                                            <?php echo $item['AddressStateId']; ?>
+                                            <?php echo $item['StateName']; ?>
                                             <?php echo $item['AddressCityId']; ?>
                                             <?php echo $item['Address']; ?>
                                         </p>

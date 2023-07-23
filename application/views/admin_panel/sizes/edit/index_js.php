@@ -4,6 +4,7 @@
         $("#editSize").click(function () {
             $inputSizeId = $.trim($("#inputSizeId").val());
             $inputSizeTitle = $.trim($("#inputSizeTitle").val());
+            $inputSizeUserTitle = $.trim($("#inputSizeUserTitle").val());
             if (isEmpty($inputSizeTitle)) {
                 notify('لطفا تمامی موارد را کامل کنید', 'red');
             }
@@ -11,6 +12,7 @@
                 $sendData = {
                     'inputSizeId': $inputSizeId,
                     'inputSizeTitle': $inputSizeTitle,
+                    'inputSizeUserTitle': $inputSizeUserTitle,
                     'inputSizeWidth': $("#inputSizeWidth").val(),
                     'inputSizeHeight': $("#inputSizeHeight").val(),
                     'inputSizeErtefa': $("#inputSizeErtefa").val(),

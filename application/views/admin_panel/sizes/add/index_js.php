@@ -3,12 +3,14 @@
         /* Update User Info */
         $("#addSize").click(function () {
             $inputSizeTitle = $.trim($("#inputSizeTitle").val());
+            $inputSizeUserTitle = $.trim($("#inputSizeUserTitle").val());
             if (isEmpty($inputSizeTitle)) {
                 notify('لطفا تمامی موارد را کامل کنید', 'red');
             }
             else {
                 $sendData = {
                     'inputSizeTitle': $inputSizeTitle,
+                    'inputSizeUserTitle': $inputSizeUserTitle,
                     'inputSizeWidth': $("#inputSizeWidth").val(),
                     'inputSizeHeight': $("#inputSizeHeight").val(),
                     'inputSizeErtefa': $("#inputSizeErtefa").val(),

@@ -17,6 +17,10 @@ if ((isset($data) && !$data) || $data == NULL) { ?>
             <td class="fit"><?php echo $detail['ProductCount']; ?></td>
             <td class="fit"><?php echo $item['UserPhone']; ?></td>
             <td class="fit"><?php echo number_format($item['OrderTotalPrice']); ?></td>
+            <td class="fit ltr">
+                <?php echo convertDate($item['OrderDateTime']); ?><br>
+                <?php echo convertTime($item['OrderDateTime']); ?>
+            </td>
             <td class="fit"><?php echo orderStatusPipe($item['OrderStatus']); ?></td>
             <td class="fit">
                 <a href="<?php echo base_url('Admin/Dashboard/Orders/detail/') . $item['OrderId']; ?>">

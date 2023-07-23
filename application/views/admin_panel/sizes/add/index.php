@@ -16,6 +16,16 @@
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-2">
+                            <label for="inputSizeUserTitle">عنوان کاربر</label>
+                            <div class="form-group">
+                                <div class="form-line">
+                                    <input type="text" class="form-control ltr"
+                                           maxlength="30" minlength="1"
+                                           id="inputSizeUserTitle" name="inputSizeUserTitle"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-4 col-md-2">
                             <label for="inputSizeTitle">عرض</label>
                             <div class="form-group">
                                 <div class="form-line">

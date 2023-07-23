@@ -66,6 +66,7 @@ class ModelMaterial extends CI_Model
     {
         $Array = array(
             'MaterialTitle' => $inputs['inputMaterialTitle'],
+            'MaterialUserTitle' => $inputs['inputMaterialUserTitle'],
             'MaterialWeight' => $inputs['inputMaterialWeight']
         );
         $this->db->trans_start();
@@ -104,6 +105,7 @@ class ModelMaterial extends CI_Model
     {
         $Array = array(
             'MaterialTitle' => $inputs['inputMaterialTitle'],
+            'MaterialUserTitle' => $inputs['inputMaterialUserTitle'],
             'MaterialWeight' => $inputs['inputMaterialWeight']
         );
         $this->db->trans_start();

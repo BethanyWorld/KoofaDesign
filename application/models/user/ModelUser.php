@@ -93,6 +93,7 @@ class ModelUser extends CI_Model{
     {
         $this->db->select('*');
         $this->db->from('user_address');
+        $this->db->join('state' , 'state.StateId = user_address.AddressStateId');
         $this->db->where(array('UserId' => $userId));
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
@@ -105,6 +106,7 @@ class ModelUser extends CI_Model{
     {
         $this->db->select('*');
         $this->db->from('user_address');
+        $this->db->join('state' , 'state.StateId = user_address.AddressStateId');
         $this->db->where(array('AddressId' => $id));
         $query = $this->db->get();
         if ($query->num_rows() > 0) {

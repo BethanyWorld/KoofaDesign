@@ -24,7 +24,7 @@
                                     <td class="fit"><?php echo $order['UserHomePhone']; ?></td>
                                     <td class="fit"><?php echo $order['UserEmail']; ?></td>
                                     <td class="fit"><?php echo $order['OrderDiscountCode']; ?></td>
-                                    <td class="fit"><?php echo $order['OrderDateTime']; ?></td>
+                                    <td class="fit"><?php echo convertDate($order['OrderDateTime']); ?><br><?php echo convertTime($order['OrderDateTime']); ?></td>
                                 </tr>
                             <?php } ?>
                             </tbody>
@@ -33,7 +33,6 @@
                             <thead>
                             <tr>
                                 <th class="fit">شماره سفارش</th>
-                                <th>تاریخ ثبت</th>
                                 <th class="fit">وضعیت</th>
                                 <th class="fit">مبلغ کل</th>
                                 <th class="fit">هزینه ارسال</th>
@@ -43,7 +42,6 @@
                             <?php foreach ($orderInfo as $order) { ?>
                                 <tr>
                                     <td class="fit"><?php echo $order['OrderId']; ?></td>
-                                    <td><?php echo $order['OrderDateTime']; ?></td>
                                     <td class="fit"><?php echo orderStatusPipe($order['OrderStatus']); ?></td>
                                     <td class="fit"><?php echo number_format($order['OrderTotalPrice']); ?></td>
                                     <td class="fit"><?php echo number_format($order['OrderSendMethodPrice']); ?></td>

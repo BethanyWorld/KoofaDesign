@@ -7,6 +7,7 @@ if ((isset($data) && !$data) || $data == NULL) { ?>
         <tr>
             <td class="fit"><?php echo $counter += 1; ?></td>
             <td><?php echo $item['SizeTitle']; ?></td>
+            <td class="fit"><?php echo $item['SizeUserTitle']; ?></td>
             <td class="fit"><?php echo $item['SizeWidth']; ?></td>
             <td class="fit"><?php echo $item['SizeHeight']; ?></td>
             <td class="fit"><?php echo $item['SizeErtefa']; ?></td>

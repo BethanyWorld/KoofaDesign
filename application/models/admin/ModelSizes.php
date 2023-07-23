@@ -1,6 +1,7 @@
 <?php
 
 class ModelSizes extends CI_Model{
+
     public function getAllSizes($inputs){
         $limit = $inputs['pageIndex'];
         $start = ($limit - 1) * $this->config->item('defaultPageSize');
@@ -58,6 +59,7 @@ class ModelSizes extends CI_Model{
         $this->db->trans_start();
         $Array = array(
             'SizeTitle' => $inputs['inputSizeTitle'],
+            'SizeUserTitle' => $inputs['inputSizeUserTitle'],
             'SizeWidth' => $inputs['inputSizeWidth'],
             'SizeHeight' => $inputs['inputSizeHeight'],
             'SizeErtefa' => $inputs['inputSizeErtefa'],
@@ -97,6 +99,7 @@ class ModelSizes extends CI_Model{
         $this->db->trans_start();
         $Array = array(
             'SizeTitle' => $inputs['inputSizeTitle'],
+            'SizeUserTitle' => $inputs['inputSizeUserTitle'],
             'SizeWidth' => $inputs['inputSizeWidth'],
             'SizeHeight' => $inputs['inputSizeHeight'],
             'SizeErtefa' => $inputs['inputSizeErtefa'],
@@ -159,6 +162,7 @@ class ModelSizes extends CI_Model{
         }
         /*End For Brand*/
     }
+
 }
 
 ?>

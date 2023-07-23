@@ -31,9 +31,7 @@
                     toggleLoader();
                     $result = jQuery.parseJSON(data);
                     notify($result['content'], $result['type']);
-                    setTimeout(function () {
                         window.history.back();
-                    } , 1000);
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                 }

@@ -138,8 +138,21 @@ class ModelProduct extends CI_Model{
         return $result;
     }
 
-    public function doAddNormalProduct($inputs)
-    {
+    public function doAddNormalProduct($inputs){
+
+        $this->db->select('*');
+        $this->db->from('product');
+        $this->db->where('ProductSubTitle', $inputs['inputProductSubTitle']);
+        $count = $this->db->get()->num_rows();
+        if($count > 0){
+            $arr = array(
+                'type' => "red",
+                'content' => "کد محصول تکراری است.",
+                'success' => false
+            );
+            return $arr;
+        }
+
         $ProductIsSpecial = 0;
         $inputProductSpecialVirtualMaxPrice = 0;
         $ProductSpecialEndDate = NULL;
@@ -231,6 +244,20 @@ class ModelProduct extends CI_Model{
         }
     }
     public function doEditNormalProduct($inputs){
+
+        $this->db->select('*');
+        $this->db->from('product');
+        $this->db->where('ProductSubTitle', $inputs['inputProductSubTitle']);
+        $this->db->where('ProductId !=', $inputs['inputProductId']);
+        $count = $this->db->get()->num_rows();
+        if($count > 0){
+            $arr = array(
+                'type' => "red",
+                'content' => "کد محصول تکراری است.",
+                'success' => false
+            );
+            return $arr;
+        }
 
         $ProductIsSpecial = 0;
         $ProductSpecialEndDate = NULL;
@@ -346,6 +373,19 @@ class ModelProduct extends CI_Model{
 
     public function doAddDesignFixSizeProduct($inputs){
 
+        $this->db->select('*');
+        $this->db->from('product');
+        $this->db->where('ProductSubTitle', $inputs['inputProductSubTitle']);
+        $count = $this->db->get()->num_rows();
+        if($count > 0){
+            $arr = array(
+                'type' => "red",
+                'content' => "کد محصول تکراری است.",
+                'success' => false
+            );
+            return $arr;
+        }
+
         $installation = false;
         $installationPrice = 0;
         if($inputs['inputProductHasInstallation'] == 'true'){
@@ -438,8 +478,21 @@ class ModelProduct extends CI_Model{
             return $arr;
         }
     }
-    public function doEditDesignFixSizeProduct($inputs)
-    {
+    public function doEditDesignFixSizeProduct($inputs){
+
+        $this->db->select('*');
+        $this->db->from('product');
+        $this->db->where('ProductSubTitle', $inputs['inputProductSubTitle']);
+        $this->db->where('ProductId !=', $inputs['inputProductId']);
+        $count = $this->db->get()->num_rows();
+        if($count > 0){
+            $arr = array(
+                'type' => "red",
+                'content' => "کد محصول تکراری است.",
+                'success' => false
+            );
+            return $arr;
+        }
 
         $installation = 0;
         $installationPrice = 0;
@@ -562,6 +615,19 @@ class ModelProduct extends CI_Model{
 
     public function doAddDesignFreeSizeProduct($inputs){
 
+        $this->db->select('*');
+        $this->db->from('product');
+        $this->db->where('ProductSubTitle', $inputs['inputProductSubTitle']);
+        $count = $this->db->get()->num_rows();
+        if($count > 0){
+            $arr = array(
+                'type' => "red",
+                'content' => "کد محصول تکراری است.",
+                'success' => false
+            );
+            return $arr;
+        }
+
         $installation = false;
         $installationPrice = 0;
         if($inputs['inputProductHasInstallation'] == 'true'){
@@ -659,6 +725,19 @@ class ModelProduct extends CI_Model{
         }
     }
     public function doEditDesignFreeSizeProduct($inputs){
+        $this->db->select('*');
+        $this->db->from('product');
+        $this->db->where('ProductSubTitle', $inputs['inputProductSubTitle']);
+        $this->db->where('ProductId !=', $inputs['inputProductId']);
+        $count = $this->db->get()->num_rows();
+        if($count > 0){
+            $arr = array(
+                'type' => "red",
+                'content' => "کد محصول تکراری است.",
+                'success' => false
+            );
+            return $arr;
+        }
         $installation = false;
         $installationPrice = 0;
         if($inputs['inputProductHasInstallation'] == 'true'){
@@ -777,8 +856,31 @@ class ModelProduct extends CI_Model{
     }
 
     public function doDeleteProduct($inputs){
+
+        $this->db->select('*');
+        $this->db->from('order_items');
+        $this->db->join('orders' , 'orders.OrderId = order_items.OrderId');
+        $this->db->where('order_items.ProductId', $inputs['inputProductId']);
+        $this->db->where('orders.ProductId', $inputs['inputProductId']);
+        $this->db->where('orders.OrderStatus !=', 'Done');
+        $count = $this->db->get()->num_rows();
+        if($count > 0){
+            $arr = array(
+                'type' => "red",
+                'content' => "محصول در سفارشات موفق موجود است.",
+                'success' => false
+            );
+            return $arr;
+        }
+
         $this->db->trans_start();
         $this->db->delete('product', array(
+            'ProductId' => $inputs['inputProductId']
+        ));
+        $this->db->delete('product_category_relation', array(
+            'ProductId' => $inputs['inputProductId']
+        ));
+        $this->db->delete('product_price', array(
             'ProductId' => $inputs['inputProductId']
         ));
         $this->db->trans_complete();
@@ -884,5 +986,6 @@ class ModelProduct extends CI_Model{
         }
     }
     /*End For Product*/
+
 }
 ?>

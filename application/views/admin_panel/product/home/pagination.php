@@ -11,7 +11,7 @@ if ((isset($data) && !$data) || $data == NULL) { ?>
             <td><?php echo $item['ProductTitle']; ?></td>
             <td class="fit"><label class="label label-default"><?php productTypePipe($item['ProductType']); ?></label>
             </td>
-            <td class="fit ltr"><?php echo $item['CreateDateTime']; ?></td>
+            <td class="fit ltr"><?php echo convertDate($item['CreateDateTime']); ?><br><?php echo convertTime($item['CreateDateTime']); ?></td>
             <td class="fit">
                 <a
                         target="_blank"

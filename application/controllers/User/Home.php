@@ -62,6 +62,7 @@ class Home extends CI_Controller{
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
+        $data['states'] = $this->ModelCountry->getStateList();
         $data['sidebar'] = $this->load->view('ui/v2/user/sidebar' , NULL,TRUE);
 
         $this->load->view('ui/v2/static/header', $data);
@@ -91,6 +92,7 @@ class Home extends CI_Controller{
         $data['noImg'] = $this->config->item('defaultImage');
         $data['pageTitle'] = $this->config->item('defaultPageTitle') . 'دفترچه آدرس ';
         $userId = $this->session->userdata('UserLoginInfo')[0]['UserId'];
+        $data['states'] = $this->ModelCountry->getStateList();
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userAddress'] = $this->ModelUser->getUserAddressByAddressId($addressId)[0];
         $data['sidebar'] = $this->load->view('ui/v2/user/sidebar' , NULL,TRUE);

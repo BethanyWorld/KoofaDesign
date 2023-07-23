@@ -49,6 +49,7 @@ $_DIR = base_url('assets/admin/');
                                     <th class="fit">تعداد</th>
                                     <th class="fit">تلفن</th>
                                     <th class="fit">هزینه کل (تومان)</th>
+                                    <th class="fit">تاریخ ثبت</th>
                                     <th class="fit">وضعیت</th>
                                     <th class="fit">جزئیات</th>
                                 </tr>

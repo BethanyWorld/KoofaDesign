@@ -13,6 +13,7 @@ $_DIR = base_url('assets/admin/');
                                 <tr>
                                     <th class="fit">#</th>
                                     <th>اندازه</th>
+                                    <th class="fit">عنوان کاربر</th>
                                     <th class="fit">طول</th>
                                     <th class="fit">عرض</th>
                                     <th class="fit">ارتفاع</th>
