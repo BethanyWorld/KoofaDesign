@@ -421,143 +421,6 @@ class Cart extends CI_Controller{
         $data['cart'] = $this->session->userdata('cart');
 
 
-        $shipment = array();
-        $index = 0;
-        foreach ($data['cart'] as $crt) {
-            if ($crt['productSizeId'] != null && $crt['productSizeId'] != '') {
-                $data['cart'][$index]['meta'] = $this->ModelSizes->getSizeBySizeId($crt['productSizeId'])['data'];
-            } else {
-                $data['cart'][$index]['meta'] = $this->ModelMaterial->getMaterialByMaterialId($crt['productMaterialId'])['data'];
-            }
-            $index += 1;
-        }
-
-
-        $hasMahex = false;
-        foreach ($data['cart'] as $item) {
-            foreach ($item['meta'][0]['Shipment'] as $ship) {
-                if ($ship['Shipment'] == 'MAHEX') {
-                    $hasMahex = true;
-                }
-            }
-        }
-
-
-        $hasMahex = false;
-        $totalShipmentPrice = 0;
-
-        if ($hasMahex) {
-            $cartShipmentTotalWeight = 0;
-            foreach ($data['cart'] as $crt) {
-                if ($crt['productType'] == 'DesignFreeSize') {
-                    $width = $crt['productWidth'];
-                    $height = $crt['productHeight'];
-                    $zekhamat = 5; /* prodcut zekhamat is default 5cm */
-                    $vaznhajmi = ($width * $height * $zekhamat) / 6000;
-                    $vazngerami = ($width * $height * $zekhamat) / 1000;
-                    $VAZNAKHAR = 0;
-                    if ($vaznhajmi > $vazngerami) {
-                        $VAZNAKHAR = $vaznhajmi;
-                    } else {
-                        $VAZNAKHAR = $vazngerami;
-                    }
-                    $cartShipmentTotalWeight += $VAZNAKHAR;
-                }
-                if ($crt['productType'] == 'DesignFixSize') {
-                    $width = $crt['meta']['SizeWidth'];
-                    $height = $crt['meta']['SizeHeight'];
-                    $zekhamat = $crt['meta']['SizeErtefa'];
-                    $vaznhajmi = ($width * $height * $zekhamat) / 6000;
-                    $vazngerami = $crt['meta']['SizeWeight'] / 1000;
-                    $VAZNAKHAR = 0;
-                    if ($vaznhajmi > $vazngerami) {
-                        $VAZNAKHAR = $vaznhajmi;
-                    } else {
-                        $VAZNAKHAR = $vazngerami;
-                    }
-                    $cartShipmentTotalWeight += $VAZNAKHAR;
-                }
-            }
-        } else {
-            $cartIndex = 0;
-            $cartShipmentTotalWeight = 0;
-
-            foreach ($data['cart'] as $crt) {
-                /* For Free Size */
-                if($crt['productType'] == 'DesignFreeSize') {
-                    $width = $crt['productWidth'];
-                    $height = $crt['productHeight'];
-                    if ($width <= 35 && $height <= 45) {
-                        /*$data['cart'][$cartIndex++]['SizeNumber'] = 3;
-                        $totalShipmentPrice += ($data['cart'][$cartIndex++]['productCount'] * 30000);*/
-                    } else {
-                        $data['cart'][$cartIndex]['SizeNumber'] = 9;
-                        $totalShipmentPrice += ($data['cart'][$cartIndex]['productCount'] * 40000);
-                    }
-                }
-                /* End For Free Size */
-
-                if($crt['productType'] == 'DesignFixSize') {
-                    $width = $crt['meta'][0]['SizeWidth'];
-                    $height = $crt['meta'][0]['SizeHeight'];
-                    if ($width <= 35 && $height <= 45) {
-                        /*$data['cart'][$cartIndex++]['SizeNumber'] = 3;
-                        $totalShipmentPrice += ($data['cart'][$cartIndex++]['productCount'] * 30000);*/
-                    } else {
-                        $data['cart'][$cartIndex]['SizeNumber'] = 9;
-                        $totalShipmentPrice += ($data['cart'][$cartIndex]['productCount'] * 40000);
-                    }
-                }
-
-                $cartIndex+=1;
-            }
-
-            $totalWidth = 0;
-            $totalHeight = 0;
-            $cartIndex = 0;
-            foreach ($data['cart'] as $crt) {
-                //var_dump($crt);
-                /* For Free Size */
-                if($crt['productType'] == 'DesignFreeSize') {
-                    $width = $crt['productWidth'];
-                    $height = $crt['productHeight'];
-                    if ($width <= 35 && $height <= 45) {
-                        $totalWidth += $width * $data['cart'][$cartIndex]['productCount'];
-                        $totalHeight += $height * $data['cart'][$cartIndex]['productCount'];
-
-                        $data['cart'][$cartIndex]['SizeNumber'] = 3;
-                        /*$totalShipmentPrice += ($data['cart'][$cartIndex++]['productCount'] * 30000);*/
-                    }
-                }
-                /* End For Free Size */
-
-                if($crt['productType'] == 'DesignFixSize') {
-                    $width = $crt['meta'][0]['SizeWidth'];
-                    $height = $crt['meta'][0]['SizeHeight'];
-                    if ($width <= 35 && $height <= 45) {
-                        $totalWidth += $width * $data['cart'][$cartIndex]['productCount'];
-                        $totalHeight += $height * $data['cart'][$cartIndex]['productCount'];
-                        $data['cart'][$cartIndex]['SizeNumber'] = 3;
-                        /*$totalShipmentPrice += ($data['cart'][$cartIndex++]['productCount'] * 30000);*/
-                    }
-                }
-                $cartIndex+=1;
-            }
-            $totalSizeThreeBoxCount = 0;
-            while ($totalWidth > 35 || $totalHeight > 45){
-                $totalWidth -= 35;
-                $totalHeight -= 45;
-                $totalSizeThreeBoxCount++;
-            };
-            if($totalWidth > 0 || $totalHeight > 0){
-                $totalSizeThreeBoxCount+=1;
-            }
-
-            $totalShipmentPrice+= $totalSizeThreeBoxCount * 30000;
-
-        }
-        $this->session->set_userdata('totalShipmentPrice' , $totalShipmentPrice);
-
         $data['userInfo'] = $this->ModelUser->getUserProfileInfoByUserId($userId)[0];
         $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
         $data['sendMethods'] = $this->ModelUser->getSendMethods();
@@ -616,6 +479,232 @@ class Cart extends CI_Controller{
         $data['userAddress'] = $this->ModelUser->getUserAddressByUserId($userId);
         $data['sendMethods'] = $this->ModelUser->getSendMethods();
         $data['latestProduct'] = $this->ModelProduct->getLatestProduct();
+
+
+        $data['cart'] = $this->session->userdata('cart');
+
+        $shipment = array();
+        $index = 0;
+        foreach ($data['cart'] as $crt) {
+            if ($crt['productSizeId'] != null && $crt['productSizeId'] != '') {
+                $data['cart'][$index]['meta'] = $this->ModelSizes->getSizeBySizeId($crt['productSizeId'])['data'];
+            } else {
+                $data['cart'][$index]['meta'] = $this->ModelMaterial->getMaterialByMaterialId($crt['productMaterialId'])['data'];
+            }
+            $index += 1;
+        }
+
+        $hasMahex = false;
+        foreach ($data['cart'] as $crt) {
+            if($crt['productType'] == 'DesignFreeSize') {
+                $width = $crt['productWidth'];
+                $height = $crt['productHeight'];
+                if ($width >= 60 || $height >= 60) {
+                    $hasMahex = true;
+                }
+            }
+            if($crt['productType'] == 'DesignFixSize') {
+                $width = $crt['meta'][0]['SizeWidth'];
+                $height = $crt['meta'][0]['SizeHeight'];
+                if ($width >= 60 || $height >= 60) {
+                    $hasMahex = true;
+                }
+            }
+            $cartIndex+=1;
+        }
+
+
+        $totalShipmentPrice = 0;
+
+        if ($hasMahex) {
+            $cartShipmentTotalWeight = 0;
+            foreach ($data['cart'] as $crt) {
+                if ($crt['productType'] == 'DesignFreeSize') {
+                    $width = $crt['productWidth'];
+                    $height = $crt['productHeight'];
+                    $weight = $crt['meta'][0]['MaterialWeight'];
+                    $zekhamat = 5; /* prodcut zekhamat is default 5cm */
+                    $vaznhajmi = ($width * $height * $zekhamat) / 6000;
+                    $vazngerami = ($width * $height * $weight) / 1000;
+                    $VAZNAKHAR = 0;
+                    if ($vaznhajmi > $vazngerami) {
+                        $VAZNAKHAR = $vaznhajmi;
+                    } else {
+                        $VAZNAKHAR = $vazngerami;
+                    }
+                    $cartShipmentTotalWeight += $VAZNAKHAR;
+                }
+                if ($crt['productType'] == 'DesignFixSize') {
+                    $width = $crt['meta'][0]['SizeWidth'];
+                    $height = $crt['meta'][0]['SizeHeight'];
+                    $zekhamat = $crt['meta'][0]['SizeErtefa'];
+                    $vaznhajmi = ($width * $height * $zekhamat) / 6000;
+                    $vazngerami = $crt['meta'][0]['SizeWeight'] / 1000;
+                    $VAZNAKHAR = 0;
+                    if ($vaznhajmi > $vazngerami) {
+                        $VAZNAKHAR = $vaznhajmi;
+                    } else {
+                        $VAZNAKHAR = $vazngerami;
+                    }
+                    $cartShipmentTotalWeight += $VAZNAKHAR;
+                }
+            }
+
+
+            $userAddress = $this->ModelUser->getUserAddressByAddressId($this->session->userdata('addressId'))[0];
+
+
+            /* if box goes to alborz or tehran */
+            if($userAddress['StateId'] == 5 || $userAddress['StateId'] == 8) {
+                if ($cartShipmentTotalWeight <= 1) {
+                    $totalShipmentPrice = 52300;
+                }
+                if ($cartShipmentTotalWeight > 1 && $cartShipmentTotalWeight <= 30) {
+                    $totalShipmentPrice = 52300;
+                    $extraWeightPrice = ($cartShipmentTotalWeight - 1) * 2500;
+                    $totalShipmentPrice += $extraWeightPrice;
+                }
+                if ($cartShipmentTotalWeight > 30 && $cartShipmentTotalWeight <= 100) {
+                    $totalShipmentPrice = 52300;
+                    $cartShipmentTotalWeightPartONE = $cartShipmentTotalWeight - 30;
+
+                    $extraWeightPrice = ($cartShipmentTotalWeight - $cartShipmentTotalWeightPartONE - 1) * 2500;
+                    $totalShipmentPrice += $extraWeightPrice;
+
+                    $extraWeightPrice = ($cartShipmentTotalWeightPartONE - 1) * 5000;
+                    $totalShipmentPrice += $extraWeightPrice;
+
+                }
+                $this->session->set_userdata('totalShipmentPrice', $totalShipmentPrice);
+            }
+
+
+            if(in_array($userAddress['StateId'] , array(28 , 4  ,  31 , 25 , 14 , 24 , 27 , 15 , 18 , 19 , 30))) {
+                $ZONE = 1;
+                if ($cartShipmentTotalWeight <= 1) {
+                    $totalShipmentPrice = 63000;
+                }
+                if ($cartShipmentTotalWeight > 1 && $cartShipmentTotalWeight <= 10) {
+                    $totalShipmentPrice = 63000;
+                    $extraWeightPrice = ($cartShipmentTotalWeight - 1) * 2900;
+                    $totalShipmentPrice += $extraWeightPrice;
+                }
+                if ($cartShipmentTotalWeight > 10 && $cartShipmentTotalWeight <= 300) {
+                    $totalShipmentPrice = 63000;
+                    $cartShipmentTotalWeightPartONE = $cartShipmentTotalWeight - 30;
+
+                    $extraWeightPrice = ($cartShipmentTotalWeight - $cartShipmentTotalWeightPartONE - 1) * 2900;
+                    $totalShipmentPrice += $extraWeightPrice;
+
+                    $extraWeightPrice = ($cartShipmentTotalWeightPartONE - 1) * 4400;
+                    $totalShipmentPrice += $extraWeightPrice;
+
+                }
+                $this->session->set_userdata('totalShipmentPrice', $totalShipmentPrice);
+            }
+
+
+            if(in_array($userAddress['StateId'] , array(1,2,3,6,7,10,11,12,13,16,17,20,21,22,23,26,29))) {
+                $ZONE = 234;
+                if ($cartShipmentTotalWeight <= 1) {
+                    $totalShipmentPrice = 65000;
+                }
+                if ($cartShipmentTotalWeight > 1 && $cartShipmentTotalWeight <= 10) {
+                    $totalShipmentPrice = 65000;
+                    $extraWeightPrice = ($cartShipmentTotalWeight - 1) * 2900;
+                    $totalShipmentPrice += $extraWeightPrice;
+                }
+                if ($cartShipmentTotalWeight > 10 && $cartShipmentTotalWeight <= 300) {
+                    $totalShipmentPrice = 65000;
+                    $cartShipmentTotalWeightPartONE = $cartShipmentTotalWeight - 30;
+
+                    $extraWeightPrice = ($cartShipmentTotalWeight - $cartShipmentTotalWeightPartONE - 1) * 2900;
+                    $totalShipmentPrice += $extraWeightPrice;
+
+                    $extraWeightPrice = ($cartShipmentTotalWeightPartONE - 1) * 4400;
+                    $totalShipmentPrice += $extraWeightPrice;
+
+                }
+                $this->session->set_userdata('totalShipmentPrice', $totalShipmentPrice);
+            }
+
+        }
+        else {
+            $cartIndex = 0;
+            $cartShipmentTotalWeight = 0;
+            foreach ($data['cart'] as $crt) {
+                /* For Free Size */
+                if($crt['productType'] == 'DesignFreeSize') {
+                    $width = $crt['productWidth'];
+                    $height = $crt['productHeight'];
+                    if ($width <= 35 && $height <= 45) {
+                        /*$data['cart'][$cartIndex++]['SizeNumber'] = 3;
+                        $totalShipmentPrice += ($data['cart'][$cartIndex++]['productCount'] * 30000);*/
+                    } else {
+                        $data['cart'][$cartIndex]['SizeNumber'] = 9;
+                        $totalShipmentPrice += ($data['cart'][$cartIndex]['productCount'] * 40000);
+                    }
+                }
+                /* End For Free Size */
+
+                if($crt['productType'] == 'DesignFixSize') {
+                    $width = $crt['meta'][0]['SizeWidth'];
+                    $height = $crt['meta'][0]['SizeHeight'];
+                    if ($width <= 35 && $height <= 45) {
+                        /*$data['cart'][$cartIndex++]['SizeNumber'] = 3;
+                        $totalShipmentPrice += ($data['cart'][$cartIndex++]['productCount'] * 30000);*/
+                    } else {
+                        $data['cart'][$cartIndex]['SizeNumber'] = 9;
+                        $totalShipmentPrice += ($data['cart'][$cartIndex]['productCount'] * 40000);
+                    }
+                }
+
+                $cartIndex+=1;
+            }
+            $totalWidth = 0;
+            $totalHeight = 0;
+            $cartIndex = 0;
+            foreach ($data['cart'] as $crt) {
+                //var_dump($crt);
+                /* For Free Size */
+                if($crt['productType'] == 'DesignFreeSize') {
+                    $width = $crt['productWidth'];
+                    $height = $crt['productHeight'];
+                    if ($width <= 35 && $height <= 45) {
+                        $totalWidth += $width * $data['cart'][$cartIndex]['productCount'];
+                        $totalHeight += $height * $data['cart'][$cartIndex]['productCount'];
+                        $data['cart'][$cartIndex]['SizeNumber'] = 3;
+                        /*$totalShipmentPrice += ($data['cart'][$cartIndex++]['productCount'] * 30000);*/
+                    }
+                }
+                /* End For Free Size */
+
+                if($crt['productType'] == 'DesignFixSize') {
+                    $width = $crt['meta'][0]['SizeWidth'];
+                    $height = $crt['meta'][0]['SizeHeight'];
+                    if ($width <= 35 && $height <= 45) {
+                        $totalWidth += $width * $data['cart'][$cartIndex]['productCount'];
+                        $totalHeight += $height * $data['cart'][$cartIndex]['productCount'];
+                        $data['cart'][$cartIndex]['SizeNumber'] = 3;
+                        /*$totalShipmentPrice += ($data['cart'][$cartIndex++]['productCount'] * 30000);*/
+                    }
+                }
+                $cartIndex+=1;
+            }
+            $totalSizeThreeBoxCount = 0;
+            while ($totalWidth > 60 || $totalHeight > 60){
+                $totalWidth -= 60;
+                $totalHeight -= 60;
+                $totalSizeThreeBoxCount++;
+            };
+            if($totalWidth > 0 || $totalHeight > 0){
+                $totalSizeThreeBoxCount+=1;
+            }
+            $totalShipmentPrice+= $totalSizeThreeBoxCount * 30000;
+        }
+        $this->session->set_userdata('totalShipmentPrice' , $totalShipmentPrice);
+
+
         $this->load->view('ui/v2/static/header', $data);
         $this->load->view('ui/v2/cart/final_check/index', $data);
         $this->load->view('ui/v2/cart/final_check/index_css');
@@ -646,10 +735,6 @@ class Cart extends CI_Controller{
         $orderId = $this->ModelOrder->doAddOrder($inputs);
         $this->ModelOrder->doAddOrderItems($orderInfo, $orderId);
         $this->session->set_userdata('OrderId', $orderId);
-        $to = $this->session->userdata('UserLoginInfo')[0]['UserPhone'];
-        $message = array('order-number' => 'KFD-' . $orderId);
-        $code = $this->config->item('SuccessOrderRegister');
-        sendSMS($to, $code, $message);
         $data['Token'] = $inputs['inputOrderToken'];
         $data['url'] = $this->config->item('pay_submit_url');
         $this->load->view('ui/v2/static/header', $data);
@@ -657,10 +742,7 @@ class Cart extends CI_Controller{
         $this->load->view('ui/v2/static/footer');
     }
 
-    public function endPayment()
-    {
-
-
+    public function endPayment(){
         $token = $_POST['token'];
         //Get Order
         $order = $this->db->select('*')->from('orders')->where('OrderToken', $token)->get()->result_array()[0];
@@ -699,6 +781,11 @@ class Cart extends CI_Controller{
                         $this->input->post('CardPanHash'),
                         1
                     );
+
+                    $to = $this->session->userdata('UserLoginInfo')[0]['UserPhone'];
+                    $message = array('order-number' => 'KFD-' . $orderId);
+                    $code = $this->config->item('SuccessOrderRegister');
+                    sendSMS($to, $code, $message);
                     $data['success'] = true;
                 } else {
                     $logout = $this->enpayment->logout($login);

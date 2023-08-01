@@ -1,7 +1,6 @@
 <?php
 
-class ModelOrder extends CI_Model
-{
+class ModelOrder extends CI_Model{
     public function getAllOrders($inputs)
     {
 
@@ -62,7 +61,6 @@ class ModelOrder extends CI_Model
         $query = $this->db->get()->result_array();
         return $query;
     }
-
     public function doAddOrder($inputs){
         $Array = array(
             'OrderUserId' => $inputs['inputOrderUserId'],
@@ -101,7 +99,8 @@ class ModelOrder extends CI_Model
     public function setOrderPaid($orderId){
         $Array = array(
             'OrderId' => $orderId,
-            'OrderStatus' => 'Done',
+            'OrderRequiredDateTime' => time(),
+            'OrderStatus' => 'Done'
         );
         $this->db->where('OrderId', $orderId);
         $this->db->update('orders', $Array);
@@ -109,6 +108,7 @@ class ModelOrder extends CI_Model
     public function setOrderFailed($orderId){
         $Array = array(
             'OrderId' => $orderId,
+            'OrderRequiredDateTime' => time(),
             'OrderStatus' => 'Failed',
         );
         $this->db->where('OrderId', $orderId);
@@ -117,13 +117,12 @@ class ModelOrder extends CI_Model
     public function setOrderUnpaid($orderId){
         $Array = array(
             'OrderId' => $orderId,
+            'OrderRequiredDateTime' => time(),
             'OrderStatus' => 'Pend',
         );
         $this->db->where('OrderId', $orderId);
         $this->db->update('orders', $Array);
     }
-
-
     public function payment_update_after_pay($id,$MID,$RefNum,$CustomerRefNum,$State,$CardPanHash,$is_pay){
         $this->db->reset_query();
         $this->db->where('OrderResNum',$id);
@@ -133,8 +132,18 @@ class ModelOrder extends CI_Model
         $this->db->set('OrderStatus','Done');
         $this->db->set('OrderCardPanHash',$CardPanHash);
         $this->db->set('OrderIsPay',$is_pay);
+        $this->db->set('OrderRequiredDateTime',time());
         $this->db->update('orders');
     }
+
+    public function setOrderStatus($inputs){
+        $Array = array( 'OrderStatus' =>$inputs['inputOrderStatus'] );
+        $this->db->where('OrderId', $inputs['inputOrderId']);
+        $this->db->update('orders', $Array);
+
+        return $this->config->item('DBMessages')['SuccessAction'];
+    }
+
 
 }
 

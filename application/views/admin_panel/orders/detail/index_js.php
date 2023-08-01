@@ -1,21 +1,16 @@
 <script type="text/javascript">
     $(document).ready(function () {
-        /* Update User Info */
-        $("#editSize").click(function () {
-            $inputSizeId = $.trim($("#inputSizeId").val());
-            $inputSizeTitle = $.trim($("#inputSizeTitle").val());
-            if (isEmpty($inputSizeTitle)) {
-                notify('لطفا تمامی موارد را کامل کنید', 'red');
-            }
-            else {
-                $sendData = {
-                    'inputSizeId': $inputSizeId,
-                    'inputSizeTitle': $inputSizeTitle
+        $("#setOrderStatus").click(function () {
+            $inputOrderId = $.trim($("#inputOrderId").val());
+            $inputOrderStatus = $.trim($("#inputOrderStatus").val());
+            $sendData = {
+                    'inputOrderId': $inputOrderId,
+                    'inputOrderStatus': $inputOrderStatus
                 }
-                toggleLoader();
-                $.ajax({
+            toggleLoader();
+            $.ajax({
                     type: 'post',
-                    url: base_url + 'Sizes/doEditSize',
+                    url: base_url + 'Orders/setOrderStatus',
                     data: $sendData,
                     success: function (data) {
                         toggleLoader();
@@ -24,14 +19,11 @@
                         reloadPage(1000);
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
-                        notify('مقدار سایز تکراری ست', 'red');
+                        notify('Error', 'red');
                         toggleLoader();
                         reloadPage(1000);
                     }
                 });
-            }
         });
-        /* End Update User Info */
-
     });
 </script>

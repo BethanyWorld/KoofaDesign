@@ -24,7 +24,9 @@ class Orders extends CI_Controller {
         echo json_encode($data);
     }
     public function detail($id){
+
         $headerData['pageTitle'] = 'جزئیات سفارش';
+        $data['enum'] = $this->config->item('orderStatus');
         $data['orderInfo'] = $this->ModelOrder->getOrderByOrderId($id);
         $data['orderItems'] = $this->ModelOrder->getOrderItemsByOrderId($id);
 
@@ -46,10 +48,12 @@ class Orders extends CI_Controller {
         $this->load->view('admin_panel/orders/detail/index_js', $data);
         $this->load->view('admin_panel/static/footer');
     }
-    public function doEditSize()
+    public function setOrderStatus()
     {
         $inputs = $this->input->post(NULL, TRUE);
-        $result = $this->ModelSizes->doEditSize($inputs);
+        $result = $this->ModelOrder->setOrderStatus($inputs);
         echo json_encode($result);
     }
+
+
 }

@@ -6,28 +6,22 @@
   <component name="ChangeListManager">
     <list default="true" id="71973b14-b7ec-4785-9eae-66d9d1ca0437" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/User/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/User/Home.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/User/Profile.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/User/Profile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/admin/ModelMaterial.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelMaterial.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/admin/ModelProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelProduct.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/admin/ModelSizes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelSizes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/user/ModelUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/user/ModelUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Admin/Dashboard/Orders.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Cart.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Home.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Home.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/helpers/pipes/pipe_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/pipes/pipe_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/admin/ModelOrder.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelOrder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/admin/ModelServices.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/admin/ModelServices.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/ui/ModelProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ui/ModelProduct.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/admin_panel/orders/detail/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/orders/detail/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/orders/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/orders/home/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/orders/home/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/orders/home/pagination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/home/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/home/pagination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/sizes/add/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/sizes/add/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/sizes/add/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/sizes/add/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/sizes/edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/sizes/edit/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/sizes/edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/sizes/edit/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/sizes/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/sizes/home/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/sizes/home/pagination.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/sizes/home/pagination.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/user/address/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/user/address/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/user/address/index_css.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/user/address/index_css.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/user/address/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/user/address/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/user/address_edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/user/address_edit/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/user/address_edit/index_css.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/user/address_edit/index_css.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/user/address_edit/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/user/address_edit/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/orders/detail/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/orders/detail/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/edit/fix_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/edit/fix_size/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/admin_panel/product/edit/fix_size/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/admin_panel/product/edit/fix_size/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/category/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/category/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/static/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/static/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/ui/v2/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/ui/v2/assets/css/custom.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +35,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2RA3EuKxTxK5mL7DI1NcUIrjk90" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -51,7 +46,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/Blog/wp-content/themes/Koofa&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/KoofaDesignBlog/wp-content/themes&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -95,6 +90,12 @@
       <workItem from="1690090811175" duration="49000" />
       <workItem from="1690117212849" duration="670000" />
       <workItem from="1690134655767" duration="4304000" />
+      <workItem from="1690223782639" duration="4064000" />
+      <workItem from="1690546305465" duration="5084000" />
+      <workItem from="1690735530512" duration="5253000" />
+      <workItem from="1690816302192" duration="1787000" />
+      <workItem from="1690824357148" duration="598000" />
+      <workItem from="1690904288397" duration="610000" />
     </task>
     <servers />
   </component>

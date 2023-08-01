@@ -77,7 +77,33 @@ $config['pay_submit_url'] = "https://pna.shaparak.ir/_ipgw_/payment/";
 $config['cert_file'] = "file://" . realpath(__DIR__ . '/../libraries/enp/Kofaprintcomplex.pem');
 $config['cert_file_secret_key'] = "Kofaprintcomplex@372348";
 
-
+$config['DBMessages'] = array(
+    'SuccessAction' => array(
+        'type' => "green",
+        'content' => "عملیات با موفقیت انجام شد",
+        'success' => true
+    ),
+    'ErrorAction' => array(
+        'type' => "red",
+        'content' => "عملیات با خطا مواجه شد",
+        'success' => false
+    ),
+    'RequiredFields' => array(
+        'type' => "red",
+        'content' => 'تمامی مقادیر الزامی را وارد کنید',
+        'success' => false
+    ),
+    'DuplicateInfo' => array(
+        'type' => "yellow",
+        'content' => 'اطلاعات قبلا در سامانه ثبت شده است',
+        'success' => false
+    ),
+    'AccessAction' => array(
+        'type' => "yellow",
+        'content' => 'دسترسی به این منبع محدود شده است',
+        'success' => false
+    )
+);
 
 /* Enums */
 $config['discountType'] = array(
@@ -101,6 +127,13 @@ $config['shipment'] = array(
     'ECO' => 'اکوپیک',
     'MAHEX' => 'ماهکس'
 );
-$config['orderStatus'] = array('Pend' ,'Failed','Done');
+$config['orderStatus'] = array(
+    'Pend' => 'در سبد خرید',
+    'Failed' => 'انصراف از پرداخت',
+    'Done' => 'پرداخت شده',
+    'InProgress' => 'در حال آماده سازی',
+    'Shipped' => 'ارسال شده',
+    'Canceled' => 'لغو شده - بازگشت پول',
+);
 /* End Enums */
 

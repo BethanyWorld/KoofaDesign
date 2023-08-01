@@ -794,8 +794,8 @@ footer{
 }
 footer h3{
     font-size: 14px;
-    margin: 0;
-    margin-bottom: 10px;
+    margin: 30px 0;
+    margin-top: 8px;
     font-weight: 900;
     text-shadow: 0px 0px 1px #000;
 }
@@ -810,10 +810,11 @@ footer .box span{
 
 }
 footer .box p{
-    color: #8e8e8e;
+    color: #000000;
     direction: rtl;
     text-align: justify;
-    font-size: 10px;
+    font-size: 12px;
+    line-height: 26.5px;
 }
 footer .box img{
 
@@ -835,6 +836,23 @@ footer ul li a{
     font-size: 10px;
     display: inline-block;
     transform: scale(0.9);
+}
+
+footer .faq ul li{
+    display: inline-block;
+    direction: rtl;
+    text-align: justify;
+    float: right;
+    line-height: 18px;
+    font-size: 12px;
+    width: 100%;
+}
+footer  .faq ul li a{
+    color: #000000 !important;
+    font-size: 12px;
+    display: inline-block;
+    margin: 5px 5px;
+    width: 100%;
 }
 footer ul li .fa{
     font-size: 25px;

@@ -109,6 +109,12 @@ class ModelServices extends CI_Model{
         $this->db->delete('services', array(
             'RowId' => $inputs['inputRowId']
         ));
+        $this->db->delete('services_items', array(
+            'ServiceId' => $inputs['inputRowId']
+        ));
+        $this->db->delete('services_category_relation', array(
+            'ServiceId' => $inputs['inputRowId']
+        ));
         $arr = array(
             'type' => "green",
             'content' => "حذف با موفقیت انجام شد",

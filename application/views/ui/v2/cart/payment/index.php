@@ -61,11 +61,8 @@ $_DIR = base_url('assets/ui/v2/');
                             <div class="col-md-12 col-xs-12">
                                 <div class="col-md-12 col-xs-12 p-0">
                                     <strong style="font-weight: 900;font-size: 16px;text-shadow: 0px 0px 1px #000;margin: 10px 0 !important;display: block;">
-                                        آدرس تحویل مشتری
+                                        <?php echo $item['Address']; ?>
                                     </strong>
-                                </div>
-                                <div class="col-md-12 col-xs-12 p-0">
-                                    <p style="color: #6f6f6f;"><?php echo $item['Address']; ?></p>
                                 </div>
                                 <div class="col-md-12 col-xs-12 p-0">
                                     <p style="color: #6f6f6f;">

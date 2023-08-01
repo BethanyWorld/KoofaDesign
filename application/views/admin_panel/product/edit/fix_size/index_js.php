@@ -267,17 +267,20 @@
             $id = UUID();
             $inputProductMaterial = $("#inputProductMaterial").val();
             $inputProductMaterialText = $("#inputProductMaterial option:selected").text();
-            $inputProductSize = $("#inputProductSize").val();
-            $inputProductSizeText = $("#inputProductSize option:selected").text();
             $inputProductPrice = $("#inputProductPrice").val();
+            $inputProductSize = $("#inputProductSize").val();
 
-            $template = $("#clone-price-container").clone();
-            $template = $template.removeClass('hidden').attr('id' , $id);
-            $template.find(".inputProductTempMaterial option").eq(0).val($inputProductMaterial).text($inputProductMaterialText);
-            $template.find(".inputProductTempSize option").eq(0).val($inputProductSize).text($inputProductSizeText);
-            $template.find(".inputProductTempPrice").eq(0).val($inputProductPrice);
-            $template.find(".remove-price").eq(0).attr('data-remove-id' , $id);
-            $("#price-container").append($template);
+            for($i=0;$i<$inputProductSize.length;$i++){
+                $inputProductSizeText = $.trim($("#inputProductSize option[value='"+$inputProductSize[$i]+"']").text());
+                $template = $("#clone-price-container").clone();
+                $template = $template.removeClass('hidden').attr('id' , $id);
+                $template.find(".inputProductTempMaterial option").eq(0).val($inputProductMaterial).text($inputProductMaterialText);
+                $template.find(".inputProductTempSize option").eq(0).val($inputProductSize[$i]).text($inputProductSizeText);
+                $template.find(".inputProductTempPrice").eq(0).val($inputProductPrice);
+                $template.find(".remove-price").eq(0).attr('data-remove-id' , $id);
+                $("#price-container").append($template);
+            }
+
         });
         $(document).on('click', '.remove-price', function () {
             $("#" + $(this).data('remove-id')).remove();

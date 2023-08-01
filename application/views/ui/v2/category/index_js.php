@@ -41,7 +41,7 @@
             });
         }
         loadData();
-        $defaultPageSize = <?php echo $this->config->item('defaultPageSize'); ?>;
+        $defaultPageSize = 12;
         $numRows = <?php echo $productCount; ?>;
         $('#pagination').bootpag({
             total: Math.ceil($numRows / $defaultPageSize),

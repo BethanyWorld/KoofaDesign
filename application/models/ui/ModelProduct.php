@@ -309,8 +309,8 @@ class ModelProduct extends CI_Model{
         }*/
 
         $limit = $inputs['pageIndex'];
-        $start = ($limit - 1) * $this->config->item('defaultPageSize');
-        $end = $this->config->item('defaultPageSize');
+        $start = ($limit - 1) * 12;
+        $end = 12;
         $this->db->select('product.ProductId,ProductTitle,ProductPrimaryImage,ProductMockUpImage,ProductType,ProductIsSpecial');
         $this->db->from('product');
         $this->db->join('product_category_relation', 'product.ProductId = product_category_relation.ProductId');

@@ -2,6 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends CI_Controller{
 
+
     public function __construct(){
         parent::__construct();
         $this->load->model('ui/ModelProductCategory');
@@ -74,6 +75,20 @@ class Home extends CI_Controller{
         }*/
 
 
+        /*$query = $this->db->select('OrderId   , OrderDateTime ')->from('orders')->get();
+        if ($query->num_rows() > 0) {
+            $data = $query->result_array();
+            foreach ($data as $item) {
+                if(!is_numeric($item['OrderDateTime'])) {
+                    $crtdate = explode(" ", $item['OrderDateTime'])[0];
+                    $this->db->reset_query();
+                    $this->db->where('OrderId', $item['OrderId']);
+                    $this->db->update('orders', array(
+                        'OrderDateTime' => makeTime($crtdate)
+                    ));
+                }
+            }
+        }*/
 
     }
 

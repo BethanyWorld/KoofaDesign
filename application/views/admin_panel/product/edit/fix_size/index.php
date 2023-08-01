@@ -1,9 +1,5 @@
-<?php
-$_DIR = base_url('assets/admin/');
-?>
-<input type="hidden" class="form-control"
-       value="<?php echo $data['ProductId']; ?>"
-       id="inputProductId" name="inputProductId"/>
+<?php $_DIR = base_url('assets/admin/');  ?>
+<input type="hidden" class="form-control"  value="<?php echo $data['ProductId']; ?>"  id="inputProductId" name="inputProductId"/>
 <section class="content">
     <div class="container-fluid">
         <div class="row clearfix">
@@ -12,15 +8,13 @@ $_DIR = base_url('assets/admin/');
                     <div class="body">
                         <!-- Nav tabs -->
                         <ul class="nav nav-tabs tab-nav-right p-0" role="tablist">
-                            <li role="presentation" class="active"><a href="#productBasicInfo" data-toggle="tab">اطلاعات
-                                    ثابت محصول</a></li>
+                            <li role="presentation" class="active"><a href="#productBasicInfo" data-toggle="tab">اطلاعات ثابت محصول</a></li>
                             <li role="presentation"><a href="#productImages" data-toggle="tab">تصاویر محصول</a></li>
                             <li role="presentation"><a href="#productPrice" data-toggle="tab">قیمت محصول</a></li>
                             <li role="presentation"><a href="#productCategory" data-toggle="tab">دسته بندی محصول</a>
                             <li role="presentation"><a href="#productCategoryProperty" data-toggle="tab">ویژگی های محصول</a>
                             <li role="presentation"><a href="#productTags" data-toggle="tab">برچسب محصول</a></li>
-                            <li role="presentation"><a href="#productFinalizeOperation" data-toggle="tab">ثبت و
-                                    ذخیره</a></li>
+                            <li role="presentation"><a href="#productFinalizeOperation" data-toggle="tab">ثبت و ذخیره</a></li>
                         </ul>
                         <!-- Tab panes -->
                         <div class="tab-content">
@@ -270,8 +264,7 @@ $_DIR = base_url('assets/admin/');
                                     <label class="required" for="inputProductSalePrice">سایز</label>
                                     <div class="form-group">
                                         <div class="form-line">
-                                            <select class="form-control" name="inputProductSize"
-                                                    id="inputProductSize">
+                                            <select class="form-control selectpicker" data-live-search="true" name="inputProductSize" multiple id="inputProductSize">
                                                 <?php foreach ($sizes as $size) { ?>
                                                     <option value="<?php echo $size['SizeId']; ?>">
                                                         <?php echo $size['SizeTitle']; ?>
