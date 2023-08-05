@@ -6,13 +6,12 @@
 <style>
     /*body login form*/
     .body-white-form {
-        /* border-radius: 3px; */
-        width: 100%;
         background-color: #fff;
         padding: 25px 35px;
-        margin: 12.5px 0;
         direction: rtl;
         display: inline-block;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
 
     .form-title h1 {
@@ -95,11 +94,10 @@
     .login-to-site p {
         padding: 25px 0 0 0;
         margin: 0;
-        text-align: center;
-        font-size: 20px;
+        text-align: right;
+        font-size: 12px;
         display: table;
         width: 100%;
-        text-align: center;
     }
 
     .login-to-site a {

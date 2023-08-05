@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/KoofaDesign.iml" filepath="$PROJECT_DIR$/.idea/KoofaDesign.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../KoofaDesignBlog/wp-content/themes/.idea/themes.iml" filepath="$PROJECT_DIR$/../KoofaDesignBlog/wp-content/themes/.idea/themes.iml" />
     </modules>
   </component>
 </project>

@@ -7,8 +7,7 @@
                 total: Math.ceil($numRows / $defaultPageSize),
                 maxVisible: 5
             });
-        }
-        else {
+        } else {
             $('#pagination').empty();
         }
     });
@@ -25,21 +24,24 @@ if ($data) {
                     </a>
                     <div class="product-info">
                         <h4 class="text-center">
-                            <a target="_blank"
-                               href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
+                            <a target="_blank"  href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
                                 <strong>
                                     <?php echo $item['ProductTitle']; ?>
                                 </strong>
                             </a>
-                            <i class="fa fa-heart-o"></i>
+                            <i data-id="<?php echo $item['ProductId']; ?>" class="fa fa-heart-o like-product"></i>
                         </h4>
-                        <span class="price-begin">
-                            <?php
-                            if (isset($item['price'][0])) {
-                                showProductPrice($item['price'], $item['ProductType']);
-                            }
-                            ?>
-                        </span>
+                        <?php if (isset($item['price'][0])) {
+                            if ($prices[0]['PriceValue'] > 10000) { ?>
+                                <span class="price-begin">
+                                <?php
+                                if (isset($item['price'][0])) {
+                                    showProductPrice($item['price'], $item['ProductType']);
+                                }
+                                ?>
+                            </span>
+                            <?php }
+                        } ?>
                     </div>
                 </div>
             </div>

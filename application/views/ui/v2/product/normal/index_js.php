@@ -124,22 +124,5 @@
 
             });
         });
-        $(".add-like-div").click(function () {
-            //toggleLoader();
-            $id = $(this).data('product-id');
-            $.ajax({
-                type: 'post',
-                url: base_url + 'Product/doAddWishList',
-                data: {
-                    'inputProductId': $id
-                },
-                success: function (data) {
-                    $result = JSON.parse(data);
-                    notify($result['content'], $result['type']);
-                },
-                error: function () {
-                }
-            });
-        });
     });
 </script>

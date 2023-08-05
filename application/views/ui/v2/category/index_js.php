@@ -69,5 +69,28 @@
                 maxVisible: 5
             });
         });
+
+
+        $(document).on('click' , ".like-product" ,function () {
+            $id = $(this).data('id');
+            $.ajax({
+                type: 'post',
+                url: base_url + 'Product/doAddWishList',
+                data: {
+                    'inputProductId': $id
+                },
+                success: function (data) {
+                    $result = JSON.parse(data);
+                    notify($result['content'] , $result['type']);
+                    //location.href = base_url + 'Cart'
+                },
+                error: function () {
+                }
+            });
+        });
+
+
+
+
     });
 </script>

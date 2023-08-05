@@ -1,7 +1,6 @@
 <?php
 
-class ModelUserAccount extends CI_Model
-{
+class ModelUserAccount extends CI_Model{
     //works fine
     public function doRegister($inputs)
     {
@@ -288,6 +287,36 @@ class ModelUserAccount extends CI_Model
         }
 
     }
+
+    public function doSubmitNewsLetter($inputs)
+    {
+        $this->db->select('*');
+        $this->db->from('news_letter');
+        $this->db->where(array('Email' => $inputs['inputNewLetter']));
+        $query = $this->db->get();
+        if ($query->num_rows() > 0) {
+            $arr = array(
+                'type' => "red",
+                'content' => "شما قبلا عضو خبرنامه شده اید",
+                'success' => false
+            );
+            return $arr;
+        }
+
+        $UserArray = array(
+            'Email' => $inputs['inputNewLetter'],
+            'CreateDateTime' => time()
+        );
+        $this->db->insert('news_letter', $UserArray);
+
+        $arr = array(
+            'type' => "green",
+            'content' => "شما با موفقیت عضو خبرنامه ما شدید",
+            'success' => true
+        );
+        return $arr;
+    }
+
 
 }
 

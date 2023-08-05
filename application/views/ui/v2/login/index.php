@@ -1,13 +1,13 @@
 <?php $_URL = base_url(); $_DIR = base_url('assets/ui/');  ?>
-<div id="main">
+<div id="main ">
     <div class="container">
         <div class="row">
-            <div class="body-white-form">
+            <div class="body-white-form col-md-6 col-md-offset-3">
                 <div class="col-md-12 col-xs-12 form-title">
                     <h1>ورود به حساب کاربری</h1>
                 </div>
                 <div class="col-md-12 col-xs-12 box">
-                    <div class="col-md-6 col-md-offset-3 col-xs-12 form-box form-register">
+                    <div class="col-xs-12 form-box form-register">
                         <div class="col-md-12 col-xs-12 form-holder login-form-holder">
                             <?php if(isset($_GET['error'])){ ?>
                                 <div class="alert alert-danger">

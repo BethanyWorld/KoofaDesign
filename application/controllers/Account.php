@@ -1,6 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-class Account extends CI_Controller{
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Account extends CI_Controller
+{
 
     public function __construct()
     {
@@ -10,6 +12,7 @@ class Account extends CI_Controller{
             redirect(base_url('User/Home'));
         }
     }
+
     public function register()
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -20,6 +23,7 @@ class Account extends CI_Controller{
         $this->load->view('ui/v2/register/index_js');
         $this->load->view('ui/v2/static/footer');
     }
+
     public function doRegister()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -61,6 +65,7 @@ class Account extends CI_Controller{
             echo json_encode($arr);
         }
     }
+
     public function doVerify()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -78,6 +83,7 @@ class Account extends CI_Controller{
         $result = $this->ModelUserAccount->doVerify($inputs);
         echo json_encode($result);
     }
+
     //well done validation
     public function login()
     {
@@ -142,6 +148,7 @@ class Account extends CI_Controller{
             echo json_encode($arr);
         }
     }
+
     public function doSubmitTypeLogin()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -162,13 +169,13 @@ class Account extends CI_Controller{
             $result['redirect'] = base_url('User/Home');
         }
         $this->session->unset_userdata('returnUrl');
-        if($result['success']){
+        if ($result['success']) {
             redirect(base_url('User/Home'));
-        }
-        else{
+        } else {
             redirect(base_url('Account/Login?error=u'));
         }
     }
+
     public function resendCode()
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -179,6 +186,7 @@ class Account extends CI_Controller{
         $this->load->view('ui/v2/resend_code/index_js');
         $this->load->view('ui/v2/static/footer');
     }
+
     public function doResendCode()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -218,6 +226,7 @@ class Account extends CI_Controller{
             echo json_encode($arr);
         }
     }
+
     public function resetPassword()
     {
         $data['noImg'] = $this->config->item('defaultImage');
@@ -228,6 +237,7 @@ class Account extends CI_Controller{
         $this->load->view('ui/v2/reset_password/index_js');
         $this->load->view('ui/v2/static/footer');
     }
+
     public function doResetPassword()
     {
         $inputs = $this->input->post(NULL, TRUE);
@@ -267,4 +277,37 @@ class Account extends CI_Controller{
             echo json_encode($arr);
         }
     }
+
+
+    public function doSubmitNewsLetter()
+    {
+        $inputs = $this->input->post(NULL, TRUE);
+        $inputs = array_map(function ($v) {
+            return strip_tags($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return remove_invisible_characters($v);
+        }, $inputs);
+        $inputs = array_map(function ($v) {
+            return makeSafeInput($v);
+        }, $inputs);
+
+
+        $this->form_validation->set_data($inputs);
+        $this->form_validation->set_rules('inputNewLetter', 'ایمیل', 'trim|required|min_length[5]|max_length[80]');
+        if ($this->form_validation->run() == FALSE) {
+            $arr = array(
+                'type' => "red",
+                'content' => validation_errors()
+            );
+            echo json_encode($arr);
+            die();
+        }
+
+        $captchaCode = $this->session->userdata['captchaCode'];
+        $result = $this->ModelUserAccount->doSubmitNewsLetter($inputs);
+        echo json_encode($result);
+
+    }
+
 }

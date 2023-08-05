@@ -372,21 +372,19 @@ class ModelProduct extends CI_Model{
 
 
     }
-    public function autoSuggestProduct($inputs)
-    {
-        $this->db->select('product.ProductId , product.ProductTitle , product.ProductPrimaryImage , product_category.CategoryTitle ,product_category.CategoryId');
+    public function autoSuggestProduct($inputs){
+        $this->db->select('product.ProductId , product.ProductTitle , product.ProductMockUpImage , product_category.CategoryTitle ,product_category.CategoryId');
         $this->db->from('product');
         $this->db->join('product_category_relation', 'product.ProductId = product_category_relation.ProductId');
         $this->db->join('product_category', 'product_category_relation.CategoryId = product_category.CategoryId');
         $this->db->like('product.ProductTitle', $inputs['inputSearch']);
+        $this->db->or_like('product.ProductSubTitle', $inputs['inputSearch']);
         $this->db->limit(60);
         $result = $this->db->get()->result_array();
         $result = array_map("unserialize", array_unique(array_map("serialize", $result)));
         $result = array_reverse($result);
-
         $seenItems = array();
         $originalArray = array();
-
         foreach ($result as $index => $item) {
             if (in_array($item["ProductId"], $seenItems)) {
                 unset($result[$index]);

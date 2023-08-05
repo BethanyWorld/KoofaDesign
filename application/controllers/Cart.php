@@ -792,10 +792,17 @@ class Cart extends CI_Controller{
                     $data['success'] = false;
                 }
             } else {
-                $this->payment_model->payment_update_failed($this->input->post('ResNum'), $this->input->post('State'), date("Y-m-d H:i:s"));
+                $this->ModelOrder->payment_update_after_pay_failed(
+                    $this->input->post('ResNum'),
+                    $this->input->post('MID'),
+                    $this->input->post('RefNum'),
+                    $this->input->post('CustomerRefNum'),
+                    $this->input->post('State'),
+                    $this->input->post('CardPanHash'),
+                    0
+                );
                 $this->session->set_userdata('payment_pay', 'failed');
                 $this->session->set_userdata('payment_pay_state', $this->input->post('State'));
-                $this->checkout_model->set_status('canceled_byuser');
                 $data['success'] = false;
             }
         } else {
@@ -935,6 +942,7 @@ class Cart extends CI_Controller{
         $sessionId = $login['SessionId'];
         $params['ReserveNum'] = $resNum;
         $params['Amount'] = $amount;
+        $params['Amount'] = 10000;
         $params['RedirectUrl'] = $this->config->item('pay_redirect_url');
         $params['WSContext'] = array('SessionId' => $sessionId, 'UserId' => config_item('EN_WS_Username'), 'Password' => config_item('EN_WS_Password'));
         $params['TransType'] = "enGoods";

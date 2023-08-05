@@ -191,15 +191,17 @@ function get_mobile_root_menu_tree(){
                                 height: auto;
                                 background: #fff;
                                 z-index: 10000000000;
-                                border: 1px solid #ccc;
+                                border: 1px solid #fd4a1a;
                                 top: 40px;
                                 right: 0;
                                 font-size: 15px;
                                 max-width: 100vw;
-                                padding: 8px 10px;
-                                width: 365px;
+                                padding: 10px 10px;
+                                width: 500px;
                                 direction: rtl;
                                 text-align: justify;
+                                max-width: 90vw;
+                                border-radius: 0;
                             }
                             .search-result li {
                                 display: inline-block;
@@ -207,9 +209,11 @@ function get_mobile_root_menu_tree(){
                                 margin: 2px 2px !important;
                                 position: relative;
                                 padding: 4px 4px !important;
+                                padding-bottom: 8px !important;
                                 border: 0 !important;
-                                border-bottom: 1px dashed #c3c3c3 !important;
+                                /* border-bottom: 1px solid #c3c3c3 !important; */
                                 width: 100%;
+                                line-height: 28px;
                             }
 
 

@@ -4,6 +4,7 @@ if ($data) {
         <li class="list-group-item">
             <span>
                 <a class="item-result" href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
+                    <img style="width: 85px;    height: 60px;float: right;margin-left: 15px;border-radius: 4px;" src="<?php echo $item['ProductMockUpImage']; ?>" />
                     <?php echo $item['ProductTitle']; ?>
                 </a>
             </span>

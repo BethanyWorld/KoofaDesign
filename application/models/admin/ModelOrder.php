@@ -9,7 +9,7 @@ class ModelOrder extends CI_Model{
         $end = $this->config->item('defaultPageSize');
         $this->db->select('*');
         $this->db->from('orders');
-        $this->db->join('user' , 'orders.OrderUserId = user.UserId'); 
+        $this->db->join('user' , 'orders.OrderUserId = user.UserId');
         $this->db->join('user_address' , 'user_address.AddressId = orders.OrderAddressId');
 
         if($inputs['inputOrderId'] != ''){
@@ -130,6 +130,19 @@ class ModelOrder extends CI_Model{
         $this->db->set('OrderRefNum',$RefNum);
         $this->db->set('OrderCustomerRefNum',$CustomerRefNum);
         $this->db->set('OrderStatus','Done');
+        $this->db->set('OrderCardPanHash',$CardPanHash);
+        $this->db->set('OrderIsPay',$is_pay);
+        $this->db->set('OrderRequiredDateTime',time());
+        $this->db->update('orders');
+    }
+
+    public function payment_update_after_pay_failed($id,$MID,$RefNum,$CustomerRefNum,$State,$CardPanHash,$is_pay){
+        $this->db->reset_query();
+        $this->db->where('OrderResNum',$id);
+        $this->db->set('OrderMID',$MID);
+        $this->db->set('OrderRefNum',$RefNum);
+        $this->db->set('OrderCustomerRefNum',$CustomerRefNum);
+        $this->db->set('OrderStatus','Failed');
         $this->db->set('OrderCardPanHash',$CardPanHash);
         $this->db->set('OrderIsPay',$is_pay);
         $this->db->set('OrderRequiredDateTime',time());

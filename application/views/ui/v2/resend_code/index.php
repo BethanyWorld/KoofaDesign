@@ -2,12 +2,12 @@
 <div id="main">
     <div class="container">
         <div class="row">
-            <div class="body-white-form">
+            <div class="body-white-form col-md-6 col-md-offset-3">
                 <div class="col-md-12 col-xs-12 form-title">
                     <h1>عضویت در کوفا</h1>
                 </div>
                 <div class="col-md-12 col-xs-12 box">
-                    <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12 form-box form-register">
+                    <div class=" col-sm-12 col-xs-12 form-box form-register">
                         <div class="col-md-12 col-xs-12 form-holder">
                             <div role="form" class="register-page-form">
 

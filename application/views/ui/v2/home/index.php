@@ -266,9 +266,9 @@ foreach ($categories as $category) {
             <div class="top"></div>
             <div class="col-xs-12">
                 <h3 class="text-center">از تخفیف ها و حراجی ها باخبرم کن</h3>
-                <form id="#" accept-charset="#">
-                    <input type="text" placeholder="Email..."/>
-                    <button type="submit">
+                <form >
+                    <input type="text" id="inputNewLetter" placeholder="Email..."/>
+                    <button type="button" id="submitNewsLetter">
                         عضو خبرنامه می شوم
                     </button>
 
