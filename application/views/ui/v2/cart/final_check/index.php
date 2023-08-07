@@ -26,6 +26,13 @@ $_DIR = base_url('assets/ui/v2/');
                         </span>
                     </div>
                 </div>
+                <div class="col-md-3 col-xs-12 finalize-shopping">
+                    <div id="discount-form"
+                         class="col-md-12 col-md-offset-0 col-xs-10 col-xs-offset-1 cart-product-factor-main-div">
+                        <input type="text" id="inputDiscountCode" name="inputDiscountCode" class="discount-input">
+                        <button id="addDiscountCode" class="cart-product-factor-button height100">ثبت کد تخفیف</button>
+                    </div>
+                </div>
                 <?php if (empty($this->session->userdata('cart'))) { ?>
                     <style>
                         .cart-product-factor-main-div {
@@ -176,7 +183,10 @@ $_DIR = base_url('assets/ui/v2/');
                     <tr>
                         <td></td>
                         <td class="fit" colspan="2">جمع قابل پرداخت</td>
-                        <td style="padding: 30px 30px !important;background: #5dc0a4;color: #fff;font-size: 18px;" class="fit">
+                        <td style="padding: 6px 30px !important;
+    background: #5dc0a4;
+    color: #fff;
+    font-size: 14px;" class="fit">
                             <?php echo number_format( $totalPrice - $discoutnPrice+$totalShipmentPrice); ?> تومان
                         </td>
                     </tr>
@@ -197,7 +207,7 @@ $_DIR = base_url('assets/ui/v2/');
                     border-radius: 3px !important;
                     border: none !important;
                     outline: 0 !important;
-                    font-size: 16px !important;
+                    font-size: 14px !important;
                     padding: 6px 30px !important;
                 }
                 .cart-back-button {
@@ -209,12 +219,11 @@ $_DIR = base_url('assets/ui/v2/');
                     border-radius: 3px !important;
                     border: none !important;
                     outline: 0 !important;
-                    font-size: 15px !important;
+                    font-size: 14px !important;
                     padding: 6px 30px !important;
                 }
             </style>
         </div>
-
 
         <div class="container">
             <div class="col-xs-12 padding-0" style="margin: 20px 0;">

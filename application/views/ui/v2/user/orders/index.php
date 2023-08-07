@@ -54,7 +54,7 @@ $_DIR = base_url('assets/ui/'); ?>
                             <?php foreach ($orders as $order) { ?>
                                 <tr>
                                     <td class="fit"><?php echo $order['OrderId']; ?></td>
-                                    <td><?php echo $order['OrderDateTime']; ?></td>
+                                    <td><?php echo convertDate($order['OrderDateTime']); ?><br><?php echo convertTime($order['OrderDateTime']); ?></td>
                                     <td class="fit"><?php echo orderStatusPipe($order['OrderStatus']); ?></td>
                                     <td class="fit"><?php echo number_format($order['OrderTotalPrice']); ?></td>
                                     <td class="fit"><?php echo number_format($order['OrderSendMethodPrice']); ?></td>

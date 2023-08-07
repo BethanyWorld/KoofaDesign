@@ -33,7 +33,7 @@ class ModelAccount extends CI_Model
                     'UserPhone' => $inputs['inputPhone'],
                     'UserPassword' => md5($inputs['inputPassword']),
                     'UserActivationCode' => $ActivationCode,
-                    'UserCreateDateTime' => jDateTime::date("Y-m-d H:i", false, false)
+                    'UserCreateDateTime' => time()
                 );
                 $this->db->trans_start();
                 $this->db->insert('user', $UserArray);

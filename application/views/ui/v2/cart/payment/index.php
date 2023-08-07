@@ -26,6 +26,13 @@ $_DIR = base_url('assets/ui/v2/');
                         </span>
                     </div>
                 </div>
+                <div class="col-md-3 col-xs-12 finalize-shopping">
+                    <div id="discount-form"
+                         class="col-md-12 col-md-offset-0 col-xs-10 col-xs-offset-1 cart-product-factor-main-div">
+                        <input type="text" id="inputDiscountCode" name="inputDiscountCode" class="discount-input">
+                        <button id="addDiscountCode" class="cart-product-factor-button height100">ثبت کد تخفیف</button>
+                    </div>
+                </div>
                 <?php if (empty($this->session->userdata('cart'))) {  ?>
                     <style>
                         .cart-product-factor-main-div {
@@ -81,8 +88,7 @@ $_DIR = base_url('assets/ui/v2/');
                                         <p>شماره تلفن ثابت:<?php echo $item['AddressHomePhone']; ?></p>
                                     </div>
                                 </div>
-                                <label class="address-label" for="address-<?php echo $item['AddressId']; ?>" style="position: absolute;left: 0;top: 0;bottom: 0;margin:
-                                 auto;padding: 40px 32px;cursor: pointer;border: 2px solid #35bfa3;">
+                                <label class="address-label" for="address-<?php echo $item['AddressId']; ?>">
                                     <input  id="address-<?php echo $item['AddressId']; ?>" value="<?php echo $item['AddressId']; ?>" type="radio" name="address">
                                 </label>
                             </div>

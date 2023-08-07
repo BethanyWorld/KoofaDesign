@@ -81,7 +81,6 @@ $_DIR = base_url('assets/ui/'); ?>
                                                 <p><?php echo $item['ProductSubTitle']; ?></p>
                                             </div>
                                             <div class="col-md-12 col-xs-12 padding-0 profile-product-detail-price">
-                                                <span class="price">185000 تومان</span>
                                                 <a href="<?php echo productUrl($item['ProductId'], $item['ProductTitle']); ?>">
                                                     مشاهده محصول
                                                 </a>

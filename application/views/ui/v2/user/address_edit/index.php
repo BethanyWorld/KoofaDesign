@@ -27,7 +27,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                         name="inputAddressFullName" id="inputAddressFullName"
                                         required="" placeholder="نادری">
                             </div>
-                            <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0">
+                            <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0;display: none;">
                                 <label>پست الکترونیک :</label>
                                 <input
                                         value="<?php echo $userAddress['AddressEmail']; ?>"
@@ -39,11 +39,11 @@ $_DIR = base_url('assets/ui/'); ?>
                                 <label> شماره تلفن همراه :</label>
                                 <input
                                         value="<?php echo $userAddress['AddressPhone']; ?>"
-                                        class="form-control" type="number"
+                                        class="form-control" type="text"
                                         name="inputAddressPhone" id="inputAddressPhone"
                                         required="" placeholder="">
                             </div>
-                            <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0">
+                            <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0;display: none;">
                                 <label>شماره تلفن ثابت</label>
                                 <input
                                         value="<?php echo $userAddress['AddressHomePhone']; ?>"
@@ -74,7 +74,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                 <label> کد پستی :</label>
                                 <input
                                         value="<?php echo $userAddress['AddressPostalCode']; ?>"
-                                        class="form-control" type="number"
+                                        class="form-control" type="text"
                                         name="inputAddressPostalCode" id="inputAddressPostalCode"
                                         required="" placeholder=" ">
                             </div>

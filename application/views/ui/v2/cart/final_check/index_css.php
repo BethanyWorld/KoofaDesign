@@ -1,4 +1,5 @@
 <style>
+
     /*helper*/
     .margin-top-20 {
         margin-top: 20px;
@@ -514,6 +515,19 @@
             font-size: 11px;
         }
     }
+    .cart-product-factor-button{
+        background-color: #ff3500;
+        font-size: 10px;
+        padding: 8px 8px;
+        width: 100%;
+        word-break: break-word;
+        font-weight: bold;
+        line-height: 15px;
+        color: #fff;
+        border: 0;
+        width: 100px;
+    }
+
 
     @media screen and (max-width: 767px) {
         .finalize-shopping {

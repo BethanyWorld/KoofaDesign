@@ -556,4 +556,37 @@
     .product-slider.min.orange-bg .owl-nav .owl-next, .product-slider.min.orange-bg .owl-nav .owl-prev {
         color: #777777;
     }
+
+
+    .address-label{
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding: 25px 30px;
+        cursor: pointer;
+        border: 2px solid #ccc;
+        width: 100%;
+        text-align: left;
+    }
+
+    .address-label.active{
+        border: 2px solid #ff3500;
+    }
+
+
+    .cart-product-factor-button{
+        background-color: #ff3500;
+        font-size: 10px;
+        padding: 8px 8px;
+        width: 100%;
+        word-break: break-word;
+        font-weight: bold;
+        line-height: 15px;
+        color: #fff;
+        border: 0;
+        width: 100px;
+    }
+
 </style>

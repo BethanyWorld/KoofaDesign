@@ -19,7 +19,7 @@ $_DIR = base_url('assets/ui/'); ?>
                                    name="inputAddressFullName" id="inputAddressFullName"
                                    required="">
                         </div>
-                        <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0">
+                        <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0;display: none;">
                             <label>پست الکترونیک :</label>
                             <input class="form-control" type="text"
                                    name="inputAddressEmail" id="inputAddressEmail"
@@ -27,13 +27,13 @@ $_DIR = base_url('assets/ui/'); ?>
                         </div>
                         <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0">
                             <label> شماره تلفن همراه :</label>
-                            <input class="form-control" type="number"
+                            <input class="form-control" type="text"
                                    name="inputAddressPhone" id="inputAddressPhone"
                                    required="" placeholder="">
                         </div>
-                        <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0">
+                        <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0;display: none;">
                             <label>شماره تلفن ثابت</label>
-                            <input class="form-control" type="number"
+                            <input class="form-control" type="text"
                                    name="inputAddressHomePhone" id="inputAddressHomePhone"
                                    required="" placeholder="">
                         </div>
@@ -55,7 +55,7 @@ $_DIR = base_url('assets/ui/'); ?>
                         </div>
                         <div class="form-group pull-right col-md-6 col-xs-12" style="padding-right: 0">
                             <label> کد پستی :</label>
-                            <input class="form-control" type="number"
+                            <input class="form-control" type="text"
                                    name="inputAddressPostalCode" id="inputAddressPostalCode"
                                    required="" placeholder=" ">
                         </div>
