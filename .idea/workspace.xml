@@ -6,18 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="71973b14-b7ec-4785-9eae-66d9d1ca0437" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/ui/ModelAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ui/ModelAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/user/ModelUserAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/user/ModelUserAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/cart/final_check/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/cart/final_check/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/cart/final_check/index_css.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/cart/final_check/index_css.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index_css.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index_css.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/user/address/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/user/address/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/user/address_edit/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/user/address_edit/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/user/order_detail/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/user/order_detail/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/user/orders/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/user/orders/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/user/wish_list/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/user/wish_list/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index_js.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +32,14 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;eu.ydp.idea.ts.spec.generator.settings.spec.template&quot;: &quot;import {$ClassName$} from '$TestsRelativePath$../src/$classRelativePath$/$ClassName$';\n\ndescribe('$ClassName$', () =&gt; {\n  let $ObjName$:$ClassName$;\n\n  beforeEach(() =&gt; {\n    $ObjName$ = new $ClassName$();\n  });\n\n  describe('', () =&gt; {\n    it('', () =&gt; {\n      // given\n\n      // when\n\n      // then\n    });\n  });\n});\n&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/KoofaDesignBlog/wp-content/themes&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -96,6 +88,11 @@
       <workItem from="1691256301798" duration="4791000" />
       <workItem from="1691335746841" duration="2747000" />
       <workItem from="1691419397881" duration="1791000" />
+      <workItem from="1691573377994" duration="274000" />
+      <workItem from="1691573716458" duration="115000" />
+      <workItem from="1691574358118" duration="3200000" />
+      <workItem from="1691595002183" duration="1787000" />
+      <workItem from="1691647402562" duration="89000" />
     </task>
     <servers />
   </component>

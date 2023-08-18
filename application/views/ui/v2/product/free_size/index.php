@@ -135,6 +135,16 @@ $_DIR = base_url('assets/ui/'); ?>
                             }
                             ?> />
                     </div>
+
+                    <div class="col-xs-12  product-detail-price padding-0">
+                        <a target="_blank" href="<?php echo base_url('assets/ui/v2/assets/img/guide-1.jpg') ?>">
+                        <p style="font-size: 14px;color:#4949ff;">راهنمای ارتفاع و عرض</p>
+                            <img style="width:150px;" src="<?php echo base_url('assets/ui/v2/assets/img/guide-1.jpg') ?>" />
+                        </a>
+                        <br><br>
+                    </div>
+
+
                     <div class="col-xs-12 pull-right product-size services padding-0 <?php if (empty($services)) { echo 'hidden'; } ?>">
                         <label>خدمات:</label>
                         <?php

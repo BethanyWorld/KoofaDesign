@@ -305,6 +305,12 @@
 
 
         $("#addToCart").click(function () {
+
+            if($("#inputProductWidth").val() =='' || $("#inputProductHeight").val() == ''){
+                notify('لطفا ارتفاع و عرض دلخواه را وارد کنید', 'red');
+                return false;=
+            }
+
             $id = $(this).data('product-id');
             var cropper = $image.data('cropper');
             cropper.getCroppedCanvas().toBlob((blob) => {
