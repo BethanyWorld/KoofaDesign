@@ -63,6 +63,8 @@ $_DIR = base_url('assets/ui/');
                 </div>
             </div>
         </div>
+
+        <?php /*
         <div class="row product-slider min" style="margin-bottom: 0 !important; ">
             <div class="container">
                 <div class="col-xs-12 section">
@@ -86,9 +88,6 @@ $_DIR = base_url('assets/ui/');
                 </div>
             </div>
         </div>
-
-
-
         <div class="row product-slider min" style="margin-top: 0 !important; ">
             <div class="container">
                 <div class="col-xs-12 section">
@@ -112,6 +111,7 @@ $_DIR = base_url('assets/ui/');
                 </div>
             </div>
         </div>
+        */ ?>
 
     </div>
 </div>

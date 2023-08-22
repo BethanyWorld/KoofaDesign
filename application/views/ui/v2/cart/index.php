@@ -99,7 +99,7 @@ $_DIR = base_url('assets/ui/v2/');
                                         <?php if ($item['productSizeId'] !== '') {
                                             foreach ($allSizes as $size) {
                                                 if($size['SizeId'] == $item['productSizeId']){
-                                                    echo "<p>سایز:".$size['SizeTitle']."</p>";
+                                                    echo "<p>سایز:".$size['SizeUserTitle']."</p>";
                                                 }
                                             }
                                         } ?>

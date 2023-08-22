@@ -6,8 +6,16 @@
   <component name="ChangeListManager">
     <list default="true" id="71973b14-b7ec-4785-9eae-66d9d1ca0437" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/models/ui/ModelProduct.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/ui/ModelProduct.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/cart/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/cart/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/category/sub_index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/category/sub_index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/home/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/fix_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/fix_size/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index_css.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index_css.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index_js.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/static/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/static/header.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,22 +35,22 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;eu.ydp.idea.ts.spec.generator.settings.spec.template&quot;: &quot;import {$ClassName$} from '$TestsRelativePath$../src/$classRelativePath$/$ClassName$';\n\ndescribe('$ClassName$', () =&gt; {\n  let $ObjName$:$ClassName$;\n\n  beforeEach(() =&gt; {\n    $ObjName$ = new $ClassName$();\n  });\n\n  describe('', () =&gt; {\n    it('', () =&gt; {\n      // given\n\n      // when\n\n      // then\n    });\n  });\n});\n&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/KoofaDesignBlog/wp-content/themes&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "eu.ydp.idea.ts.spec.generator.settings.spec.template": "import {$ClassName$} from '$TestsRelativePath$../src/$classRelativePath$/$ClassName$';\n\ndescribe('$ClassName$', () => {\n  let $ObjName$:$ClassName$;\n\n  beforeEach(() => {\n    $ObjName$ = new $ClassName$();\n  });\n\n  describe('', () => {\n    it('', () => {\n      // given\n\n      // when\n\n      // then\n    });\n  });\n});\n",
+    "last_opened_file_path": "C:/wamp64/www/KoofaDesign",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\KoofaDesignBlog\wp-content\themes\Koofa\v2\assets\css" />
@@ -93,6 +101,7 @@
       <workItem from="1691574358118" duration="3200000" />
       <workItem from="1691595002183" duration="1787000" />
       <workItem from="1691647402562" duration="89000" />
+      <workItem from="1692733046255" duration="3409000" />
     </task>
     <servers />
   </component>

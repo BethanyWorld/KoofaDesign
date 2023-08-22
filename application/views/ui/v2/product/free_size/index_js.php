@@ -308,7 +308,7 @@
 
             if($("#inputProductWidth").val() =='' || $("#inputProductHeight").val() == ''){
                 notify('لطفا ارتفاع و عرض دلخواه را وارد کنید', 'red');
-                return false;=
+                return false;
             }
 
             $id = $(this).data('product-id');

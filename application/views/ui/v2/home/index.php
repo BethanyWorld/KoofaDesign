@@ -194,19 +194,19 @@ foreach ($categories as $category) {
 }
 ?>
 
-<div class="row product-slider min orange-bg">
+<div class="row product-slider min orange-bg hidden">
     <div class="container">
         <div class="col-xs-12 section">
             <h2 class="text-center">تازه ترین ها</h2>
             <div class="col-xs-12 pull-left list min">
                 <div class="owl-carousel">
-                    <?php foreach ($latestProduct as $product) { ?>
+                    <?php /* foreach ($latestProduct as $product) { ?>
                         <a href="<?php echo productUrl($product['ProductId'], $product['ProductTitle']); ?>">
                             <div class="item-slide"
                                  style="background: url('<?php echo $product['ProductMockUpImage']; ?>');">
                             </div>
                         </a>
-                    <?php } ?>
+                    <?php } */ ?>
                 </div>
             </div>
             <div class="col-xs-12 text-center">

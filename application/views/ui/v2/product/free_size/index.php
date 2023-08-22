@@ -45,12 +45,13 @@ $_DIR = base_url('assets/ui/'); ?>
                     <!-- for cropper-->
                     <div id="cropper-div" class="col-xs-12  cropper-image padding-0">
                         <style>
+
                             @media (max-width: 767px) {
-                                #cropper-div * {
+
+                                /*#cropper-div * {
                                     max-width: 100% !important;
                                     width: 100% !important;
                                 }
-
                                 .cropper-crop-box {
                                     max-width: 100% !important;
                                     width: 100% !important;
@@ -66,19 +67,8 @@ $_DIR = base_url('assets/ui/'); ?>
 
                                 .cropper-face {
                                     opacity: 0.5;
-                                }
+                                }*/
                             }
-
-                            /* .img-container-small{
-                                 min-width: 70vw;
-                                 min-height: 40vh;
-                             }
-                             .img-container-small img{
-                                 height: 320px;
-                             }
-                             #cropperImage{
-                                 max-width: 100%;
-                             }*/
                         </style>
                         <div class="img-container img-container-large">
                             <img class="image" style="max-width: 100%;"

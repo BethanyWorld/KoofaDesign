@@ -314,9 +314,11 @@ class ModelProduct extends CI_Model{
         $this->db->select('product.ProductId,ProductTitle,ProductPrimaryImage,ProductMockUpImage,ProductType,ProductIsSpecial');
         $this->db->from('product');
         $this->db->join('product_category_relation', 'product.ProductId = product_category_relation.ProductId');
+        $this->db->join('product_category', 'product_category.CategoryId = product_category_relation.CategoryId');
         $this->db->join('product_price', 'product_price.ProductId = product.ProductId' , 'left');
         $this->db->join('product_property', 'product.ProductId = product_property.ProductId' , 'left');
         $this->db->where('product_category_relation.CategoryId', $inputs['inputCategoryId']);
+        $this->db->where('CategoryIsActive' , 1);
         if(!empty($inputs['inputPropertyOptions'])){
             /*foreach ($inputs['inputPropertyOptions'] as $option) {
                 $this->db->or_where('product_property.PropertyOptionId', $option);

@@ -70,7 +70,7 @@
                                 <option data-size-id="<?php echo $item['SizeId']; ?>"
                                         data-material-id="<?php echo $item['MaterialId']; ?>"
                                         data-price="<?php echo $item['PriceValue']; ?>">
-                                    <?php echo $item['SizeTitle']; ?>
+                                    <?php echo $item['SizeUserTitle']; ?>
                                 </option>
                             <?php } ?>
                         </select>
