@@ -2,6 +2,7 @@
     <ul>
         <li class="active" data-class="product-description-content">توضیحات</li>
         <li data-class="product-description-table">مشخصات</li>
+        <li data-class="product-description-guide">راهنمای ثبت سفارش</li>
         <li data-class="product-description-comment">نظرات</li>
     </ul>
 </div>
@@ -55,6 +56,16 @@
         </div>
     </div>
 </div>
+<div class="col-md-12 col-xs-12 tab-content product-description product-description-guide">
+
+    <p>در صورتی که در انتخاب سایز و جنس نیاز به راهنمایی دارید، لینک های زیر را مشاهده کنید.</p>
+    <ul>
+        <li><a target="_blank" href="http://blog.koofaart.ir/?page_id=3478">راهنمای انتخاب جنس محصولات</a></li>
+        <li><a target="_blank" href="http://blog.koofaart.ir/?page_id=3458">راهنمای انتخاب سایز محصولات</a></li>
+        <li><a target="_blank" href="http://blog.koofaart.ir/?page_id=3470">راهنمای خرید از کوفاآرت</a></li>
+    </ul>
+
+</div>
 
 <script type="text/javascript">
     $(document).ready(function () {
@@ -80,7 +91,6 @@
                 $rate = currentRating;
             }
         });
-
         $(".comment-rating").starRating({
             totalStars: 5,
             readOnly: true,
@@ -90,8 +100,6 @@
             hoverColor: '#ff3500',
             activeColor: '#ff3500',
         });
-
-
         $("#doSubmitComment").click(function () {
             toggleLoader();
             $sendData = {
@@ -117,7 +125,6 @@
                 }
             });
         });
-
         $(".add-like-div").click(function () {
             //toggleLoader();
             $id = $(this).data('product-id');
@@ -136,9 +143,6 @@
                 }
             });
         });
-
-
-
     });
 </script>
 <style>

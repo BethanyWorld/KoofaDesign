@@ -8,15 +8,15 @@ $_DIR = base_url('assets/ui/v2/');
             <div class="col-md-12 col-xs-12 padding-0">
                 <div class="col-md-9 col-xs-12 body-guarantee-div RightFloat">
                     <div class="row slogans white-bg">
-                        <span>
+                        <span class="active">
                             <b>سبد خرید</b>
                             <img src="<?php echo $_DIR; ?>assets/img/svg/tick.svg"/>
                         </span>
-                        <span>
+                        <span class="active">
                             <b>اطلاعات ارسال</b>
                             <img src="<?php echo $_DIR; ?>assets/img/svg/book.svg"/>
                         </span>
-                        <span>
+                        <span class="active">
                             <b>پرداخت</b>
                             <img src="<?php echo $_DIR; ?>assets/img/svg/truck.svg"/>
                         </span>

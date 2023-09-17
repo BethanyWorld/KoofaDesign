@@ -8,11 +8,11 @@ $_DIR = base_url('assets/ui/v2/');
             <div class="col-md-12 col-xs-12 padding-0">
                 <div class="col-md-9 col-xs-12 body-guarantee-div RightFloat">
                     <div class="row slogans white-bg">
-                        <span>
+                        <span class="active">
                             <b>سبد خرید</b>
                             <img src="<?php echo $_DIR; ?>assets/img/svg/tick.svg"/>
                         </span>
-                        <span>
+                        <span class="active">
                             <b>اطلاعات ارسال</b>
                             <img src="<?php echo $_DIR; ?>assets/img/svg/book.svg"/>
                         </span>
@@ -62,7 +62,7 @@ $_DIR = base_url('assets/ui/v2/');
     <div class="row cart-shopping-product-div">
         <div class="container">
             <div class="col-md-12 col-xs-12 padding-0">
-                <div class="<?php if (empty($this->session->userdata('cart'))) { echo 'col-md-12'; } else { echo 'col-md-9'; } ?> col-xs-12 RightFloat p-0" style="background: #fff;">
+                <div class="<?php if (empty($this->session->userdata('cart'))) { echo 'col-md-12'; } else { echo 'col-md-9'; } ?> col-xs-12 RightFloat p-0" style="background: #fff;padding: 20px !important;">
                     <?php foreach ($userAddress as $item) { ?>
                         <div class="col-md-12 col-xs-12" style="direction: rtl;padding: 10px 0;">
                             <div class="col-md-12 col-xs-12">
@@ -94,7 +94,7 @@ $_DIR = base_url('assets/ui/v2/');
                             </div>
                         </div>
                     <?php } ?>
-                    <div class="col-xs-12 padding-0" style="border-bottom: 2px solid #ccc; margin: 10px 15px;padding: 10px 0px !important;width: calc(100% - 30px);">
+                    <div class="col-xs-12 padding-0">
                         <a href="<?php echo base_url('User/Home/address'); ?>" style="width: max-content;height: 100%;background-color: #fd4a1a !important;color: #fff;line-height: 30px;border-radius: 3px; border: none;outline: 0;font-size: 13px;padding: 2px 6px;">
                             افزودن آدرس جدید
                         </a>
@@ -107,9 +107,7 @@ $_DIR = base_url('assets/ui/v2/');
                     foreach ($shipments as $sendMethod) { ?>
                         <div class="col-md-3 col-xs-12 pull-right" style="background: #fff;padding: 20px 20px;direction: rtl;margin-bottom: 10px;">
                             <label for="method-<?php echo $sendMethod['Shipment']; ?>">
-                                <p>
-                                    <?php echo pipeEnum('shipment' , $sendMethod['Shipment']); ?>
-                                </p>
+                                <p><?php echo pipeEnum('shipment' , $sendMethod['Shipment']); ?></p>
                                 <input id="method-<?php echo $sendMethod['Shipment']; ?>" value="<?php echo $sendMethod['Shipment']; ?>" type="radio" name="send-method">
                             </label>
                         </div>
@@ -137,7 +135,7 @@ $_DIR = base_url('assets/ui/v2/');
                     }
                     ?>
                     <div class="col-md-3 col-xs-12" style="direction: rtl;">
-                        <div class="col-md-12 col-xs-12 cart-product-right-panel">
+                        <div class="col-md-12 col-xs-12 cart-product-right-panel" style="padding: 15px;">
                             <div class="col-md-12 col-xs-12 padding-0 cart-product-discount-border-b-div">
                                 <div class="col-lg-7 col-md-7 col-xs-12 RightFloat p-0 cart-product-discount-desc">
                                     <p class="cart-first-title">جمع کل خرید شما :</p>

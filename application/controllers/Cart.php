@@ -4,6 +4,7 @@ include(__DIR__ . '/../libraries/psp/RSAProcessor.class.php');
 
 class Cart extends CI_Controller{
 
+
     protected function uniqueArray($array, $key)
     {
         $temp_array = [];
@@ -942,7 +943,7 @@ class Cart extends CI_Controller{
         $sessionId = $login['SessionId'];
         $params['ReserveNum'] = $resNum;
         $params['Amount'] = $amount;
-        $params['Amount'] = 10000;
+        //$params['Amount'] = 10000;
         $params['RedirectUrl'] = $this->config->item('pay_redirect_url');
         $params['WSContext'] = array('SessionId' => $sessionId, 'UserId' => config_item('EN_WS_Username'), 'Password' => config_item('EN_WS_Password'));
         $params['TransType'] = "enGoods";

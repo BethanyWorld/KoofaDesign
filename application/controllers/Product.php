@@ -1,6 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Product extends CI_Controller{
+
     public function __construct(){
         parent::__construct();
         $this->load->model('ui/ModelProductCategory');
@@ -63,7 +64,7 @@ class Product extends CI_Controller{
                 for($i=0;$i<count($data['productPrice']);$i++) {
                     for($j=0;$j<count($data['allSizes']);$j++) {
                         if($data['productPrice'][$i]['SizeId'] == $data['allSizes'][$j]['SizeId']){
-                            $data['productPrice'][$i]['SizeTitle'] = $data['allSizes'][$j]['SizeTitle'];
+                            $data['productPrice'][$i]['SizeTitle'] = $data['allSizes'][$j]['SizeUserTitle'];
                         }
                     }
                 }

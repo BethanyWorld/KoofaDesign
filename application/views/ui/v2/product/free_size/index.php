@@ -4,7 +4,8 @@ $_DIR = base_url('assets/ui/'); ?>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/product-detail.css"/>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/main.css"/>
 <link rel="stylesheet" href="<?php echo $_DIR; ?>css/cropper.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js" integrity="sha512-m5kAjE5cCBN5pwlVFi4ABsZgnLuKPEx0fOnzaH5v64Zi3wKnhesNUYq4yKmHQyTa3gmkR6YeSKW1S+siMvgWtQ==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js"
+        integrity="sha512-m5kAjE5cCBN5pwlVFi4ABsZgnLuKPEx0fOnzaH5v64Zi3wKnhesNUYq4yKmHQyTa3gmkR6YeSKW1S+siMvgWtQ==" crossorigin="anonymous"></script>
 <style>
     .owl-carousel .owl-stage {
         display: flex;
@@ -44,37 +45,13 @@ $_DIR = base_url('assets/ui/'); ?>
                     </div>
                     <!-- for cropper-->
                     <div id="cropper-div" class="col-xs-12  cropper-image padding-0">
-                        <style>
-
-                            @media (max-width: 767px) {
-
-                                /*#cropper-div * {
-                                    max-width: 100% !important;
-                                    width: 100% !important;
-                                }
-                                .cropper-crop-box {
-                                    max-width: 100% !important;
-                                    width: 100% !important;
-                                }
-
-                                .cropper-view-box img {
-                                    display: none;
-                                }
-
-                                .cropper-modal {
-                                    opacity: 0.2;
-                                }
-
-                                .cropper-face {
-                                    opacity: 0.5;
-                                }*/
-                            }
-                        </style>
                         <div class="img-container img-container-large">
-                            <img class="image" style="max-width: 100%;"
-                                 src="<?php echo $data['ProductPrimaryImage']; ?>" id="cropperImage">
+                            <img class="image" style="max-width: 100%;"  src="<?php echo $data['ProductPrimaryImage']; ?>" id="cropperImage">
                         </div>
                     </div>
+
+
+
                 </div>
                 <div class="col-md-5 col-xs-12">
                     <?php echo $productTitles; ?>

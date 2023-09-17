@@ -1,8 +1,10 @@
 <?php $_URL = base_url(); $_DIR = base_url('assets/ui/');  ?>
+<link rel="stylesheet" href="<?php echo $_DIR; ?>v2/assets/css/forms.css" />
 <div id="main">
     <div class="container">
         <div class="row">
-            <div class="body-white-form col-md-6 col-md-offset-3">
+
+            <div class="body-white-form col-md-4 col-md-offset-4">
                 <div class="col-md-12 col-xs-12 form-title">
                     <h1>بازیابی رمز عبور</h1>
                 </div>

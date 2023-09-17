@@ -85,10 +85,7 @@ function get_mobile_root_menu_tree(){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>
-        <?php  if (isset($pageTitle))  echo $pageTitle;  else echo "مجموعه هنر کوفا";
-        ?>
-    </title>
+    <title><?php  if (isset($pageTitle))  echo $pageTitle;  else echo "مجموعه هنر کوفا"; ?></title>
     <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $_DIR; ?>assets/img/fav/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $_DIR; ?>assets/img/fav/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $_DIR; ?>assets/img/fav/favicon-16x16.png">
@@ -166,6 +163,7 @@ function get_mobile_root_menu_tree(){
                             </a>
                         </li>
                         <li>
+                            <?php if(!isLogged()){ ?>
                             <a href="<?php echo base_url('User/Home'); ?>">
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                                                             style="enable-background:new 0 0 36 28;" xml:space="preserve">
@@ -178,6 +176,18 @@ function get_mobile_root_menu_tree(){
                                     </g>
 </svg>
                             </a>
+                            <?php } else { ?>
+                                <a href="<?php echo base_url('User/Home'); ?>">
+                                    <?php
+
+                                    if(getLoggedInfo()['UserFirstName'] != null) {
+                                        echo(getLoggedInfo()['UserFirstName'] . " " . getLoggedInfo()['UserLastName']);
+                                    } else{
+                                        echo(getLoggedInfo()['UserPhone']);
+                                    }
+                                    ?>
+                                </a>
+                            <?php }  ?>
                         </li>
                     </ul>
                 </div>

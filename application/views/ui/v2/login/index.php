@@ -1,8 +1,9 @@
 <?php $_URL = base_url(); $_DIR = base_url('assets/ui/');  ?>
+<link rel="stylesheet" href="<?php echo $_DIR; ?>v2/assets/css/forms.css" />
 <div id="main ">
     <div class="container">
         <div class="row">
-            <div class="body-white-form col-md-6 col-md-offset-3">
+            <div class="body-white-form col-md-4 col-md-offset-4">
                 <div class="col-md-12 col-xs-12 form-title">
                     <h1>ورود به حساب کاربری</h1>
                 </div>
@@ -32,7 +33,7 @@
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
-                                <div class="col-xs-12 text-center">
+                                <div class="">
                                     <button type="button" id="buttonLogin" class="btn form-submit-btn">
                                         ورود
                                     </button>

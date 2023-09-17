@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../KoofaDesignBlog/wp-content/themes/Koofa/.idea/Koofa.iml" filepath="$PROJECT_DIR$/../KoofaDesignBlog/wp-content/themes/Koofa/.idea/Koofa.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/KoofaDesign.iml" filepath="$PROJECT_DIR$/.idea/KoofaDesign.iml" />
     </modules>
   </component>

@@ -11,11 +11,11 @@ class GetCaptcha extends CI_Controller
         $random_alpha = str_ireplace("I","T",$random_alpha);*/
         $captcha_code = substr($random_alpha, 0, 5);
         $this->session->set_userdata('captchaCode',$captcha_code);
-        $target_layer = imagecreatetruecolor(100, 50);
+        $target_layer = imagecreatetruecolor(75, 30);
         $captcha_background = imagecolorallocate($target_layer, 255, 255, 255);
         imagefill($target_layer, 0, 0, $captcha_background);
         $captcha_text_color = imagecolorallocate($target_layer, 255, 0, 0);
-        imagestring($target_layer, 5, 28, 15, $captcha_code, $captcha_text_color);
+        imagestring($target_layer, 5, 15, 8, $captcha_code, $captcha_text_color);
         header("Content-type: image/jpeg");
         imagejpeg($target_layer);
     }

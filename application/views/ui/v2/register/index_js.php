@@ -2,26 +2,13 @@
     $(document).ready(function () {
         $("#buttonRegister").click(function () {
             toggleLoader();
-            $inputFirstName = $(".form-register #inputFirstName").val();
-            $inputLastName = $(".form-register #inputLastName").val();
             $inputPhone = $(".form-register #inputPhone").val();
-            $inputPassword = $(".form-register #inputPassword").val();
-            $inputConfirmPassword = $(".form-register #inputConfirmPassword").val();
             $inputCaptcha = $(".form-register #inputCaptcha").val();
-            $inputTermsCondition = $(".form-register #inputTermsCondition").prop('checked');
 
-            if ($inputPassword != $inputConfirmPassword) {
-                toggleLoader();
-                notify('رمز عبور با تکرار آن یکی نیست', 'yellow');
-                return;
-            }
 
-            if ($inputFirstName != "" && $inputLastName != "" && $inputPassword != "" && $inputPhone != "" && $inputCaptcha != "" && $inputTermsCondition) {
+            if ($inputPhone != "" && $inputCaptcha != "" ) {
                 $sendData = {
-                    'inputFirstName': $inputFirstName,
-                    'inputLastName': $inputLastName,
                     'inputPhone': $inputPhone,
-                    'inputPassword': $inputPassword,
                     'inputCaptcha': $inputCaptcha
                 }
                 $.ajax({

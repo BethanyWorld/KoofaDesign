@@ -1,13 +1,21 @@
+
+
 <script type="text/javascript">
+
+    !function(t){"use strict";var a=t.HTMLCanvasElement&&t.HTMLCanvasElement.prototype,l=t.Blob&&function(){try{return Boolean(new Blob)}catch(t){return!1}}(),u=l&&t.Uint8Array&&function(){try{return 100===new Blob([new Uint8Array(100)]).size}catch(t){return!1}}(),c=t.BlobBuilder||t.WebKitBlobBuilder||t.MozBlobBuilder||t.MSBlobBuilder,b=/^data:((.*?)(;charset=.*?)?)(;base64)?,/,r=(l||c)&&t.atob&&t.ArrayBuffer&&t.Uint8Array&&function(t){var e,o,n,a,r,i=t.match(b);if(!i)throw new Error("invalid data URI");for(e=i[2]?i[1]:"text/plain"+(i[3]||";charset=US-ASCII"),n=!!i[4],i=t.slice(i[0].length),o=(n?atob:decodeURIComponent)(i),n=new ArrayBuffer(o.length),a=new Uint8Array(n),r=0;r<o.length;r+=1)a[r]=o.charCodeAt(r);return l?new Blob([u?a:n],{type:e}):((i=new c).append(n),i.getBlob(e))};t.HTMLCanvasElement&&!a.toBlob&&(a.mozGetAsFile?a.toBlob=function(t,e,o){var n=this;setTimeout(function(){o&&a.toDataURL&&r?t(r(n.toDataURL(e,o))):t(n.mozGetAsFile("blob",e))})}:a.toDataURL&&r&&(a.msToBlob?a.toBlob=function(t,e,o){var n=this;setTimeout(function(){(e&&"image/png"!==e||o)&&a.toDataURL&&r?t(r(n.toDataURL(e,o))):t(n.msToBlob(e))})}:a.toBlob=function(t,e,o){var n=this;setTimeout(function(){t(r(n.toDataURL(e,o)))})})),"function"==typeof define&&define.amd?define(function(){return r}):"object"==typeof module&&module.exports?module.exports=r:t.dataURLtoBlob=r}(window);
+    //# sourceMappingURL=canvas-to-blob.min.js.map
+
+
+
     $(document).ready(function () {
-        setTimeout(function(){
+        setTimeout(function () {
             $('#product-slider #big img')
                 .wrap('<span style="display:inline-block"></span>')
                 .css('display', 'block')
                 .parent()
-                .zoom({magnify:2});
-        } , 300);
-        $(".slider-active-buttons span").click(function(){
+                .zoom({magnify: 2});
+        }, 300);
+        $(".slider-active-buttons span").click(function () {
             $(".slider-active-buttons span").removeClass('active');
             $(this).addClass('active');
         });
@@ -31,7 +39,9 @@
                 '<i class="fa fa-angle-right" aria-hidden="true"></i>'
             ]
         }).on("changed.owl.carousel", syncPosition);
-        thumbs.on("initialized.owl.carousel", function () { thumbs.find(".owl-item").eq(0).addClass("current");}).owlCarousel({
+        thumbs.on("initialized.owl.carousel", function () {
+            thumbs.find(".owl-item").eq(0).addClass("current");
+        }).owlCarousel({
             items: 4,
             dots: true,
             mouseDrag: false,
@@ -45,6 +55,7 @@
             slideBy: 4,
             responsiveRefreshRate: 100
         }).on("changed.owl.carousel", syncPosition2);
+
         function syncPosition(el) {
             //if loop is set to false, then you have to uncomment the next line
             var current = el.item.index;
@@ -81,12 +92,14 @@
                 thumbs.data("owl.carousel").to(current - onscreen, 100, true);
             }
         }
+
         function syncPosition2(el) {
             if (syncedSecondary) {
                 var number = el.item.index;
                 bigimage.data("owl.carousel").to(number, 100, true);
             }
         }
+
         related.owlCarousel({
             items: 5,
             slideSpeed: 4000,
@@ -145,7 +158,6 @@
 
         var options = {
             viewMode: 2,
-            restore: false,
             toggleDragModeOnDblclick: false,
             aspectRatio: 'NAN',
             autoCropArea: 0,
@@ -176,13 +188,13 @@
         $('[data-toggle="tooltip"]').tooltip();
 
         // Cropper
-        if(findBootstrapEnvironment() == 'lg' || findBootstrapEnvironment() == 'md') {
+        /*if(findBootstrapEnvironment() == 'lg' || findBootstrapEnvironment() == 'md') {
             $image.cropper(options);
         }
         else{
             $image.cropper(options);
-        }
-
+        }*/
+        $image.cropper(options);
         // Import image
         var $inputImage = $('#inputImage');
         if (URL) {
@@ -208,8 +220,7 @@
                     }
                 }
             });
-        }
-        else {
+        } else {
             $inputImage.prop('disabled', true).parent().addClass('disabled');
         }
         $(".metrics").on('input', function () {
@@ -226,24 +237,25 @@
             $divideWidth = $maxWidth / $width;
             var cropper = $image.data('cropper');
 
+            console.log("Image max widht", $image.data('cropper').initialCropBoxData.maxWidth);
+            console.log("Image max height", $image.data('cropper').initialCropBoxData.maxHeight);
+
             $imageWidth = cropper.getImageData().width;
             $imageHeight = cropper.getImageData().height;
 
             //check image oriention
             $imageOriention = '';
-            if ( ($maxWidth / $maxHeight) < 1) {
+            if (($maxWidth / $maxHeight) < 1) {
                 $imageOriention = 'AMOODI'; //VERTICAL
-            }
-            else if(($maxWidth / $maxHeight) > 1){
+            } else if (($maxWidth / $maxHeight) > 1) {
                 $imageOriention = 'OFOGHI'; //HORIZONTAL
-            }
-            else{
+            } else {
                 $imageOriention = 'MORABAE'; //SQUARE
             }
 
 
             $isPaddle = false;
-            if($divideHeight == $divideWidth){
+            if ($divideHeight == $divideWidth) {
                 $isPaddle = true;
             }
             /* if numbers are puddle then crop is full */
@@ -252,10 +264,12 @@
                     left: 0,
                     top: 0,
                     width: $imageWidth,
-                    height: $imageHeight
+                    height: $imageHeight,
+                    maxWidth: $image.data('cropper').initialCropBoxData.maxWidth,
+                    maxHeight: $image.data('cropper').initialCropBoxData.maxHeight,
+                    imageSmoothingQuality: 'high',
                 });
-            }
-            else {
+            } else {
                 var cropper = $image.data('cropper');
                 switch ($imageOriention) {
                     case 'MORABAE':
@@ -265,7 +279,7 @@
                         $y = $width / $height;
                         $percentageOfMaxWidth = (100 * $width) / $maxWidth;
                         $percentageOfMaxHeight = (100 * $height) / $maxHeight;
-                        if($x > $y){
+                        if ($x > $y) {
                             $tempWidth = ($maxHeight / $height) * $width;
                             $percentageOfMaxWidth = (100 * $tempWidth) / $maxWidth;
                             $tempWidth = ($percentageOfMaxWidth * $imageWidth) / 100;
@@ -273,10 +287,13 @@
                                 left: 0,
                                 top: 0,
                                 width: $tempWidth,
-                                height: $imageHeight
+                                height: $imageHeight,
+                                maxWidth: $image.data('cropper').initialCropBoxData.maxWidth,
+                                maxHeight: $image.data('cropper').initialCropBoxData.maxHeight,
+                                imageSmoothingQuality: 'high',
                             });
                         }
-                        if($y > $x){
+                        if ($y > $x) {
                             $tempHeight = ($maxWidth / $width) * $height;
                             $percentageOfMaxHeigh = (100 * $tempHeight) / $maxHeight;
                             $tempHeight = ($percentageOfMaxHeigh * $imageHeight) / 100;
@@ -284,38 +301,49 @@
                                 left: 0,
                                 top: 0,
                                 width: $imageWidth,
-                                height: $tempHeight
+                                height: $tempHeight,
+                                maxWidth: $image.data('cropper').initialCropBoxData.maxWidth,
+                                maxHeight: $image.data('cropper').initialCropBoxData.maxHeight,
+                                imageSmoothingQuality: 'high',
                             });
                         }
-                        if($x === $y){}
+                        if ($x === $y) {
+                        }
                         break;
                 }
             }
             $mainInstallPrice = ($inputInstallPrice * $width * $height);
             $price = parseInt($("#priceDropDown").find(":selected").data('price'));
-            console.log($price);
             console.log($width * $height);
-            console.log(parseInt($price * $width * $height));
-            $html = "<p>" + (parseInt($price * $width * $height) + parseInt($mainInstallPrice )) + " تومان </p>";
+            $html = "<p>" + (parseInt($price * $width * $height) + parseInt($mainInstallPrice)).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " تومان </p>";
             $mainPrice = $price;
             $('.product-detail-number').hide().fadeIn().html($html);
 
         });
         //setPrice();
 
-
         $("#addToCart").click(function () {
-
-            if($("#inputProductWidth").val() =='' || $("#inputProductHeight").val() == ''){
+            if ($("#inputProductWidth").val() == '' || $("#inputProductHeight").val() == '') {
                 notify('لطفا ارتفاع و عرض دلخواه را وارد کنید', 'red');
                 return false;
             }
-
             $id = $(this).data('product-id');
             var cropper = $image.data('cropper');
-            cropper.getCroppedCanvas().toBlob((blob) => {
+            console.log(cropper.getCroppedCanvas({
+                minWidth: 1,
+                minHeight: 1,
+                maxWidth: 4024,
+                maxHeight: 4024,
+            }));
+
+
+            cropper.getCroppedCanvas({
+                minWidth: 1,
+                minHeight: 1,
+                maxWidth: 1024,
+                maxHeight: 1024,
+            }).toBlob(function (blob) {
                 const formData = new FormData();
-                // Pass the image file name as the third parameter if necessary.
                 formData.append('file', blob, 'example.png');
                 $.ajax({
                     url: base_url + "Cart/uploadFile",
@@ -329,7 +357,7 @@
                         $result = jQuery.parseJSON(data);
                         if ($result['success']) {
                             $inputServices = [];
-                            $("[name='inputProductServices']").each(function(){
+                            $("[name='inputProductServices']").each(function () {
                                 $inputServices.push($(this).val());
                             });
                             $inputMaterialId = $("#priceDropDown option:selected").data('material-id');
@@ -350,8 +378,7 @@
                                 error: function () {
                                 }
                             });
-                        }
-                        else {
+                        } else {
                             toggleLoader();
                             $result = jQuery.parseJSON(data);
                             notify($result['content'], $result['type']);
@@ -363,27 +390,40 @@
                         notify($result['content'], $result['type']);
                     }
                 });
-            }/*, 'image/png' */);
+            });
+
+
+
         });
 
 
-        $(".slider-active-buttons span.carousel").click(function(){
+        $(".slider-active-buttons span.carousel").click(function () {
             $(".slider-active-buttons span").removeClass('active');
             $(this).addClass('active');
             $("#carousel-div").fadeIn();
             $("#cropper-div").hide();
         });
-        $(".slider-active-buttons span.cropper").click(function(){
+        $(".slider-active-buttons span.cropper").click(function () {
             $(".slider-active-buttons span").removeClass('active');
             $(this).addClass('active');
             $("#carousel-div").hide();
             $("#cropper-div").fadeIn();
+
+            try {
+                window.dispatchEvent(new Event('resize'));
+            } catch ($e) {
+                var evt = window.document.createEvent('UIEvents');
+                evt.initUIEvent('resize', true, false, window, 0);
+                window.dispatchEvent(evt);
+            }
+
+
         });
         $("[name='inputProductServices']").change(function () {
             setPrice();
         });
         $(".slider-active-buttons span.carousel").click();
-        $(".metrics").on('focus', function (){
+        $(".metrics").on('focus', function () {
             $(".slider-active-buttons span.cropper").click();
         });
     });

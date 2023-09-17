@@ -381,6 +381,9 @@ color: #e7472c;
 .slogans span:first-child{
     border-left: 1px solid #ccc;
 }
+.slogans span.active{
+    border: 2px solid #fd4a1afa;
+}
 .slogans span b{
     margin: 0 12px;
 }
@@ -803,7 +806,7 @@ footer .box{
     background: #fff;
     border-radius: 7px;
     text-align: center;
-    padding: 25px 15px;
+    padding: 40px 15px;
     margin-bottom: 15px;
 }
 footer .box span{
@@ -813,8 +816,8 @@ footer .box p{
     color: #000000;
     direction: rtl;
     text-align: justify;
-    font-size: 12px;
-    line-height: 26.5px;
+    font-size: 13px;
+    line-height: 31.5px;
 }
 footer .box img{
 

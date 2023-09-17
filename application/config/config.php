@@ -61,6 +61,7 @@ $config['defaultPageSize'] = 10;
 $config['upload_path']= './uploads/';
 
 /* SMS Panel */
+$config['AccountRegisterCode'] = '5dfi7fsmmhxnxvf';
 $config['AccountConfirmCode'] = 'h5q654ed8x';
 $config['AccountNewPasswordCode'] = 'c8922i2kjy';
 $config['SuccessOrderRegister'] = 'uia3n6frmp';

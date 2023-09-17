@@ -90,12 +90,12 @@ foreach ($categories as $category) {
                     </a>
             </div>
             <div class="col-md-6 col-xs-12 p-xs-0">
-                <div class="col-md-12 col-xs-6 box min" style="background: url(<?php echo $plans[1]['PlanImage']; ?>)">
+                <div class="col-md-12 col-xs-12 box min" style="background: url(<?php echo $plans[1]['PlanImage']; ?>)">
                     <a href="<?php echo $plans[1]['PlanUrl']; ?>">
                         <div class="owl-overlay"></div>
                     </a>
                 </div>
-                <div class="col-md-12 col-xs-6 box min" style="background: url(<?php echo $plans[2]['PlanImage']; ?>)">
+                <div class="col-md-12 col-xs-12 box min" style="background: url(<?php echo $plans[2]['PlanImage']; ?>)">
                     <a href="<?php echo $plans[2]['PlanUrl']; ?>">
                         <div class="owl-overlay"></div>
                     </a>

@@ -26,7 +26,7 @@
 <div class="breadcrumb-container">
     <div class="container">
         <ol class="breadcrumb">
-            <?php foreach ($productCategories as $row) { ?>
+            <?php unset($productCategories[0]); foreach ($productCategories as $row) { ?>
                 <li>
                     <a href="<?php echo categoryUrl($row['CategoryId'], $row['CategoryTitle']); ?>">
                         <?php echo $row['CategoryTitle']; ?>

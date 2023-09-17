@@ -2,8 +2,7 @@
 
 class ModelUserAccount extends CI_Model{
     //works fine
-    public function doRegister($inputs)
-    {
+    public function doRegister($inputs){
         $this->db->select('*');
         $this->db->from('user');
         $this->db->where(array('user.UserPhone' => $inputs['inputPhone']));
@@ -18,6 +17,7 @@ class ModelUserAccount extends CI_Model{
         } else {
             $ActivationCode = rand(1001, 9999);
             $this->session->set_userdata('activationCode', $ActivationCode);
+            $this->session->set_userdata('inputPhone', $inputs['inputPhone']);
             $message = array(
                 'verification-code'=> $ActivationCode
             );
@@ -25,10 +25,10 @@ class ModelUserAccount extends CI_Model{
             $result = sendSMS($inputs['inputPhone'],$code,$message);
             if ($result > 0) {
                 $UserArray = array(
-                    'UserFirstName' => $inputs['inputFirstName'],
-                    'UserLastName' => $inputs['inputLastName'],
+                    'UserFirstName' => NULL,
+                    'UserLastName' => NULL,
                     'UserPhone' => $inputs['inputPhone'],
-                    'UserPassword' => md5($inputs['inputPassword']),
+                    'UserPassword' => md5($inputs['inputPhone']),
                     'UserActivationCode' => $ActivationCode,
                     'ModifiedDateTime' => time(),
                     'CreateDateTime' => time()
@@ -63,9 +63,9 @@ class ModelUserAccount extends CI_Model{
         }
     }
     //works fine
-    public function doVerify($inputs)
-    {
+    public function doVerify($inputs){
         $userId = $this->session->userdata('currentUserId');
+        $inputPhone  = $this->session->userdata('inputPhone');
         $this->db->select('*');
         $this->db->from('user');
         $this->db->where(array('UserActivationCode' => $inputs['inputActivationCode']));
@@ -87,6 +87,13 @@ class ModelUserAccount extends CI_Model{
                 );
                 return $arr;
             } else {
+
+                $code = $this->config->item('AccountRegisterCode');
+                $message = array(
+                    'phone'=> $inputPhone,
+                    'password'=> $inputPhone
+                );
+                sendSMS($inputPhone,$code,$message);
                 $arr = array(
                     'type' => "green",
                     'content' => "حساب کاربری با موفقیت فعال شد",

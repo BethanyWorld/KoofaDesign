@@ -38,10 +38,10 @@ class Account extends CI_Controller
         }, $inputs);
 
         $this->form_validation->set_data($inputs);
-        $this->form_validation->set_rules('inputFirstName', 'نام', 'trim|required|min_length[3]|max_length[80]');
-        $this->form_validation->set_rules('inputLastName', 'نام خانوادگی', 'trim|required|min_length[3]|max_length[80]');
+        /*$this->form_validation->set_rules('inputFirstName', 'نام', 'trim|required|min_length[3]|max_length[80]');
+        $this->form_validation->set_rules('inputLastName', 'نام خانوادگی', 'trim|required|min_length[3]|max_length[80]');*/
         $this->form_validation->set_rules('inputPhone', 'تلفن همراه', 'trim|required|max_length[15]|numeric');
-        $this->form_validation->set_rules('inputPassword', 'رمز عبور', 'trim|required|max_length[80]');
+        /*$this->form_validation->set_rules('inputPassword', 'رمز عبور', 'trim|required|max_length[80]');*/
         $this->form_validation->set_rules('inputCaptcha', 'کد امنیتی', 'trim|required|min_length[5]|max_length[5]');
 
         if ($this->form_validation->run() == FALSE) {

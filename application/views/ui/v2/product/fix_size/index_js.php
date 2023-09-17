@@ -144,7 +144,7 @@
                             $price += $(this).find('option:selected').data('service-item-price');
                         }
                     });*/
-                    $html = "<p>" + ($price) + " تومان </p>";
+                    $html = "<p>" + ($price).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " تومان </p>";
                     $('.product-detail-number').hide().fadeIn().html($html);
                 }
             });
