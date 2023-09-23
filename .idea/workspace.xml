@@ -5,45 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="71973b14-b7ec-4785-9eae-66d9d1ca0437" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/ui/v2/assets/css/forms.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/KoofaDesign.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/KoofaDesign.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/application.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/config.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Account.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Account.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Cart.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Cart.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/GetCaptcha.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/GetCaptcha.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/helpers/pipes/pipe_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/helpers/pipes/pipe_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/libraries/enp/msg.txt" beforeDir="false" afterPath="$PROJECT_DIR$/application/libraries/enp/msg.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/libraries/enp/signed.txt" beforeDir="false" afterPath="$PROJECT_DIR$/application/libraries/enp/signed.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/user/ModelUserAccount.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/user/ModelUserAccount.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/cart/final_check/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/cart/final_check/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/cart/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/cart/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/cart/payment/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/home/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/home/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/login/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/login/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/login/index_css.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/login/index_css.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/breadcrumb.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/breadcrumb.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/description.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/description.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/fix_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/fix_size/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/fix_size/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/fix_size/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index_css.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index_css.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/product/free_size/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/register/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/register/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/register/index_css.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/register/index_css.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/register/index_js.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/register/index_js.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/resend_code/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/resend_code/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/resend_code/index_css.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/resend_code/index_css.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/reset_password/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/reset_password/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/reset_password/index_css.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/reset_password/index_css.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/static/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/static/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/ui/v2/static/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/ui/v2/static/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/ui/css/cropper.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/ui/css/cropper.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/ui/js/cropper.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/ui/js/cropper.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/ui/v2/assets/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/ui/v2/assets/css/custom.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +41,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "eu.ydp.idea.ts.spec.generator.settings.spec.template": "import {$ClassName$} from '$TestsRelativePath$../src/$classRelativePath$/$ClassName$';\n\ndescribe('$ClassName$', () => {\n  let $ObjName$:$ClassName$;\n\n  beforeEach(() => {\n    $ObjName$ = new $ClassName$();\n  });\n\n  describe('', () => {\n    it('', () => {\n      // given\n\n      // when\n\n      // then\n    });\n  });\n});\n",
-    "last_opened_file_path": "C:/wamp64/www/Radin",
+    "last_opened_file_path": "C:/wamp64/www/KoofaPrint",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -150,6 +113,8 @@
       <workItem from="1694288862269" duration="2391000" />
       <workItem from="1694605675398" duration="2657000" />
       <workItem from="1694867742906" duration="6675000" />
+      <workItem from="1695155877410" duration="913000" />
+      <workItem from="1695188655918" duration="1552000" />
     </task>
     <servers />
   </component>
